@@ -1,5 +1,9 @@
 @extends('layouts/frontlayout')
 
+@section('title')
+Connexion - HOLLISTWOOD
+@endsection
+
 @section('activelogin')
 active @endsection
 
