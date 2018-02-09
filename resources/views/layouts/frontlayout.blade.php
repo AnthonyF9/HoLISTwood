@@ -40,6 +40,7 @@
 
       <main>
 
+
         @yield('content')
 
       </main>
