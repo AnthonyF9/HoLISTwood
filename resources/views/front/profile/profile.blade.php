@@ -8,5 +8,5 @@
 active @endsection
 
 @section('content')
-  Bonjour {{ Auth::user()->username }}
+  Bonjour {{ Auth::user()->name }}
 @endsection
