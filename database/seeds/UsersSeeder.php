@@ -15,7 +15,7 @@ class UsersSeeder extends Seeder
         $date = new DateTime();
 
         $users[]= [
-          'username' => 'LeMagicien',
+          'name' => 'LeMagicien',
           'email' => 'guy.de.bergahel@gmail.com',
           'password' => bcrypt('aqwzsx'),
           'role' => 'admin',
@@ -24,7 +24,7 @@ class UsersSeeder extends Seeder
         ];
 
         $users[]= [
-          'username' => 'Skyron',
+          'name' => 'Skyron',
           'email' => 'sky@gmail.com',
           'password' => bcrypt('azerty'),
           'role' => 'mod',
@@ -33,7 +33,7 @@ class UsersSeeder extends Seeder
         ];
 
         $users[]= [
-          'username' => 'Le Roi des Chats',
+          'name' => 'Le Roi des Chats',
           'email' => 'contact@leroideschats.com',
           'password' => bcrypt('miaoumiaou'),
           'role' => 'user',
