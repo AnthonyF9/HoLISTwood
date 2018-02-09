@@ -1,0 +1,73 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #2D2D2D;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  height: 100%;
+}
+
+#wrapper {
+  /* width: 100%; */
+  min-height: 100%;
+  margin: 0 auto;
+  background-color: #2D2D2D;
+  position: relative;
+}
+
+/* Le header */
+header {
+  background-color: #212121;
+  height: 100px;
+}
+header h1 {
+  text-transform: uppercase;
+  font-size: 2em;
+  color: #2A89EB;
+  line-height: 100px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Le main et son contenu */
+main {
+  max-width: 1400px;
+  margin: auto;
+  height: 100%;
+  padding-bottom: 200px;
+}
+#trailer {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+
+}
+#trailer iframe {
+  box-shadow: 10px 10px 5px #1a1a1a;
+  width: 917px;
+  height: 490px;
+}
+.affiches {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.affiche {
+  background-color: #212121;
+  height: 380px;
+  width: 300px;
+  box-shadow: 10px 10px 5px #0d0d0d;
+  margin: 15px;
+}
+
+/* Le footer */
+footer {
+  background-color: #262626;
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
