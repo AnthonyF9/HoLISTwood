@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@extends('layouts/frontlayout')
+
+@section('activelogin')
+active @endsection
 
 @section('content')
 <div class="container">
