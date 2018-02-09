@@ -20,8 +20,10 @@
             <li><a class="@yield('activelogin')" href="{{ route('login') }}">Se connecter</a></li>
             <li><a class="@yield('activeregister')" href="{{ route('register') }}">S'inscrire</a></li>
             @else
+              @if ( Auth::user()->role == 'admin')
             <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-            <li><a class="@yield('activeprofile')" href="{{ route('profile') }}">{{ Auth::user()->username }}</a></li>
+              @endif
+            <li><a class="@yield('activeprofile')" href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
             <li id="hello-user">
                    <div id="logout"><a href="{{ route('logout') }}"
                        onclick="event.preventDefault();
