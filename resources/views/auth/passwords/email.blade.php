@@ -1,5 +1,9 @@
 @extends('layouts/frontlayout')
 
+@section('title')
+Mot de passe oublié - HOLISTWOOD
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">

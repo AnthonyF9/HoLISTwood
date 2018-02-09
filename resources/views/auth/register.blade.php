@@ -1,5 +1,9 @@
 @extends('layouts/frontlayout')
 
+@section('title')
+Inscription - HOLISTWOOD
+@endsection
+
 @section('activeregister')
 active @endsection
 
