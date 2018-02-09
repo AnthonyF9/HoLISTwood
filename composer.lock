@@ -90,10 +90,6 @@
         },
         {
             "name": "doctrine/inflector",
-<<<<<<< HEAD
-            "version": "v1.3.0",
-=======
-<<<<<<< HEAD
             "version": "v1.3.0",
             "source": {
                 "type": "git",
@@ -108,27 +104,6 @@
             },
             "require": {
                 "php": "^7.1"
-=======
-            "version": "v1.1.0",
->>>>>>> 63f52e254c80ec244aefdf63ff05f6563e9e0339
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/inflector.git",
-                "reference": "5527a48b7313d15261292c149e55e26eae771b0a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/5527a48b7313d15261292c149e55e26eae771b0a",
-                "reference": "5527a48b7313d15261292c149e55e26eae771b0a",
-                "shasum": ""
-            },
-            "require": {
-<<<<<<< HEAD
-                "php": "^7.1"
-=======
-                "php": ">=5.3.2"
->>>>>>> 593c535b1f43877b1cea9ddd0cc7ff1ee726a7e0
->>>>>>> 63f52e254c80ec244aefdf63ff05f6563e9e0339
             },
             "require-dev": {
                 "phpunit/phpunit": "^6.2"
@@ -136,15 +111,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< HEAD
                     "dev-master": "1.3.x-dev"
-=======
-<<<<<<< HEAD
-                    "dev-master": "1.3.x-dev"
-=======
-                    "dev-master": "1.1.x-dev"
->>>>>>> 593c535b1f43877b1cea9ddd0cc7ff1ee726a7e0
->>>>>>> 63f52e254c80ec244aefdf63ff05f6563e9e0339
                 }
             },
             "autoload": {
@@ -186,15 +153,7 @@
                 "singularize",
                 "string"
             ],
-<<<<<<< HEAD
             "time": "2018-01-09T20:05:19+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2018-01-09T20:05:19+00:00"
-=======
-            "time": "2015-11-06T14:35:42+00:00"
->>>>>>> 593c535b1f43877b1cea9ddd0cc7ff1ee726a7e0
->>>>>>> 63f52e254c80ec244aefdf63ff05f6563e9e0339
         },
         {
             "name": "erusev/parsedown",
