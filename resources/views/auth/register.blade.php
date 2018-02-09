@@ -1,7 +1,11 @@
 @extends('layouts/frontlayout')
 
 @section('title')
+<<<<<<< HEAD
 Inscription - HOLLISTWOOD
+=======
+Inscription - HOLISTWOOD
+>>>>>>> fb3ba1c0b2bd54aeef450aad6e58e09909b4c597
 @endsection
 
 @section('activeregister')
