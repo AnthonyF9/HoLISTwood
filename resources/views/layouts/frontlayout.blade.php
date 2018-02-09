@@ -17,8 +17,13 @@
       <main>
 
           <div id="trailer">
-            <iframe src="https://www.youtube.com/embed/a8v__0kHzNg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+            <div class="rwd-trailer">
+              <iframe width = "917px" height="490px" src="https://www.youtube.com/embed/a8v__0kHzNg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+            </div>
           </div>
+          <!-- <div id="trailer" > -->
+
+          <!-- </div> -->
 
           <div class="affiches">
             <article class="affiche"> </article>
