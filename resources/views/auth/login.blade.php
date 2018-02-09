@@ -1,12 +1,6 @@
 @extends('layouts/frontlayout')
 
-@section('title')
-<<<<<<< HEAD
-Connexion - HOLLISTWOOD
-=======
-Connexion - HOLISTWOOD
->>>>>>> fb3ba1c0b2bd54aeef450aad6e58e09909b4c597
-@endsection
+@section('title', 'Connexion - HOLISTWOOD')
 
 @section('activelogin')
 active @endsection
