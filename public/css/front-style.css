@@ -68,16 +68,7 @@ main {
   height: 100%;
   padding-bottom: 200px;
 }
-/* #trailer {
-  padding: 30px;
-  display: flex;
-  justify-content: center;
-}
-#trailer iframe {
-  box-shadow: 10px 10px 5px #1a1a1a;
-  width: 917px;
-  height: 490px;
-} */
+
 #trailer {
   width: 80%;
   margin: 20px auto;
@@ -134,8 +125,4 @@ footer {
   main {
     padding-top: 100px;
   }
-
-
-
-
 }

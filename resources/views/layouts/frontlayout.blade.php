@@ -40,30 +40,8 @@
 
       <main>
 
-<<<<<<< HEAD
-          <div id="trailer">
-            <div class="rwd-trailer">
-              <iframe width = "917px" height="490px" src="https://www.youtube.com/embed/a8v__0kHzNg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-            </div>
-          </div>
-          <!-- <div id="trailer" > -->
 
-          <!-- </div> -->
-
-          <div class="affiches">
-            <article class="affiche"> </article>
-            <article class="affiche"> </article>
-            <article class="affiche"> </article>
-            <article class="affiche"> </article>
-
-            <article class="affiche"> </article>
-            <article class="affiche"> </article>
-            <article class="affiche"> </article>
-            <article class="affiche"> </article>
-          </div>
-=======
         @yield('content')
->>>>>>> ee9294d7dcb6fb513fec7f7d21d81f89e04a4525
 
       </main>
 
