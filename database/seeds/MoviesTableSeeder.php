@@ -18,6 +18,19 @@ class MoviesTableSeeder extends Seeder
         'year' => 1978,
         'created_at' => $date->format('Y-m-d H:i:s')
       );
+
+      $movies[] = array (
+        'title'  => 'Forest gump',
+        'year' => ,
+        'created_at' => $date->format('Y-m-d H:i:s')
+      );
+
+      $movies[] = array (
+        'title'  => '',
+        'year' => 2001,
+        'created_at' => $date->format('Y-m-d H:i:s')
+      );
+
       DB::table('movies')->insert($movies);
     }
 }
