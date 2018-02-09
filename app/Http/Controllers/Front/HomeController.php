@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Front;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('layouts/frontlayout');
+        return view('front/home');
+    }
+
+    public function profile()
+    {
+        return view('front/profile/profile');
     }
 }

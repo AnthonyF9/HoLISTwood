@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@extends('layouts/frontlayout')
+
+@section('activeregister')
+active @endsection
 
 @section('content')
 <div class="container">
