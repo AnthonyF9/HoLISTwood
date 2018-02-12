@@ -12,11 +12,11 @@ class DashboardController extends Controller
   {
       return view('back/dashboard');
   }
-  public function addmovie()
+  public function addimdb()
   {
-      return view('back/movies/add-movie');
+      return view('back/movies/add-imdb');
   }
-  public function savemovie(Request $request)
+  public function findmovie(Request $request)
   {
       // return view('back/movies/add-movie');
   }
