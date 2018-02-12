@@ -1,14 +1,14 @@
 @extends('layouts/backlayout')
 
 @section('title')
-  Ajouter un film - HOLISTWOOD
+  Chercher un IMDB - HOLISTWOOD
 @endsection
 
 @section('activeaddimdb','active')
 
 @section('content-alpha')
   <div class="part">
-    <h1>Ajouter un film</h1>
+    <h1>Chercher un IMDB</h1>
   </div>
 @endsection
 
