@@ -33,6 +33,7 @@ header h1 {
 }
 header nav{
   width: 100%;
+  display: block;
 }
 header nav ul{
   width: 50%;
@@ -60,6 +61,9 @@ header nav ul li a:active{
 }
 header nav ul li a.active {
   color: #2A89EB;
+}
+.slicknav_menu {
+	display:none;
 }
 
 /* Le main et son contenu */
@@ -183,8 +187,21 @@ footer {
     header h1 {
       font-size: 1.5em;
     }
+    main {
+      padding-top: 100px;
+    }
 
-  main {
-    padding-top: 100px;
+  /* Le menu */
+
+  .js{
+    display: flex;
+    flex-direction: row;
   }
+  .js #menu {
+		display:none;
+	}
+
+	.js .slicknav_menu {
+		display:block;
+	}
 }
