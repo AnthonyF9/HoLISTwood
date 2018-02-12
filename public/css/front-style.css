@@ -33,6 +33,7 @@ header h1 {
 }
 header nav{
   width: 100%;
+  display: block;
 }
 header nav ul{
   width: 50%;
@@ -60,6 +61,61 @@ header nav ul li a:active{
 }
 header nav ul li a.active {
   color: #2A89EB;
+}
+<<<<<<< HEAD
+.slicknav_menu {
+	display:none;
+=======
+header nav ul li button{
+  background: none;
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  font-size: 0.95em;
+  font-family: 'Roboto', sans-serif;
+}
+header nav ul li button:hover{
+  color: #73b3f2;
+}
+
+/*
+ * La modale de connexion
+ */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    /* height: 100%; /* Full height */ */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content/Box */
+.modal-content {
+    /* background-color: #fefefe; */
+    margin: 10% auto; /* 15% from the top and centered */
+    padding: 20px;
+    /* border: 1px solid #888; */
+    width: 80%; /* Could be more or less, depending on screen size */
+    position: relative;
+}
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+>>>>>>> c8db6de0ae2a46a183d8320fcfaaa5f007c307bf
 }
 
 /* Le main et son contenu */
@@ -130,7 +186,11 @@ main {
   color:#fff;
   background-color: transparent;
   border: none;
-  border-bottom: 2px white solid;
+  border-bottom: 1px white solid;
+}
+.form-group input:focus {
+  outline:  none;
+  border-bottom: 2px #2A89EB solid;
 }
 .form-group button {
   background-color: #2A89EB;
@@ -183,8 +243,21 @@ footer {
     header h1 {
       font-size: 1.5em;
     }
+    main {
+      padding-top: 100px;
+    }
 
-  main {
-    padding-top: 100px;
+  /* Le menu */
+
+  .js{
+    display: flex;
+    flex-direction: row;
   }
+  .js #menu {
+		display:none;
+	}
+
+	.js .slicknav_menu {
+		display:block;
+	}
 }

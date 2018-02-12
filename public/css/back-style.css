@@ -68,6 +68,9 @@ header nav ul li:last-child {
 header nav ul li a:hover {
   text-decoration: underline dotted;
 }
+header nav ul li a.active {
+  color: #07B5DA;
+}
 
 /* Le main et son contenu */
 main {
@@ -84,4 +87,10 @@ main {
   border: 1px solid #AAA;
   height: 100%;
   width: 100%;
+}
+.part {
+  margin: 10px;
+}
+h1 {
+  font-size: 2em;
 }

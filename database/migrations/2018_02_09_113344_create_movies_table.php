@@ -27,7 +27,7 @@ class CreateMoviesTable extends Migration
         $table->text('imdb_id')->nullable(true);
         $table->char('production', 255)->nullable(true);
         $table->char('website', 255)->nullable(true);
-        $table->char('triller', 255)->nullable(true);
+        $table->char('genre', 255)->nullable(true);
         $table->enum('status', ['incoming', 'out'])->default('out');
         $table->timestamps();
       });
