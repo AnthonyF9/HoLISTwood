@@ -29,7 +29,7 @@ class CreateMoviesTable extends Migration
         $table->char('website', 255)->nullable(true);
         $table->char('genre', 255)->nullable(true);
         $table->enum('status', ['incoming', 'out'])->default('out');
-         $table->timestamps();
+        $table->timestamps();
       });
     }
 
