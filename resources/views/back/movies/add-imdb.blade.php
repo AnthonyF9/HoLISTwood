@@ -21,4 +21,11 @@
       {!! Form::submit("Chercher", ['id' => '']) !!}
     {!! Form::close() !!}
   </div>
+
+  @if (session('status'))
+      <div class="alert alert-success">
+          {{ session('status') }}
+      </div>
+  @endif
+  
 @endsection

@@ -67,7 +67,7 @@ $movie = json_decode($raw, true);
       {!! Form::text('poster', $movie['Poster'], ['placeholder' => 'poster', 'class' => '']) !!}
       {!! $errors->first('poster','<div class="" role="alert">:message</div>') !!}
     </br>
-      {!! Form::label('imdb_id', 'IP IMDB : ', ['class' => '']) !!}
+      {!! Form::label('imdb_id', 'ID IMDB : ', ['class' => '']) !!}
       {!! Form::text('imdb_id', $movie['imdbID'], ['placeholder' => 'imdb_id', 'class' => '']) !!}
       {!! $errors->first('imdb_id','<div class="" role="alert">:message</div>') !!}
     </br>
