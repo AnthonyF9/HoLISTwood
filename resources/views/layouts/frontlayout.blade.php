@@ -13,7 +13,7 @@
   <body>
     <div id="wrapper">
       <header>
-        <nav class="js">
+        {{-- <nav class="js">
           <ul class="slicknav_menu">
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Accueil</a></li>
             @guest
@@ -37,10 +37,10 @@
                  </li>
             @endguest
           </ul>
-        </nav>
+        </nav> --}}
         <h1> holistwood </h1>
-        <nav class="js">
-          <ul id="menu">
+        <nav>
+          <ul >
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Accueil</a></li>
             @guest
             <li><button id="myBtn" type="button" name="button">Se connecter</button></li>
