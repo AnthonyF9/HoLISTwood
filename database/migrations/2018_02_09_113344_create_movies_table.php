@@ -17,7 +17,7 @@ class CreateMoviesTable extends Migration
         $table->increments('id');
         $table->string('title', 100);
         $table->integer('year')->nullable(true);
-        $table->mediumInteger('runtime')->nullable(true);
+        $table->char('runtime')->nullable(true);
         $table->char('director', 255)->nullable(true);
         $table->char('writers', 255)->nullable(true);
         $table->text('actors')->nullable(true);
@@ -29,7 +29,7 @@ class CreateMoviesTable extends Migration
         $table->char('website', 255)->nullable(true);
         $table->char('triller', 255)->nullable(true);
         $table->enum('status', ['incoming', 'out'])->default('out');
-         $table->timestamps();
+        $table->timestamps();
       });
     }
 
