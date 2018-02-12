@@ -14,11 +14,11 @@
 
 @section('content-beta')
   <div class="part">
-    {!! Form::open(['route' => 'findmovie', 'method' => 'post']) !!}
-      {!! Form::label('imbdb', 'Imdb d\'un film : ', ['class' => '']) !!}
-      {!! Form::text('imbdb', null, ['placeholder' => 'L\'imdb du film', 'class' => '']) !!}
-      {!! $errors->first('imbdb','<div class="" role="alert">:message</div>') !!}
-      {!! Form::submit("Chercher", ['class' => 'btn btn-primary']) !!}
+    {!! Form::open(['route' => 'findmovie', 'method' => 'post'/*, 'onsubmit' => 'return false', 'id' => 'search-by-id-form'*/]) !!}
+      {!! Form::label('imdb', 'Imdb d\'un film : ', ['class' => '']) !!}
+      {!! Form::text('imdb', null, ['placeholder' => 'L\'imdb du film', 'id' => 'imdb']) !!}
+      {!! $errors->first('imdb','<div class="" role="alert">:message</div>') !!}
+      {!! Form::submit("Chercher", ['id' => '']) !!}
     {!! Form::close() !!}
   </div>
 @endsection

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Back;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\MovieRequest;
 use App\Http\Controllers\Controller;
+use App\Movie;
+use Carbon\Carbon;
 
 
 class DashboardController extends Controller
@@ -18,11 +21,15 @@ class DashboardController extends Controller
   }
   public function findmovie(Request $request)
   {
-      return view('back/movies/add-movie');
+      $urlmovie = 'http://www.omdbapi.com/?i='. $request->imdb . '&apikey=67f441ca&plot=full';
+      return view('back/movies/add-movie', compact('urlmovie'));
   }
 
-  protected function addmovie()
+  protected function addmovie(MovieRequest $request)
   {
+
+    $newmovie = array_merge($request->all());
+    Movie::create($newmovie);
 
       // return Movies::create([
       //     'title' => $imdb['name'],
@@ -39,5 +46,7 @@ class DashboardController extends Controller
       //     'genre' => $imdb['genre'],
       //     'status' => $imdb['status'],
       // ]);
+
+
   }
 }
