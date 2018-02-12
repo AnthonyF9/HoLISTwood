@@ -18,6 +18,7 @@ class DashboardController extends Controller
   }
   public function findmovie(Request $request)
   {
-      // return view('back/movies/add-movie');
+      $url = 'http://www.omdbapi.com/?i='. $request->imdb . '&apikey=67f441ca';
+      return view('back/movies/add-movie', compact('url'));
   }
 }
