@@ -180,6 +180,9 @@ return [
         //debugbar
         'Barryvdh\Debugbar\ServiceProvider',
 
+        // form et html
+        Collective\Html\HtmlServiceProvider::class,
+
     ],
 
     /*
@@ -231,6 +234,10 @@ return [
 
         // debugbar
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
+
+        // forms et html
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 
