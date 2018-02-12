@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ asset('css/default.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/back-style.css') }}" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <title></title>
+    <title>@yield('title')</title>
   </head>
   <body>
     <div id="wrapper">
@@ -20,7 +20,7 @@
             <li><a href="{{ route('dashboard') }}">Accueil du panneau de contrôle</a></li>
             <li><a href="./back-users.php">Utilisateurs</a></li>
             <li><a href="./back-movies.php">Films</a></li>
-            <li><a href="{{ route('addmovie') }}" class="@yield('activeaddmovie')">Ajouter un film</a></li>
+            <li><a href="{{ route('addimdb') }}" class="@yield('activeaddimdb')">Ajouter un film</a></li>
             <li><a href="./back-movies-moderation.php">Films à modérer</a></li>
             <li><a href="./back-comments.php">Commentaires</a></li>
           </ul>

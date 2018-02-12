@@ -4,7 +4,7 @@
   Ajouter un film - HOLISTWOOD
 @endsection
 
-@section('activeaddmovie','active')
+@section('activeaddimdb','active')
 
 @section('content-alpha')
   <div class="part">
@@ -14,7 +14,7 @@
 
 @section('content-beta')
   <div class="part">
-    {!! Form::open(['route' => 'savemovie', 'method' => 'post']) !!}
+    {!! Form::open(['route' => 'findmovie', 'method' => 'post']) !!}
       {!! Form::label('imbdb', 'Imdb d\'un film : ', ['class' => '']) !!}
       {!! Form::text('imbdb', null, ['placeholder' => 'L\'imdb du film', 'class' => '']) !!}
       {!! $errors->first('imbdb','<div class="" role="alert">:message</div>') !!}

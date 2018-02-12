@@ -28,8 +28,8 @@ Route::group(['namespace' => 'Front'], function () {
 //////////////////////////////////////////////////////////////////////////////
 Route::group(['namespace' => 'Back'], function () {
   Route::get('/dashboard', 'DashboardController@dashboard')->name('dashboard');
-  Route::get('/dashboard/ajouter-un-film', 'DashboardController@addmovie')->name('addmovie');
-  Route::post('/dashboard/ajouter-un-film', 'DashboardController@savemovie')->name('savemovie');
+  Route::get('/dashboard/ajouter-un-film', 'DashboardController@addimdb')->name('addimdb');
+  Route::post('/dashboard/ajouter-un-film', 'DashboardController@findmovie')->name('findmovie');
 });
 
 
