@@ -13,34 +13,42 @@
   <body>
     <div id="wrapper">
       <header>
-        {{-- <nav class="js">
-          <ul class="slicknav_menu">
-            <li><a class="@yield('activehome')" href="{{ route('home') }}">Accueil</a></li>
-            @guest
-            <li><a class="@yield('activelogin')" href="{{ route('login') }}">Se connecter</a></li>
-            <li><a class="@yield('activeregister')" href="{{ route('register') }}">S'inscrire</a></li>
-            @else
-              @if ( Auth::user()->role == 'admin')
-            <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-              @endif
-            <li><a class="@yield('activeprofile')" href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
-            <li id="hello-user">
-                   <div id="logout"><a href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                       Se déconnecter
-                     </a>
-                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                         {{ csrf_field() }}
-                     </form>
-                   </div>
-                 </li>
-            @endguest
-          </ul>
-        </nav> --}}
         <h1> holistwood </h1>
-        <nav>
-          <ul >
+        <nav role="navigation">
+          <div id="menuToggle">
+            <!-- A fake / hidden checkbox is used as click reciever, so you can use the :checked selector on it.-->
+            <input type="checkbox" />
+            <!-- Some spans to act as a hamburger. They are acting like a real hamburger, not that McDonalds stuff.-->
+            <span></span>
+            <span></span>
+            <span></span>
+            <!-- Too bad the menu has to be inside of the button but hey, it's pure CSS magic.-->
+            <ul id="menu">
+              <li><a href="{{ route('home') }}">Accueil</a></li>
+              @guest
+              <li><a href="{{ route('login') }}">Se connecter</a></li>
+              <li><a href="{{ route('register') }}">S'inscrire</a></li>
+              @else
+                @if ( Auth::user()->role == 'admin')
+              <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                @endif
+              <li><a href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
+              <li id="hello-user">
+                     <div id="logout"><a href="{{ route('logout') }}"
+                         onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                         Se déconnecter
+                       </a>
+                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                           {{ csrf_field() }}
+                       </form>
+                     </div>
+                   </li>
+              @endguest
+            </ul>
+          </div><!-- #menuToggle -->
+
+          <ul id="menuLarge">
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Accueil</a></li>
             @guest
             <li><button id="myBtn" type="button" name="button">Se connecter</button></li>
@@ -95,8 +103,6 @@
                 </div>
              </div>
             </div>
-
-
             <li><a class="@yield('activeregister')" href="{{ route('register') }}">S'inscrire</a></li>
             @else
               @if ( Auth::user()->role == 'admin')
@@ -116,6 +122,7 @@
                  </li>
             @endguest
           </ul>
+
         </nav>
       </header>
 
