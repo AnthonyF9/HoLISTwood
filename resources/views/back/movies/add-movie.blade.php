@@ -52,19 +52,19 @@ $movie = json_decode($raw, true);
       {!! $errors->first('writers','<div class="" role="alert">:message</div>') !!}
     </br>
       {!! Form::label('actors', 'Acteurs : ', ['class' => '']) !!}
-      {!! Form::text('actors', $movie['Actors'], ['placeholder' => 'actors', 'class' => '']) !!}
+      {!! Form::textarea('actors', $movie['Actors'], ['placeholder' => 'actors', 'class' => '']) !!}
       {!! $errors->first('actors','<div class="" role="alert">:message</div>') !!}
     </br>
       {!! Form::label('plot', 'Synopsis : ', ['class' => '']) !!}
-      {!! Form::text('plot', $movie['Plot'], ['placeholder' => 'plot', 'class' => '']) !!}
+      {!! Form::textarea('plot', $movie['Plot'], ['placeholder' => 'plot', 'class' => '']) !!}
       {!! $errors->first('plot','<div class="" role="alert">:message</div>') !!}
     </br>
       {!! Form::label('awards', 'Récompenses : ', ['class' => '']) !!}
-      {!! Form::text('awards', $movie['Awards'], ['placeholder' => 'awards', 'class' => '']) !!}
+      {!! Form::textarea('awards', $movie['Awards'], ['placeholder' => 'awards', 'class' => '']) !!}
       {!! $errors->first('awards','<div class="" role="alert">:message</div>') !!}
     </br>
       {!! Form::label('poster', 'URL du poster : ', ['class' => '']) !!}
-      {!! Form::text('poster', $movie['Poster'], ['placeholder' => 'poster', 'class' => '']) !!}
+      {!! Form::textarea('poster', $movie['Poster'], ['placeholder' => 'poster', 'class' => '']) !!}
       {!! $errors->first('poster','<div class="" role="alert">:message</div>') !!}
     </br>
       {!! Form::label('imdb_id', 'ID IMDB : ', ['class' => '']) !!}
@@ -76,7 +76,7 @@ $movie = json_decode($raw, true);
       {!! $errors->first('production','<div class="" role="alert">:message</div>') !!}
     </br>
       {!! Form::label('website', 'Site web : ', ['class' => '']) !!}
-      {!! Form::text('website', $movie['Website'], ['placeholder' => 'website', 'class' => '']) !!}
+      {!! Form::textarea('website', $movie['Website'], ['placeholder' => 'website', 'class' => '']) !!}
       {!! $errors->first('website','<div class="" role="alert">:message</div>') !!}
     </br>
       {!! Form::label('genre', 'Genre: ', ['class' => '']) !!}

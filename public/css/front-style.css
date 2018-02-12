@@ -31,6 +31,39 @@ header h1 {
   font-family: 'Orbitron', sans-serif;
   font-weight: bold;
 }
+header #top-menu {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2.5px #2D2D2D solid;
+  padding: 10px 0;
+  height: 40px;
+  text-align: right;
+}
+
+header #top-menu .social-network {
+  display: flex;
+  flex-direction: row;
+  border-right: 2.5px #2D2D2D solid;
+  padding-right: 55px;
+  display: block;
+}
+header #top-menu .social-network ul li img{
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+}
+header #top-menu .log {
+  margin-left: -55px;
+}
+header #top-menu .log ul li{
+  margin: 0 10px;
+  display: inline-block;
+}
+header nav ul li button {
+  display: inline-block;
+  width: 110px;
+}
+
 header nav{
   width: 100%;
   display: block;
