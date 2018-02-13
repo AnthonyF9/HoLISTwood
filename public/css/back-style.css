@@ -78,9 +78,9 @@ main {
   top: 0;
   right: 0;
   left: 19%;
-  /* width: 78%; */
+  width: 78%;
   height: 96%;
-  padding: 1%;
+  padding-top: 1%;
 }
 #stats {
   margin-left: 1%;
@@ -98,14 +98,28 @@ main {
   width: 125px;
 }
 .part input {
-  width: 500px;
+  width: auto;
 }
-.part .btn {
+
+.partimdb [type=submit] {
+ border-radius: 2%;
+ min-width: 100px;
+ padding: 2px;
+ margin-bottom: 1px;
+}
+
+/* .part .btn {
   width: 100px;
   height: 30px;
   display: block;
   margin: 10px 25%;
-}
+} */
+
 h1 {
   font-size: 2em;
+}
+
+.movieslist .btn-danger {
+  margin-top: 5px;
+  padding: 5px;
 }

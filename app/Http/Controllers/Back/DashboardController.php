@@ -47,6 +47,7 @@ class DashboardController extends Controller
       $findme   = $request->imdb_id;
       $pos = strpos($mystring, $findme);
       if ($pos === false) {
+<<<<<<< HEAD
         Movie::Create($request->all());
         // if (!empty($request->title)) { $title = $request->title; } else { $title = ''; }
         // if (!empty($request->year)) { $year = $request->year; } else { $year = ''; }
@@ -84,8 +85,28 @@ class DashboardController extends Controller
         // ];
         // DB::table('movies')->insert($movie);
         return redirect()->route('addimdb')->with('status', 'Film ajouté');
+=======
+        Movie::Create($request->all()
+        // if (!empty($request->title)) { 'title' => $request->title; }
+        // if (!empty($request->title)) { 'year' => $request->title; }
+        // if (!empty($request->title)) { 'runtime' => $request->title; }
+        // if (!empty($request->title)) { 'director' => $request->title; }
+        // if (!empty($request->title)) { 'writers' => $request->title; }
+        // if (!empty($request->title)) { 'actors' => $request->title; }
+        // if (!empty($request->title)) { 'plot' => $request->title; }
+        // if (!empty($request->title)) { 'awards' => $request->title; }
+        // if (!empty($request->title)) { 'poster' => $request->title; }
+        // if (!empty($request->title)) { 'imdb_id' => $request->title; }
+        // if (!empty($request->title)) { 'production' => $request->title; }
+        // if (!empty($request->title)) { 'website' => $request->title; }
+        // if (!empty($request->title)) { 'genre' => $request->title; }
+        // if (!empty($request->title)) { 'status' => $request->title; }
+        // []
+      );
+        return redirect()->route('addimdb')->with('status', 'Movie added');
+>>>>>>> 8e9fa8057f950dc644c8922ec3170349a89906ce
       } else {
-        return redirect()->route('addimdb')->with('status', 'Film déjà existant'); // si l'IMDB existe déjà, on ne rajoute pas le film
+        return redirect()->route('addimdb')->with('status', 'This movie already exists'); // si l'IMDB existe déjà, on ne rajoute pas le film
       }
   }
 
@@ -106,14 +127,14 @@ class DashboardController extends Controller
   {
     Movie::findOrFail($id)->update($request->all());
 
-    return redirect()->route('movieslist')->with('status', 'Film modifié');
+    return redirect()->route('movieslist')->with('status', 'Movie edited');
   }
 
   public function deletemovie(Request $request, $id)
     {
       Movie::findOrFail($id)->delete($request->all());
 
-      return redirect()->route('movieslist')->with('status', 'Film supprimé');
+      return redirect()->route('movieslist')->with('status', 'Movie deleted');
     }
 
 }
