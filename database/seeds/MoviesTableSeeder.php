@@ -111,6 +111,8 @@ class MoviesTableSeeder extends Seeder
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 
+      
+
 
       DB::table('movies')->insert($movies);
     }
