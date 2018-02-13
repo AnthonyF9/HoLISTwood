@@ -51,4 +51,32 @@ class DashboardController extends Controller
         return redirect()->route('addimdb')->with('status', 'Film déjà existant'); // si l'IMDB existe déjà, on ne rajoute pas le film
       }
   }
+
+  public function movieslist()
+  {
+      $movies = Movie::orderBy('created_at','desc')->paginate(10);
+
+      return view('back/movies/movies-list', compact('movies'));
+  }
+
+  public function modifierfilm($id)
+  {
+    $movie = Movie::findOrFail($id);
+    return view('back/movies/update_movie', compact('id', 'movie'));
+  }
+
+  public function modifierfilmaction(MovieRequest $request, $id)
+  {
+    Movie::findOrFail($id)->update($request->all());
+
+    return redirect()->route('movieslist')->with('status', 'Film modifié');
+  }
+
+  public function deletemovie(Request $request, $id)
+    {
+      Movie::findOrFail($id)->delete($request->all());
+
+      return redirect()->route('movieslist')->with('status', 'Film supprimé');
+    }
+
 }
