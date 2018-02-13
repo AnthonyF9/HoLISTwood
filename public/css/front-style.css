@@ -1,0 +1,23 @@
+@import url('front-header-style.css');
+@import url('front-main-style.css');
+@import url('front-footer-style.css');
+
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #2D2D2D;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+}
+
+#wrapper {
+  /* width: 100%; */
+  min-height: 100%;
+  margin: 0 auto;
+  background-color: #2D2D2D;
+  position: relative;
+}

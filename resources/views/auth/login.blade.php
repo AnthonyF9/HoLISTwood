@@ -1,4 +1,9 @@
-@extends('layouts.app')
+@extends('layouts/frontlayout')
+
+@section('title', 'Connexion - HOLISTWOOD')
+
+@section('activelogin')
+active @endsection
 
 @section('content')
 <div class="container">
