@@ -39,20 +39,16 @@ class DashboardController extends Controller
        $test = implode(",", $plucked->all());
 
        // dd($test);
-
        // echo $test;
 
-        $mystring = $test;
-        $findme   = $request->imdb_id;
-        $pos = strpos($mystring, $findme);
-
-        if ($pos === false) {
-          Movie::Create($request->all());
-          return redirect()->route('addimdb')->with('status', 'Film ajouté');
-
-        } else {
-          return redirect()->route('addimdb')->with('status', 'Film déjà existant');
-        }
-
+      $mystring = $test;
+      $findme   = $request->imdb_id;
+      $pos = strpos($mystring, $findme);
+      if ($pos === false) {
+        Movie::Create($request->all());
+        return redirect()->route('addimdb')->with('status', 'Film ajouté');
+      } else {
+        return redirect()->route('addimdb')->with('status', 'Film déjà existant'); // si l'IMDB existe déjà, on ne rajoute pas le film
+      }
   }
 }
