@@ -13,17 +13,17 @@
     <div id="wrapper">
       <header>
         <div id="titreHeader">
-          <h1> Panneau de contrôle </h1>
-          <h2><a href="{{ route('home') }}">Retourner sur le site</a></h2>
+          <h1> Dashboard </h1>
+          <h2><a href="{{ route('home') }}">Back to site</a></h2>
         </div>
         <nav>
           <ul>
-            <li><a href="{{ route('dashboard') }}" class="@yield('activedashboard')">Accueil du panneau de contrôle</a></li>
-            <li><a href="./back-users.php">Utilisateurs</a></li>
-            <li><a href="{{ route('movieslist') }}" class="@yield('activemovieslist')">Films</a></li>
-            <li><a href="{{ route('addimdb') }}" class="@yield('activeaddimdb')">Ajouter un film</a></li>
-            <li><a href="./back-movies-moderation.php">Films à modérer</a></li>
-            <li><a href="./back-comments.php">Commentaires</a></li>
+            <li><a href="{{ route('dashboard') }}" class="@yield('activedashboard')">Dashboard home</a></li>
+            <li><a href="./back-users.php">Users</a></li>
+            <li><a href="{{ route('movieslist') }}" class="@yield('activemovieslist')">Movies</a></li>
+            <li><a href="{{ route('addimdb') }}" class="@yield('activeaddimdb')">Add a movie</a></li>
+            <li><a href="./back-movies-moderation.php">Movies moderation</a></li>
+            <li><a href="./back-comments.php">Comments</a></li>
           </ul>
         </nav>
       </header>

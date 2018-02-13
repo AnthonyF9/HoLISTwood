@@ -1,14 +1,14 @@
 @extends('layouts/backlayout')
 
 @section('title')
-  Liste des films - HOLISTWOOD
+  Movies list - HOLISTWOOD
 @endsection
 
 @section('activemovieslist','active')
 
 @section('content-alpha')
   <div class="part">
-    <h1>Liste des films</h1>
+    <h1>Movies list</h1>
   </div>
 @endsection
 
@@ -24,17 +24,17 @@
 
     {{ $movies->links() }}
 
-    <table class="table table-dark">
+    <table class="table table-dark movieslist">
       <thead>
         <tr>
           <th>#</th>
-          <th>Titre</th>
-          <th>Année</th>
-          <th>Réalisateur </th>
-          <th>ID IMDB </th>
-          <th>Statut</th>
-          <th>Ajouté le</th>
-          <th>Modifié le</th>
+          <th>Title</th>
+          <th>Year</th>
+          <th>Director </th>
+          <th>IMDB ID </th>
+          <th>Status</th>
+          <th>Created</th>
+          <th>Updated</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -51,9 +51,9 @@
           <th scope="row">{{ $movie->status }}</th>
           <th scope="row">{{ $movie->created_at }}</th>
           <th scope="row">{{ $movie->updated_at }}</th>
-          <td><a href="{{ route('modifierfilm', array('id'=> $movie->id )) }}"> Modifier </a>
+          <td><a class="btn btn-primary" href="{{ route('modifierfilm', array('id'=> $movie->id )) }}"> Edit </a>
             {{ Form::open(['route' => ['deletemovie', $movie->id],'method' => 'delete']) }}
-              {!! Form::submit('Supprimer', ['class' => 'bouton']) !!}
+              {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
             {{ Form::close() }}
           </td>
         </tr>

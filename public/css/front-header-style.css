@@ -83,12 +83,23 @@ header nav#top-menu .log #large-screen #menu1 li a {
   position: relative;
   margin: 10% 0;
 }
-header nav#top-menu .log #large-screen #menu1 li#hello-user a {
+ header nav#top-menu .log #large-screen #menu1 li span {
+  white-space:nowrap;
+  padding-top: 6px;
+  height: 50%;
+  display: block;
+  position: relative;
+  margin: 10% 0;
+}
+header nav#top-menu .log #large-screen #menu1 li#hello-user a, header nav#top-menu .log #large-screen #menu1 li#hello-user span {
   display: block;
   position: relative;
   margin: 5% 0;
 }
-header nav ul li button{
+header nav#top-menu .log #large-screen #menu1 li#hello-user a {
+  padding-top: 10.5px;
+}
+/* header nav ul li button{
   background: none;
   color: white;
   border: none;
@@ -101,7 +112,8 @@ header nav ul li button{
 }
 header nav ul li button:hover{
   color: #73b3f2;
-}
+} */
+
 
 
 header .social-network ul, header ul#menu2 {
@@ -110,7 +122,7 @@ header .social-network ul, header ul#menu2 {
   display: flex;
   justify-content: space-between;
 }
-header nav ul li a {
+header nav ul li a, header nav ul li span  {
   text-transform: uppercase;
   font-size: 0.95em;
   -o-transition:.5s;
@@ -122,13 +134,14 @@ header nav ul li a {
 header nav ul li a, header nav ul li a:visited{
   color: white;
 }
-header nav ul li a:hover{
+header nav ul li a:hover, header nav ul li span:hover{
   color: #73b3f2;
+  cursor: pointer;
 }
-header nav ul li a:active{
+header nav ul li a:active, header nav ul li span:active{
   color: #2A89EB;
 }
-header nav ul li a.active {
+header nav ul li a.active, header nav ul li span.active {
   color: #2A89EB;
 }
 #menuToggle {

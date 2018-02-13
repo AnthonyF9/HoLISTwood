@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/front-footer-style.css') }}" />
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <title>@yield('title')</title>
   </head>
   <body>
@@ -27,13 +28,13 @@
             <nav id="large-screen">
               <ul id="menu1">
                 @guest
-                <li><button id="myBtn" type="button" name="button">Se connecter</button></li>
-                <li><a class="@yield('activeregister')" href="{{ route('register') }}">S'inscrire</a></li>
+                <li><span id="myBtn" type="button" name="button" >Log in</span></li>
+                <li><a class="@yield('activeregister')" href="{{ route('register') }}">Register</a></li>
                 <div id="myModal" class="modal">
                   <div class="modal-content">
                     <div class="panel panel-default">
                       <span class="close">&times;</span>
-                      <div class="panel-heading">Login</div>
+                      <div class="panel-heading">Log in</div>
                       <div class="panel-body">
                          <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                              {{ csrf_field() }}
@@ -85,7 +86,7 @@
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-                       Se déconnecter
+                       Log out
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
@@ -104,7 +105,7 @@
         <div id="bottom-menu">
           <h1> holistwood </h1>
           <ul id="menu2">
-            <li><a class="@yield('activehome')" href="{{ route('home') }}">Accueil</a></li>
+            <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
           </ul>
         </div>
 
@@ -115,10 +116,10 @@
             <span></span>
             <span></span>
             <ul id="menu">
-              <li><a class="@yield('activehome')" href="{{ route('home') }}">Accueil</a></li>
+              <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
               @guest
-              <li><a class="@yield('activeregister')" href="{{ route('register') }}">S'inscrire</a></li>
-              <li><a class="@yield('activelogin')" href="{{ route('login') }}">Se connecter</a></li>
+              <li><a class="@yield('activeregister')" href="{{ route('register') }}">Register</a></li>
+              <li><a class="@yield('activelogin')" href="{{ route('login') }}">Log in</a></li>
               @else
                 @if ( Auth::user()->role == 'admin')
               <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
@@ -128,7 +129,7 @@
                      <div id="logout"><a href="{{ route('logout') }}"
                          onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
-                         Se déconnecter
+                         Log out
                        </a>
                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                            {{ csrf_field() }}

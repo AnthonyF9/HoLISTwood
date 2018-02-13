@@ -62,9 +62,9 @@ class DashboardController extends Controller
         // if (!empty($request->title)) { 'status' => $request->title; }
         // []
       );
-        return redirect()->route('addimdb')->with('status', 'Film ajouté');
+        return redirect()->route('addimdb')->with('status', 'Movie added');
       } else {
-        return redirect()->route('addimdb')->with('status', 'Film déjà existant'); // si l'IMDB existe déjà, on ne rajoute pas le film
+        return redirect()->route('addimdb')->with('status', 'This movie already exists'); // si l'IMDB existe déjà, on ne rajoute pas le film
       }
   }
 
@@ -85,14 +85,14 @@ class DashboardController extends Controller
   {
     Movie::findOrFail($id)->update($request->all());
 
-    return redirect()->route('movieslist')->with('status', 'Film modifié');
+    return redirect()->route('movieslist')->with('status', 'Movie edited');
   }
 
   public function deletemovie(Request $request, $id)
     {
       Movie::findOrFail($id)->delete($request->all());
 
-      return redirect()->route('movieslist')->with('status', 'Film supprimé');
+      return redirect()->route('movieslist')->with('status', 'Movie deleted');
     }
 
 }
