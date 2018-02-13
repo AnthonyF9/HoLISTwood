@@ -29,8 +29,9 @@ class MoviesTableSeeder extends Seeder
         'production' =>'Paramount Pictures',
         'website'    =>'http://www.paramount.com/movies/forrest-gump/',
         'genre'    =>'Drama, Romance',
+        'status' => 'out',
         'created_at' => $date->format('Y-m-d H:i:s'),
-        'updated_at' => $date->format('Y-m-d H:i:s')
+        'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 
       $movies[] = array (
@@ -47,8 +48,9 @@ class MoviesTableSeeder extends Seeder
         'production' =>'Warner Bros. Pictures',
         'website'    =>'N/A',
         'genre'    =>'Action, Adventure',
+        'status' => 'out',
         'created_at' => $date->format('Y-m-d H:i:s'),
-        'updated_at' => $date->format('Y-m-d H:i:s')
+        'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 
 
@@ -70,7 +72,7 @@ class MoviesTableSeeder extends Seeder
         'website' => 'http://www.lordoftherings.net/',
         'genre' => 'Adventure, Drama, Fantasy',
         'status' => 'out',
-        'created_at' => $date->format('Y-m-d H:i:s')
+        'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 
@@ -89,7 +91,7 @@ class MoviesTableSeeder extends Seeder
         'website' => 'http://www.InterstellarMovie.com/',
         'genre' => 'Adventure, Drama, Sci-Fi',
         'status' => 'out',
-        'created_at' => $date->format('Y-m-d H:i:s')
+        'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 
@@ -108,7 +110,7 @@ class MoviesTableSeeder extends Seeder
         'website' => 'http://inceptionmovie.warnerbros.com/',
         'genre' => 'Action, Adventure, Sci-Fi',
         'status' => 'out',
-        'created_at' => $date->format('Y-m-d H:i:s')
+        'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 

@@ -16,14 +16,18 @@ active @endsection
 
 
   <div class="affiches">
-    <article class="affiche"> </article>
-    <article class="affiche"> </article>
-    <article class="affiche"> </article>
-    <article class="affiche"> </article>
+    @foreach ($movies as $movie)
+    <article class="affiche">
 
-    <article class="affiche"> </article>
-    <article class="affiche"> </article>
-    <article class="affiche"> </article>
-    <article class="affiche"> </article>
+    <img src="{{$movie->poster}}" alt=""> </article>
+     @endforeach
+
   </div>
+
+
+
+  @foreach ($movies as $movie)
+  {{$movie->title}}
+  @endforeach
+
 @endsection
