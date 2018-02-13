@@ -1,11 +1,10 @@
 @extends('layouts/backlayout')
 
 @section('title')
-  Accueil - HOLISTWOOD
+  Panneau de contrôle - HOLISTWOOD
 @endsection
 
-@section('activehome')
-active @endsection
+@section('activedashboard','active')
 
 @section('content-alpha')
   Dashboard

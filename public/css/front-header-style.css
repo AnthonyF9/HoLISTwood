@@ -1,3 +1,23 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #2D2D2D;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+}
+
+#wrapper {
+  /* width: 100%; */
+  min-height: 100%;
+  margin: 0 auto;
+  background-color: #2D2D2D;
+  position: relative;
+}
+
+
 /* Le header */
 header {
   background-color: #212121;
@@ -63,12 +83,23 @@ header nav#top-menu .log #large-screen #menu1 li a {
   position: relative;
   margin: 10% 0;
 }
-header nav#top-menu .log #large-screen #menu1 li#hello-user a {
+ header nav#top-menu .log #large-screen #menu1 li span {
+  white-space:nowrap;
+  padding-top: 6px;
+  height: 50%;
+  display: block;
+  position: relative;
+  margin: 10% 0;
+}
+header nav#top-menu .log #large-screen #menu1 li#hello-user a, header nav#top-menu .log #large-screen #menu1 li#hello-user span {
   display: block;
   position: relative;
   margin: 5% 0;
 }
-header nav ul li button{
+header nav#top-menu .log #large-screen #menu1 li#hello-user a {
+  padding-top: 10.5px;
+}
+/* header nav ul li button{
   background: none;
   color: white;
   border: none;
@@ -76,13 +107,13 @@ header nav ul li button{
   font-size: 0.95em;
   font-family: 'Roboto', sans-serif;
   white-space: nowrap;
-  /* padding-top: -10px; */
   margin: 10% 0;
   height: 50%;
 }
 header nav ul li button:hover{
   color: #73b3f2;
-}
+} */
+
 
 
 header .social-network ul, header ul#menu2 {
@@ -91,7 +122,7 @@ header .social-network ul, header ul#menu2 {
   display: flex;
   justify-content: space-between;
 }
-header nav ul li a {
+header nav ul li a, header nav ul li span  {
   text-transform: uppercase;
   font-size: 0.95em;
   -o-transition:.5s;
@@ -103,13 +134,14 @@ header nav ul li a {
 header nav ul li a, header nav ul li a:visited{
   color: white;
 }
-header nav ul li a:hover{
+header nav ul li a:hover, header nav ul li span:hover{
   color: #73b3f2;
+  cursor: pointer;
 }
-header nav ul li a:active{
+header nav ul li a:active, header nav ul li span:active{
   color: #2A89EB;
 }
-header nav ul li a.active {
+header nav ul li a.active, header nav ul li span.active {
   color: #2A89EB;
 }
 #menuToggle {
@@ -206,9 +238,129 @@ header #bottom-menu #menu2 li button:hover{
 
 }
 
+<<<<<<< HEAD:public/css/front-style.css
+/* Le main et son contenu */
+main {
+  max-width: 1400px;
+  margin: auto;
+  height: 100%;
+  padding-bottom: 200px;
+}
+
+#trailer {
+  width: 80%;
+  margin: 20px auto;
+}
+.rwd-trailer {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+}
+.rwd-trailer iframe {
+  box-shadow: 10px 10px 5px #1a1a1a;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.affiches {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.affiche {
+  background-color: #212121;
+  height: 380px;
+  width: 300px;
+  box-shadow: 10px 10px 5px #0d0d0d;
+  margin: 15px;
+}
+.affiche img{
+  height: 380px;
+  width: 300px;
+}
+
+
+/* login/register */
+
+.panel {
+  background-color: #212121;
+  max-width: 300px;
+  width: 100%;
+  margin: 30px auto;
+  padding: 20px 5% 20px 5%;
+  box-shadow: 10px 10px 5px #0d0d0d;
+  text-align: left;
+}
+.panel-heading {
+  color: #2A89EB;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.form-group {
+  margin: 15px 0;
+}
+.form-group input[type=email], .form-group input[type=password], .form-group input[type=text] {
+  text-align: left;
+  width: 100%;
+  height: 30px;
+  font-size: 1.2em;
+  color:#fff;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px white solid;
+}
+.form-group input:focus {
+  outline:  none;
+  border-bottom: 2px #2A89EB solid;
+}
+.form-group button {
+  background-color: #2A89EB;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  padding: 15px 15px;
+  border-radius: 10px;
+}
+.form-group a {
+  margin-left: 10px;
+  color: white;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+.form-group a:visited {
+  color: white;
+}
+.form-group a:hover {
+  color: #73b3f2;
+}
+.form-group a:active {
+  color: #2A89EB;
+}
+
+/* Le footer */
+footer {
+  background-color: #262626;
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+=======
+>>>>>>> 6ad7d57e9e44676b65f4feac8ec663ca36035e47:public/css/front-header-style.css
 
 /* -le Responsive- */
-@media (max-width: 525px) {
+@media (max-width: 635px) {
   header #top-menu {
     width: 100%;
     max-height: 50px;
@@ -345,7 +497,7 @@ header #bottom-menu #menu2 li button:hover{
   {
     position: absolute;
     width: 100%;
-    margin: -130px 0 0 -50px;
+    margin: -130px 0 0 -80px;
     padding: 50px;
     padding-top: 125px;
     background: rgba(0,0,0,0.7);

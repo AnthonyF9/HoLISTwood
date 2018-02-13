@@ -29,9 +29,13 @@ class MoviesTableSeeder extends Seeder
         'production' =>'Paramount Pictures',
         'website'    =>'http://www.paramount.com/movies/forrest-gump/',
         'genre'    =>'Drama, Romance',
+<<<<<<< HEAD
+        'status' => 'out',
+=======
         'status'  => 'out',
+>>>>>>> 6ad7d57e9e44676b65f4feac8ec663ca36035e47
         'created_at' => $date->format('Y-m-d H:i:s'),
-        'updated_at' => $date->format('Y-m-d H:i:s')
+        'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 
       $movies[] = array (
@@ -48,13 +52,20 @@ class MoviesTableSeeder extends Seeder
         'production' =>'Warner Bros. Pictures',
         'website'    =>'N/A',
         'genre'    =>'Action, Adventure',
+<<<<<<< HEAD
+        'status' => 'out',
+=======
         'status'  => 'out',
+>>>>>>> 6ad7d57e9e44676b65f4feac8ec663ca36035e47
         'created_at' => $date->format('Y-m-d H:i:s'),
-        'updated_at' => $date->format('Y-m-d H:i:s')
+        'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 
 
-      $movies[] = array (
+
+    $movies[] = array (
+
+
         'title'  => 'The Lord of the Rings: The Return of the King',
         'year' => 2003,
         'runtime' => '201 min',
@@ -110,8 +121,7 @@ class MoviesTableSeeder extends Seeder
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
-
-
+      
       DB::table('movies')->insert($movies);
     }
 }
