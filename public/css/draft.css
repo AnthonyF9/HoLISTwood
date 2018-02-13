@@ -41,6 +41,7 @@ header #top-menu {
   height: 40px;
   text-align: right;
 }
+
 header #top-menu .social-network {
   display: flex;
   flex-direction: row;
@@ -75,7 +76,7 @@ header nav ul{
   display: flex;
   justify-content: space-between;
 }
-header nav ul li a {
+header nav ul li a{
   text-transform: uppercase;
   font-size: 0.95em;
   -o-transition:.5s;
@@ -96,6 +97,7 @@ header nav ul li a:active{
 header nav ul li a.active {
   color: #2A89EB;
 }
+
 header nav ul li button{
   background: none;
   color: white;
@@ -115,8 +117,7 @@ header nav ul li button:hover{
   flex-direction: row;
 }
 #bottom-menu h1 {
-  width: 30%;
-  margin-left: 10%;
+  width: 40%;
 }
 #bottom-menu #menu2 {
   width: 60%;
@@ -125,39 +126,6 @@ header nav ul li button:hover{
   flex-direction: row;
   justify-content: space-around;
 }
-#bottom-menu #menu2 li a {
-  text-transform: uppercase;
-  font-size: 0.95em;
-  -o-transition:.5s;
-  -ms-transition:.5s;
-  -moz-transition:.5s;
-  -webkit-transition:.5s;
-  transition:.5s;
-}
-header #bottom-menu #menu2 li a, header #bottom-menu #menu2 li a:visited{
-  color: white;
-}
-header #bottom-menu #menu2 li a:hover{
-  color: #73b3f2;
-}
-header #bottom-menu #menu2 li a:active{
-  color: #2A89EB;
-}
-header #bottom-menu #menu2 li a.active {
-  color: #2A89EB;
-}
-header #bottom-menu #menu2 li button{
-  background: none;
-  color: white;
-  border: none;
-  text-transform: uppercase;
-  font-size: 0.95em;
-  font-family: 'Roboto', sans-serif;
-}
-header #bottom-menu #menu2 li button:hover{
-  color: #73b3f2;
-}
-
 
 
 /*
@@ -248,7 +216,6 @@ main {
   margin: 30px auto;
   padding: 20px 5% 20px 5%;
   box-shadow: 10px 10px 5px #0d0d0d;
-  text-align: left;
 }
 .panel-heading {
   color: #2A89EB;
@@ -314,69 +281,34 @@ footer {
 }
 
 /* -le Responsive- */
-@media (max-width: 525px) {
-  header #top-menu .social-network {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    border-right: none;
+@media (max-width: 425px) {
+  .log {
     width: 100%;
-    padding-right: 0px;
-    display: block;
+    position: relative;
   }
-  header #top-menu .social-network ul li img{
-    width: 30px;
-    height: 30px;
-    margin: 0 5px;
+  .menuLarge {
+    display: none;
   }
-  header #top-menu .log {
-    margin-left: 0px;
+  ul#menu2 {
+    display: none;
   }
-  header #top-menu .log ul li{
-    margin: 0 10px;
-    display: inline-block;
+  header {
+    width: 100%;
   }
-  header nav ul li button {
-    display: inline-block;
-    width: 110px;
-  }
-  #top-menu {
-    max-height: 50px;
-  }
-  #bottom-menu h1 {
+  header h1 {
+    padding-left: 20%;
     font-size: 1.5em;
-  }
-  #menu1 {
-    display: none;
-  }
-  #menu2 li {
-    display: none;
-  }
-  #bottom-menu {
-    display: flex;
-    flex-direction: row;
-  }
-  #bottom-menu h1 {
-    width: 90%;
-    margin-left: 10%;
-  }
-  #bottom-menu #menu2 {
-    width: 0%;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
   }
   #menuToggle
   {
     display: block;
     position: relative;
+    width: 96%;
     top: -45px;
-    left: 10%;
+    left: 4%;
     z-index: 1;
     -webkit-user-select: none;
     user-select: none;
-    width: 90%;
   }
   #menuToggle input
   {
@@ -450,9 +382,9 @@ footer {
   {
     position: absolute;
     width: 100%;
-    margin: -130px 0 0 -50px;
+    /* margin: -100px 0 0 -50px; */
     padding: 50px;
-    padding-top: 125px;
+    /* padding-top: 125px; */
     background: rgba(0,0,0,0.7);
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
@@ -460,7 +392,6 @@ footer {
     transform-origin: 0% 0%;
     transform: translate(-100%, 0);
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-    display: flex;
     flex-direction: column;
   }
   #menu li
