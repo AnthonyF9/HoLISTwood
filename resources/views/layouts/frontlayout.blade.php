@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/default.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/slicknav.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/front-style.css') }}" />
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -151,8 +150,6 @@
      </footer>
      <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/jquery-ui.js') }}"></script>
-     <script type="text/javascript" src="{{ asset('js/jquery.slicknav.min.js') }}"></script>
-     <script type="text/javascript" src="{{ asset('js/burger.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
    </div>
  </body>
