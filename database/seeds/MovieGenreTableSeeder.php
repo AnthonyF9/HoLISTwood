@@ -14,9 +14,8 @@ class MovieGenreTableSeeder extends Seeder
       $moviegenre =[];
       $date = new DateTime();
       $moviegenre[] = array (
-        'id'  => '',
         'id_movie' =>'' ,
-        'id_categorie'
+        'id_categorie' =>'',
         'created_at' => $date->format('Y-m-d H:i:s')
       );
     }

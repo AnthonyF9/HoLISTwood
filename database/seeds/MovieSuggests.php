@@ -14,7 +14,6 @@ class MovieSuggests extends Seeder
       $suggests =[];
       $date = new DateTime();
       $suggests[] = array (
-        'id' =>'',
         'id_user' =>'',
         'title' =>'',
         'year' =>'' ,
@@ -29,7 +28,7 @@ class MovieSuggests extends Seeder
         'production' =>'',
         'website' =>'' ,
         'trailer' =>'',
-        'status' =>'' enum('released','in production') NOT NULL DEFAULT 'released',
+        'status' =>'' enum('released','in production')-> default'released',
 
       );
     }

@@ -14,8 +14,7 @@ class CategorieTableSeeder extends Seeder
       $categorie =[];
       $date = new DateTime();
       $categorie[] = array (
-        'id'  => '',
-        'genre' =>'' ,
+        'genre' =>'action',
         'created_at' => $date->format('Y-m-d H:i:s')
       );
 

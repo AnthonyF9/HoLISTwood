@@ -14,14 +14,13 @@ class CommentsSeeder extends Seeder
       $comments =[];
       $date = new DateTime();
       $comments[] = array (
-        'id'      => '',
         'id_user' =>'' ,
         'id_movie' => '',
         'content'  => '',
-        'status'   => '',
+        'status'   => 'out',
         'created_at' => $date->format('Y-m-d H:i:s')
         'updated_at' => $date->format('Y-m-d H:i:s')
-      
+
       );
     }
 }

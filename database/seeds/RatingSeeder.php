@@ -14,7 +14,6 @@ class RatingSeeder extends Seeder
       $suggests =[];
       $date = new DateTime();
       $suggests[] = array (
-        'id'       =>'',
         'id_user'  =>'',
         'id_movie' =>'',
         'note'     =>'',
