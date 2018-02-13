@@ -5,8 +5,8 @@
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/default.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/front-header-style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/front-footer-style.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/front-main-style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/front-footer-style.css') }}" />
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>@yield('title')</title>
