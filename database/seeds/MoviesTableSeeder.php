@@ -52,7 +52,7 @@ class MoviesTableSeeder extends Seeder
       );
 
 
-
+    $movies[] = array (
         'title'  => 'The Lord of the Rings: The Return of the King',
         'year' => 2003,
         'runtime' => '201 min',
