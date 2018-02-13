@@ -26,8 +26,8 @@
             <nav id="large-screen">
               <ul id="menu1">
                 @guest
-                <li><a class="@yield('activeregister')" href="{{ route('register') }}">S'inscrire</a></li>
                 <li><button id="myBtn" type="button" name="button">Se connecter</button></li>
+                <li><a class="@yield('activeregister')" href="{{ route('register') }}">S'inscrire</a></li>
                 <div id="myModal" class="modal">
                   <div class="modal-content">
                     <div class="panel panel-default">
@@ -79,21 +79,22 @@
                  </div>
                 </div>
                 @else
+                <li id="hello-user">
+                  {{-- <div id="logout"> --}}
+                    <a href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                       Se déconnecter
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                  {{-- </div> --}}
+                </li>
+                <li><a class="@yield('activeprofile')" href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
                   @if ( Auth::user()->role == 'admin')
                 <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                   @endif
-                <li><a class="@yield('activeprofile')" href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
-                <li id="hello-user">
-                       <div id="logout"><a href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                           Se déconnecter
-                         </a>
-                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                             {{ csrf_field() }}
-                         </form>
-                       </div>
-                     </li>
                 @endguest
               </ul><!-- #menu1 -->
             </nav><!-- #large-screen -->
