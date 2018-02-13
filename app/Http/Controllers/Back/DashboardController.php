@@ -27,26 +27,28 @@ class DashboardController extends Controller
 
   protected function addmovie(MovieRequest $request)
   {
+    // $newmovie = array_merge($request->all());
+    // dd($request->imdb_id);
+      // dd($imdb_table);
+       $movies = Movie::orderBy('created_at','desc')->get();
+       $plucked = $movies->pluck('imdb_id');
+       $plucked->all();
 
-    $newmovie = array_merge($request->all());
-    Movie::create($newmovie);
+       // dd($plucked);
 
-      // return Movies::create([
-      //     'title' => $imdb['name'],
-      //     'year' => $imdb['year'],
-      //     'runtime' => $imdb['runtime'],
-      //     'director' => $imdb['director'],
-      //     'writers' => $imdb['writers'],
-      //     'actors' => $imdb['actors'],
-      //     'plot' => $imdb['plot'],
-      //     'awards' => $imdb['awards'],
-      //     'imdp_ip' => $imdb['imdp_ip'],
-      //     'production' => $imdb['production'],
-      //     'website' => $imdb['website'],
-      //     'genre' => $imdb['genre'],
-      //     'status' => $imdb['status'],
-      // ]);
+       $test = implode(",", $plucked->all());
 
+       // dd($test);
+       // echo $test;
 
+      $mystring = $test;
+      $findme   = $request->imdb_id;
+      $pos = strpos($mystring, $findme);
+      if ($pos === false) {
+        Movie::Create($request->all());
+        return redirect()->route('addimdb')->with('status', 'Film ajouté');
+      } else {
+        return redirect()->route('addimdb')->with('status', 'Film déjà existant'); // si l'IMDB existe déjà, on ne rajoute pas le film
+      }
   }
 }
