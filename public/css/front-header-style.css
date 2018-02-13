@@ -17,6 +17,7 @@ body {
   position: relative;
 }
 
+
 /* Le header */
 header {
   background-color: #212121;
@@ -47,6 +48,8 @@ header #top-menu .social-network {
   border-right: 2.5px #2D2D2D solid;
   padding-right: 55px;
   display: block;
+  width: 20%;
+  min-width: 200px;
 }
 header #top-menu .social-network ul li img{
   width: 40px;
@@ -54,22 +57,54 @@ header #top-menu .social-network ul li img{
   margin: 0 5px;
 }
 header #top-menu .log {
-  margin-left: -55px;
+  width: 80%;
 }
-header #top-menu .log ul li{
-  margin: 0 10px;
-  display: inline-block;
+header nav#top-menu .log #large-screen {
+  height: 100%;
 }
-header nav ul li button {
-  display: inline-block;
-  width: 110px;
+header nav#top-menu .log #large-screen #menu1 {
+  height: 100%;
+  width: 90%;
+  padding: 0 5%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+header nav#top-menu .log #large-screen #menu1 li {
+  line-height: 100%;
+  display: block;
+  margin-left: 10px;
+  position: relative;
+}
+header nav#top-menu .log #large-screen #menu1 li a {
+  white-space:nowrap;
+  padding-top: 7%;
+  height: 50%;
+  display: block;
+  position: relative;
+  margin: 10% 0;
+}
+header nav#top-menu .log #large-screen #menu1 li#hello-user a {
+  display: block;
+  position: relative;
+  margin: 5% 0;
+}
+header nav ul li button{
+  background: none;
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  font-size: 0.95em;
+  font-family: 'Roboto', sans-serif;
+  white-space: nowrap;
+  margin: 10% 0;
+  height: 50%;
+}
+header nav ul li button:hover{
+  color: #73b3f2;
 }
 
-header nav{
-  width: 100%;
-  display: block;
-}
-header nav ul{
+
+header .social-network ul, header ul#menu2 {
   width: 50%;
   margin: auto;
   display: flex;
@@ -95,17 +130,6 @@ header nav ul li a:active{
 }
 header nav ul li a.active {
   color: #2A89EB;
-}
-header nav ul li button{
-  background: none;
-  color: white;
-  border: none;
-  text-transform: uppercase;
-  font-size: 0.95em;
-  font-family: 'Roboto', sans-serif;
-}
-header nav ul li button:hover{
-  color: #73b3f2;
 }
 #menuToggle {
   display: none;
@@ -171,6 +195,7 @@ header #bottom-menu #menu2 li button:hover{
     left: 0;
     top: 0;
     width: 100%; /* Full width */
+    height: 100%;
     /* height: 100%; /* Full height */ */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
@@ -200,6 +225,7 @@ header #bottom-menu #menu2 li button:hover{
 
 }
 
+<<<<<<< HEAD:public/css/front-style.css
 /* Le main et son contenu */
 main {
   max-width: 1400px;
@@ -317,9 +343,15 @@ footer {
   left: 0;
   right: 0;
 }
+=======
+>>>>>>> 6ad7d57e9e44676b65f4feac8ec663ca36035e47:public/css/front-header-style.css
 
 /* -le Responsive- */
-@media (max-width: 525px) {
+@media (max-width: 635px) {
+  header #top-menu {
+    width: 100%;
+    max-height: 50px;
+  }
   header #top-menu .social-network {
     display: flex;
     flex-direction: row;
@@ -328,6 +360,9 @@ footer {
     width: 100%;
     padding-right: 0px;
     display: block;
+  }
+  header #top-menu .log {
+    display: none;
   }
   header #top-menu .social-network ul li img{
     width: 30px;
@@ -345,14 +380,8 @@ footer {
     display: inline-block;
     width: 110px;
   }
-  #top-menu {
-    max-height: 50px;
-  }
   #bottom-menu h1 {
     font-size: 1.5em;
-  }
-  #menu1 {
-    display: none;
   }
   #menu2 li {
     display: none;
@@ -455,7 +484,7 @@ footer {
   {
     position: absolute;
     width: 100%;
-    margin: -130px 0 0 -50px;
+    margin: -130px 0 0 -80px;
     padding: 50px;
     padding-top: 125px;
     background: rgba(0,0,0,0.7);

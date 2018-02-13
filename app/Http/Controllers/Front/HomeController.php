@@ -32,4 +32,9 @@ class HomeController extends Controller
     {
         return view('front/profile/profile');
     }
+
+    public function single()
+    {
+        return view('front/single');
+    }
 }

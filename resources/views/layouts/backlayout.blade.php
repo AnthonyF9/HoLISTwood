@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/default.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/back-style.css') }}" />
@@ -17,9 +18,9 @@
         </div>
         <nav>
           <ul>
-            <li><a href="{{ route('dashboard') }}">Accueil du panneau de contrôle</a></li>
+            <li><a href="{{ route('dashboard') }}" class="@yield('activedashboard')">Accueil du panneau de contrôle</a></li>
             <li><a href="./back-users.php">Utilisateurs</a></li>
-            <li><a href="./back-movies.php">Films</a></li>
+            <li><a href="{{ route('movieslist') }}" class="@yield('activemovieslist')">Films</a></li>
             <li><a href="{{ route('addimdb') }}" class="@yield('activeaddimdb')">Ajouter un film</a></li>
             <li><a href="./back-movies-moderation.php">Films à modérer</a></li>
             <li><a href="./back-comments.php">Commentaires</a></li>
