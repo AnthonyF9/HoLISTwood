@@ -1,0 +1,9 @@
+/* Le footer */
+footer {
+  background-color: #262626;
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

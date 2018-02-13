@@ -1,0 +1,373 @@
+/* Le header */
+header {
+  background-color: #212121;
+  min-height: 100px;
+}
+header h1 {
+  text-transform: uppercase;
+  font-size: 2em;
+  color: #2A89EB;
+  line-height: 70px;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+}
+
+
+header #top-menu {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2.5px #2D2D2D solid;
+  padding: 10px 0;
+  height: 40px;
+  text-align: right;
+}
+header #top-menu .social-network {
+  display: flex;
+  flex-direction: row;
+  border-right: 2.5px #2D2D2D solid;
+  padding-right: 55px;
+  display: block;
+  width: 20%;
+  min-width: 200px;
+}
+header #top-menu .social-network ul li img{
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+}
+header #top-menu .log {
+  width: 80%;
+}
+header nav#top-menu .log #large-screen {
+  height: 100%;
+}
+header nav#top-menu .log #large-screen #menu1 {
+  height: 100%;
+  width: 90%;
+  padding: 0 5%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+header nav#top-menu .log #large-screen #menu1 li {
+  line-height: 100%;
+  display: block;
+  margin-left: 10px;
+  position: relative;
+}
+header nav#top-menu .log #large-screen #menu1 li a {
+  white-space:nowrap;
+  padding-top: 7%;
+  height: 50%;
+  display: block;
+  position: relative;
+  margin: 10% 0;
+}
+header nav#top-menu .log #large-screen #menu1 li#hello-user a {
+  display: block;
+  position: relative;
+  margin: 5% 0;
+}
+header nav ul li button{
+  background: none;
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  font-size: 0.95em;
+  font-family: 'Roboto', sans-serif;
+  white-space: nowrap;
+  /* padding-top: -10px; */
+  margin: 10% 0;
+  height: 50%;
+}
+header nav ul li button:hover{
+  color: #73b3f2;
+}
+
+
+header .social-network ul, header ul#menu2 {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+header nav ul li a {
+  text-transform: uppercase;
+  font-size: 0.95em;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+header nav ul li a, header nav ul li a:visited{
+  color: white;
+}
+header nav ul li a:hover{
+  color: #73b3f2;
+}
+header nav ul li a:active{
+  color: #2A89EB;
+}
+header nav ul li a.active {
+  color: #2A89EB;
+}
+#menuToggle {
+  display: none;
+}
+#bottom-menu {
+  display: flex;
+  flex-direction: row;
+}
+#bottom-menu h1 {
+  width: 30%;
+  margin-left: 10%;
+}
+#bottom-menu #menu2 {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#bottom-menu #menu2 li a {
+  text-transform: uppercase;
+  font-size: 0.95em;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+header #bottom-menu #menu2 li a, header #bottom-menu #menu2 li a:visited{
+  color: white;
+}
+header #bottom-menu #menu2 li a:hover{
+  color: #73b3f2;
+}
+header #bottom-menu #menu2 li a:active{
+  color: #2A89EB;
+}
+header #bottom-menu #menu2 li a.active {
+  color: #2A89EB;
+}
+header #bottom-menu #menu2 li button{
+  background: none;
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  font-size: 0.95em;
+  font-family: 'Roboto', sans-serif;
+}
+header #bottom-menu #menu2 li button:hover{
+  color: #73b3f2;
+}
+
+
+
+/*
+ * La modale de connexion
+ */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%;
+    /* height: 100%; /* Full height */ */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content/Box */
+.modal-content {
+    /* background-color: #fefefe; */
+    margin: 10% auto; /* 15% from the top and centered */
+    padding: 20px;
+    /* border: 1px solid #888; */
+    width: 80%; /* Could be more or less, depending on screen size */
+    position: relative;
+}
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
+
+/* -le Responsive- */
+@media (max-width: 525px) {
+  header #top-menu {
+    width: 100%;
+    max-height: 50px;
+  }
+  header #top-menu .social-network {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-right: none;
+    width: 100%;
+    padding-right: 0px;
+    display: block;
+  }
+  header #top-menu .log {
+    display: none;
+  }
+  header #top-menu .social-network ul li img{
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+  }
+  header #top-menu .log {
+    margin-left: 0px;
+  }
+  header #top-menu .log ul li{
+    margin: 0 10px;
+    display: inline-block;
+  }
+  header nav ul li button {
+    display: inline-block;
+    width: 110px;
+  }
+  #bottom-menu h1 {
+    font-size: 1.5em;
+  }
+  #menu2 li {
+    display: none;
+  }
+  #bottom-menu {
+    display: flex;
+    flex-direction: row;
+  }
+  #bottom-menu h1 {
+    width: 90%;
+    margin-left: 10%;
+  }
+  #bottom-menu #menu2 {
+    width: 0%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  #menuToggle
+  {
+    display: block;
+    position: relative;
+    top: -45px;
+    left: 10%;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+    width: 90%;
+  }
+  #menuToggle input
+  {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */
+    -webkit-touch-callout: none;
+  }
+  /*
+   * Just a quick hamburger
+   */
+  #menuToggle span
+  {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #cdcdcd;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+  }
+  #menuToggle span:first-child
+  {
+    transform-origin: 0% 0%;
+  }
+  #menuToggle span:nth-last-child(2)
+  {
+    transform-origin: 0% 100%;
+  }
+  /*
+   * Transform all the slices of hamburger
+   * into a crossmark.
+   */
+  #menuToggle input:checked ~ span
+  {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: white;
+  }
+  /*
+   * But let's hide the middle one.
+   */
+  #menuToggle input:checked ~ span:nth-last-child(3)
+  {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  /*
+   * Ohyeah and the last one should go the other direction
+   */
+  #menuToggle input:checked ~ span:nth-last-child(2)
+  {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+  /*
+   * Make this absolute positioned
+   * at the top left of the screen
+   */
+  #menu
+  {
+    position: absolute;
+    width: 100%;
+    margin: -130px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+    background: rgba(0,0,0,0.7);
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    display: flex;
+    flex-direction: column;
+  }
+  #menu li
+  {
+    padding: 10px 0;
+    font-size: 22px;
+  }
+  /*
+   * And let's slide it in from the left
+   */
+  #menuToggle input:checked ~ ul
+  {
+    transform: none;
+  }
+}
