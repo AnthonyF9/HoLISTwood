@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Movie;
 class HomeController extends Controller
 {
     /**
@@ -24,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('front/home');
+      $movies = Movie::orderBy('created_at','desc')->get();
+        return view('front/home',compact('movies'));
     }
 
     public function profile()
