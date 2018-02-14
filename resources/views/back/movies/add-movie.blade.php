@@ -106,7 +106,7 @@ $movie = json_decode($raw, true);
       {!! Form::select('status',['out'=>'Out','incoming'=>'Incoming']) !!}
       {!! $errors->first('status','<div class="" role="alert">:message</div>') !!}
 
-      {!! Form::submit("Ajouter", ['class' => 'btn btn-primary']) !!}
+      {!! Form::submit("Add", ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
 
   </div>

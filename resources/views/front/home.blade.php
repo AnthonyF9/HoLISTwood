@@ -24,10 +24,4 @@ active @endsection
 
   </div>
 
-
-
-  @foreach ($movies as $movie)
-  {{$movie->title}}
-  @endforeach
-
 @endsection

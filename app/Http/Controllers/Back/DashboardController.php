@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Back;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\MovieRequest;
+use App\Http\Requests\ImdbRequest;
 use App\Http\Controllers\Controller;
 use App\Movie;
 use Carbon\Carbon;
@@ -20,15 +21,26 @@ class DashboardController extends Controller
   {
       return view('back/movies/add-imdb');
   }
-  public function findmovie(Request $request)
+  public function findmovie(ImdbRequest $request)
   {
-      $urlmovie = 'http://www.omdbapi.com/?i='. $request->imdb . '&apikey=67f441ca&plot=full';
+      $urlmovie = 'http://www.omdbapi.com/?i='. $request->imdb . '&apikey=1f275ea3&plot=full';
       // echo $urlmovie;
-      return view('back/movies/add-movie', compact('urlmovie'));
+      // 1f275ea3
+      // 67f441c
+
+      // vérification de la syntaxe de l'IMDB
+      if (substr( $request->imdb, 0, 2 ) === "tt" &&  strlen($request->imdb) === 9 ) {
+        return view('back/movies/add-movie', compact('urlmovie'));
+      } else {
+        return redirect()->route('addimdb')->with('error', 'invalid IMDB ID');
+      }
   }
 
-  protected function addmovie(MovieRequest $request)
+  public function addmovie(MovieRequest $request)
   {
+
+    // on vérifie si l'IMDB indiqué existe déjà dans la BDD ->
+
     // $newmovie = array_merge($request->all());
     // dd($request->imdb_id);
       // dd($imdb_table);
@@ -88,13 +100,13 @@ class DashboardController extends Controller
         return redirect()->route('addimdb')->with('status', 'Movie added');
 
       } else {
-        return redirect()->route('addimdb')->with('status', 'This movie already exists'); // si l'IMDB existe déjà, on ne rajoute pas le film
+        return redirect()->route('addimdb')->with('error', 'This movie already exists'); // si l'IMDB existe déjà, on ne rajoute pas le film
       }
   }
 
   public function movieslist()
   {
-      $movies = Movie::orderBy('created_at','desc')->paginate(10);
+      $movies = Movie::orderBy('created_at','desc')->paginate(6);
 
       return view('back/movies/movies-list', compact('movies'));
   }

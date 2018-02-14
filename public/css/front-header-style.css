@@ -91,7 +91,7 @@ header nav#top-menu .log #large-screen #menu1 li a {
   position: relative;
   margin: 10% 0;
 }
-header nav#top-menu .log #large-screen #menu1 li#hello-user a, header nav#top-menu .log #large-screen #menu1 li#hello-user span {
+header nav#top-menu .log #large-screen #menu1 li#hello-user a {
   display: block;
   position: relative;
   margin: 5% 0;
@@ -238,7 +238,6 @@ header #bottom-menu #menu2 li button:hover{
 
 }
 
-<<<<<<< HEAD:public/css/front-style.css
 /* Le main et son contenu */
 main {
   max-width: 1400px;
@@ -356,8 +355,7 @@ footer {
   left: 0;
   right: 0;
 }
-=======
->>>>>>> 6ad7d57e9e44676b65f4feac8ec663ca36035e47:public/css/front-header-style.css
+
 
 /* -le Responsive- */
 @media (max-width: 635px) {
