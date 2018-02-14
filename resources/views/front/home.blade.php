@@ -22,7 +22,6 @@ active @endsection
 
     <img src="{{$movie->poster}}" alt="">
 
-
     <div class="titre">
       {{$movie->title}}
     </div>

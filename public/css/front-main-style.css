@@ -42,6 +42,10 @@ main {
 .affiche img{
   height: 380px;
   width: 300px;
+
+  border:2px solid #0b4075;
+
+
 }
 
 .affiche img:hover{
@@ -52,16 +56,23 @@ main {
 
 div.titre {
   text-align: center;
-  background-color:#212121;
+
+  background-color:#0b4075;
   width: 300px;
   height: 50px;
-
+  margin: -8px;
+  margin-left: 0px;
+  border:1px solid #0b4075;
 }
+
+
+
+
 
 /* login/register */
 
 .panel {
-  background-color: #212121;
+  background-color: #0b4075;
   max-width: 300px;
   width: 100%;
   margin: 30px auto;
