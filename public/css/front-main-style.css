@@ -40,6 +40,25 @@ main {
   margin: 15px;
 }
 
+.affiche img{
+  height: 380px;
+  width: 300px;
+}
+
+img:hover{
+  opacity: 0.2;
+  filter: alpha(opacity=50);
+  transform: scale(1);
+}
+
+div.titre {
+  text-align: center;
+  background-color:#212121;
+  width: 300px;
+  height: 50px;
+
+}
+
 /* login/register */
 
 .panel {
@@ -157,7 +176,7 @@ main {
 }
 .comment .comment-list p {
   background-color: #262626;
-  
+
   min-height: 100px;
 }
 
