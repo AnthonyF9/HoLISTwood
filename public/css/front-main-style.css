@@ -20,7 +20,7 @@ main {
   height: 0;
 }
 .rwd-trailer iframe {
-  box-shadow: 10px 10px 5px #1a1a1a;
+
   position: absolute;
   top: 0;
   left: 0;
@@ -36,7 +36,7 @@ main {
   background-color: #212121;
   height: 380px;
   width: 300px;
-  box-shadow: 10px 10px 5px #0d0d0d;
+
   margin: 15px;
 }
 
@@ -48,7 +48,7 @@ main {
   width: 100%;
   margin: 30px auto;
   padding: 20px 5% 20px 5%;
-  box-shadow: 10px 10px 5px #0d0d0d;
+
   text-align: left;
 }
 .panel-heading {
@@ -138,7 +138,7 @@ main {
   margin: 10px auto;
   width: 90%;
   background-color: #262626;
-  box-shadow: 10px 10px 5px #0d0d0d;
+
   padding: 2%;
   min-height: 100px;
   justify-content: center;
@@ -157,7 +157,7 @@ main {
 }
 .comment .comment-list p {
   background-color: #262626;
-  box-shadow: 10px 10px 5px #0d0d0d;
+  
   min-height: 100px;
 }
 

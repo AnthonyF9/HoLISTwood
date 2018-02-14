@@ -238,7 +238,7 @@ header #bottom-menu #menu2 li button:hover{
 
 }
 
-<<<<<<< HEAD:public/css/front-style.css
+
 /* Le main et son contenu */
 main {
   max-width: 1400px;
@@ -258,7 +258,7 @@ main {
   height: 0;
 }
 .rwd-trailer iframe {
-  box-shadow: 10px 10px 5px #1a1a1a;
+
   position: absolute;
   top: 0;
   left: 0;
@@ -274,7 +274,7 @@ main {
   background-color: #212121;
   height: 380px;
   width: 300px;
-  box-shadow: 10px 10px 5px #0d0d0d;
+
   margin: 15px;
 }
 .affiche img{
@@ -282,6 +282,19 @@ main {
   width: 300px;
 }
 
+img:hover{
+  opacity: 0.2;
+  filter: alpha(opacity=50);
+  transform: scale(1);
+}
+
+div.titre {
+  text-align: center;
+  background-color:#212121;
+  width: 300px;
+  height: 50px;
+
+}
 
 /* login/register */
 
@@ -291,7 +304,7 @@ main {
   width: 100%;
   margin: 30px auto;
   padding: 20px 5% 20px 5%;
-  box-shadow: 10px 10px 5px #0d0d0d;
+
   text-align: left;
 }
 .panel-heading {
@@ -356,8 +369,8 @@ footer {
   left: 0;
   right: 0;
 }
-=======
->>>>>>> 6ad7d57e9e44676b65f4feac8ec663ca36035e47:public/css/front-header-style.css
+
+
 
 /* -le Responsive- */
 @media (max-width: 635px) {

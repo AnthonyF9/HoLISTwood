@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <title>@yield('title')</title>
+
+    @yield('css')
   </head>
   <body>
     <div id="wrapper">
@@ -154,6 +156,8 @@
      <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/jquery-ui.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+
+     @yield('js')
    </div>
  </body>
 </html>
