@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Movie;
 
 class MoviesTableSeeder extends Seeder
 {
@@ -11,11 +12,10 @@ class MoviesTableSeeder extends Seeder
      */
     public function run()
     {
-      $movies =[];
+      $movie =[];
       $date = new DateTime();
 
-      $movies[] = array (
-
+      $movie[] = array (
         'title'   =>'Forrest Gump',
         'year'    =>'1994',
         'runtime' =>'142 min',
@@ -29,16 +29,13 @@ class MoviesTableSeeder extends Seeder
         'production' =>'Paramount Pictures',
         'website'    =>'http://www.paramount.com/movies/forrest-gump/',
         'genre'    =>'Drama, Romance',
-<<<<<<< HEAD
         'status' => 'out',
-=======
         'status'  => 'out',
->>>>>>> 6ad7d57e9e44676b65f4feac8ec663ca36035e47
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 
-      $movies[] = array (
+      $movie[] = array (
         'title'   =>'Batman',
         'year'    =>'1989',
         'runtime' =>'126 min',
@@ -52,20 +49,13 @@ class MoviesTableSeeder extends Seeder
         'production' =>'Warner Bros. Pictures',
         'website'    =>'N/A',
         'genre'    =>'Action, Adventure',
-<<<<<<< HEAD
         'status' => 'out',
-=======
         'status'  => 'out',
->>>>>>> 6ad7d57e9e44676b65f4feac8ec663ca36035e47
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 
-
-
-    $movies[] = array (
-
-
+    $movie[] = array (
         'title'  => 'The Lord of the Rings: The Return of the King',
         'year' => 2003,
         'runtime' => '201 min',
@@ -84,7 +74,7 @@ class MoviesTableSeeder extends Seeder
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 
-      $movies[] = array (
+      $movie[] = array (
         'title'  => 'Interstellar',
         'year' => 2014,
         'runtime' => '169 min',
@@ -103,7 +93,7 @@ class MoviesTableSeeder extends Seeder
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 
-      $movies[] = array (
+      $movie[] = array (
         'title'  => 'Inception',
         'year' => 2010,
         'runtime' => '148 min',
@@ -121,7 +111,78 @@ class MoviesTableSeeder extends Seeder
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
-      
-      DB::table('movies')->insert($movies);
+
+      DB::table('movies')->insert($movie);
+
+
+      // $str = '0000000111111122222223333333444444455555556666666777777788888889999999';
+      // for ($i=0; $i < 10; $i++) {
+      //   $shuffle = str_shuffle($str);
+      //   $short_shuffle = substr($shuffle,1,6);
+      //   $imdb_new = 'tt0'.$short_shuffle;
+      //   $urlmovie = 'http://www.omdbapi.com/?i='. $imdb_new . '&apikey=67f441ca&plot=full';
+      //   $opts = array(
+      //     'http' => array(
+      //         'method' => "GET"
+      //     )
+      //   );
+      //   $context = stream_context_create($opts);
+      //   $raw = file_get_contents($urlmovie, true, $context);
+      //   $movie = json_decode($raw, true);
+      //   //conditions
+      //   if (isset($movie['Title']) && !empty($movie['Title']) && $movie['Title'] !='N/A' && isset($movie['Plot']) && !empty($movie['Plot']) && $movie['Plot'] !='N/A') {
+      //     global $title;
+      //     $title = $movie['Title'];
+      //     $serie = strstr($title,'Episode');
+      //     if ($serie == FALSE) {
+      //       if (isset($movie['Year']) && !empty($movie['Year'])) { $year = $movie['Year']; } else { $year = 'N/A'; }
+      //       if (isset($movie['Runtime']) && !empty($movie['Runtime'])) { $runtime = $movie['Runtime']; } else { $runtime = 'N/A'; }
+      //       if (isset($movie['Director']) && !empty($movie['Director'])) { $director = $movie['Director']; } else { $director = 'N/A'; }
+      //       if (isset($movie['Writer']) && !empty($movie['Writer'])) { $writers = $movie['Writer']; } else { $writers = 'N/A'; }
+      //       if (isset($movie['Actors']) && !empty($movie['Actors'])) { $actors = $movie['Actors']; } else { $actors = 'N/A'; }
+      //       if (isset($movie['Plot']) && !empty($movie['Plot'])) { $plot = $movie['Plot']; } else { $plot = 'N/A'; }
+      //       if (isset($movie['Awards']) && !empty($movie['Awards'])) { $awards = $movie['Awards']; } else { $awards = 'N/A'; }
+      //       if (isset($movie['Poster']) && !empty($movie['Poster'])) { $poster = $movie['Poster']; } else { $poster = 'N/A'; }
+      //       if (isset($movie['imdbID']) && !empty($movie['imdbID'])) { $imdb_id = $movie['imdbID']; } else { $imdb_id = 'N/A'; }
+      //       if (isset($movie['Production']) && !empty($movie['Production'])) { $production = $movie['Production']; } else { $production = 'N/A'; }
+      //       if (isset($movie['Website']) && !empty($movie['Website'])) { $website = $movie['Website']; } else { $website = 'N/A'; }
+      //       if (isset($movie['Genre']) && !empty($movie['Genre'])) { $genre = $movie['Genre']; } else { $genre = 'N/A'; }
+      //
+      //       //vérif que le film n'est pas déjà dans la BDD
+      //       $movies = Movie::orderBy('created_at','desc')->get();
+      //       $plucked = $movies->pluck('imdb_id');
+      //       $plucked->all();
+      //       $test = implode(",", $plucked->all());
+      //       $mystring = $test;
+      //       $findme   = $movie['imdbID'];
+      //       $pos = strpos($mystring, $findme);
+      //         // ajout
+      //       if ($pos === false) {
+      //         $movie[] = [
+      //         'title' => $title,
+      //         'year' => $year,
+      //         'runtime' => $runtime,
+      //         'director' => $director,
+      //         'writers' => $writers,
+      //         'actors' => $actors,
+      //         'plot' => $plot,
+      //         'awards' => $awards,
+      //         'poster' => $poster,
+      //         'imdb_id' => $imdb_id,
+      //         'production' => $production,
+      //         'website' => $website,
+      //         'genre' => $genre,
+      //         'status' => 'out',
+      //         'created_at' => $date->format('Y-m-d H:i:s'),
+      //         'updated_at' => $date->format('Y-m-d H:i:s')
+      //         ];
+      //         DB::table('movies')->insert($movie);
+      //       }
+      //     }
+      //   }
+      // }
+
+
+      // DB::table('movies')->insert($movie);
     }
 }
