@@ -29,10 +29,6 @@ class MoviesTableSeeder extends Seeder
         'production' =>'Paramount Pictures',
         'website'    =>'http://www.paramount.com/movies/forrest-gump/',
         'genre'    =>'Drama, Romance',
-<<<<<<< HEAD
-=======
-        'status' => 'out',
->>>>>>> 3cb0169532baf7806cc7228b029423954b494f9d
         'status'  => 'out',
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
@@ -52,10 +48,6 @@ class MoviesTableSeeder extends Seeder
         'production' =>'Warner Bros. Pictures',
         'website'    =>'N/A',
         'genre'    =>'Action, Adventure',
-<<<<<<< HEAD
-=======
-        'status' => 'out',
->>>>>>> 3cb0169532baf7806cc7228b029423954b494f9d
         'status'  => 'out',
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
@@ -118,10 +110,8 @@ class MoviesTableSeeder extends Seeder
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 
-<<<<<<< HEAD
-      DB::table('movies')->insert($movies);
-=======
+
       DB::table('movies')->insert($movie);
->>>>>>> 3cb0169532baf7806cc7228b029423954b494f9d
+
     }
 }
