@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Movie;
 
 class MoviesTableSeeder extends Seeder
 {
@@ -11,11 +12,10 @@ class MoviesTableSeeder extends Seeder
      */
     public function run()
     {
-      $movies =[];
+      $movie =[];
       $date = new DateTime();
 
-      $movies[] = array (
-
+      $movie[] = array (
         'title'   =>'Forrest Gump',
         'year'    =>'1994',
         'runtime' =>'142 min',
@@ -29,12 +29,16 @@ class MoviesTableSeeder extends Seeder
         'production' =>'Paramount Pictures',
         'website'    =>'http://www.paramount.com/movies/forrest-gump/',
         'genre'    =>'Drama, Romance',
+<<<<<<< HEAD
+=======
+        'status' => 'out',
+>>>>>>> 3cb0169532baf7806cc7228b029423954b494f9d
         'status'  => 'out',
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 
-      $movies[] = array (
+      $movie[] = array (
         'title'   =>'Batman',
         'year'    =>'1989',
         'runtime' =>'126 min',
@@ -48,16 +52,16 @@ class MoviesTableSeeder extends Seeder
         'production' =>'Warner Bros. Pictures',
         'website'    =>'N/A',
         'genre'    =>'Action, Adventure',
+<<<<<<< HEAD
+=======
+        'status' => 'out',
+>>>>>>> 3cb0169532baf7806cc7228b029423954b494f9d
         'status'  => 'out',
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 
-
-
-    $movies[] = array (
-
-
+    $movie[] = array (
         'title'  => 'The Lord of the Rings: The Return of the King',
         'year' => 2003,
         'runtime' => '201 min',
@@ -76,7 +80,7 @@ class MoviesTableSeeder extends Seeder
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 
-      $movies[] = array (
+      $movie[] = array (
         'title'  => 'Interstellar',
         'year' => 2014,
         'runtime' => '169 min',
@@ -95,7 +99,7 @@ class MoviesTableSeeder extends Seeder
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 
-      $movies[] = array (
+      $movie[] = array (
         'title'  => 'Inception',
         'year' => 2010,
         'runtime' => '148 min',
@@ -114,6 +118,10 @@ class MoviesTableSeeder extends Seeder
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 
+<<<<<<< HEAD
       DB::table('movies')->insert($movies);
+=======
+      DB::table('movies')->insert($movie);
+>>>>>>> 3cb0169532baf7806cc7228b029423954b494f9d
     }
 }

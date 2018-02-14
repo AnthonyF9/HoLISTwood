@@ -22,6 +22,23 @@
         </div>
     @endif
 
+    {{-- search --}}
+
+    {!! Form::open(['route' => 'search', 'method' => 'get'])  !!}
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input  type="text" name="research" class="form-control input-lg" placeholder="Enter word" />
+                    <span class="input-group-btn">
+                        <button  class="btn btn-primary btn-lg" type="submit">
+                          Search
+                        </button>
+                    </span>
+                </div>
+            </div>
+    {!! Form::close() !!}
+
+          </br>
+
     {{ $movies->links() }}
 
     <table class="table table-dark movieslist">

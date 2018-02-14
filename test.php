@@ -6,17 +6,12 @@ for ($i=0; $i < 10; $i++) {
   echo $imdb_new = 'tt0'.$short_shuffle;
   echo '<br/>';
 }
-$a = 'dsfdEpisodefg #1.8788';
-$b = stristr($a,'Episode');
-echo $b;
-echo '<br/>';
-$c = explode('Episode',$a);
-echo '<pre>'.print_r($c).'</pre>';
-echo '<br/>';
-$d = strpos($a,'Episode');
-if ($d != false) {
-  echo $d;
-}
-else {
-  echo 'Oh oh';
-}
+// $a = 'azeEpisode #1.8788';
+// // $d = strpos($a,'Episode');
+// $d = strstr($a,'Episode');
+// if ($d != FALSE) {
+//   echo $d;
+// }
+// else {
+//   echo 'Oh oh';
+// }
