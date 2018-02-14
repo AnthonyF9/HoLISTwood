@@ -40,10 +40,33 @@ main {
   margin: 15px;
 }
 
+.affiche img{
+  height: 380px;
+  width: 300px;
+  border:2px solid #0b4075;
+}
+
+.affiche img:hover{
+  opacity: 0.2;
+  filter: alpha(opacity=50);
+  transform: scale(1);
+}
+
+div.titre {
+  text-align: center;
+  background-color:#0b4075;
+  width: 300px;
+  height: 50px;
+  margin: -8px;
+  margin-left: 0px;
+  border:1px solid #0b4075;
+}
+
+
 /* login/register */
 
 .panel {
-  background-color: #212121;
+  background-color: #0b4075;
   max-width: 300px;
   width: 100%;
   margin: 30px auto;
@@ -157,7 +180,7 @@ main {
 }
 .comment .comment-list p {
   background-color: #262626;
-  
+
   min-height: 100px;
 }
 
