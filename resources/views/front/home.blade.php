@@ -31,7 +31,10 @@ active @endsection
 
   </div>
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> ca4e37d68c8b5dc244751b77654d24f16a1356c5
 @endsection
