@@ -7,17 +7,17 @@ $query = $pdo->prepare($sql);
 $query->execute();
 $moviesBDD = $query->fetchAll();
 
-for ($i=0; $i < 3 ; $i++) {
+// for ($i=0; $i < 3 ; $i++) {
 
   $str = '0000000111111122222223333333444444455555556666666777777788888889999999';
-  for ($i=0; $i < 1; $i++) {
+  for ($i=0; $i < 20; $i++) {
     $shuffle = str_shuffle($str);
     $short_shuffle = substr($shuffle,1,6);
     $imdb_new = 'tt0'.$short_shuffle;
     // $apikey_gui = 67f441ca;
     // $apikey_antho = 224b73f2;
     // $apikey_antho2 = 1f275ea3;
-    $urlmovie = 'http://www.omdbapi.com/?i='. $imdb_new . '&apikey=224b73f2&plot=full';
+    $urlmovie = 'http://www.omdbapi.com/?i='. $imdb_new . '&apikey=1f275ea3&plot=full';
     $opts = array(
         'http' => array(
             'method' => "GET"
@@ -28,7 +28,7 @@ for ($i=0; $i < 3 ; $i++) {
     $movie = json_decode($raw, true);
     // debug($movie);
     //conditions
-      if (!empty($movie['Poster']) && $movie['Poster'] !='N/A' && !empty($movie['Awards']) && $movie['Awards'] !='N/A') {
+      if (!empty($movie['Poster']) && $movie['Poster'] !='N/A' && !empty($movie['Awards']) && $movie['Awards'] !='N/A' && !empty($movie['Plot']) && $movie['Plot'] !='N/A' && !empty($movie['Actors']) && $movie['Actors'] !='N/A' && !empty($movie['Director']) && $movie['Director'] !='N/A' && !empty($movie['Production']) && $movie['Production'] !='N/A' && !empty($movie['Writers']) && $movie['Writers'] !='N/A') {
         $title = $movie['Title'];
         echo $title;
         $serie = strstr($title,'Episode');
@@ -74,6 +74,9 @@ for ($i=0; $i < 3 ; $i++) {
           echo 'C\'est une série';
         }
       }
+      else {
+        echo 'il n\'y a rien qui corresponde aux critères <br/>';
+      }
   }
 
-}
+// }
