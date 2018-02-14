@@ -45,7 +45,7 @@ main {
   width: 300px;
 }
 
-img:hover{
+.affiche img:hover{
   opacity: 0.2;
   filter: alpha(opacity=50);
   transform: scale(1);
