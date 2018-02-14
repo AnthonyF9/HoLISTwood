@@ -11,19 +11,26 @@ active @endsection
   <div class="profile-head">
     <img src="{{ asset('img/avatar.svg') }}" alt="avatar">
     <h1>{{ Auth::user()->name }}</h1>
+    <div class="profile-button">
+      <input type="button" name="pm" value="Private Message">
+      <input type="button" name="request" value="Friend Request">
+    </div>
+    <div class="profile-description">
+      <p>Description</p>
+    </div>
   </div>
 
   <nav class="profile-menu">
     <ul>
       <li><a href="#">Favorite Movie</a></li>
       <li><a href="#">Movie Rate</a></li>
+      <li><a href="#">Friend</a></li>
+      <li><a href="#">Info</a></li>
       @if (Auth::check())
         <li><a href="#">Setting</a></li>
       @endif
     </ul>
   </nav>
-
-  
 
   <div class="profile-favorite">
     <article class="affiche"> </article>
@@ -35,6 +42,38 @@ active @endsection
     <article class="affiche"> </article>
     <article class="affiche"> </article>
     <article class="affiche"> </article>
+  </div>
+
+  <div class="profile-friend">
+    <ul>
+      <li><img src="{{ asset('img/avatar.svg') }}" alt="avatar"><a href="#">Pseudo</a></li>
+      <li><img src="{{ asset('img/avatar.svg') }}" alt="avatar"><a href="#">Pseudo</a></li>
+      <li><img src="{{ asset('img/avatar.svg') }}" alt="avatar"><a href="#">Pseudo</a></li>
+    </ul>
+  </div>
+
+  <div class="profile-info">
+    <section class="section-detail">
+      <ul>
+        <li>Last Online :</li>
+        <li>Gender :</li>
+        <li>Birthday :</li>
+        <li>Location :</li>
+        <li>Joined :</li>
+      </ul>
+    </section>
+    <section class="section-contact">
+      <ul>
+        <li>E-Mail :</li>
+        <li>Website :</li>
+        <li>Skype :</li>
+        <li>Discord :</li>
+        <li>Facebook :</li>
+        <li>Twitter :</li>
+        <li>LinkedIn :</li>
+        <li>Google+ :</li>
+      </ul>
+    </section>
   </div>
 
   <div class="profile-setting">
@@ -69,7 +108,9 @@ active @endsection
     </div>
 
     <div class="setting-content setting-avatar">
-      <img src="{{ asset('img/avatar.svg') }}" alt="avatar">
+      <div class="visual-avatar">
+        <img src="{{ asset('img/avatar.svg') }}" alt="avatar">
+      </div>
       <input type="button" name="avatar" value="Choose a file" formnovalidate>
     </div>
 
