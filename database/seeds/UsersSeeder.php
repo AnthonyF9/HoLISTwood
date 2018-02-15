@@ -50,6 +50,15 @@ class UsersSeeder extends Seeder
           'updated_at' => $date->format('Y-m-d H:i:s'),
         ];
 
+        $users[]= [
+          'name' => 'John Doe',
+          'email' => 'contact@john-doe.com',
+          'password' => bcrypt('johndoe'),
+          'role' => 'banned',
+          'created_at' => $date->format('Y-m-d H:i:s'),
+          'updated_at' => $date->format('Y-m-d H:i:s'),
+        ];
+
         DB::table('users')->insert($users);
     }
 }

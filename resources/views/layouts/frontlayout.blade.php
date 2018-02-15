@@ -22,10 +22,10 @@
         <nav id="top-menu">
           <div class="social-network">
             <ul>
-              <li><a href="#"><img src="{{ asset('img/facebook.svg') }}" alt="facebook"></a></li>
-              <li><a href="#"><img src="{{ asset('img/twitter.svg') }}" alt="twitter"></a></li>
-              <li><a href="#"><img src="{{ asset('img/linkedin.svg') }}" alt="linkedin"></a></li>
-              <li><a href="#"><img src="{{ asset('img/google-plus.svg') }}" alt="google-plus"></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/facebook2.svg"); ?></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/twitter2.svg"); ?></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/youtube.svg"); ?></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
             </ul>
           </div>
           <div class="log">
@@ -107,8 +107,15 @@
           </div>
         </nav>
         <div id="bottom-menu">
-          <h1><a class="@yield('activehome')" href="{{ route('home') }}">holistwood</a></h1>
+          <p id="anim-p">
+            <a class="@yield('activehome')" href="{{ route('home') }}">
+              <span id="anim-span">
+                Holistwood
+              </span>
+              </a>
+            </p>
           <ul id="menu2">
+<<<<<<< HEAD
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
             <li><a class="@yield('activehome')" href="{{ route('events') }}">Calender</a></li>
             <li><a class="@yield('activehome')" href="{{ route('intheater') }}">In theater</a></li>
@@ -116,6 +123,14 @@
             <!-- @if ( Auth::user() ) -->
               <li><a class="@yield('activehome')" href="{{ route('favorite') }}">Favorite</a></li>
             <!-- @endif -->
+=======
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">In theater</a></li>
+            <li><a href="#">Last update</a></li>
+            @if ( Auth::user() )
+              <li><a href="#">Favorite</a></li>
+            @endif
+>>>>>>> d5afc803741f09b41774719405d6e113a59a6661
           </ul>
         </div>
 
@@ -152,9 +167,7 @@
         </nav>
       </header>
 
-      <div class="bandeau"> coming soon</div>
-
-
+      @yield('bandeau')
 
       <main>
 

@@ -3,7 +3,12 @@ html {
 }
 
 body {
-  background-color: #333333;
+  background-color: #ffffff;
+ background-image: -webkit-linear-gradient(top, #2d2d2d, #09335d);
+ background-image: -moz-linear-gradient(top, #2d2d2d, #09335d);
+ background-image: -o-linear-gradient(top, #2d2d2d, #09335d);
+ background-image: -ms-linear-gradient(top, #2d2d2d, #09335d);
+ background-image: linear-gradient(top, #2d2d2d, #09335d);
   color: white;
   font-family: 'Roboto', sans-serif;
   height: 100%;
@@ -13,7 +18,12 @@ body {
   /* width: 100%; */
   min-height: 100%;
   margin: 0 auto;
-  background-color: #333333;
+  background-color: #ffffff;
+ background-image: -webkit-linear-gradient(top, #2d2d2d, #09335d);
+ background-image: -moz-linear-gradient(top, #2d2d2d, #09335d);
+ background-image: -o-linear-gradient(top, #2d2d2d, #09335d);
+ background-image: -ms-linear-gradient(top, #2d2d2d, #09335d);
+ background-image: linear-gradient(top, #2d2d2d, #09335d);
   position: relative;
 }
 
@@ -31,15 +41,53 @@ header h1 a {
   text-align: center;
   font-family: 'Orbitron', sans-serif;
   font-weight: bold;
+  letter-spacing: 2.5px;
 }
-<<<<<<< HEAD
-=======
-header h1 a {
-  color: #2A89EB;
+
+/* body { font: 400 1em/1.5 "Neuton"; background: #090d00; color: rgba(255,255,255,.25); text-align: center; margin: 0 } */
+#anim-p {
+	text-transform: uppercase;
+	letter-spacing: .5em;
+	display: inline-block;
+	padding: 1.5em 0em;
+	position: relative;
+	width: 40em;
+	margin-left: 25px;
+  text-align: center;
+
 }
->>>>>>> 11469031908d40dec6ee3856566a79c699f6039b
-header h1 a:visited {
-  color: #2A89EB;
+
+#anim-span {
+  font: 3em "Orbitron", sans-serif;
+  font-weight: bold;
+  letter-spacing: 0;
+  padding: .25em 0 .325em;
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255,255,255,.5);
+ text-align: center;
+/* Clip Background Image */
+
+  background: url(../img/animated_text_fill.png) repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+/* Animate Background Image */
+
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: aitf 80s linear infinite;
+
+/* Activate hardware acceleration for smoother animations */
+
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-backface-visibility: hidden;
+
+}
+/* Animate Background Image */
+
+@-webkit-keyframes aitf {
+	0% { background-position: 0% 50%; }
+	100% { background-position: 100% 50%; }
 }
 
 
@@ -60,11 +108,34 @@ header #top-menu .social-network {
   width: 20%;
   min-width: 200px;
 }
-header #top-menu .social-network ul li img{
-  width: 40px;
-  height: 40px;
-  margin: 0 5px;
+
+/* ANIMATION LOGO  */
+
+
+
+/*  */
+
+
+header #top-menu .social-network ul li svg{
+  width: 30px;
+  height: 30px;
 }
+#Facebook:hover{
+  fill: #4867AA;
+}
+
+.Google:hover{
+  fill: #DC4A38;
+}
+
+#Twitter__x28_alt_x29_:hover{
+  fill:#1DA1F2;
+}
+
+#YouTube:hover {
+  fill:#FF0000;
+}
+
 header #top-menu .log {
   width: 80%;
 }
@@ -108,29 +179,26 @@ header nav#top-menu .log #large-screen #menu1 li#hello-user a {
 header nav#top-menu .log #large-screen #menu1 li#hello-user a {
   padding-top: 10.5px;
 }
-/* header nav ul li button{
-  background: none;
-  color: white;
-  border: none;
-  text-transform: uppercase;
-  font-size: 0.95em;
-  font-family: 'Roboto', sans-serif;
-  white-space: nowrap;
-  margin: 10% 0;
-  height: 50%;
-}
-header nav ul li button:hover{
-  color: #73b3f2;
-} */
 
 
 
-header .social-network ul, header ul#menu2 {
+header .social-network ul {
   width: 50%;
   margin: auto;
   display: flex;
   justify-content: space-between;
 }
+
+header ul#menu2 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+header ul#menu2 li {
+  padding-right: 2%;
+  white-space: nowrap;
+}
+
 header nav ul li a, header nav ul li span  {
   /* text-transform: uppercase; */
   font-size: 1em;
@@ -169,7 +237,6 @@ header nav ul li a.active, header nav ul li span.active {
   margin: auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
 }
 #bottom-menu #menu2 li a {
   /* text-transform: uppercase; */
@@ -416,7 +483,7 @@ footer {
     margin: auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    /* justify-content: space-around; */
   }
   #menuToggle
   {

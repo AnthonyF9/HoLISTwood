@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $movies = Movie::orderBy('created_at','desc')->get();
+      $movies = Movie::orderBy('created_at','desc')->where('moderation', '=', 'ok')->get();
         return view('front/home',compact('movies'));
     }
 
