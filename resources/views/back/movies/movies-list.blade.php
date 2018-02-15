@@ -56,7 +56,7 @@
 
     {{ $movies->links() }}
 
-    <table class="table table-dark movieslist">
+    <table class="table table-light movieslist table-hover">
       <thead>
         <tr>
           <th>#</th>
@@ -75,15 +75,15 @@
     @foreach ($movies as $movie)
 
         <tr>
-          <th scope="row">{{ $movie->id }}</th>
-          <th scope="row">{{ $movie->title }}</th>
-          <th scope="row">{{ $movie->year }}</th>
-          <th scope="row">{{ $movie->director }}</th>
-          <th scope="row">{{ $movie->imdb_id }}</th>
-          <th scope="row">{{ $movie->status }}</th>
-          <th scope="row">{{ $movie->created_at }}</th>
-          <th scope="row">{{ $movie->updated_at }}</th>
-          <td><a class="btn btn-primary" href="{{ route('modifierfilm', array('id'=> $movie->id )) }}"> Edit </a>
+          <td scope="row">{{ $movie->id }}</td>
+          <td scope="row">{{ $movie->title }}</td>
+          <td scope="row">{{ $movie->year }}</td>
+          <td scope="row">{{ $movie->director }}</td>
+          <td scope="row">{{ $movie->imdb_id }}</td>
+          <td scope="row">{{ $movie->status }}</td>
+          <td scope="row">{{ $movie->created_at }}</td>
+          <td scope="row">{{ $movie->updated_at }}</td>
+          <td><a class="btn btn-primary" href="{{ route('editmovie', array('id'=> $movie->id )) }}"> Edit </a>
             {{ Form::open(['route' => ['softdeletemovie', $movie->id],'method' => 'put']) }}
               {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
             {{ Form::close() }}

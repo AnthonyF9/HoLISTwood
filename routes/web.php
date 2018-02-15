@@ -36,14 +36,18 @@ Route::group(['namespace' => 'Front'], function () {
   Route::put('/dashboard/movies-list/restore/{id}', 'MoviesController@restoremovie')->where('id','[0-9]+')->name('restoremovie');
   Route::get('/dashboard/movies-list/search', 'SearchController@search')->name('search');
 
-  Route::get('/update-movie/{id}', 'MoviesController@modifierfilm')->where('id','[0-9]+')->name('modifierfilm');
-  Route::put('/update-movie/{id}', 'MoviesController@modifierfilmaction')->where('id','[0-9]+')->name('modifierfilm-action');
-  Route::put('/delete-movie/{id}', 'MoviesController@softdeletemovie')->where('id','[0-9]+')->name('softdeletemovie');
-  Route::delete('/delete-movie/{id}', 'MoviesController@deletemovie')->where('id','[0-9]+')->name('deletemovie');
+  Route::get('/dashboard/update-movie/{id}', 'MoviesController@editmovie')->where('id','[0-9]+')->name('editmovie');
+  Route::put('/dashboard/update-movie/{id}', 'MoviesController@editmovieaction')->where('id','[0-9]+')->name('editmovie-action');
+  Route::put('/dashboard/delete-movie/{id}', 'MoviesController@softdeletemovie')->where('id','[0-9]+')->name('softdeletemovie');
+  Route::delete('/dashboard/delete-movie/{id}', 'MoviesController@deletemovie')->where('id','[0-9]+')->name('deletemovie');
 
   Route::get('/dashboard/add-imdb', 'MoviesController@addimdb')->name('addimdb');
   Route::match(['get', 'post'],'/dashboard/add-movie', 'MoviesController@findmovie')->name('findmovie');
   Route::post('/dashboard/save-movie', 'MoviesController@addmovie')->name('addmovie');
+
+  Route::get('/dashboard/users-list', 'UsersController@userslist')->name('userslist');
+  Route::get('/dashboard/update-user/{id}', 'UsersController@edituser')->where('id','[0-9]+')->name('edituser');
+  Route::put('/dashboard/update-user/{id}', 'UsersController@edituseraction')->where('id','[0-9]+')->name('edituser-action');
 
 });
 

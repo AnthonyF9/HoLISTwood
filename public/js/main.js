@@ -6,9 +6,9 @@ $(document).ready(function() {
     $(this).css({'cursor':'pointer'})
   });
 
-  //////////////////////////////////////////////////
-  ///////////// La modale de Connexion /////////////
-  //////////////////////////////////////////////////
+  ///////////////////////////////////////////////////
+  /////////////////// Les modales ///////////////////
+  ///////////////////////////////////////////////////
     // Get the modal
     var modal = document.getElementById('myModal');
     // Get the button that opens the modal
@@ -32,5 +32,14 @@ $(document).ready(function() {
         if (event.target == modal) {
             modal.style.display = "none";
         }
+    }
+
+    ///////////////////////////////////////////////////
+    /////////// Le menu déroulant dashboard ///////////
+    ///////////////////////////////////////////////////
+    var backnavmovies = document.getElementById('back-nav-movies');
+    var backmovies = document.getElementById("back-movies");
+    backmovies.onclick = function() {
+        backnavmovies.style.display = "block";
     }
 });

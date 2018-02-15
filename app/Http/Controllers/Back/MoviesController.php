@@ -47,7 +47,7 @@ class MoviesController extends Controller
         Movie::Create($request->all());
         return redirect()->route('addimdb')->with('status', 'Movie added');
       } else {
-        return redirect()->route('addimdb')->with('error', 'This movie already exists'); // si l'IMDB existe déjà, on ne rajoute pas le film
+        return redirect()->route('addimdb')->with('error', 'This movie already exists'); // si l'IMDB existe déjà, on ne rajoute pas le movie
       }
   }
 
@@ -75,13 +75,13 @@ class MoviesController extends Controller
     return redirect()->route('movieslist')->with('status', 'Movie restored');
   }
 
-  public function modifierfilm($id)
+  public function editmovie($id)
   {
     $movie = Movie::findOrFail($id);
-    return view('back/movies/update_movie', compact('id', 'movie'));
+    return view('back/movies/update-movie', compact('id', 'movie'));
   }
 
-  public function modifierfilmaction(MovieRequest $request, $id)
+  public function editmovieaction(MovieRequest $request, $id)
   {
     Movie::findOrFail($id)->update($request->all());
     return redirect()->route('movieslist')->with('status', 'Movie edited');

@@ -38,7 +38,7 @@ $movie = json_decode($raw, true);
         $serie = strstr($title,'Episode');
       @endphp
       @if ($serie != FALSE)
-        <p>Ceci est une série, non un film.</p>
+        <p>Ceci est une série, non un movie.</p>
       @else
         @php
           if (isset($movie['Year']) && !empty($movie['Year'])) { $year = $movie['Year']; } else { $year = 'N/A'; }
@@ -118,7 +118,7 @@ $movie = json_decode($raw, true);
 
       @endif
     @else
-      <p>Ce film n'existe pas.</p>
+      <p>Ce movie n'existe pas.</p>
       <p><a href="{{ route('addimdb') }}">Retour</a></p>
     @endif
   </div>

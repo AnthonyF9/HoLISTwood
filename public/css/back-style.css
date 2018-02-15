@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: #FFFFFF;
+  background-color: #AAA;
   color: white;
   font-family: 'Roboto', sans-serif;
   height: 100%;
@@ -59,17 +59,32 @@ header nav ul {
   display: flex;
   flex-direction: column;
 }
-header nav ul li {
+header nav>ul>li {
   border-bottom: 1px solid #AAAAAA;
   padding: 5px;
 }
-header nav ul li:last-child {
+header nav>ul>li:last-child {
   border-bottom: 0px solid #AAAAAA;
 }
 header nav ul li a:hover {
   text-decoration: underline dotted;
 }
 header nav ul li a.active {
+  color: #07B5DA;
+}
+header nav>ul>li>ul {
+  padding: 5px;
+  padding-left: 15px;
+}
+#back-movies {
+  border: none;
+  background: none;
+  color: white;
+}
+#back-movies:hover {
+  text-decoration: underline dotted;
+}
+#back-movies.active {
   color: #07B5DA;
 }
 
@@ -104,6 +119,9 @@ main {
 #nav-movies ul li {
   margin-right: 10px;
 }
+/* #back-nav-movies {
+  display: none;
+} */
 .part {
   margin: 10px;
 }
@@ -114,6 +132,13 @@ main {
 }
 .part input {
   width: auto;
+}
+thead {
+  background: black;
+  color: white;
+}
+.part thead tr th {
+  border-top: 1px solid black;
 }
 
 .partimdb [type=submit] {

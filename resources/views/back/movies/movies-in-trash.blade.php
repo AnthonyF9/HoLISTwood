@@ -56,8 +56,8 @@
 
     {{ $movies->links() }}
 
-    <table class="table table-dark movieslist">
-      <thead>
+    <table class="table table-light table-hover movieslist">
+      <thead class="table-dark">
         <tr>
           <th>#</th>
           <th>Title</th>
