@@ -1,4 +1,11 @@
-@extends('layouts.frontlayout')
+@extends('layouts/frontlayout')
+
+@section('title')
+  Calender - HOLISTWOOD
+@endsection
+
+@section('activehome')
+active @endsection
 
 @section('css')
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

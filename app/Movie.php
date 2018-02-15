@@ -8,10 +8,10 @@ class Movie extends Model
 {
     protected $table = 'movies';
 
-    protected $fillable = ['title','year', 'runtime', 'director', 'writers', 'actors', 'plot', 'awards', 'poster', 'imdb_id', 'production', 'website', 'genre', 'status'];
+    protected $fillable = ['title','year', 'runtime', 'director', 'writers', 'actors', 'plot', 'awards', 'poster', 'imdb_id', 'production', 'website', 'genre', 'status','moderation'];
 
-    // public function user()
-    // {
-    //   return $this->belongsTo('\App\User');
-    // }
+    public function release()
+    {
+    return $this->hasOne('\App\Release');
+   }
 }

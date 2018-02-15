@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="{{ asset('css/front-header-style.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/front-main-style.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/front-footer-style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/set1.css') }}" />
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <title>@yield('title')</title>
 
     @yield('css')
@@ -20,10 +22,10 @@
         <nav id="top-menu">
           <div class="social-network">
             <ul>
-              <li><a href="#"><img src="{{ asset('img/facebook.svg') }}" alt="facebook"></a></li>
-              <li><a href="#"><img src="{{ asset('img/twitter.svg') }}" alt="twitter"></a></li>
-              <li><a href="#"><img src="{{ asset('img/linkedin.svg') }}" alt="linkedin"></a></li>
-              <li><a href="#"><img src="{{ asset('img/google-plus.svg') }}" alt="google-plus"></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/facebook2.svg"); ?></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/twitter2.svg"); ?></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/youtube.svg"); ?></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
             </ul>
           </div>
           <div class="log">
@@ -105,9 +107,21 @@
           </div>
         </nav>
         <div id="bottom-menu">
-          <h1> holistwood </h1>
+          <p id="anim-p">
+            <a class="@yield('activehome')" href="{{ route('home') }}">
+              <span id="anim-span">
+                Holistwood
+              </span>
+              </a>
+            </p>
           <ul id="menu2">
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
+            <li><a class="@yield('')" href="{{ route('events') }}">Calender</a></li>
+            <li><a class="@yield('')" href="{{ route('intheater') }}">In theater</a></li>
+            <li><a class="@yield('')" href="{{ route('lastupdate') }}">Last update</a></li>
+             @if ( Auth::user() )
+              <li><a class="@yield('')" href="{{ route('favorite') }}">Favorite</a></li>
+             @endif
           </ul>
         </div>
 
@@ -144,6 +158,8 @@
         </nav>
       </header>
 
+      @yield('bandeau')
+
       <main>
 
         @yield('content')
@@ -156,6 +172,10 @@
      <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/jquery-ui.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+     <script>
+      AOS.init();
+     </script>
 
      @yield('js')
    </div>

@@ -1,7 +1,7 @@
 @extends('layouts/frontlayout')
 
 @section('title')
-  Titre - année - HOLISTWOOD
+  {{$movie->title}} - {{$movie->year}} - HOLISTWOOD
 @endsection
 
 @section('content')
