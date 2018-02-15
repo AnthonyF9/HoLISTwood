@@ -21,7 +21,7 @@ class MoviesTableSeeder extends Seeder
 
       $movies[] = array (
         'title'  => 'Forest gump',
-        'year' => ,
+        'year' => 1994,
         'created_at' => $date->format('Y-m-d H:i:s')
       );
 
