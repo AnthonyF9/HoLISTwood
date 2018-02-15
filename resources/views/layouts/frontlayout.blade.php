@@ -110,12 +110,12 @@
           <h1><a class="@yield('activehome')" href="{{ route('home') }}">holistwood</a></h1>
           <ul id="menu2">
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
-            <li><a href="#">Calendar</a></li>
-            <li><a href="#">In theater</a></li>
-            <li><a href="#">Last update</a></li>
-            @if ( Auth::user() )
-              <li><a href="#">Favorite</a></li>
-            @endif
+            <li><a class="@yield('activehome')" href="{{ route('events') }}">Calender</a></li>
+            <li><a class="@yield('activehome')" href="{{ route('intheater') }}">In theater</a></li>
+            <li><a class="@yield('activehome')" href="{{ route('lastupdate') }}">Last update</a></li>
+            <!-- @if ( Auth::user() ) -->
+              <li><a class="@yield('activehome')" href="{{ route('favorite') }}">Favorite</a></li>
+            <!-- @endif -->
           </ul>
         </div>
 

@@ -154,10 +154,31 @@ div.titre {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  width: 90%;
+  margin: 0 auto;
+}
+.detail-part img {
+  max-width: 300px;
+  max-height: 427px;
 }
 .detail-part .detail {
-  width: 60%;
   padding: 50px 0;
+  margin-left: 5%;
+}
+.detail-part .detail li {
+  display: flex;
+  flex-direction: row;
+}
+.detail-part .detail .detail-content {
+  display: block;
+  width: 30%;
+}
+.detail-part .detail .detail-entitled {
+  /* display: block; */
+  max-width: 100px;
+  min-width: 100px;
+  float: left;
+  margin-right: 5%;
 }
 .rate {
   justify-content: center;
@@ -173,7 +194,7 @@ div.titre {
   margin: 10px auto;
   width: 90%;
   background-color: #262626;
-
+  text-align: center;
   padding: 2%;
   min-height: 100px;
   justify-content: center;
@@ -192,7 +213,6 @@ div.titre {
 }
 .comment .comment-list p {
   background-color: #262626;
-
   min-height: 100px;
 }
 
@@ -337,13 +357,19 @@ div.titre {
 
 /* Responsive */
 
-@media (max-width: 525px) {
+@media (max-width: 707px) {
 
   /* Single */
 
   .detail-part {
     display: flex;
     flex-direction: column;
+  }
+  .detail-part .detail-poster {
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+    justify-content: center;
   }
   .detail-part .detail {
     width: 90%;

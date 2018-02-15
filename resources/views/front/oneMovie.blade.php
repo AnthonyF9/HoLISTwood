@@ -10,29 +10,53 @@
   </div>
 
   <div class="detail-part">
-        <img src="{{ $movie[0]->poster }}" alt="Poster de {{ $movie[0]->title }}">
-    </iv>
-
+    <div class="detail-poster">
+      <img src="{{ $movie[0]->poster }}" alt="Poster de {{ $movie[0]->title }}">
+    </div>
     <div class="detail">
       <ul>
-        <li>Date : </li>
-        <li>Réalisateur : {{ ucfirst($movie[0]->director) }}</li>
-        <li>Auteurs : </li>
-        <li>Acteurs : </li>
-        <li>Producteur : </li>
-        <li>Genre : </li>
-        <li>Durée : </li>
-        <li>Récompenses : </li>
+          <li>
+            <p class="detail-entitled">Year :</p>
+            <p class="detail-containt">{{ ucfirst($movie[0]->year) }}</p>
+          </li>
+          <li>
+            <p class="detail-entitled">Director :</p>
+            <p class="detail-containt">{{ ucfirst($movie[0]->director) }}</p>
+          </li>
+          <li>
+            <p class="detail-entitled">Writers :</p>
+            <p class="detail-containt">{{ ucfirst($movie[0]->writers) }}</p>
+          </li>
+          <li>
+            <p class="detail-entitled">Actors :</p>
+            <p class="detail-containt">{{ ucfirst($movie[0]->actors) }}</p>
+          </li>
+          <li>
+            <p class="detail-entitled">Production :</p>
+            <p class="detail-containt">{{ ucfirst($movie[0]->production) }}</p>
+          </li>
+          <li>
+            <p class="detail-entitled">Genre :</p>
+            <p class="detail-containt">{{ ucfirst($movie[0]->genre) }}</p>
+          </li>
+          <li>
+            <p class="detail-entitled">Runtime :</p>
+            <p class="detail-containt">{{ ucfirst($movie[0]->runtime) }}</p>
+          </li>
+          <li>
+            <p class="detail-entitled">Awards :</p>
+            <p class="detail-containt">{{ ucfirst($movie[0]->awards) }}</p>
+          </li>
       </ul>
     </div>
   </div>
 
   <div class="rate">
-    <h3>Note :</h3>
+    <h3>Rate :</h3>
   </div>
 
   <div class="plot">
-    <p>synopsis</p>
+    <p>{{ ucfirst($movie[0]->plot) }}</p>
   </div>
 
   <div id="trailer">
@@ -42,7 +66,7 @@
   </div>
 
   <div class="comment">
-    <h3>Commentaire</h3>
+    <h3>Commentary</h3>
     <div class="comment-list">
       <p></p>
     </div>

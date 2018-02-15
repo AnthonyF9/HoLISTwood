@@ -42,4 +42,30 @@ class HomeController extends Controller
           abort(404);
         }
     }
+
+    public function calender()
+    {
+      return view('/fullcalender');
+    }
+
+    public function intheater()
+    {
+      $movies = Movie::orderBy('created_at','desc')->get();
+      return view('front/intheater');
+    }
+
+    public function lastupdate()
+    {
+      $movies = Movie::orderBy('updated_at','desc')->get();
+      return view('front/lastupdate');
+    }
+
+    public function favorite()
+    {
+      // $movie = DB::table('movies')
+      //           ->leftJoin('rating','movies.id','=','rating.id_movie')
+      //           ->orderBy('rating.note','desc')
+      //           ->get();
+        return view('front/favorite',compact('movies'));
+    }
 }
