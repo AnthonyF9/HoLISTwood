@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: #2D2D2D;
+  background-color: #333333;
   color: white;
   font-family: 'Roboto', sans-serif;
   height: 100%;
@@ -13,7 +13,7 @@ body {
   /* width: 100%; */
   min-height: 100%;
   margin: 0 auto;
-  background-color: #2D2D2D;
+  background-color: #333333;
   position: relative;
 }
 
@@ -123,8 +123,8 @@ header .social-network ul, header ul#menu2 {
   justify-content: space-between;
 }
 header nav ul li a, header nav ul li span  {
-  text-transform: uppercase;
-  font-size: 0.95em;
+  /* text-transform: uppercase; */
+  font-size: 1em;
   -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;
@@ -163,8 +163,8 @@ header nav ul li a.active, header nav ul li span.active {
   justify-content: space-around;
 }
 #bottom-menu #menu2 li a {
-  text-transform: uppercase;
-  font-size: 0.95em;
+  /* text-transform: uppercase; */
+  font-size: 1.2em;
   -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;

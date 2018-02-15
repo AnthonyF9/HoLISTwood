@@ -44,9 +44,18 @@ main {
   width: 300px;
 }
 
+/* bandeaux */
 
-
-
+.bandeau {
+  background-color: #0f59a3;
+  height: 70px;
+  width: 100%;
+  text-align: center;
+  line-height: 70px;
+  text-transform: uppercase;
+  font-family: 'Orbitron';
+  font-size: 1.5em;
+}
 /* login/register */
 
 .panel {

@@ -146,6 +146,10 @@
         </nav>
       </header>
 
+      <div class="bandeau"> coming soon</div>
+
+
+
       <main>
 
         @yield('content')
