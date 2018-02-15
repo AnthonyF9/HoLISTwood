@@ -1,25 +1,22 @@
 @extends('layouts/frontlayout')
 
 @section('title')
-  Titre - année - HOLISTWOOD
+  {{$movie[0]->title}} - {{$movie[0]->year}} - HOLISTWOOD
 @endsection
 
 @section('content')
   <div class="title">
-    <h1>Titre</h1>
+    <h1>{{ ucfirst($movie[0]->title) }}</h1>
   </div>
 
   <div class="detail-part">
-    <div class="affiches">
-      <article class="affiche">
-
-      </article>
-    </div>
+        <img src="{{ $movie[0]->poster }}" alt="Poster de {{ $movie[0]->title }}">
+    </iv>
 
     <div class="detail">
       <ul>
         <li>Date : </li>
-        <li>Réalisateur : </li>
+        <li>Réalisateur : {{ ucfirst($movie[0]->director) }}</li>
         <li>Auteurs : </li>
         <li>Acteurs : </li>
         <li>Producteur : </li>

@@ -19,7 +19,7 @@ class CreateMoviesTable extends Migration
         $table->integer('year')->nullable(true);
         $table->char('runtime')->nullable(true);
         $table->char('director', 255)->nullable(true);
-        $table->char('writers', 255)->nullable(true);
+        $table->text('writers')->nullable(true);
         $table->text('actors')->nullable(true);
         $table->text('plot')->nullable(true);
         $table->char('awards', 255)->nullable(true);
@@ -29,6 +29,7 @@ class CreateMoviesTable extends Migration
         $table->char('website', 255)->nullable(true);
         $table->char('genre', 255)->nullable(true);
         $table->enum('status', ['incoming', 'out'])->default('out');
+        $table->enum('moderation', ['ok', 'softdelete'])->default('ok');
         $table->timestamps();
       });
     }

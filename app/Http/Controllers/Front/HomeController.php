@@ -16,7 +16,6 @@ class HomeController extends Controller
     {
         // $this->middleware('auth');
     }
-
     /**
      * Show the application dashboard.
      *
@@ -24,17 +23,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $movies = Movie::orderBy('created_at','desc')->get();
+      $movies = Movie::orderBy('created_at','desc')->where('moderation', '=', 'ok')->get();
         return view('front/home',compact('movies'));
     }
 
     public function profile()
     {
-        return view('front/profile/profile');
+        return view('front/profile');
     }
 
-    public function single()
+    public function oneMovie($imdb_id)
     {
-        return view('front/single');
+        $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
+        if (!empty($movie)) {
+          return view('front/oneMovie', compact('imdb_id','movie'));
+        }
+        else {
+          abort(404);
+        }
     }
 }
