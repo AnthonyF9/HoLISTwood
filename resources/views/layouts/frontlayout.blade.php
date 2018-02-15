@@ -107,16 +107,15 @@
           </div>
         </nav>
         <div id="bottom-menu">
-<<<<<<< HEAD
           <p id="anim-p">
               <span id="anim-span">
                 Holistwood
               </span>
-            
+
             </p>
-=======
+
           <h1><a class="@yield('activehome')" href="{{ route('home') }}">holistwood</a></h1>
->>>>>>> e5ce18f1a789f01281873daa58931d21095ad296
+
           <ul id="menu2">
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
             <li><a href="#">Calendar</a></li>
