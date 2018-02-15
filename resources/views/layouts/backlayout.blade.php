@@ -13,17 +13,21 @@
     <div id="wrapper">
       <header>
         <div id="titreHeader">
-          <h1> Dashboard </h1>
+          <h1><a href="{{ route('dashboard') }}"> Dashboard </a></h1>
           <h2><a href="{{ route('home') }}">Back to site</a></h2>
         </div>
         <nav>
           <ul>
             <li><a href="{{ route('dashboard') }}" class="@yield('activedashboard')">Dashboard home</a></li>
-            <li><a href="./back-users.php">Users</a></li>
-            <li><a href="{{ route('movieslist') }}" class="@yield('activemovieslist')">Movies</a></li>
-            <li><a href="{{ route('addimdb') }}" class="@yield('activeaddimdb')">Add a movie</a></li>
-            <li><a href="./back-movies-moderation.php">Movies moderation</a></li>
-            <li><a href="./back-comments.php">Comments</a></li>
+            <li><a href="{{ route('userslist') }}" class="@yield('activeuserslist')">Users</a></li>
+            <li>
+              <button id="back-movies" class="@yield('activemovieslist') @yield('activeaddimdb')">Movies</button>
+              <ul id="back-nav-movies">
+                <li><a href="{{ route('movieslist') }}" class="@yield('activemovieslist')">Movies</a></li>
+                <li><a href="{{ route('addimdb') }}" class="@yield('activeaddimdb')">Add a movie</a></li>
+              </ul>
+            </li>
+            {{-- <li><a href="./back-movies-moderation.php">Movies moderation</a></li> --}}
           </ul>
         </nav>
       </header>

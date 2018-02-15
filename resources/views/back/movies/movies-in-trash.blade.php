@@ -56,8 +56,8 @@
 
     {{ $movies->links() }}
 
-    <table class="table table-light movieslist table-hover">
-      <thead>
+    <table class="table table-light table-hover movieslist">
+      <thead class="table-dark">
         <tr>
           <th>#</th>
           <th>Title</th>
@@ -75,18 +75,32 @@
     @foreach ($movies as $movie)
 
         <tr>
-          <td scope="row">{{ $movie->id }}</td>
-          <td scope="row">{{ $movie->title }}</td>
-          <td scope="row">{{ $movie->year }}</td>
-          <td scope="row">{{ $movie->director }}</td>
-          <td scope="row">{{ $movie->imdb_id }}</td>
-          <td scope="row">{{ $movie->status }}</td>
-          <td scope="row">{{ $movie->created_at }}</td>
-          <td scope="row">{{ $movie->updated_at }}</td>
-          <td><a class="btn btn-primary" href="{{ route('editmovie', array('id'=> $movie->id )) }}"> Edit </a>
-            {{ Form::open(['route' => ['softdeletemovie', $movie->id],'method' => 'put']) }}
-              {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+          <th scope="row">{{ $movie->id }}</th>
+          <th scope="row">{{ $movie->title }}</th>
+          <th scope="row">{{ $movie->year }}</th>
+          <th scope="row">{{ $movie->director }}</th>
+          <th scope="row">{{ $movie->imdb_id }}</th>
+          <th scope="row">{{ $movie->status }}</th>
+          <th scope="row">{{ $movie->created_at }}</th>
+          <th scope="row">{{ $movie->updated_at }}</th>
+          <td>
+            {{ Form::open(['route' => ['restoremovie', $movie->id],'method' => 'put']) }}
+              {!! Form::submit('Restore', ['class' => 'btn btn-primary']) !!}
             {{ Form::close() }}
+            <span id="myBtn" class="btn btn-danger">Delete</span>
+            <span id="myModal" class="modal">
+              <span class="modal-content">
+                <span class="close">&times;</span>
+                {{ Form::open(['route' => ['softdeletemovie', $movie->id],'method' => 'delete']) }}
+                  <span id="question">Are you sure about it ?</span>
+                  <span id="choices">
+                    <span id="no-delete" class="btn btn-primary nodelete choice">No, don't delete</span>
+                    {{-- <input type="text" name="" value="No, don't delete" class="btn btn-primary close choice"> --}}
+                    {!! Form::submit('Yes, delete', ['class' => 'btn btn-danger choice']) !!}
+                  </span>
+                {{ Form::close() }}
+              </span>
+            </span>
           </td>
         </tr>
 

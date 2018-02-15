@@ -30,6 +30,7 @@ class MoviesTableSeeder extends Seeder
         'website'    =>'http://www.paramount.com/movies/forrest-gump/',
         'genre'    =>'Drama, Romance',
         'status'  => 'out',
+        // 'moderation'  => 'softdelete',
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
