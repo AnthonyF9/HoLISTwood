@@ -34,7 +34,7 @@ main {
 }
 .affiche {
   background-color: #212121;
-  height: 380px;
+  height: 360px;
   width: 300px;
   margin: 15px;
 }
@@ -42,12 +42,9 @@ main {
 .affiche img{
   height: 380px;
   width: 300px;
-
-  border:2px solid #0b4075;
-
-
 }
 
+<<<<<<< HEAD
 .affiche img:hover{
   opacity: 0.2;
   filter: alpha(opacity=50);
@@ -66,13 +63,15 @@ div.titre {
 }
 
 
+=======
+>>>>>>> 11469031908d40dec6ee3856566a79c699f6039b
 
 
 
 /* login/register */
 
 .panel {
-  background-color: #0b4075;
+  background-color: #212121;
   max-width: 300px;
   width: 100%;
   margin: 30px auto;
