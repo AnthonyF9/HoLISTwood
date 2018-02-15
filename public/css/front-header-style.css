@@ -32,12 +32,9 @@ header h1 a {
   font-family: 'Orbitron', sans-serif;
   font-weight: bold;
 }
-<<<<<<< HEAD
-=======
 header h1 a {
   color: #2A89EB;
 }
->>>>>>> 11469031908d40dec6ee3856566a79c699f6039b
 header h1 a:visited {
   color: #2A89EB;
 }
@@ -108,20 +105,6 @@ header nav#top-menu .log #large-screen #menu1 li#hello-user a {
 header nav#top-menu .log #large-screen #menu1 li#hello-user a {
   padding-top: 10.5px;
 }
-/* header nav ul li button{
-  background: none;
-  color: white;
-  border: none;
-  text-transform: uppercase;
-  font-size: 0.95em;
-  font-family: 'Roboto', sans-serif;
-  white-space: nowrap;
-  margin: 10% 0;
-  height: 50%;
-}
-header nav ul li button:hover{
-  color: #73b3f2;
-} */
 
 
 

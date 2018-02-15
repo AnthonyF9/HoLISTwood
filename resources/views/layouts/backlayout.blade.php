@@ -23,7 +23,6 @@
             <li><a href="{{ route('movieslist') }}" class="@yield('activemovieslist')">Movies</a></li>
             <li><a href="{{ route('addimdb') }}" class="@yield('activeaddimdb')">Add a movie</a></li>
             <li><a href="./back-movies-moderation.php">Movies moderation</a></li>
-            <li><a href="./back-comments.php">Comments</a></li>
           </ul>
         </nav>
       </header>
