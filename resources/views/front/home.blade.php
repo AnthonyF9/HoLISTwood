@@ -18,14 +18,27 @@ active @endsection
   <div class="affiches">
     @foreach ($movies as $movie)
 
-    <article class="affiche">
+    {{-- <article data-aos="fade-up" class="affiche"> --}}
 
-    <img src="{{$movie->poster}}" alt="">
+    {{-- <img src="{{$movie->poster}}" alt=""> --}}
 
-    <div class="titre">
-      {{$movie->title}}
+    <div class="grid">
+
+    	<figure data-aos="fade-up" class="effect-zoe">
+    		<img src="{{$movie->poster}}" alt="{{$movie->title}}"/>
+    		<figcaption>
+    			<h2>{{$movie->title}}</h2>
+    			<a href="#">View more</a>
+    		</figcaption>
+    	</figure>
+
+    	<!-- ... -->
+
     </div>
-    </article>
+
+      {{-- {{$movie->title}} --}}
+
+    {{-- </article> --}}
      @endforeach
 
   </div>

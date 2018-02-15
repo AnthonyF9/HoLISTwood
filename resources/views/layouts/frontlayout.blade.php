@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="{{ asset('css/front-header-style.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/front-main-style.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/front-footer-style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/set1.css') }}" />
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <title>@yield('title')</title>
 
     @yield('css')
@@ -156,6 +158,10 @@
      <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/jquery-ui.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+     <script>
+      AOS.init();
+     </script>
 
      @yield('js')
    </div>
