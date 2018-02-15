@@ -115,22 +115,13 @@
               </a>
             </p>
           <ul id="menu2">
-<<<<<<< HEAD
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
-            <li><a class="@yield('activehome')" href="{{ route('events') }}">Calender</a></li>
-            <li><a class="@yield('activehome')" href="{{ route('intheater') }}">In theater</a></li>
-            <li><a class="@yield('activehome')" href="{{ route('lastupdate') }}">Last update</a></li>
-            <!-- @if ( Auth::user() ) -->
-              <li><a class="@yield('activehome')" href="{{ route('favorite') }}">Favorite</a></li>
-            <!-- @endif -->
-=======
-            <li><a href="#">Calendar</a></li>
-            <li><a href="#">In theater</a></li>
-            <li><a href="#">Last update</a></li>
-            @if ( Auth::user() )
-              <li><a href="#">Favorite</a></li>
-            @endif
->>>>>>> d5afc803741f09b41774719405d6e113a59a6661
+            <li><a class="@yield('')" href="{{ route('events') }}">Calender</a></li>
+            <li><a class="@yield('')" href="{{ route('intheater') }}">In theater</a></li>
+            <li><a class="@yield('')" href="{{ route('lastupdate') }}">Last update</a></li>
+             @if ( Auth::user() )
+              <li><a class="@yield('')" href="{{ route('favorite') }}">Favorite</a></li>
+             @endif
           </ul>
         </div>
 
