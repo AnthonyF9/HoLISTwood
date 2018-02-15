@@ -2,26 +2,32 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/default.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/back-style.css') }}" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <title></title>
+    <title>@yield('title')</title>
   </head>
   <body>
     <div id="wrapper">
       <header>
         <div id="titreHeader">
-          <h1> Panneau de contrôle </h1>
-          <h2><a href="{{ route('home') }}">Retourner sur le site</a></h2>
+          <h1><a href="{{ route('dashboard') }}"> Dashboard </a></h1>
+          <h2><a href="{{ route('home') }}">Back to site</a></h2>
         </div>
         <nav>
           <ul>
-            <li><a href="{{ route('dashboard') }}">Accueil du panneau de contrôle</a></li>
-            <li><a href="./back-users.php">Utilisateurs</a></li>
-            <li><a href="./back-movies.php">Films</a></li>
-            <li><a href="./back-movies-moderation.php">Films à modérer</a></li>
-            <li><a href="./back-comments.php">Commentaires</a></li>
+            <li><a href="{{ route('dashboard') }}" class="@yield('activedashboard')">Dashboard home</a></li>
+            <li><a href="{{ route('userslist') }}" class="@yield('activeuserslist')">Users</a></li>
+            <li>
+              <button id="back-movies" class="@yield('activemovieslist') @yield('activeaddimdb')">Movies</button>
+              <ul id="back-nav-movies">
+                <li><a href="{{ route('movieslist') }}" class="@yield('activemovieslist')">Movies</a></li>
+                <li><a href="{{ route('addimdb') }}" class="@yield('activeaddimdb')">Add a movie</a></li>
+              </ul>
+            </li>
+            {{-- <li><a href="./back-movies-moderation.php">Movies moderation</a></li> --}}
           </ul>
         </nav>
       </header>
@@ -29,7 +35,8 @@
         <main>
 
           <div id="stats">
-
+            @yield('content-alpha')
+            @yield('content-beta')
           </div>
 
         </main>

@@ -162,7 +162,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        MaddHatter\LaravelFullcalendar\ServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -179,6 +179,9 @@ return [
 
         //debugbar
         'Barryvdh\Debugbar\ServiceProvider',
+
+        // form et html
+        Collective\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -232,6 +235,12 @@ return [
         // debugbar
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
 
+        // forms et html
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+
+        //calendar
+        'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
     ],
 
 ];

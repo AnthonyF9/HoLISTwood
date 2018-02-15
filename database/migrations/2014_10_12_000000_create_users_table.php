@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
           $table->char('email', 150)->unique();
           $table->char('password', 255);
           $table->rememberToken();
-          $table->enum('role', ['user', 'mod', 'admin'])->default('user');
+          $table->enum('role', ['banned','user', 'mod', 'admin'])->default('user');
           $table->timestamps();
       });
     }
