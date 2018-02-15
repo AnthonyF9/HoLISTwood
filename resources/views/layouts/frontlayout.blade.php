@@ -105,7 +105,7 @@
           </div>
         </nav>
         <div id="bottom-menu">
-          <h1> holistwood </h1>
+          <h1><a href="{{ route('home') }}"> holistwood </a></h1>
           <ul id="menu2">
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
           </ul>
