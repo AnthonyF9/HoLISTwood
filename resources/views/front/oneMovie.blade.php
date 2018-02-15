@@ -1,7 +1,7 @@
 @extends('layouts/frontlayout')
 
 @section('title')
-  Titre - année - HOLISTWOOD
+  {{$movie[0]->title}} - {{$movie[0]->year}} - HOLISTWOOD
 @endsection
 
 @section('content')
@@ -10,11 +10,8 @@
   </div>
 
   <div class="detail-part">
-    <div class="affiches">
-      <article class="affiche">
         <img src="{{ $movie[0]->poster }}" alt="Poster de {{ $movie[0]->title }}">
-      </article>
-    </div>
+    </iv>
 
     <div class="detail">
       <ul>

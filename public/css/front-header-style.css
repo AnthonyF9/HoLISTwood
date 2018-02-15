@@ -23,7 +23,7 @@ header {
   background-color: #212121;
   min-height: 100px;
 }
-header h1 {
+header h1 a {
   text-transform: uppercase;
   font-size: 2em;
   color: #2A89EB;
@@ -32,9 +32,12 @@ header h1 {
   font-family: 'Orbitron', sans-serif;
   font-weight: bold;
 }
+<<<<<<< HEAD
+=======
 header h1 a {
   color: #2A89EB;
 }
+>>>>>>> 11469031908d40dec6ee3856566a79c699f6039b
 header h1 a:visited {
   color: #2A89EB;
 }
@@ -361,7 +364,7 @@ footer {
 
 
 /* -le Responsive- */
-@media (max-width: 635px) {
+@media (max-width: 835px) {
   header #top-menu {
     width: 100%;
     max-height: 50px;

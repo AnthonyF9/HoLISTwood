@@ -9,7 +9,7 @@ active @endsection
 
 @section('content')
 
-  
+
 
   <div id="trailer">
     <div class="rwd-trailer">
@@ -19,8 +19,9 @@ active @endsection
 
 
   <div class="affiches">
-    
+
     @foreach ($movies as $movie)
+
     <div class="grid">
       <a href="{{ route('oneMovie', array( 'imdb_id'=> $movie->imdb_id )) }}">
     	<figure data-aos="fade-up" class="effect-zoe">
