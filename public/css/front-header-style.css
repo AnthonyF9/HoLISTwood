@@ -23,7 +23,7 @@ header {
   background-color: #212121;
   min-height: 100px;
 }
-header h1 {
+header h1 a {
   text-transform: uppercase;
   font-size: 2em;
   color: #2A89EB;
@@ -31,6 +31,9 @@ header h1 {
   text-align: center;
   font-family: 'Orbitron', sans-serif;
   font-weight: bold;
+}
+header h1 a:visited {
+  color: #2A89EB;
 }
 
 
@@ -355,7 +358,7 @@ footer {
 
 
 /* -le Responsive- */
-@media (max-width: 635px) {
+@media (max-width: 835px) {
   header #top-menu {
     width: 100%;
     max-height: 50px;

@@ -20,11 +20,11 @@ active @endsection
 
     <article class="affiche">
 
-    <img src="{{$movie->poster}}" alt="">
+      <a href="{{ route('single',array('id' => $movie->imdb_id)) }}"><img src="{{$movie->poster}}" alt=""></a>
 
-    <div class="titre">
-      {{$movie->title}}
-    </div>
+      <div class="titre">
+        {{$movie->title}}
+      </div>
     </article>
      @endforeach
 

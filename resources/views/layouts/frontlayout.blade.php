@@ -105,9 +105,15 @@
           </div>
         </nav>
         <div id="bottom-menu">
-          <h1> holistwood </h1>
+          <h1><a class="@yield('activehome')" href="{{ route('home') }}">holistwood</a></h1>
           <ul id="menu2">
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">In theater</a></li>
+            <li><a href="#">Last update</a></li>
+            @if ( Auth::user() )
+              <li><a href="#">Favorite</a></li>
+            @endif
           </ul>
         </div>
 
