@@ -1,24 +1,24 @@
 @extends('layouts/backlayout')
 
 @section('title')
-  Chercher un IMDB - HOLISTWOOD
+  Find an IMDB - HOLISTWOOD
 @endsection
 
 @section('activeaddimdb','active')
 
 @section('content-alpha')
   <div class="part">
-    <h1>Chercher un IMDB</h1>
+    <h1>Find an IMDB</h1>
   </div>
 @endsection
 
 @section('content-beta')
-  <div class="part">
+  <div class="part partimdb">
     {!! Form::open(['route' => 'findmovie', 'method' => 'post'/*, 'onsubmit' => 'return false', 'id' => 'search-by-id-form'*/]) !!}
-      {!! Form::label('imdb', 'Imdb d\'un film : ', ['class' => '']) !!}
-      {!! Form::text('imdb', null, ['placeholder' => 'L\'imdb du film', 'id' => 'imdb']) !!}
+      {!! Form::label('imdb', 'Movie IMDB : ', ['class' => '']) !!}
+      {!! Form::text('imdb', null, ['placeholder' => 'Put your IMDB here', 'id' => 'imdb']) !!}
       {!! $errors->first('imdb','<div class="" role="alert">:message</div>') !!}
-      {!! Form::submit("Chercher", ['id' => '']) !!}
+      {!! Form::submit("Find", ['id' => '', 'class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
   </div>
 
@@ -27,5 +27,11 @@
           {{ session('status') }}
       </div>
   @endif
-  
+
+  @if (session('error'))
+      <div class="alert alert-danger">
+          {{ session('error') }}
+      </div>
+  @endif
+
 @endsection

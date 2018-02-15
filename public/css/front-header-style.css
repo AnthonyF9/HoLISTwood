@@ -1,3 +1,23 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #2D2D2D;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+}
+
+#wrapper {
+  /* width: 100%; */
+  min-height: 100%;
+  margin: 0 auto;
+  background-color: #2D2D2D;
+  position: relative;
+}
+
+
 /* Le header */
 header {
   background-color: #212121;
@@ -28,6 +48,8 @@ header #top-menu .social-network {
   border-right: 2.5px #2D2D2D solid;
   padding-right: 55px;
   display: block;
+  width: 20%;
+  min-width: 200px;
 }
 header #top-menu .social-network ul li img{
   width: 40px;
@@ -35,28 +57,72 @@ header #top-menu .social-network ul li img{
   margin: 0 5px;
 }
 header #top-menu .log {
-  margin-left: -55px;
+  width: 80%;
 }
-header #top-menu .log ul li{
-  margin: 0 10px;
-  display: inline-block;
+header nav#top-menu .log #large-screen {
+  height: 100%;
 }
-header nav ul li button {
-  display: inline-block;
-  width: 110px;
+header nav#top-menu .log #large-screen #menu1 {
+  height: 100%;
+  width: 90%;
+  padding: 0 5%;
+  display: flex;
+  flex-direction: row-reverse;
 }
-
-header nav{
-  width: 100%;
+header nav#top-menu .log #large-screen #menu1 li {
+  line-height: 100%;
   display: block;
+  margin-left: 10px;
+  position: relative;
 }
-header nav ul{
+header nav#top-menu .log #large-screen #menu1 li a {
+  white-space:nowrap;
+  padding-top: 7%;
+  height: 50%;
+  display: block;
+  position: relative;
+  margin: 10% 0;
+}
+ header nav#top-menu .log #large-screen #menu1 li span {
+  white-space:nowrap;
+  padding-top: 6px;
+  height: 50%;
+  display: block;
+  position: relative;
+  margin: 10% 0;
+}
+header nav#top-menu .log #large-screen #menu1 li#hello-user a {
+  display: block;
+  position: relative;
+  margin: 5% 0;
+}
+header nav#top-menu .log #large-screen #menu1 li#hello-user a {
+  padding-top: 10.5px;
+}
+/* header nav ul li button{
+  background: none;
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  font-size: 0.95em;
+  font-family: 'Roboto', sans-serif;
+  white-space: nowrap;
+  margin: 10% 0;
+  height: 50%;
+}
+header nav ul li button:hover{
+  color: #73b3f2;
+} */
+
+
+
+header .social-network ul, header ul#menu2 {
   width: 50%;
   margin: auto;
   display: flex;
   justify-content: space-between;
 }
-header nav ul li a {
+header nav ul li a, header nav ul li span  {
   text-transform: uppercase;
   font-size: 0.95em;
   -o-transition:.5s;
@@ -68,25 +134,15 @@ header nav ul li a {
 header nav ul li a, header nav ul li a:visited{
   color: white;
 }
-header nav ul li a:hover{
+header nav ul li a:hover, header nav ul li span:hover{
   color: #73b3f2;
+  cursor: pointer;
 }
-header nav ul li a:active{
+header nav ul li a:active, header nav ul li span:active{
   color: #2A89EB;
 }
-header nav ul li a.active {
+header nav ul li a.active, header nav ul li span.active {
   color: #2A89EB;
-}
-header nav ul li button{
-  background: none;
-  color: white;
-  border: none;
-  text-transform: uppercase;
-  font-size: 0.95em;
-  font-family: 'Roboto', sans-serif;
-}
-header nav ul li button:hover{
-  color: #73b3f2;
 }
 #menuToggle {
   display: none;
@@ -152,6 +208,7 @@ header #bottom-menu #menu2 li button:hover{
     left: 0;
     top: 0;
     width: 100%; /* Full width */
+    height: 100%;
     /* height: 100%; /* Full height */ */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
@@ -182,8 +239,127 @@ header #bottom-menu #menu2 li button:hover{
 }
 
 
+/* Le main et son contenu */
+main {
+  max-width: 1400px;
+  margin: auto;
+  height: 100%;
+  padding-bottom: 200px;
+}
+
+#trailer {
+  width: 80%;
+  margin: 20px auto;
+}
+.rwd-trailer {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+}
+.rwd-trailer iframe {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.affiches {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.affiche {
+  background-color: #212121;
+  height: 380px;
+  width: 300px;
+
+  margin: 15px;
+}
+
+
+/* login/register */
+
+.panel {
+  background-color: #212121;
+  max-width: 300px;
+  width: 100%;
+  margin: 30px auto;
+  padding: 20px 5% 20px 5%;
+
+  text-align: left;
+}
+.panel-heading {
+  color: #2A89EB;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.form-group {
+  margin: 15px 0;
+}
+.form-group input[type=email], .form-group input[type=password], .form-group input[type=text] {
+  text-align: left;
+  width: 100%;
+  height: 30px;
+  font-size: 1.2em;
+  color:#fff;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px white solid;
+}
+.form-group input:focus {
+  outline:  none;
+  border-bottom: 2px #2A89EB solid;
+}
+.form-group button {
+  background-color: #2A89EB;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  padding: 15px 15px;
+  border-radius: 10px;
+}
+.form-group a {
+  margin-left: 10px;
+  color: white;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+.form-group a:visited {
+  color: white;
+}
+.form-group a:hover {
+  color: #73b3f2;
+}
+.form-group a:active {
+  color: #2A89EB;
+}
+
+/* Le footer */
+footer {
+  background-color: #262626;
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
 /* -le Responsive- */
-@media (max-width: 525px) {
+@media (max-width: 635px) {
+  header #top-menu {
+    width: 100%;
+    max-height: 50px;
+  }
   header #top-menu .social-network {
     display: flex;
     flex-direction: row;
@@ -192,6 +368,9 @@ header #bottom-menu #menu2 li button:hover{
     width: 100%;
     padding-right: 0px;
     display: block;
+  }
+  header #top-menu .log {
+    display: none;
   }
   header #top-menu .social-network ul li img{
     width: 30px;
@@ -209,14 +388,8 @@ header #bottom-menu #menu2 li button:hover{
     display: inline-block;
     width: 110px;
   }
-  #top-menu {
-    max-height: 50px;
-  }
   #bottom-menu h1 {
     font-size: 1.5em;
-  }
-  #menu1 {
-    display: none;
   }
   #menu2 li {
     display: none;
@@ -319,7 +492,7 @@ header #bottom-menu #menu2 li button:hover{
   {
     position: absolute;
     width: 100%;
-    margin: -130px 0 0 -50px;
+    margin: -130px 0 0 -80px;
     padding: 50px;
     padding-top: 125px;
     background: rgba(0,0,0,0.7);
