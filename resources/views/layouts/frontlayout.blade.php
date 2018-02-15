@@ -22,10 +22,10 @@
         <nav id="top-menu">
           <div class="social-network">
             <ul>
-              <li><a href="#"><img src="{{ asset('img/facebook.svg') }}" alt="facebook"></a></li>
-              <li><a href="#"><img src="{{ asset('img/twitter.svg') }}" alt="twitter"></a></li>
-              <li><a href="#"><img src="{{ asset('img/linkedin.svg') }}" alt="linkedin"></a></li>
-              <li><a href="#"><img src="{{ asset('img/google-plus.svg') }}" alt="google-plus"></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/facebook2.svg"); ?></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/twitter2.svg"); ?></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/youtube.svg"); ?></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
             </ul>
           </div>
           <div class="log">
@@ -152,9 +152,7 @@
         </nav>
       </header>
 
-      <div class="bandeau"> coming soon</div>
-
-
+      @yield('bandeau')
 
       <main>
 

@@ -40,6 +40,7 @@
 	max-width: 100%;
 	/* opacity: 0.8; */
 	filter: saturate(110%);
+  border-radius: 5px;
 }
 
 .grid figure figcaption {
@@ -992,6 +993,7 @@ figure.effect-zoe figcaption {
 	transition: transform 0.35s;
 	-webkit-transform: translate3d(0,100%,0);
 	transform: translate3d(0,100%,0);
+
 }
 
 figure.effect-zoe h2 {

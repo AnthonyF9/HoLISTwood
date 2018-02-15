@@ -7,7 +7,12 @@
 @section('activehome')
 active @endsection
 
+@section('bandeau')
+  <div class="bandeau">&mdash; Your own movies list &mdash;</div>
+ @endsection
+
 @section('content')
+
 
 
 
