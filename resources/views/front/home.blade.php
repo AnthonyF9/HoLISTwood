@@ -16,15 +16,18 @@ active @endsection
 
 
   <div class="affiches">
+    
     @foreach ($movies as $movie)
-    <a href="{{ route('oneMovie', array( 'imdb_id'=> $movie->imdb_id )) }}">
-      <article class="affiche">
-        <img src="{{$movie->poster}}" alt="">
-        <div class="titre">
-          {{$movie->title}}
-        </div>
-      </article>
-    </a>
+    <div class="grid">
+      <a href="{{ route('oneMovie', array( 'imdb_id'=> $movie->imdb_id )) }}">
+    	<figure data-aos="fade-up" class="effect-zoe">
+    		<img src="{{$movie->poster}}" alt="{{$movie->title}}"/>
+    		<figcaption>
+    			<h2>{{$movie->title}}</h2>
+    		</figcaption>
+    	</figure>
+      </a>
+    </div>
      @endforeach
 
   </div>
