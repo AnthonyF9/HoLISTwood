@@ -68,6 +68,9 @@ header nav ul li:last-child {
 header nav ul li a:hover {
   text-decoration: underline dotted;
 }
+header nav ul li a.active {
+  color: #07B5DA;
+}
 
 /* Le main et son contenu */
 main {
@@ -75,13 +78,48 @@ main {
   top: 0;
   right: 0;
   left: 19%;
-  /* width: 78%; */
+  width: 78%;
   height: 96%;
-  padding: 1%;
+  padding-top: 1%;
 }
 #stats {
+  margin-left: 1%;
   background-color: #444;
   border: 1px solid #AAA;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
+}
+.part {
+  margin: 10px;
+}
+.part label {
+  display: block;
+  float: left;
+  width: 125px;
+}
+.part input {
+  width: auto;
+}
+
+.partimdb [type=submit] {
+ border-radius: 2%;
+ min-width: 100px;
+ padding: 2px;
+ margin-bottom: 1px;
+}
+
+/* .part .btn {
+  width: 100px;
+  height: 30px;
+  display: block;
+  margin: 10px 25%;
+} */
+
+h1 {
+  font-size: 2em;
+}
+
+.movieslist .btn-danger {
+  margin-top: 5px;
+  padding: 5px;
 }

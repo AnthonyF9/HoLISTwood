@@ -1,0 +1,520 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #2D2D2D;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+}
+
+#wrapper {
+  /* width: 100%; */
+  min-height: 100%;
+  margin: 0 auto;
+  background-color: #2D2D2D;
+  position: relative;
+}
+
+
+/* Le header */
+header {
+  background-color: #212121;
+  min-height: 100px;
+}
+header h1 {
+  text-transform: uppercase;
+  font-size: 2em;
+  color: #2A89EB;
+  line-height: 70px;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+}
+
+
+header #top-menu {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2.5px #2D2D2D solid;
+  padding: 10px 0;
+  height: 40px;
+  text-align: right;
+}
+header #top-menu .social-network {
+  display: flex;
+  flex-direction: row;
+  border-right: 2.5px #2D2D2D solid;
+  padding-right: 55px;
+  display: block;
+  width: 20%;
+  min-width: 200px;
+}
+header #top-menu .social-network ul li img{
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+}
+header #top-menu .log {
+  width: 80%;
+}
+header nav#top-menu .log #large-screen {
+  height: 100%;
+}
+header nav#top-menu .log #large-screen #menu1 {
+  height: 100%;
+  width: 90%;
+  padding: 0 5%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+header nav#top-menu .log #large-screen #menu1 li {
+  line-height: 100%;
+  display: block;
+  margin-left: 10px;
+  position: relative;
+}
+header nav#top-menu .log #large-screen #menu1 li a {
+  white-space:nowrap;
+  padding-top: 7%;
+  height: 50%;
+  display: block;
+  position: relative;
+  margin: 10% 0;
+}
+ header nav#top-menu .log #large-screen #menu1 li span {
+  white-space:nowrap;
+  padding-top: 6px;
+  height: 50%;
+  display: block;
+  position: relative;
+  margin: 10% 0;
+}
+header nav#top-menu .log #large-screen #menu1 li#hello-user a {
+  display: block;
+  position: relative;
+  margin: 5% 0;
+}
+header nav#top-menu .log #large-screen #menu1 li#hello-user a {
+  padding-top: 10.5px;
+}
+/* header nav ul li button{
+  background: none;
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  font-size: 0.95em;
+  font-family: 'Roboto', sans-serif;
+  white-space: nowrap;
+  margin: 10% 0;
+  height: 50%;
+}
+header nav ul li button:hover{
+  color: #73b3f2;
+} */
+
+
+
+header .social-network ul, header ul#menu2 {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+header nav ul li a, header nav ul li span  {
+  text-transform: uppercase;
+  font-size: 0.95em;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+header nav ul li a, header nav ul li a:visited{
+  color: white;
+}
+header nav ul li a:hover, header nav ul li span:hover{
+  color: #73b3f2;
+  cursor: pointer;
+}
+header nav ul li a:active, header nav ul li span:active{
+  color: #2A89EB;
+}
+header nav ul li a.active, header nav ul li span.active {
+  color: #2A89EB;
+}
+#menuToggle {
+  display: none;
+}
+#bottom-menu {
+  display: flex;
+  flex-direction: row;
+}
+#bottom-menu h1 {
+  width: 30%;
+  margin-left: 10%;
+}
+#bottom-menu #menu2 {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#bottom-menu #menu2 li a {
+  text-transform: uppercase;
+  font-size: 0.95em;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+header #bottom-menu #menu2 li a, header #bottom-menu #menu2 li a:visited{
+  color: white;
+}
+header #bottom-menu #menu2 li a:hover{
+  color: #73b3f2;
+}
+header #bottom-menu #menu2 li a:active{
+  color: #2A89EB;
+}
+header #bottom-menu #menu2 li a.active {
+  color: #2A89EB;
+}
+header #bottom-menu #menu2 li button{
+  background: none;
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  font-size: 0.95em;
+  font-family: 'Roboto', sans-serif;
+}
+header #bottom-menu #menu2 li button:hover{
+  color: #73b3f2;
+}
+
+
+
+/*
+ * La modale de connexion
+ */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%;
+    /* height: 100%; /* Full height */ */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content/Box */
+.modal-content {
+    /* background-color: #fefefe; */
+    margin: 10% auto; /* 15% from the top and centered */
+    padding: 20px;
+    /* border: 1px solid #888; */
+    width: 80%; /* Could be more or less, depending on screen size */
+    position: relative;
+}
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
+
+/* Le main et son contenu */
+main {
+  max-width: 1400px;
+  margin: auto;
+  height: 100%;
+  padding-bottom: 200px;
+}
+
+#trailer {
+  width: 80%;
+  margin: 20px auto;
+}
+.rwd-trailer {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+}
+.rwd-trailer iframe {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.affiches {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.affiche {
+  background-color: #212121;
+  height: 380px;
+  width: 300px;
+
+  margin: 15px;
+}
+
+
+/* login/register */
+
+.panel {
+  background-color: #212121;
+  max-width: 300px;
+  width: 100%;
+  margin: 30px auto;
+  padding: 20px 5% 20px 5%;
+
+  text-align: left;
+}
+.panel-heading {
+  color: #2A89EB;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.form-group {
+  margin: 15px 0;
+}
+.form-group input[type=email], .form-group input[type=password], .form-group input[type=text] {
+  text-align: left;
+  width: 100%;
+  height: 30px;
+  font-size: 1.2em;
+  color:#fff;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px white solid;
+}
+.form-group input:focus {
+  outline:  none;
+  border-bottom: 2px #2A89EB solid;
+}
+.form-group button {
+  background-color: #2A89EB;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  padding: 15px 15px;
+  border-radius: 10px;
+}
+.form-group a {
+  margin-left: 10px;
+  color: white;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+.form-group a:visited {
+  color: white;
+}
+.form-group a:hover {
+  color: #73b3f2;
+}
+.form-group a:active {
+  color: #2A89EB;
+}
+
+/* Le footer */
+footer {
+  background-color: #262626;
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+/* -le Responsive- */
+@media (max-width: 635px) {
+  header #top-menu {
+    width: 100%;
+    max-height: 50px;
+  }
+  header #top-menu .social-network {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-right: none;
+    width: 100%;
+    padding-right: 0px;
+    display: block;
+  }
+  header #top-menu .log {
+    display: none;
+  }
+  header #top-menu .social-network ul li img{
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+  }
+  header #top-menu .log {
+    margin-left: 0px;
+  }
+  header #top-menu .log ul li{
+    margin: 0 10px;
+    display: inline-block;
+  }
+  header nav ul li button {
+    display: inline-block;
+    width: 110px;
+  }
+  #bottom-menu h1 {
+    font-size: 1.5em;
+  }
+  #menu2 li {
+    display: none;
+  }
+  #bottom-menu {
+    display: flex;
+    flex-direction: row;
+  }
+  #bottom-menu h1 {
+    width: 90%;
+    margin-left: 10%;
+  }
+  #bottom-menu #menu2 {
+    width: 0%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  #menuToggle
+  {
+    display: block;
+    position: relative;
+    top: -45px;
+    left: 10%;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+    width: 90%;
+  }
+  #menuToggle input
+  {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */
+    -webkit-touch-callout: none;
+  }
+  /*
+   * Just a quick hamburger
+   */
+  #menuToggle span
+  {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #cdcdcd;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+  }
+  #menuToggle span:first-child
+  {
+    transform-origin: 0% 0%;
+  }
+  #menuToggle span:nth-last-child(2)
+  {
+    transform-origin: 0% 100%;
+  }
+  /*
+   * Transform all the slices of hamburger
+   * into a crossmark.
+   */
+  #menuToggle input:checked ~ span
+  {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: white;
+  }
+  /*
+   * But let's hide the middle one.
+   */
+  #menuToggle input:checked ~ span:nth-last-child(3)
+  {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  /*
+   * Ohyeah and the last one should go the other direction
+   */
+  #menuToggle input:checked ~ span:nth-last-child(2)
+  {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+  /*
+   * Make this absolute positioned
+   * at the top left of the screen
+   */
+  #menu
+  {
+    position: absolute;
+    width: 100%;
+    margin: -130px 0 0 -80px;
+    padding: 50px;
+    padding-top: 125px;
+    background: rgba(0,0,0,0.7);
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    display: flex;
+    flex-direction: column;
+  }
+  #menu li
+  {
+    padding: 10px 0;
+    font-size: 22px;
+  }
+  /*
+   * And let's slide it in from the left
+   */
+  #menuToggle input:checked ~ ul
+  {
+    transform: none;
+  }
+}

@@ -41,3 +41,11 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+b {
+	font-weight: bold;
+}
+
+i{
+	font-style: italic;
+}

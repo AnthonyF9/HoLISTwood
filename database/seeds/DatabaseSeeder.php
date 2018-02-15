@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
 
          $this->call(MoviesTableSeeder::class);
          $this->call(UsersSeeder::class);
+         $this->call(AddDummyEvent::class);
 
     }
 }
