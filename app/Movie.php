@@ -10,8 +10,8 @@ class Movie extends Model
 
     protected $fillable = ['title','year', 'runtime', 'director', 'writers', 'actors', 'plot', 'awards', 'poster', 'imdb_id', 'production', 'website', 'genre', 'status'];
 
-    // public function user()
-    // {
-    //   return $this->belongsTo('\App\User');
-    // }
+    public function release()
+    {
+    return $this->hasOne('\App\Release');
+   }
 }
