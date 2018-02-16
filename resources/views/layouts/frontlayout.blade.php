@@ -166,15 +166,14 @@
       </main>
 
       <footer>
-<<<<<<< HEAD
+
         <div id="footer-top">
           <div class="contact-button">
             <button type="button" name="contact"><a href="#">Contact</a></button>
           </div>
           <div class="center">
-=======
-      
->>>>>>> 5f3cdd454acf5eb8dc930142f39822c24048b29f
+
+
 
           </div>
           <div class="social-network">

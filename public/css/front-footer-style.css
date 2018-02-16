@@ -8,7 +8,6 @@ footer {
   right: 0;
 }
 
-<<<<<<< HEAD
 footer #footer-top, footer #footer-center {
   display: flex;
   flex-direction: row;
@@ -127,6 +126,3 @@ footer #footer-bottom {
   }
 
 }
-=======
-;
->>>>>>> 5f3cdd454acf5eb8dc930142f39822c24048b29f
