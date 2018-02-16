@@ -8,7 +8,7 @@ class Movie extends Model
 {
     protected $table = 'movies';
 
-    protected $fillable = ['title','year', 'runtime', 'director', 'writers', 'actors', 'plot', 'awards', 'poster', 'imdb_id', 'production', 'website', 'genre', 'status','moderation'];
+    protected $fillable = ['title', 'release_date','year', 'runtime', 'director', 'writers', 'actors', 'plot', 'awards', 'poster', 'imdb_id', 'production', 'website', 'genre', 'status','moderation'];
 
     public function release()
     {
