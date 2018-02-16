@@ -107,7 +107,6 @@ footer #footer-bottom {
 
   footer #footer-top {
     display: flex;
-    flex-direction: column-reverse;
   }
   footer #footer-top .center {
     display: none;
