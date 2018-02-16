@@ -14,13 +14,13 @@ class CommentsSeeder extends Seeder
       $comments =[];
       $date = new DateTime();
       $comments[] = array (
-        'id_user' =>'' ,
-        'id_movie' => '',
-        'content'  => '',
-        'status'   => 'out',
-        'created_at' => $date->format('Y-m-d H:i:s')
+        'id_user' =>2 ,
+        'id_movie' => 3,
+        'content'  => 'testons les commentaires',
+        'state'   => 'published',
+        'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s')
-
       );
+      DB::table('comments')->insert($comments);
     }
 }

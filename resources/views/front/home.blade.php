@@ -8,7 +8,15 @@
 active @endsection
 
 @section('bandeau')
-  <div class="bandeau">&mdash; Your own movies list &mdash;</div>
+  <div class="bandeau">
+    @guest
+    <p>&mdash; Welcome to Holistwood,  an active online movie community and database. Join the online community, create your movie list, explore the comments section, follow news, and so much more! &mdash;</p>
+
+    @endguest
+    @if ( Auth::user())
+      <p>&mdash; Hey {{ Auth::user()->name }} ! How are you today ? :) &mdash;</p>
+    @endif
+    </div>
  @endsection
 
 @section('content')
@@ -17,9 +25,13 @@ active @endsection
 
 
   <div id="trailer">
-    <div class="rwd-trailer">
-      <iframe width = "917px" height="490px" src="https://www.youtube.com/embed/6ZfuNTqbHE8" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-    </div>
+      <div class="rwd-trailer">
+        <iframe width = "917px" height="490px" src="https://www.youtube.com/embed/6ZfuNTqbHE8" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+      </div>
+  </div>
+
+  <div class="bandeau2">
+    <h2> random movies </h2>
   </div>
 
 

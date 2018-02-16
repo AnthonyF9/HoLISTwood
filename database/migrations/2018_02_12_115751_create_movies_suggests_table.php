@@ -27,7 +27,7 @@ class CreateMoviesSuggestsTable extends Migration
           $table->text('imdb_id')->nullable(true);
           $table->char('production', 255)->nullable(true);
           $table->char('website', 255)->nullable(true);
-          $table->char('triller', 255)->nullable(true);
+          $table->char('trailer', 255)->nullable(true);
           $table->enum('status', ['published','deleted','waiting moderation'])->default('waiting moderation');
           });
 

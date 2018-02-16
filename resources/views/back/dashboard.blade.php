@@ -8,4 +8,8 @@
 
 @section('content-alpha')
   Dashboard
+  <br/>
+  Films les plus add-listés
+  <br/>
+  Utilisateurs les plus actifs dans les commentaires
 @endsection

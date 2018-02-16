@@ -99,4 +99,24 @@ class MoviesController extends Controller
       return redirect()->route('movieslist')->with('status', 'Movie deleted');
     }
 
+
+
+  public function moviesmoderatelist()
+  {
+      $movies = Movie::orderBy('created_at','desc')->where('moderation', '=', 'waiting')->paginate(6);
+      return view('back/movies/movies-moderate-list', compact('movies'));
+  }
+
+  public function moderatemovie($id)
+  {
+    $movie = Movie::findOrFail($id);
+    return view('back/movies/moderate-movie', compact('id', 'movie'));
+  }
+
+  public function moderatemovieaction(MovieRequest $request, $id)
+  {
+    Movie::findOrFail($id)->update($request->all());
+    return redirect()->route('moderatemovieslist')->with('status', 'Movie edited');
+  }
+
 }

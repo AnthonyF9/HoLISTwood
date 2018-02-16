@@ -4,7 +4,7 @@
   Edit one movie - HOLISTWOOD
 @endsection
 
-@section('activemovieslist','active')
+@section('activemoderatemovieslist','active')
 
 @section('content-alpha')
   <div class="part">
@@ -22,7 +22,7 @@
   <div class="part">
     <h2> Edit <b>{{ $movie->title }}</b> by <i>{{ $movie->director }}</i> </h2>
 
-    {!! Form::open(['route' => ['editmovie-action', $id], 'method' => 'put']) !!}
+    {!! Form::open(['route' => ['moderatemovie-action', $id], 'method' => 'put']) !!}
 
       {!! Form::label('title', 'Title : ', ['class' => '']) !!}
       {!! Form::text('title', $movie->title, ['placeholder' => 'Titre', 'class' => '']) !!}

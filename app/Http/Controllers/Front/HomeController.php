@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Front;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Movie;
+use App\Trailer;
+
 class HomeController extends Controller
 {
     /**
@@ -27,25 +29,25 @@ class HomeController extends Controller
         return view('front/home',compact('movies'));
     }
 
-    public function profile()
-    {
-        return view('front/profile');
-    }
-
     public function oneMovie($imdb_id)
     {
         $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
         if (!empty($movie)) {
+
+          $trailers = \DB::table('movies')
+                      ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
+                      ->get();
+
+          // dd($trailers);
+
           return view('front/oneMovie', compact('imdb_id','movie'));
         }
         else {
           abort(404);
         }
-    }
 
-    public function calender()
-    {
-      return view('/fullcalender');
+
+
     }
 
     public function intheater()
@@ -58,14 +60,5 @@ class HomeController extends Controller
     {
       $movies = Movie::orderBy('updated_at','desc')->get();
       return view('front/lastupdate');
-    }
-
-    public function favorite()
-    {
-      // $movie = DB::table('movies')
-      //           ->leftJoin('rating','movies.id','=','rating.id_movie')
-      //           ->orderBy('rating.note','desc')
-      //           ->get();
-        return view('front/favorite',compact('movies'));
     }
 }

@@ -33,13 +33,4 @@ $(document).ready(function() {
             modal.style.display = "none";
         }
     }
-
-    ///////////////////////////////////////////////////
-    /////////// Le menu déroulant dashboard ///////////
-    ///////////////////////////////////////////////////
-    var backnavmovies = document.getElementById('back-nav-movies');
-    var backmovies = document.getElementById("back-movies");
-    backmovies.onclick = function() {
-        backnavmovies.style.display = "block";
-    }
 });

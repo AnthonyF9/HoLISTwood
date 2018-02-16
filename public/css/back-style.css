@@ -37,7 +37,7 @@ header {
   left: 0;
 }
 #titreHeader {
-  margin: 0 0 1%;
+  margin: 0 0 10%;
   height: 19%;
 }
 #titreHeader h1 {
@@ -55,37 +55,130 @@ header {
 header nav {
   height: 80%;
 }
-header nav ul {
-  display: flex;
-  flex-direction: column;
-}
-header nav>ul>li {
-  border-bottom: 1px solid #AAAAAA;
-  padding: 5px;
-}
-header nav>ul>li:last-child {
-  border-bottom: 0px solid #AAAAAA;
-}
-header nav ul li a:hover {
+header ul li a:hover {
   text-decoration: underline dotted;
 }
-header nav ul li a.active {
+header ul li a.active {
   color: #07B5DA;
 }
-header nav>ul>li>ul {
-  padding: 5px;
-  padding-left: 15px;
+
+#main_menu_nav {
+  position: relative;
+  width: 100%;
 }
-#back-movies {
-  border: none;
-  background: none;
-  color: white;
+#main_menu_nav h3 {
+  color: #FFF;
+  padding: 8px;
+  padding-left: 10px;
+  cursor: pointer;
+  position: relative;
 }
-#back-movies:hover {
+#main_menu_nav h3 a:hover {
   text-decoration: underline dotted;
 }
-#back-movies.active {
+#main_menu_nav h3 a.active {
   color: #07B5DA;
+}
+#main_menu_nav h3:hover {
+  text-decoration: underline dotted;
+}
+#main_menu_nav h3.active {
+  color: #07B5DA;
+}
+#main_menu_nav ul {
+  height: auto;
+  display: none;
+  width: 100%;
+}
+#main_menu_nav li {
+  color: #D2D7D8;
+  /* background: #00789a; */
+  padding: 10px;
+  padding-left: 30px;
+  /* border-bottom: 1px solid #035c7e; */
+}
+  #main_menu_nav li:hover {
+    color: #FFF;
+    /* background: #108BAD; */
+  }
+    #main_menu_nav li:last-child {
+      border-bottom: none;
+    }
+/* Cachons la case à cocher */
+#main_menu_nav [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+/* on prépare le label */
+#main_menu_nav [type="checkbox"]:not(:checked) + label, [type="checkbox"]:checked + label {
+  padding-left: 10px;
+  padding-bottom: 36px;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+}
+/* Aspect général de la coche */
+#main_menu_nav [type="checkbox"]:not(:checked) + label:after, [type="checkbox"]:checked + label:after {
+  content: '\25bc';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 14px;
+  /* color: #002E41; */
+  transition: all .2s;
+}
+/* Aspect si "pas cochée" */
+#main_menu_nav [type="checkbox"]:not(:checked) + label:after {
+  opacity: 0; /* coche invisible */
+  transform: scale(0); /* mise à l'échelle à 0 */
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+}
+/* Aspect si "cochée" */
+#main_menu_nav [type="checkbox"]:checked + label:after {
+  opacity: 1; /* coche opaque */
+  transform: scale(1); /* mise à l'échelle 1:1 */
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+}
+#main_menu_nav label:before {
+  opacity: 0;
+}
+#main_menu_nav label:hover:before {
+  content: '\25bc';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 14px;
+  /* color: #002E41; */
+  transition: all .2s;
+  opacity: 1; /* coche opaque */
+}
+.main_menu_nav_part {
+  border-top: 1px solid #AAAAAA;
+}
+#main_menu_nav_part1, #main_menu_nav_part2, #main_menu_nav_part3 {
+  position: relative;
+}
+#main_menu_nav_part1 [type="checkbox"]:checked + label + ul, #main_menu_nav_part2 [type="checkbox"]:checked + label + ul, #main_menu_nav_part3 [type="checkbox"]:checked + label + ul {
+  display: block;
+}
+#main_menu_nav_part3 h3.active + [type="checkbox"] + label + ul {
+  display: block;
+}
+/* CLASS */
+.transition_css {
+  transition: all .2s ease-out;
+  -webkit-transition : all .2s ease-out;
+  -moz-transition: all .2s ease-out;
+  -o-transition: all .2s ease-out;
+  -ms-transition: all .2s ease-out;
 }
 
 /* Le main et son contenu */
@@ -119,9 +212,6 @@ main {
 #nav-movies ul li {
   margin-right: 10px;
 }
-/* #back-nav-movies {
-  display: none;
-} */
 .part {
   margin: 10px;
 }
