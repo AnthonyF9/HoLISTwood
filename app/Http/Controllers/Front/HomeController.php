@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Front;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Movie;
+use App\Trailer;
+
 class HomeController extends Controller
 {
     /**
@@ -31,11 +33,21 @@ class HomeController extends Controller
     {
         $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
         if (!empty($movie)) {
+
+          $trailers = \DB::table('movies')
+                      ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
+                      ->get();
+
+          // dd($trailers);
+
           return view('front/oneMovie', compact('imdb_id','movie'));
         }
         else {
           abort(404);
         }
+
+
+
     }
 
     public function intheater()

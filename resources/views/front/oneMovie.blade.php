@@ -4,9 +4,14 @@
   {{$movie[0]->title}} - {{$movie[0]->year}} - HOLISTWOOD
 @endsection
 
+@section('bandeau')
+  <div class="bandeau">
+    <h2> &mdash; {{ $movie[0]->title }} &mdash; </h2>
+    </div>
+ @endsection
+
 @section('content')
   <div class="title">
-    <h1>{{ ucfirst($movie[0]->title) }}</h1>
   </div>
 
   <div class="detail-part">
@@ -56,6 +61,7 @@
   </div> --}}
 
   <div class="plot">
+    <h3>Plot</h3>
     <p>{{ ucfirst($movie[0]->plot) }}</p>
   </div>
 
