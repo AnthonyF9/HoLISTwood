@@ -35,7 +35,6 @@ main {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-
 }
 .affiche {
   background-color: #212121;
@@ -87,6 +86,13 @@ div.titre {
   justify-content: center;
 }
 
+.bandeau h2{
+  text-transform: uppercase;
+  font-size: 2em;
+  font-weight: bold;
+  /* text-align: center; */
+}
+
 .bandeau2 {
   /* background-color: #212121; */
   min-height: 70px;
@@ -102,14 +108,17 @@ div.titre {
   border-radius: 10px;
 }
 
-
-
-.bandeau2 p {
+.bandeau2 h2 {
   text-transform: uppercase;
   font-family: 'Orbitron';
   font-size: 1.5em;
+  border-bottom: 3px solid white;
+  color: white;
+  border-radius: 10%;
+  width: 50%;
+  margin: auto;
+  font-weight: bold;
 }
-
 
 
 /* login/register */
@@ -178,7 +187,7 @@ div.titre {
 /* Single */
 
 .title {
-  margin: 10px auto;
+  margin: 25px auto;
 }
 .title h1{
   text-transform: uppercase;
@@ -250,6 +259,11 @@ div.titre {
 .comment .comment-list p {
   background-color: #262626;
   min-height: 100px;
+}
+
+.detail-entitled {
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 /* Profile */

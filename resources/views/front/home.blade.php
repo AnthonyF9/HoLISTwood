@@ -31,7 +31,7 @@ active @endsection
   </div>
 
   <div class="bandeau2">
-    <p> random movies </p>
+    <h2> random movies </h2>
   </div>
 
 
