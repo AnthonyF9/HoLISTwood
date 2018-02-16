@@ -173,11 +173,11 @@ header nav#top-menu .log #large-screen #menu1 li a {
 }
 
 header nav#top-menu .log #large-screen #menu1 li#log a {
-line-height: 24px;
+line-height: 150%;
 }
 
 #myBtn{
-  line-height: 14px;
+  line-height: 90%;
 }
 
 
