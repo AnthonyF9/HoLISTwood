@@ -61,6 +61,7 @@
   </div> --}}
 
   <div class="plot">
+    <h3>Plot</h3>
     <p>{{ ucfirst($movie[0]->plot) }}</p>
   </div>
 

@@ -205,6 +205,7 @@ div.titre {
 .detail-part img {
   max-width: 300px;
   max-height: 427px;
+  border-radius: 5px;
 }
 .detail-part .detail {
   padding: 50px 0;
@@ -237,16 +238,28 @@ div.titre {
 }
 .plot {
   margin: 10px auto;
-  width: 90%;
+  width: 76%;
   background-color: #262626;
+  border-radius: 10px;
   text-align: center;
   padding: 2%;
   min-height: 100px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
+
+.plot h3 {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #2A89EB;
+
+}
+
 .comment {
   margin: 20px auto;
-  width: 90%;
+  width: 80%;
   justify-content: center;
 }
 .comment h3 {
@@ -259,6 +272,11 @@ div.titre {
 .comment .comment-list p {
   background-color: #262626;
   min-height: 100px;
+  border-radius: 10px;
+
+}
+
+.comment-list {
 }
 
 .detail-entitled {
@@ -415,6 +433,7 @@ div.titre {
     display: flex;
     flex-direction: column;
   }
+
   .detail-part .detail-poster {
     text-align: center;
     justify-content: center;
