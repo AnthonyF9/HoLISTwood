@@ -26,12 +26,11 @@
               <li><a href="#"><?php echo file_get_contents("img/youtube.svg"); ?></a></li>
               <li><a href="#"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
             </ul>
-          </div>
+          </div><!-- .social-network -->
           <div class="log">
             <nav id="large-screen">
               <ul id="menu1">
                 @guest
-                {{-- @if (!empty($errors)) --}}
                 <li><span id="myBtn" type="button" name="button" >Log in</span></li>
                 <li><a class="@yield('activeregister')" href="{{ route('register') }}">Register</a></li>
                 <div id="myModal" class="modal">
@@ -80,14 +79,12 @@
                                  </div>
                              </div>
                          </form>
-                      </div>
+                      </div><!-- .panel-body -->
                     </div>
-                 </div>
-                </div>
-                {{-- @endif --}}
+                 </div><!-- .modal-content -->
+               </div><!-- #myModal -->
                 @else
                 <li id="log">
-                  {{-- <div id="logout"> --}}
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
@@ -96,8 +93,7 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>
-                  {{-- </div> --}}
-                </li>
+                </li><!-- #log -->
                 <li><a class="@yield('activeprofile')" href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
                   @if ( Auth::user()->role == 'admin')
                 <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
@@ -105,8 +101,8 @@
                 @endguest
               </ul><!-- #menu1 -->
             </nav><!-- #large-screen -->
-          </div>
-        </nav>
+          </div><!-- .log -->
+        </nav><!-- #top-menu -->
         <div id="bottom-menu">
           <p id="anim-p">
             <a class="@yield('activehome')" href="{{ route('home') }}">
@@ -123,8 +119,8 @@
              @if ( Auth::user() )
               <li><a class="@yield('')" href="{{ route('favorite') }}">Favorite</a></li>
              @endif
-          </ul>
-        </div>
+          </ul><!-- #menu2 -->
+        </div><!-- #bottom-menu -->
 
         <nav role="navigation">
           <div id="menuToggle">
@@ -154,8 +150,8 @@
                      </div>
                    </li>
               @endguest
-            </ul>
-          </div>
+            </ul><!-- #menu -->
+          </div><!-- #menuToggle -->
         </nav>
       </header>
 
@@ -178,8 +174,7 @@
      <script>
       AOS.init();
      </script>
-
-     @yield('js-calendar')
+     @yield('js')
    </div>
  </body>
 </html>

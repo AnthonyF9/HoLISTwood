@@ -48,8 +48,8 @@
   <div class="content">
       <div class="title">
         <h1>404</h1>
-          Désolé, la page que vous cherchez ne correspond à aucune page.
-          <a href="{{ route('home') }}"><p id="retour">Accueil</p></a>
+          Sorry, the page you are looking for could not be found.
+          <a href="{{ route('home') }}"><p id="retour">Home</p></a>
       </div>
   </div>
 @endsection

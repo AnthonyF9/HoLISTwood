@@ -17,7 +17,7 @@ class CreateRatingTable extends Migration
           $table->increments('id');
           $table->integer('id_user');
           $table->integer('id_movie');
-          $table->char('note');
+          $table->enum('note',[0,1,2,3,4,5])->nullable(true);
         });
     }
 
