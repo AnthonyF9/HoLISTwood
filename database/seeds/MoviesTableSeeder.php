@@ -195,7 +195,7 @@ class MoviesTableSeeder extends Seeder
         'writers' => 'Ted Elliott (screen story), Terry Rossio (screen story), Stuart Beattie (screen story), Jay Wolpert (screen story), Ted Elliott (screenplay), Terry Rossio (screenplay)',
         'actors' => 'Johnny Depp, Geoffrey Rush, Orlando Bloom, Keira Knightley',
         'plot' => 'This swash-buckling tale follows the quest of Captain Jack Sparrow, a savvy pirate, and Will Turner, a resourceful blacksmith, as they search for Elizabeth Swann. Elizabeth, the daughter of the governor and the love of Will\'s life, has been kidnapped by the feared Captain Barbossa. Little do they know, but the fierce and clever Barbossa has been cursed. He, along with his large crew, are under an ancient curse, doomed for eternity to neither live, nor die. That is, unless a blood sacrifice is made.',
-        'awards' => 'Nominated for 5 Oscars. Another 36 wins & 96 nominations.11 wins & 37 nominations.',
+        'awards' => 'Nominated for 5 Oscars. Another 36 wins & 96 nominations.',
         'poster' => 'https://images-na.ssl-images-amazon.com/images/M/MV5BNGYyZGM5MGMtYTY2Ni00M2Y1LWIzNjQtYWUzM2VlNGVhMDNhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg',
         'imdb_id' => 'tt0325980',
         'production' => 'Buena Vista Pictures',
