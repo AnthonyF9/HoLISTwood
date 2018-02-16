@@ -13,7 +13,7 @@
     <div id="wrapper">
       <header>
         <div id="titreHeader">
-          <h1><a href="{{ route('dashboard') }}"> Dashboard </a></h1>
+          <h1><a href="{{ route('dashboard') }}"> Dashboard Holistwood </a></h1>
           <h2><a href="{{ route('home') }}">Back to site</a></h2>
         </div>
         <nav id="main_menu_nav">
