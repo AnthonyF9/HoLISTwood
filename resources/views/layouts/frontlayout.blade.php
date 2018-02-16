@@ -85,7 +85,7 @@
                  </div>
                 </div>
                 @else
-                <li id="hello-user">
+                <li id="log">
                   {{-- <div id="logout"> --}}
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault();
