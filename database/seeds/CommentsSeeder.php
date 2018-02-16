@@ -20,7 +20,7 @@ class CommentsSeeder extends Seeder
         'status'   => 'out',
         'created_at' => $date->format('Y-m-d H:i:s')
         'updated_at' => $date->format('Y-m-d H:i:s')
-
       );
+      DB::table('comments')->insert($comments);
     }
 }

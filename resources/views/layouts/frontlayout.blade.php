@@ -4,16 +4,15 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/default.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/set1.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/front-header-style.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/front-main-style.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/front-footer-style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/set1.css') }}" />
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <title>@yield('title')</title>
-
     @yield('css')
   </head>
   <body>
@@ -27,7 +26,7 @@
               <li><a href="#"><?php echo file_get_contents("img/youtube.svg"); ?></a></li>
               <li><a href="#"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
             </ul>
-          </div>
+          </div><!-- .social-network -->
           <div class="log">
             <nav id="large-screen">
               <ul id="menu1">
@@ -80,13 +79,12 @@
                                  </div>
                              </div>
                          </form>
-                      </div>
+                      </div><!-- .panel-body -->
                     </div>
-                 </div>
-                </div>
+                 </div><!-- .modal-content -->
+               </div><!-- #myModal -->
                 @else
-                <li id="hello-user">
-                  {{-- <div id="logout"> --}}
+                <li id="log">
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
@@ -95,8 +93,7 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>
-                  {{-- </div> --}}
-                </li>
+                </li><!-- #log -->
                 <li><a class="@yield('activeprofile')" href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
                   @if ( Auth::user()->role == 'admin')
                 <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
@@ -104,8 +101,8 @@
                 @endguest
               </ul><!-- #menu1 -->
             </nav><!-- #large-screen -->
-          </div>
-        </nav>
+          </div><!-- .log -->
+        </nav><!-- #top-menu -->
         <div id="bottom-menu">
           <p id="anim-p">
             <a class="@yield('activehome')" href="{{ route('home') }}">
@@ -114,16 +111,17 @@
               </span>
               </a>
             </p>
+
           <ul id="menu2">
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
-            <li><a class="@yield('')" href="{{ route('events') }}">Calender</a></li>
+            <li><a class="@yield('activecalendar')" href="{{ route('events') }}">Calender</a></li>
             <li><a class="@yield('')" href="{{ route('intheater') }}">In theater</a></li>
             <li><a class="@yield('')" href="{{ route('lastupdate') }}">Last update</a></li>
              @if ( Auth::user() )
               <li><a class="@yield('')" href="{{ route('favorite') }}">Favorite</a></li>
              @endif
-          </ul>
-        </div>
+          </ul><!-- #menu2 -->
+        </div><!-- #bottom-menu -->
 
         <nav role="navigation">
           <div id="menuToggle">
@@ -153,8 +151,8 @@
                      </div>
                    </li>
               @endguest
-            </ul>
-          </div>
+            </ul><!-- #menu -->
+          </div><!-- #menuToggle -->
         </nav>
       </header>
 
@@ -163,15 +161,20 @@
       <main>
 
         @yield('content')
+        @yield('content-error')
 
       </main>
 
       <footer>
+<<<<<<< HEAD
         <div id="footer-top">
           <div class="contact-button">
             <button type="button" name="contact"><a href="#">Contact</a></button>
           </div>
           <div class="center">
+=======
+      
+>>>>>>> 5f3cdd454acf5eb8dc930142f39822c24048b29f
 
           </div>
           <div class="social-network">
@@ -202,7 +205,6 @@
      <script>
       AOS.init();
      </script>
-
      @yield('js')
    </div>
  </body>

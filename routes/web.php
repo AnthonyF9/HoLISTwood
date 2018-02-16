@@ -20,13 +20,12 @@
 //////////////////////////////////////////////////////////////////////////////
 Route::group(['namespace' => 'Front'], function () {
   Route::get('/', 'HomeController@index')->name('home');
-  // Route::get('/calender', 'HomeController@calender')->name('calender');
   Route::get('/intheater', 'HomeController@intheater')->name('intheater');
   Route::get('/lastupdate', 'HomeController@lastupdate')->name('lastupdate');
   Route::get('/favorite', 'HomeController@favorite')->name('favorite');
   Route::get('/profile', 'HomeController@profile')->name('profile');
-  Route::get('/events', 'EventController@index')->name('events');
   Route::get('/movie/{imdb_id}', 'HomeController@oneMovie')->name('oneMovie');
+  Route::get('/events', 'EventController@index')->name('events');
 });
 
 //////////////////////////////////////////////////////////////////////////////

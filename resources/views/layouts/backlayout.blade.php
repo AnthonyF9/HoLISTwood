@@ -13,23 +13,26 @@
     <div id="wrapper">
       <header>
         <div id="titreHeader">
-          <h1><a href="{{ route('dashboard') }}"> Dashboard </a></h1>
+          <h1><a href="{{ route('dashboard') }}"> Dashboard Holistwood </a></h1>
           <h2><a href="{{ route('home') }}">Back to site</a></h2>
         </div>
-        <nav>
-          <ul>
-            <li><a href="{{ route('dashboard') }}" class="@yield('activedashboard')">Dashboard home</a></li>
-            <li><a href="{{ route('userslist') }}" class="@yield('activeuserslist')">Users</a></li>
-            <li>
-              <button id="back-movies" class="@yield('activemovieslist') @yield('activeaddimdb')">Movies</button>
-              <ul id="back-nav-movies">
-                <li><a href="{{ route('movieslist') }}" class="@yield('activemovieslist')">Movies</a></li>
-                <li><a href="{{ route('addimdb') }}" class="@yield('activeaddimdb')">Add a movie</a></li>
-              </ul>
-            </li>
-            {{-- <li><a href="./back-movies-moderation.php">Movies moderation</a></li> --}}
-          </ul>
-        </nav>
+        <nav id="main_menu_nav">
+  				<div id="main_menu_nav_part1" class="main_menu_nav_part">
+  					<h3><a href="{{ route('dashboard') }}" class="@yield('activedashboard')">Dashboard home</a></h3>
+  				</div>
+  				<div id="main_menu_nav_part2" class="main_menu_nav_part">
+  					<h3><a href="{{ route('userslist') }}" class="@yield('activeuserslist')">Users</a></h3>
+  				</div>
+  				<div id="main_menu_nav_part3" class="main_menu_nav_part">
+  					<h3 class="@yield('activemovieslist') @yield('activeaddimdb')">Movies</h3>
+  					<input type="checkbox" id="cb_tutorials" />
+  					<label for="cb_tutorials"></label>
+  					<ul>
+  						<li class="transition_css"><a href="{{ route('movieslist') }}" class="@yield('activemovieslist')">Movies list</a></li>
+  						<li class="transition_css"><a href="{{ route('addimdb') }}" class="@yield('activeaddimdb')">Add a movie</a></li>
+  					</ul>
+  				</div>
+  			</nav>
       </header>
 
         <main>

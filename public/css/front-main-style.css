@@ -12,7 +12,10 @@ main {
 #trailer {
   width: 80%;
   margin: 20px auto;
+
 }
+
+
 .rwd-trailer {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
@@ -32,6 +35,7 @@ main {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+
 }
 .affiche {
   background-color: #212121;
@@ -63,7 +67,7 @@ div.titre {
   border:2px solid #0b4075;
 }
 
-/* bandeau */
+/* bandeaux */
 
 .bandeau {
   background-color: #09335d;
@@ -72,15 +76,39 @@ div.titre {
   background-image: -o-linear-gradient(left, #663DB7, #09335d);
   background-image: -ms-linear-gradient(left, #663DB7, #09335d);
   background-image: linear-gradient(left, #663DB7, #09335d);
-  height: 70px;
+  min-height: 70px;
   width: 100%;
   text-align: center;
-  line-height: 70px;
-  /* text-transform: uppercase; */
-  /* font-family: 'Orbitron'; */
-  font-size: 1.5em;
+  padding: 10px 0 10px 0;
+  /* line-height: 70px; */
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+.bandeau2 {
+  /* background-color: #212121; */
+  min-height: 70px;
+  width: 97%;
+  margin: 50px auto 0;
+  text-align: center;
+  padding: 10px 0 10px 0;
+  /* line-height: 70px; */
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+
+
+.bandeau2 p {
+  text-transform: uppercase;
+  font-family: 'Orbitron';
+  font-size: 1.5em;
+}
 
 
 
@@ -427,6 +455,10 @@ div.titre {
   .profile-menu ul, .setting-menu ul {
     flex-wrap: wrap;
     justify-content: space-around;
+  }
+
+  .bandeau {
+    font-size: 1em;
   }
 
 }
