@@ -22,9 +22,11 @@ Route::group(['namespace' => 'Front'], function () {
   Route::get('/', 'HomeController@index')->name('home');
   Route::get('/intheater', 'HomeController@intheater')->name('intheater');
   Route::get('/lastupdate', 'HomeController@lastupdate')->name('lastupdate');
-  Route::get('/favorite', 'HomeController@favorite')->name('favorite');
-  Route::get('/profile', 'HomeController@profile')->name('profile');
   Route::get('/movie/{imdb_id}', 'HomeController@oneMovie')->name('oneMovie');
+
+  Route::get('/favorite', 'HomeAuthController@favorite')->name('favorite');
+  Route::get('/profile', 'HomeAuthController@profile')->name('profile');
+  
   Route::get('/events', 'EventController@index')->name('events');
 });
 

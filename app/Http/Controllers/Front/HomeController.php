@@ -27,11 +27,6 @@ class HomeController extends Controller
         return view('front/home',compact('movies'));
     }
 
-    public function profile()
-    {
-        return view('front/profile');
-    }
-
     public function oneMovie($imdb_id)
     {
         $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
@@ -53,14 +48,5 @@ class HomeController extends Controller
     {
       $movies = Movie::orderBy('updated_at','desc')->get();
       return view('front/lastupdate');
-    }
-
-    public function favorite()
-    {
-      // $movie = DB::table('movies')
-      //           ->leftJoin('rating','movies.id','=','rating.id_movie')
-      //           ->orderBy('rating.note','desc')
-      //           ->get();
-        return view('front/favorite',compact('movies'));
     }
 }
