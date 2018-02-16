@@ -26,7 +26,10 @@ Route::group(['namespace' => 'Front'], function () {
 
   Route::get('/favorite', 'HomeAuthController@favorite')->name('favorite');
   Route::get('/profile', 'HomeAuthController@profile')->name('profile');
-  
+
+  Route::get('/submitmovie', 'HomeAuthController@submitmovie')->name('submitmovie');
+  Route::post('/submitmovie', 'HomeAuthController@submitmovieaction')->name('submitmovie-action');
+
   Route::get('/events', 'EventController@index')->name('events');
 });
 
@@ -40,6 +43,9 @@ Route::group(['namespace' => 'Front'], function () {
   Route::get('/dashboard/movies-list/waste', 'MoviesController@moviesintrash')->name('moviesintrash');
   Route::put('/dashboard/movies-list/restore/{id}', 'MoviesController@restoremovie')->where('id','[0-9]+')->name('restoremovie');
   Route::get('/dashboard/movies-list/search', 'SearchController@search')->name('search');
+  Route::get('/dashboard/movies-moderate-list', 'MoviesController@moviesmoderatelist')->name('moderatemovieslist');
+  Route::get('/dashboard/movies-moderate-list/{id}', 'MoviesController@moderatemovie')->where('id','[0-9]+')->name('moderatemovie');
+  Route::put('/dashboard/movies-moderate-list/{id}', 'MoviesController@moderatemovieaction')->where('id','[0-9]+')->name('moderatemovie-action');
 
   Route::get('/dashboard/update-movie/{id}', 'MoviesController@editmovie')->where('id','[0-9]+')->name('editmovie');
   Route::put('/dashboard/update-movie/{id}', 'MoviesController@editmovieaction')->where('id','[0-9]+')->name('editmovie-action');

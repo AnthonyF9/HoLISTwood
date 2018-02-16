@@ -4,7 +4,7 @@
   In theater - HOLISTWOOD
 @endsection
 
-@section('activehome')
+@section('activeintheater')
 active @endsection
 
 @section('content')

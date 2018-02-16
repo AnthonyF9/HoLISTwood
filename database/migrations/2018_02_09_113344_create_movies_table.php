@@ -30,7 +30,7 @@ class CreateMoviesTable extends Migration
         $table->char('website', 255)->nullable(true);
         $table->char('genre', 255)->nullable(true);
         $table->enum('status', ['incoming', 'out'])->default('out');
-        $table->enum('moderation', ['ok', 'softdelete'])->default('ok');
+        $table->enum('moderation', ['ok', 'softdelete','waiting'])->default('waiting');
         $table->timestamps();
       });
     }
