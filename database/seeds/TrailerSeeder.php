@@ -13,10 +13,10 @@ class TrailerSeeder extends Seeder
     {
       $trailer =[];
       $date = new DateTime();
-      $trailer[] = array (
-        'id_movie'    =>'',
-        'url_trailer' =>'http://www.omdbapi.com/?t=valentine\'s+day',
-      );
+      $trailer[] = [
+        'id_movie'    =>3,
+        'url_trailer' =>'https://www.youtube.com/embed/r5X-hFf6Bwo',
+      ];
         DB::table('trailer')->insert($trailer);
     }
 }
