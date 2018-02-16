@@ -57,7 +57,7 @@ $movie = json_decode($raw, true);
 
         {!! Form::open(['route' => 'addmovie', 'method' => 'post']) !!}
           {!! Form::label('title', 'Titre : ', ['class' => '']) !!}
-          {!! Form::text('title', $title, ['placeholder' => 'Titre', 'class' => '']) !!}
+          {!! Form::text('title', $title, ['placeholder' => 'Title', 'class' => '']) !!}
           {!! $errors->first('title','<div class="" role="alert">:message</div>') !!}
         </br>
           {!! Form::label('year', 'Année : ', ['class' => '']) !!}
@@ -109,8 +109,15 @@ $movie = json_decode($raw, true);
           {!! $errors->first('genre','<div class="" role="alert">:message</div>') !!}
         </br>
           {!! Form::label('status', 'Status : ', ['class' => '']) !!}
-          {!! Form::select('status',['out'=>'Out','incoming'=>'Incoming']) !!}
+          {!! Form::select('status',['out'=>'Out','incoming'=>'Incoming'], 'out') !!}
           {!! $errors->first('status','<div class="" role="alert">:message</div>') !!}
+        </br>
+          {!! Form::label('release_date', 'release_date : ', ['class' => '']) !!}
+          {!! Form::date('release_date', \Carbon\Carbon::now()) !!}
+          {!! $errors->first('release_date','<div class="" role="alert">:message</div>') !!}
+        </br>
+          {!! Form::label('moderation', 'Moderation : ', ['class' => '']) !!}
+          {!! Form::select('moderation',['ok'=>'Ok','waiting'=>'Waiting']) !!}
 
           {!! Form::submit("Ajouter", ['class' => 'btn btn-primary']) !!}
         {!! Form::close() !!}

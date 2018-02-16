@@ -4,7 +4,7 @@
   Favorite - HOLISTWOOD
 @endsection
 
-@section('activehome')
+@section('activefavorite')
 active @endsection
 
 @section('content')

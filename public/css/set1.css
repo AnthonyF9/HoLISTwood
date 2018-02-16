@@ -987,17 +987,23 @@ figure.effect-zoe figcaption {
 	bottom: 0;
 	padding: 1em;
 	height: 3.75em;
-	background: #212121;
-	color: #2A89EB;
+	/* background: #212121; */
+	background-image: -webkit-linear-gradient(left, #051a2e, #09335d, #051a2e);
+  background-image: -moz-linear-gradient(left, #051a2e, #09335d, #051a2e);
+  background-image: -o-linear-gradient(left, #051a2e, #09335d, #051a2e);
+  background-image: -ms-linear-gradient(left, #051a2e, #09335d, #051a2e);
+  background-image: linear-gradient(left, #051a2e, #09335d, #051a2e);
+	color: white;
 	-webkit-transition: -webkit-transform 0.35s;
 	transition: transform 0.35s;
 	-webkit-transform: translate3d(0,100%,0);
 	transform: translate3d(0,100%,0);
-
+	border-radius: 2px;
 }
 
 figure.effect-zoe h2 {
-	float: left;
+	/* float: left; */
+	text-align: center;
 }
 
 figure.effect-zoe p.icon-links a {

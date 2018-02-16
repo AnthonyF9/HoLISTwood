@@ -16,6 +16,7 @@ class CreateMoviesTable extends Migration
       Schema::create('movies', function (Blueprint $table) {
         $table->increments('id');
         $table->string('title', 100);
+        $table->date('release_date')->nullable(true);
         $table->integer('year')->nullable(true);
         $table->char('runtime')->nullable(true);
         $table->char('director', 255)->nullable(true);
@@ -29,7 +30,7 @@ class CreateMoviesTable extends Migration
         $table->char('website', 255)->nullable(true);
         $table->char('genre', 255)->nullable(true);
         $table->enum('status', ['incoming', 'out'])->default('out');
-        $table->enum('moderation', ['ok', 'softdelete'])->default('ok');
+        $table->enum('moderation', ['ok', 'softdelete','waiting'])->default('waiting');
         $table->timestamps();
       });
     }
