@@ -43,11 +43,6 @@ class HomeController extends Controller
         }
     }
 
-    public function calender()
-    {
-      return view('/fullcalender');
-    }
-
     public function intheater()
     {
       $movies = Movie::orderBy('created_at','desc')->get();
