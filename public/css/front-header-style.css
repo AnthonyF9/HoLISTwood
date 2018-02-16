@@ -3,7 +3,12 @@ html {
 }
 
 body {
-  background-color: #333333;
+  background-color: #ffffff;
+ background-image: -webkit-linear-gradient(top, #2d2d2d, #09335d);
+ background-image: -moz-linear-gradient(top, #2d2d2d, #09335d);
+ background-image: -o-linear-gradient(top, #2d2d2d, #09335d);
+ background-image: -ms-linear-gradient(top, #2d2d2d, #09335d);
+ background-image: linear-gradient(top, #2d2d2d, #09335d);
   color: white;
   font-family: 'Roboto', sans-serif;
   height: 100%;
@@ -13,7 +18,12 @@ body {
   /* width: 100%; */
   min-height: 100%;
   margin: 0 auto;
-  background-color: #333333;
+  background-color: #ffffff;
+ background-image: -webkit-linear-gradient(top, #2d2d2d, #09335d);
+ background-image: -moz-linear-gradient(top, #2d2d2d, #09335d);
+ background-image: -o-linear-gradient(top, #2d2d2d, #09335d);
+ background-image: -ms-linear-gradient(top, #2d2d2d, #09335d);
+ background-image: linear-gradient(top, #2d2d2d, #09335d);
   position: relative;
 }
 
@@ -31,12 +41,7 @@ header h1 a {
   text-align: center;
   font-family: 'Orbitron', sans-serif;
   font-weight: bold;
-}
-header h1 a {
-  color: #2A89EB;
-}
-header h1 a:visited {
-  color: #2A89EB;
+  letter-spacing: 2.5px;
 }
 
 /* body { font: 400 1em/1.5 "Neuton"; background: #090d00; color: rgba(255,255,255,.25); text-align: center; margin: 0 } */
@@ -103,11 +108,34 @@ header #top-menu .social-network {
   width: 20%;
   min-width: 200px;
 }
-header #top-menu .social-network ul li img{
-  width: 40px;
-  height: 40px;
-  margin: 0 5px;
+
+/* ANIMATION LOGO  */
+
+
+
+/*  */
+
+
+header #top-menu .social-network ul li svg{
+  width: 30px;
+  height: 30px;
 }
+#Facebook:hover{
+  fill: #4867AA;
+}
+
+.Google:hover{
+  fill: #DC4A38;
+}
+
+#Twitter__x28_alt_x29_:hover{
+  fill:#1DA1F2;
+}
+
+#YouTube:hover {
+  fill:#FF0000;
+}
+
 header #top-menu .log {
   width: 80%;
 }
@@ -154,12 +182,23 @@ header nav#top-menu .log #large-screen #menu1 li#hello-user a {
 
 
 
-header .social-network ul, header ul#menu2 {
+header .social-network ul {
   width: 50%;
   margin: auto;
   display: flex;
   justify-content: space-between;
 }
+
+header ul#menu2 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+header ul#menu2 li {
+  padding-right: 2%;
+  white-space: nowrap;
+}
+
 header nav ul li a, header nav ul li span  {
   /* text-transform: uppercase; */
   font-size: 1em;
@@ -198,7 +237,6 @@ header nav ul li a.active, header nav ul li span.active {
   margin: auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
 }
 #bottom-menu #menu2 li a {
   /* text-transform: uppercase; */
@@ -445,7 +483,7 @@ footer {
     margin: auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    /* justify-content: space-around; */
   }
   #menuToggle
   {

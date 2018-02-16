@@ -17,6 +17,6 @@ class CategorieTableSeeder extends Seeder
         'genre' =>'action',
         'created_at' => $date->format('Y-m-d H:i:s')
       );
-
+      DB::table('categorie')->insert($categorie);
     }
 }

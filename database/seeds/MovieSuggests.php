@@ -29,7 +29,7 @@ class MovieSuggests extends Seeder
         'website' =>'' ,
         'trailer' =>'',
         'status' =>'' enum('released','in production')-> default'released',
-
       );
+      DB::table('suggests')->insert($suggests);
     }
 }

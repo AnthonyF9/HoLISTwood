@@ -20,12 +20,13 @@ main {
   height: 0;
 }
 .rwd-trailer iframe {
-
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  border-radius: 5px;
 }
 .affiches {
   display: flex;
@@ -36,7 +37,7 @@ main {
   background-color: #212121;
   height: 360px;
   width: 300px;
-  margin: 15px;
+  margin: 15px
 }
 
 .affiche img{
@@ -54,7 +55,6 @@ main {
 
 div.titre {
   text-align: center;
-
   background-color:#0b4075;
   width: 300px;
   height: 50px;
@@ -63,18 +63,27 @@ div.titre {
   border:2px solid #0b4075;
 }
 
-/* bandeaux */
+/* bandeau */
 
 .bandeau {
-  background-color: #0f59a3;
+  background-color: #09335d;
+  background-image: -webkit-linear-gradient(left, #663DB7, #09335d);
+  background-image: -moz-linear-gradient(left, #663DB7, #09335d);
+  background-image: -o-linear-gradient(left, #663DB7, #09335d);
+  background-image: -ms-linear-gradient(left, #663DB7, #09335d);
+  background-image: linear-gradient(left, #663DB7, #09335d);
   height: 70px;
   width: 100%;
   text-align: center;
   line-height: 70px;
-  text-transform: uppercase;
-  font-family: 'Orbitron';
+  /* text-transform: uppercase; */
+  /* font-family: 'Orbitron'; */
   font-size: 1.5em;
 }
+
+
+
+
 /* login/register */
 
 .panel {
@@ -83,7 +92,6 @@ div.titre {
   width: 100%;
   margin: 30px auto;
   padding: 20px 5% 20px 5%;
-
   text-align: left;
 }
 .panel-heading {
@@ -154,10 +162,31 @@ div.titre {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  width: 90%;
+  margin: 0 auto;
+}
+.detail-part img {
+  max-width: 300px;
+  max-height: 427px;
 }
 .detail-part .detail {
-  width: 60%;
   padding: 50px 0;
+  margin-left: 5%;
+}
+.detail-part .detail li {
+  display: flex;
+  flex-direction: row;
+}
+.detail-part .detail .detail-content {
+  display: block;
+  width: 30%;
+}
+.detail-part .detail .detail-entitled {
+  /* display: block; */
+  max-width: 100px;
+  min-width: 100px;
+  float: left;
+  margin-right: 5%;
 }
 .rate {
   justify-content: center;
@@ -173,7 +202,7 @@ div.titre {
   margin: 10px auto;
   width: 90%;
   background-color: #262626;
-
+  text-align: center;
   padding: 2%;
   min-height: 100px;
   justify-content: center;
@@ -192,7 +221,6 @@ div.titre {
 }
 .comment .comment-list p {
   background-color: #262626;
-
   min-height: 100px;
 }
 
@@ -337,13 +365,19 @@ div.titre {
 
 /* Responsive */
 
-@media (max-width: 525px) {
+@media (max-width: 707px) {
 
   /* Single */
 
   .detail-part {
     display: flex;
     flex-direction: column;
+  }
+  .detail-part .detail-poster {
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+    justify-content: center;
   }
   .detail-part .detail {
     width: 90%;

@@ -15,8 +15,8 @@ class CreateReleaseMoviesTable extends Migration
     {
       Schema::create('release', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_movie');
             $table->date('release_date');
-            $table->string('id_movie');
             $table->timestamps();
             });
 

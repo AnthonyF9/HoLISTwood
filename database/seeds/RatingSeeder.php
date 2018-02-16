@@ -11,12 +11,13 @@ class RatingSeeder extends Seeder
      */
     public function run()
     {
-      $suggests =[];
+      $rating =[];
       $date = new DateTime();
-      $suggests[] = array (
+      $rating[] = array (
         'id_user'  =>'',
         'id_movie' =>'',
         'note'     =>'',
       );
+        DB::table('rating')->insert($rating);
     }
 }

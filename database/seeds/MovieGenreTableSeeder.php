@@ -18,5 +18,6 @@ class MovieGenreTableSeeder extends Seeder
         'id_categorie' =>'',
         'created_at' => $date->format('Y-m-d H:i:s')
       );
+      DB::table('moviegenre')->insert($moviegenre);
     }
 }

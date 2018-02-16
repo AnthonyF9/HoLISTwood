@@ -22,10 +22,10 @@
         <nav id="top-menu">
           <div class="social-network">
             <ul>
-              <li><a href="#"><img src="{{ asset('img/facebook.svg') }}" alt="facebook"></a></li>
-              <li><a href="#"><img src="{{ asset('img/twitter.svg') }}" alt="twitter"></a></li>
-              <li><a href="#"><img src="{{ asset('img/linkedin.svg') }}" alt="linkedin"></a></li>
-              <li><a href="#"><img src="{{ asset('img/google-plus.svg') }}" alt="google-plus"></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/facebook2.svg"); ?></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/twitter2.svg"); ?></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/youtube.svg"); ?></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
             </ul>
           </div>
           <div class="log">
@@ -108,22 +108,21 @@
         </nav>
         <div id="bottom-menu">
           <p id="anim-p">
+            <a class="@yield('activehome')" href="{{ route('home') }}">
               <span id="anim-span">
                 Holistwood
               </span>
-
+              </a>
             </p>
-
-          <h1><a class="@yield('activehome')" href="{{ route('home') }}">holistwood</a></h1>
 
           <ul id="menu2">
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
-            <li><a href="#">Calendar</a></li>
-            <li><a href="#">In theater</a></li>
-            <li><a href="#">Last update</a></li>
-            @if ( Auth::user() )
-              <li><a href="#">Favorite</a></li>
-            @endif
+            <li><a class="@yield('')" href="{{ route('events') }}">Calender</a></li>
+            <li><a class="@yield('')" href="{{ route('intheater') }}">In theater</a></li>
+            <li><a class="@yield('')" href="{{ route('lastupdate') }}">Last update</a></li>
+             @if ( Auth::user() )
+              <li><a class="@yield('')" href="{{ route('favorite') }}">Favorite</a></li>
+             @endif
           </ul>
         </div>
 
@@ -160,9 +159,7 @@
         </nav>
       </header>
 
-      <div class="bandeau"> coming soon</div>
-
-
+      @yield('bandeau')
 
       <main>
 
@@ -171,6 +168,7 @@
       </main>
 
       <footer>
+      
 
      </footer>
      <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.js') }}"></script>
