@@ -15,8 +15,8 @@ class TrailerSeeder extends Seeder
       $date = new DateTime();
       $trailer[] = array (
         'id_movie'    =>'',
-        'url_trailer' =>'http://www.omdbapi.com/?t=valentine\'s+day',
+        'url_trailer' =>'',
       );
-        DB::table('trailer')->insert($trailer);
+      DB::table('trailer')->insert($trailer);
     }
 }
