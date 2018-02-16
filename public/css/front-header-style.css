@@ -61,7 +61,7 @@ header h1 a {
   font: 3em "Orbitron", sans-serif;
   font-weight: bold;
   letter-spacing: 0;
-  padding: .25em 0 .325em;
+  /* padding: .25em 0 .325em; */
   display: block;
   margin: 0 auto;
   text-shadow: 0 0 80px rgba(255,255,255,.5);
@@ -171,15 +171,14 @@ header nav#top-menu .log #large-screen #menu1 li a {
   position: relative;
   margin: 10% 0;
 }
-header nav#top-menu .log #large-screen #menu1 li#hello-user a {
-  display: block;
-  position: relative;
-  margin: 5% 0;
-}
-header nav#top-menu .log #large-screen #menu1 li#hello-user a {
-  padding-top: 10.5px;
+
+header nav#top-menu .log #large-screen #menu1 li#log a {
+line-height: 24px;
 }
 
+#myBtn{
+  line-height: 14px;
+}
 
 
 header .social-network ul {
