@@ -167,7 +167,33 @@
       </main>
 
       <footer>
+        <div id="footer-top">
+          <div class="contact-button">
+            <button type="button" name="contact"><a href="#">Contact</a></button>
+          </div>
+          <div class="center">
 
+          </div>
+          <div class="social-network">
+            <ul>
+              <li><a href="#"><?php echo file_get_contents("img/facebook2.svg"); ?></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/twitter2.svg"); ?></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/youtube.svg"); ?></a></li>
+              <li><a href="#"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
+            </ul>
+          </div>
+        </div>
+        <div id="footer-center">
+          <ul>
+            <li><a href="#">Staff</a></li>
+            <li><a href="#">Sitemap</a></li>
+            <li><a href="#">GTU</a></li>
+            <li><a href="#">Charter</a></li>
+          </ul>
+        </div>
+        <div id="footer-bottom">
+          <p>&copy; Holistwood</p>
+        </div>
      </footer>
      <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/jquery-ui.js') }}"></script>
