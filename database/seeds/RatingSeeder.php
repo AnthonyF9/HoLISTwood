@@ -14,9 +14,9 @@ class RatingSeeder extends Seeder
       $rating =[];
       $date = new DateTime();
       $rating[] = array (
-        'id_user'  =>'',
-        'id_movie' =>'',
-        'note'     =>'',
+        'id_user'  =>2,
+        'id_movie' =>1,
+        'note'     =>3,
       );
         DB::table('rating')->insert($rating);
     }

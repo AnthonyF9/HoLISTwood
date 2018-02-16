@@ -19,6 +19,7 @@ class CreateCommentsTable extends Migration
         $table->integer('id_movie');
         $table->text('content')->nullable(true);
         $table->enum('state',['published','deleted','waiting moderation'])->default('published');
+        $table->timestamps();
         });
 
     }
