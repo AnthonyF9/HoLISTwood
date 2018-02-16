@@ -51,9 +51,9 @@
     </div>
   </div>
 
-  <div class="rate">
+  {{-- <div class="rate">
     <h3>Rate :</h3>
-  </div>
+  </div> --}}
 
   <div class="plot">
     <p>{{ ucfirst($movie[0]->plot) }}</p>
@@ -66,7 +66,7 @@
   </div>
 
   <div class="comment">
-    <h3>Commentary</h3>
+    <h3>Comments</h3>
     <div class="comment-list">
       <p></p>
     </div>

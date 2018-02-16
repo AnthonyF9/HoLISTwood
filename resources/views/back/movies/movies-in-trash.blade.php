@@ -1,14 +1,14 @@
 @extends('layouts/backlayout')
 
 @section('title')
-  Movies list - HOLISTWOOD
+  Movies in trash - HOLISTWOOD
 @endsection
 
 @section('activemovieslist','active')
 
 @section('content-alpha')
   <div class="part">
-    <h1>Movies list</h1>
+    <h1>Movies in trash</h1>
   </div>
 @endsection
 
