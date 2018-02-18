@@ -21,12 +21,18 @@ active @endsection
 
 @section('content')
 
+@php
 
+$count = count($trailers) - 1;
+$randomid = rand(0, $count);
+// $randomid
+
+@endphp
 
 
   <div id="trailer">
       <div class="rwd-trailer">
-        <iframe width = "917px" height="490px" src="https://www.youtube.com/embed/6ZfuNTqbHE8" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+        <iframe width = "917px" height="490px" src="{{$trailers[$randomid]->url_trailer}}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
       </div>
   </div>
 

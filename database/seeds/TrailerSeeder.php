@@ -16,7 +16,7 @@ class TrailerSeeder extends Seeder
 
       $trailer[] = [
         'id_movie'    =>1,
-        'url_trailer' =>'https://www.youtube.com/embed/FcOt6mfjxeA',
+        'url_trailer' =>'https://www.youtube.com/embed/bLvqoHBptjg',
       ];
 
       $trailer[] = [
@@ -31,7 +31,7 @@ class TrailerSeeder extends Seeder
 
       $trailer[] = [
         'id_movie'    =>4,
-        'url_trailer' =>'https://www.youtube.com/embed/zSWdZVtXT7E',
+        'url_trailer' =>'https://www.youtube.com/embed/2LqzF5WauAw',
       ];
 
       $trailer[] = [
@@ -41,7 +41,7 @@ class TrailerSeeder extends Seeder
 
       $trailer[] = [
         'id_movie'    =>6,
-        'url_trailer' =>'https://www.youtube.com/embed/ol67qo3WhJk',
+        'url_trailer' =>'https://www.youtube.com/embed/owK1qxDselE',
 
       ];
 
@@ -52,12 +52,12 @@ class TrailerSeeder extends Seeder
 
         $trailer[] = [
           'id_movie'    =>8,
-          'url_trailer' =>'https://www.youtube.com/embed/ArdNQUUcZOM',
+          'url_trailer' =>'https://www.youtube.com/embed/zzjv-GUEDfg',
       ];
 
       $trailer[] = [
           'id_movie'    =>9,
-          'url_trailer' =>'https://www.youtube.com/embed/fLe_qO4AE-M',
+          'url_trailer' =>'https://www.youtube.com/embed/vw61gCe2oqI',
       ];
 
       $trailer[] = [

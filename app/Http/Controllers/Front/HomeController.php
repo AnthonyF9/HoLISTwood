@@ -26,7 +26,12 @@ class HomeController extends Controller
     public function index()
     {
       $movies = Movie::orderBy('created_at','desc')->where('moderation', '=', 'ok')->get();
-        return view('front/home',compact('movies'));
+
+      $trailers = \DB::table('movies')
+                  ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
+                  ->get();
+
+        return view('front/home',compact('movies','trailers'));
     }
 
     public function oneMovie($imdb_id)
@@ -34,13 +39,15 @@ class HomeController extends Controller
         $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
         if (!empty($movie)) {
 
+
           $trailers = \DB::table('movies')
                       ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
+                      ->where('imdb_id','=',$imdb_id)
                       ->get();
 
-          // dd($trailers);
+           // dd($trailers);
 
-          return view('front/oneMovie', compact('imdb_id','movie'));
+          return view('front/oneMovie', compact('imdb_id','movie', 'trailers'));
         }
         else {
           abort(404);

@@ -65,11 +65,16 @@
     <p>{{ ucfirst($movie[0]->plot) }}</p>
   </div>
 
+@if (!empty($trailers[0]->url_trailer))
   <div id="trailer">
     <div class="rwd-trailer">
-      <iframe width = "917px" height="490px" src="https://www.youtube.com/embed/a8v__0kHzNg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+      <iframe width = "917px" height="490px" src="{{$trailers[0]->url_trailer}}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
     </div>
   </div>
+@else
+
+@endif
+
 
   <div class="comment">
     <h3>Comments</h3>
