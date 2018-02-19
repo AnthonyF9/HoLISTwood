@@ -52,9 +52,6 @@ class HomeController extends Controller
         else {
           abort(404);
         }
-
-
-
     }
 
     public function intheater()
@@ -68,6 +65,7 @@ class HomeController extends Controller
       $movies = Movie::orderBy('updated_at','desc')->get();
       return view('front/lastupdate');
     }
+
 
     public function favorite()
     {
