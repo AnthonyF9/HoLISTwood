@@ -17,7 +17,7 @@ class CreateMyList extends Migration
         $table->increments('id');
         $table->text('user_id')->nullable(false);
         $table->text('movie_id')->nullable(false);
-        $table->enum('status', ['completed', 'dropped', 'plan to watch'])->default('plan to watch');
+        $table->enum('statuslist', ['completed', 'dropped', 'plan to watch'])->default('plan to watch');
       });
     }
 

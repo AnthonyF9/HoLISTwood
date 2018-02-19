@@ -58,14 +58,24 @@
       @php
         $imdb_id = $movie[0]->imdb_id;
         $user_id = Auth::user()->id;
-        // echo $user_id;
       @endphp
-    <div class="add-to-list">
-      {!! Form::open(['route' => ['addtomylist',$imdb_id], 'method' => 'post']) !!}
-        {!! Form::select('addtolist',['completed'=>'Completed','dropped'=>'Dropped','plan to watch'=>'Plan to watch']) !!}
-        {!! Form::submit("Add to my list", ['class' => '']) !!}
-      {!! Form::close() !!}
-    </div><!-- .addd-to-list -->
+      @if (isset($liststatus[0]))
+        L'user a add le film
+        <div class="add-to-list">
+          {!! Form::open(['route' => ['updateinmylist',$imdb_id], 'method' => 'put']) !!}
+            {!! Form::select('addtolist',['completed'=>'Watched','dropped'=>'Dropped','plan to watch'=>'Plan to watch'],$liststatus[0]->statuslist) !!}
+            {!! Form::submit("Add", ['class' => '']) !!}
+          {!! Form::close() !!}
+        </div><!-- .addd-to-list -->
+      @else
+        L'user n'a pas add le film
+        <div class="add-to-list">
+          {!! Form::open(['route' => ['addtomylist',$imdb_id], 'method' => 'post']) !!}
+            {!! Form::select('addtolist', ['completed'=>'Watched','dropped'=>'Dropped','plan to watch'=>'Plan to watch', 'plan to watch'=>'Add to my list'], 'plan to watch') !!}
+            {!! Form::submit("Add", ['class' => '']) !!}
+          {!! Form::close() !!}
+        </div><!-- .addd-to-list -->
+      @endif
     @endif
   </div><!-- .detail-part -->
 

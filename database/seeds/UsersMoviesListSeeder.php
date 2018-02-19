@@ -16,32 +16,32 @@ class UsersMoviesListSeeder extends Seeder
       $list[] = array (
         'user_id'   => 3,
         'movie_id'  => 5,
-        'status'    => 'plan to watch'
+        'statuslist'    => 'plan to watch'
       );
       $list[] = array (
         'user_id'   => 3,
         'movie_id'  => 4,
-        'status'    => 'completed'
+        'statuslist'    => 'completed'
       );
       $list[] = array (
         'user_id'   => 3,
         'movie_id'  => 2,
-        'status'    => 'plan to watch'
+        'statuslist'    => 'plan to watch'
       );
       $list[] = array (
         'user_id'   => 1,
         'movie_id'  => 5,
-        'status'    => 'plan to watch'
+        'statuslist'    => 'plan to watch'
       );
       $list[] = array (
         'user_id'   => 1,
         'movie_id'  => 2,
-        'status'    => 'plan to watch'
+        'statuslist'    => 'plan to watch'
       );
       $list[] = array (
         'user_id'   => 2,
         'movie_id'  => 8,
-        'status'    => 'plan to watch'
+        'statuslist'    => 'plan to watch'
       );
 
       DB::table('mylist')->insert($list);

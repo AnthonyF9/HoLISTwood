@@ -19,29 +19,36 @@
 ///////////////////////           FRONT         //////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 Route::group(['namespace' => 'Front'], function () {
+  //routes principales
   Route::get('/', 'HomeController@index')->name('home');
   Route::get('/intheater', 'HomeController@intheater')->name('intheater');
   Route::get('/lastupdate', 'HomeController@lastupdate')->name('lastupdate');
 
+  //vue d'un film et ajout à sa liste
   Route::get('/movie/{imdb_id}', 'HomeController@oneMovie')->name('oneMovie');
   Route::post('/movie/{imdb_id}', 'HomeAuthController@addtomylist')->name('addtomylist');
-  // Route::match(['get', 'post'],'/movie/{imdb_id}', 'HomeAuthController@addedtomylist')->name('addedtomylist');
+  Route::put('/movie/{imdb_id}', 'HomeAuthController@updateinmylist')->name('updateinmylist');
 
+  // inutile
   Route::get('/favorite', 'HomeAuthController@favorite')->name('favorite');
+
+  // la page profile
   Route::get('/profile', 'HomeAuthController@profile')->name('profile');
 
+  // proposer un film
   Route::get('/submit-movie', 'HomeAuthController@submitmoviebyimdb');
+    // proposer un film via title
+    Route::get('/submit-movie/by-items', 'HomeAuthController@submitmoviebyitems')->name('submitmoviebyitems');
+    Route::post('/submit-movie/by-items', 'HomeAuthController@submitmovieaction')->name('submitmovie-action');
+    // proposer un film via imdb
+    Route::get('/submit-movie/by-imdb', 'HomeAuthController@submitmoviebyimdb')->name('submitmoviebyimdb');
+    Route::match(['get', 'post'],'/submit-movie/add-by-imdb', 'HomeAuthController@findmoviebyimdb')->name('findmoviebyimdb');
+    Route::post('/submit-movie/save-movie-by-imdb', 'HomeAuthController@addmoviebyimdb')->name('addmoviebyimdb');
 
-  Route::get('/submit-movie/by-items', 'HomeAuthController@submitmoviebyitems')->name('submitmoviebyitems');
-  Route::post('/submit-movie/by-items', 'HomeAuthController@submitmovieaction')->name('submitmovie-action');
-
-  Route::get('/submit-movie/by-imdb', 'HomeAuthController@submitmoviebyimdb')->name('submitmoviebyimdb');
-  Route::match(['get', 'post'],'/submit-movie/add-by-imdb', 'HomeAuthController@findmoviebyimdb')->name('findmoviebyimdb');
-  Route::post('/submit-movie/save-movie-by-imdb', 'HomeAuthController@addmoviebyimdb')->name('addmoviebyimdb');
-
-  // Calendar
+  // le calendrier
   Route::get('/events', 'EventController@index')->name('events');
 
+  // autres trucs
   Route::get('/contact', 'HomeController@contact')->name('contact');
   Route::get('/staff', 'HomeController@staff')->name('staff');
   Route::get('/sitemap', 'HomeController@sitemap')->name('sitemap');
