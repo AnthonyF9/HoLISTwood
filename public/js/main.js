@@ -20,6 +20,10 @@ $(document).ready(function() {
     btn.onclick = function() {
         modal.style.display = "block";
     }
+    if (loginerror == 'TRUE') {
+        modal.style.display = "block";
+        console.log('Login error');
+    }
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.style.display = "none";

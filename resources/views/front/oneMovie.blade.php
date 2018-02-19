@@ -21,35 +21,35 @@
     <div class="detail">
       <ul>
           <li>
-            <p class="detail-entitled">Year :</p>
+            <p class="detail-entitled">Year:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->year) }}</p>
           </li>
           <li>
-            <p class="detail-entitled">Director :</p>
+            <p class="detail-entitled">Director:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->director) }}</p>
           </li>
           <li>
-            <p class="detail-entitled">Writers :</p>
+            <p class="detail-entitled">Writers:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->writers) }}</p>
           </li>
           <li>
-            <p class="detail-entitled">Actors :</p>
+            <p class="detail-entitled">Actors:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->actors) }}</p>
           </li>
           <li>
-            <p class="detail-entitled">Production :</p>
+            <p class="detail-entitled">Production:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->production) }}</p>
           </li>
           <li>
-            <p class="detail-entitled">Genre :</p>
+            <p class="detail-entitled">Genre:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->genre) }}</p>
           </li>
           <li>
-            <p class="detail-entitled">Runtime :</p>
+            <p class="detail-entitled">Runtime:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->runtime) }}</p>
           </li>
           <li>
-            <p class="detail-entitled">Awards :</p>
+            <p class="detail-entitled">Awards:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->awards) }}</p>
           </li>
       </ul>
