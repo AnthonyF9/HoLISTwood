@@ -172,7 +172,11 @@ div.titre {
 
 /* CASE D'AUJOURD'HUI */
 .fc-unthemed td.fc-today {
-    background: #3F3991;
+    background-image: -webkit-linear-gradient(top, #663DB7, #3F3991);
+    background-image: -moz-linear-gradient(top, #663DB7, #3F3991);
+    background-image: -o-linear-gradient(top, #663DB7, #3F3991);
+    background-image: -ms-linear-gradient(top, #663DB7, #3F3991);
+    background-image: linear-gradient(top, #663DB7, #3F3991);
 }
 
 .calendrier .fc-button-group .fc-agendaWeek-button, .fc-agendaDay-button, .fc-today-button, .fc-month-button {
@@ -193,7 +197,6 @@ div.titre {
 
 .calendrier .fc-unthemed .fc-popover .fc-header, .fc-unthemed hr {
   background-color: #262626;
-
 }
 
 /* ////////////////////////////////////////////////////////////////////////////////// */
