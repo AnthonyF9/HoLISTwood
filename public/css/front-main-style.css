@@ -111,6 +111,14 @@ div.titre {
   /* text-align: center; */
 }
 
+.bandeau-calendar h2{
+  font-size: 1.2em;
+}
+
+.bandeau-calendar{
+  margin-bottom: 20px;
+}
+
 .bandeau2 {
   /* background-color: #212121; */
   min-height: 70px;
@@ -138,7 +146,57 @@ div.titre {
   font-weight: bold;
 }
 
+/* ////////////////////////////////////////////////////////////////////////////////// */
+/* Calendar styles */
 
+.calendrier {
+  width: 900px;
+  margin: auto;
+}
+
+.calendrier .fc-unthemed td{
+  border-color: black;
+}
+
+.calendrier .fc-unthemed th{
+  border-color: black;
+}
+
+.calendrier th {
+  background-color: #212121;
+}
+
+.calendrier td {
+  background-color: #2d2d2d;
+}
+
+/* CASE D'AUJOURD'HUI */
+.fc-unthemed td.fc-today {
+    background: #3F3991;
+}
+
+.calendrier .fc-button-group .fc-agendaWeek-button, .fc-agendaDay-button, .fc-today-button, .fc-month-button {
+  display: none;
+}
+
+.calendrier .fc-button-group .fc-prev-button, .fc-next-button {
+  /* background-color: #2983DF;  */
+}
+
+.calendrier .fc-center h2 {
+  font-size: 1.5em;
+}
+
+.calendrier .fc-widget-content{
+  /* background-color: #262626; */
+}
+
+.calendrier .fc-unthemed .fc-popover .fc-header, .fc-unthemed hr {
+  background-color: #262626;
+
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////// */
 /* login/register */
 
 .panel {

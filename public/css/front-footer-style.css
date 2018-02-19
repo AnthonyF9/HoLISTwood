@@ -17,7 +17,6 @@ footer #footer-bottom .social-network {
   width: 20%;
   min-width: 200px;
   margin-left: 40%;
->>>>>>> b05e53e21d3fda3705ee644a82c8b06a06ccd7b0
 }
 footer #footer-bottom .social-network ul li{
   margin: 0 1.5%;
@@ -71,6 +70,8 @@ footer #footer-bottom .copyright {
 /* -le Responsive- */
 @media (max-width: 835px) {
 
+
+
   footer {
     width: 100%;
     min-width: 300px;
@@ -108,7 +109,7 @@ footer #footer-bottom .copyright {
     margin: 0 auto;
     justify-content: center;
     border-top: 2.5px #2D2D2D solid;
-  }
+  } 
   footer #footer-bottom .copyright ul li, footer #footer-bottom .social-network ul li{
     margin: 0 2%;
   }
