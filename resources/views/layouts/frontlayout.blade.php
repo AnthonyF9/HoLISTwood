@@ -84,9 +84,10 @@
                   </div><!-- .modal-content -->
                 </div><!-- #myModal -->
                   @if ($errors->has('email') || $errors->has('password'))
-                    <script type="text/javascript">
+                    <span id="loginerror" style="display:none">Login error</span>
+                    {{-- <script type="text/javascript">
                       var loginerror = 'TRUE';
-                    </script>
+                    </script> --}}
                   @endif
                 @else
                 <li id="log">

@@ -53,8 +53,21 @@
             <p class="detail-containt">{{ ucfirst($movie[0]->awards) }}</p>
           </li>
       </ul>
-    </div>
-  </div>
+    </div><!-- .detail -->
+    @if ( Auth::user() )
+      @php
+        $imdb_id = $movie[0]->imdb_id;
+        $user_id = Auth::user()->id;
+        // echo $user_id;
+      @endphp
+    <div class="add-to-list">
+      {!! Form::open(['route' => ['addtomylist',$imdb_id], 'method' => 'post']) !!}
+        {!! Form::select('addtolist',['completed'=>'Completed','dropped'=>'Dropped','plan to watch'=>'Plan to watch']) !!}
+        {!! Form::submit("Add to my list", ['class' => '']) !!}
+      {!! Form::close() !!}
+    </div><!-- .addd-to-list -->
+    @endif
+  </div><!-- .detail-part -->
 
   {{-- <div class="rate">
     <h3>Rate :</h3>
