@@ -20,7 +20,7 @@ $(document).ready(function() {
     btn.onclick = function() {
         modal.style.display = "block";
     }
-    if (loginerror == 'TRUE') {
+    if ($('#loginerror').text() == 'Login error') {
         modal.style.display = "block";
         console.log('Login error');
     }
@@ -32,9 +32,9 @@ $(document).ready(function() {
         modal.style.display = "none";
     }
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
+    // window.onclick = function(event) {
+    //     if (event.target == modal) {
+    //         modal.style.display = "none";
+    //     }
+    // }
 });

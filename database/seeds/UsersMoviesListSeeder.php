@@ -44,6 +44,6 @@ class UsersMoviesListSeeder extends Seeder
         'status'    => 'plan to watch'
       );
 
-      DB::table('list')->insert($list);
+      DB::table('mylist')->insert($list);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateList extends Migration
+class CreateMyList extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateList extends Migration
      */
     public function up()
     {
-      Schema::create('list', function (Blueprint $table) {
+      Schema::create('mylist', function (Blueprint $table) {
         $table->increments('id');
         $table->text('user_id')->nullable(false);
         $table->text('movie_id')->nullable(false);
@@ -28,6 +28,6 @@ class CreateList extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('list');
+        Schema::dropIfExists('mylist');
     }
 }
