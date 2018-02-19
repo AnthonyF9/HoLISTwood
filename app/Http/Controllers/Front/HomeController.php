@@ -66,7 +66,6 @@ class HomeController extends Controller
       return view('front/lastupdate');
     }
 
-
     public function favorite()
     {
       // $movie = DB::table('movies')
@@ -100,5 +99,4 @@ class HomeController extends Controller
     {
         return view('front/charter');
     }
-
 }

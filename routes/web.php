@@ -26,8 +26,14 @@ Route::group(['namespace' => 'Front'], function () {
   Route::get('/favorite', 'HomeAuthController@favorite')->name('favorite');
   Route::get('/profile', 'HomeAuthController@profile')->name('profile');
 
-  Route::get('/submitmovie', 'HomeAuthController@submitmovie')->name('submitmovie');
-  Route::post('/submitmovie', 'HomeAuthController@submitmovieaction')->name('submitmovie-action');
+  Route::get('/submit-movie', 'HomeAuthController@submitmoviebyimdb');
+
+  Route::get('/submit-movie/by-items', 'HomeAuthController@submitmoviebyitems')->name('submitmoviebyitems');
+  Route::post('/submit-movie/by-items', 'HomeAuthController@submitmovieaction')->name('submitmovie-action');
+
+  Route::get('/submit-movie/by-imdb', 'HomeAuthController@submitmoviebyimdb')->name('submitmoviebyimdb');
+  Route::match(['get', 'post'],'/submit-movie/add-by-imdb', 'HomeAuthController@findmoviebyimdb')->name('findmoviebyimdb');
+  Route::post('/submit-movie/save-movie-by-imdb', 'HomeAuthController@addmoviebyimdb')->name('addmoviebyimdb');
 
   Route::get('/events', 'EventController@index')->name('events');
   Route::get('/contact', 'HomeController@contact')->name('contact');
