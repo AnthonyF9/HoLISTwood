@@ -115,10 +115,11 @@
           <ul id="menu2">
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
             <li><a class="@yield('activecalendar')" href="{{ route('events') }}">Calender</a></li>
-            <li><a class="@yield('')" href="{{ route('intheater') }}">In theater</a></li>
-            <li><a class="@yield('')" href="{{ route('lastupdate') }}">Last update</a></li>
+            <li><a class="@yield('activeintheater')" href="{{ route('intheater') }}">In theater</a></li>
+            <li><a class="@yield('activelastupdate')" href="{{ route('lastupdate') }}">Last update</a></li>
              @if ( Auth::user() )
-              <li><a class="@yield('')" href="{{ route('favorite') }}">Favorite</a></li>
+              <li><a class="@yield('activefavorite')" href="{{ route('favorite') }}">Favorite</a></li>
+              <li><a class="@yield('activesubmitmovie')" href="{{ route('submitmoviebyitems') }}">Submit a movie</a></li>
              @endif
           </ul><!-- #menu2 -->
         </div><!-- #bottom-menu -->
@@ -135,7 +136,10 @@
               <li><a class="@yield('activeregister')" href="{{ route('register') }}">Register</a></li>
               <li><a class="@yield('activelogin')" href="{{ route('login') }}">Log in</a></li>
               @else
-                @if ( Auth::user()->role == 'admin')
+                @if ( Auth::user() )
+                 <li><a class="@yield('activefavorite')" href="{{ route('favorite') }}">Favorite</a></li>
+                 <li><a class="@yield('activesubmitmovie')" href="{{ route('submitmoviebyimdb') }}">Submit a movie</a></li>
+                @elseif ( Auth::user()->role == 'admin')
               <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                 @endif
               <li><a class="@yield('activeprofile')" href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
