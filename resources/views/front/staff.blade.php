@@ -1,17 +1,17 @@
 @extends('layouts/frontlayout')
 
 @section('title')
-  In theater - HOLISTWOOD
+  Staff - HOLISTWOOD
 @endsection
 
-@section('activeintheater')
+@section('activehome')
 active @endsection
 
 @section('content')
 
 
 
-in theater
+staff
 
 
 

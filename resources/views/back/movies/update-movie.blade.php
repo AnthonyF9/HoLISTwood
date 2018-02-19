@@ -81,7 +81,7 @@
       {!! $errors->first('status','<div class="" role="alert">:message</div>') !!}
     </br>
       {!! Form::label('release_date', 'release_date : ', ['class' => '']) !!}
-      {!! Form::date('release_date', \Carbon\Carbon::now()) !!}
+      {!! Form::date('release_date', $movie->release_date) !!}
       {!! $errors->first('release_date','<div class="" role="alert">:message</div>') !!}
     </br>
       {!! Form::label('moderation', 'Moderation : ', ['class' => '']) !!}

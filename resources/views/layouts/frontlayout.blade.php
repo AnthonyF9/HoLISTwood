@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <title>@yield('title')</title>
     @yield('css')
   </head>
@@ -81,8 +82,14 @@
                          </form>
                       </div><!-- .panel-body -->
                     </div>
-                 </div><!-- .modal-content -->
-               </div><!-- #myModal -->
+                  </div><!-- .modal-content -->
+                </div><!-- #myModal -->
+                  @if ($errors->has('email') || $errors->has('password'))
+                    <span id="loginerror" style="display:none">Login error</span>
+                    {{-- <script type="text/javascript">
+                      var loginerror = 'TRUE';
+                    </script> --}}
+                  @endif
                 @else
                 <li id="log">
                     <a href="{{ route('logout') }}"
@@ -109,8 +116,8 @@
               <span id="anim-span">
                 Holistwood
               </span>
-              </a>
-            </p>
+            </a>
+          </p>
 
           <ul id="menu2">
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
@@ -119,7 +126,7 @@
             <li><a class="@yield('activelastupdate')" href="{{ route('lastupdate') }}">Last update</a></li>
              @if ( Auth::user() )
               <li><a class="@yield('activefavorite')" href="{{ route('favorite') }}">Favorite</a></li>
-              <li><a class="@yield('activesubmitmovie')" href="{{ route('submitmovie') }}">Submit a movie</a></li>
+              <li><a class="@yield('activesubmitmovie')" href="{{ route('submitmoviebyitems') }}">Submit a movie</a></li>
              @endif
           </ul><!-- #menu2 -->
         </div><!-- #bottom-menu -->
@@ -136,7 +143,10 @@
               <li><a class="@yield('activeregister')" href="{{ route('register') }}">Register</a></li>
               <li><a class="@yield('activelogin')" href="{{ route('login') }}">Log in</a></li>
               @else
-                @if ( Auth::user()->role == 'admin')
+                @if ( Auth::user() )
+                 <li><a class="@yield('activefavorite')" href="{{ route('favorite') }}">Favorite</a></li>
+                 <li><a class="@yield('activesubmitmovie')" href="{{ route('submitmoviebyimdb') }}">Submit a movie</a></li>
+                @elseif ( Auth::user()->role == 'admin')
               <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                 @endif
               <li><a class="@yield('activeprofile')" href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
@@ -166,17 +176,44 @@
 
       </main>
 
+      <!-- Return to Top -->
+      <a href="#" id="return-to-top"><i class="icon-chevron-up"></i></a>
+
       <footer>
 
+
+
+
+
         <div id="footer-top">
-          <div class="contact-button">
-            <button type="button" name="contact"><a href="#">Contact</a></button>
+          <div class="presentation">
+            <h3>Holistwood</h3>
+            <p>Quo illis ex dotis matrimonii eos fuga statum illis uterque tabernaculum marito semper venerem illis ad fuga et est est.</p>
           </div>
-          <div class="center">
-
-
-
+          <div class="views">
+            <h4>3 best viewed pages</h4>
+            <ul>
+              <li>Movie one - xxx views</li>
+              <li>Movie two - xxx views</li>
+              <li>Movie three - xxx views</li>
+            </ul>
           </div>
+          <div class="search">
+            <p>search</p>
+          </div>
+        </div>
+
+        <div id="footer-bottom">
+          <div class="copyright">
+            <ul>
+              <li>&copy;Holistwood</li>
+              <li><a href="{{ route('staff') }}">Staff</a></li>
+              <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
+              <li><a href="{{ route('gtu') }}">GTU</a></li>
+              <li><a href="{{ route('charter') }}">Charter</a></li>
+            </ul>
+          </div>
+
           <div class="social-network">
             <ul>
               <li><a href="#"><?php echo file_get_contents("img/facebook2.svg"); ?></a></li>
@@ -185,19 +222,17 @@
               <li><a href="#"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
             </ul>
           </div>
+
+
+          </div>
         </div>
-        <div id="footer-center">
-          <ul>
-            <li><a href="#">Staff</a></li>
-            <li><a href="#">Sitemap</a></li>
-            <li><a href="#">GTU</a></li>
-            <li><a href="#">Charter</a></li>
-          </ul>
-        </div>
-        <div id="footer-bottom">
-          <p>&copy; Holistwood</p>
-        </div>
+
      </footer>
+
+
+
+
+
      <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/jquery-ui.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
