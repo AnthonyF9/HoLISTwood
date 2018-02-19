@@ -46,6 +46,9 @@ header {
   color: #ECECE7;
   font-weight: bold;
 }
+#titreHeader h1 a:hover {
+  text-decoration: none;
+}
 #titreHeader h2 a {
   color: #53F9FF;
 }
