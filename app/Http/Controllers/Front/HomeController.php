@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $movies = Movie::orderBy('created_at','desc')->where('moderation', '=', 'ok')->get();
+      $movies = Movie::orderBy('created_at','desc')->where('moderation', '=', 'ok')->limit(12)->get();
 
       $trailers = \DB::table('movies')
                   ->join('trailer', 'movies.id', '=', 'trailer.id_movie')

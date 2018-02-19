@@ -178,6 +178,21 @@
       <footer>
 
         <div id="footer-top">
+          <div class="presentation">
+            <h3>Holistwood</h3>
+            <p>Quo illis ex dotis matrimonii eos fuga statum illis uterque tabernaculum marito semper venerem illis ad fuga et est est.</p>
+          </div>
+          <div class="views">
+            <h4>3 best viewed pages</h4>
+            <ul>
+              <li>Movie one - xxx views</li>
+              <li>Movie two - xxx views</li>
+              <li>Movie three - xxx views</li>
+            </ul>
+          </div>
+          <div class="search">
+            <p>search</p>
+          </div>
         </div>
         <div id="footer-bottom">
           <div class="copyright">

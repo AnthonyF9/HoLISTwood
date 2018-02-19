@@ -16,16 +16,16 @@ active @endsection
       </div>
   @else
     {!! Form::open(['route' => 'submitmovie-action', 'method' => 'post']) !!}
-      {!! Form::label('title', 'Titre : ', ['class' => '']) !!}
-      {!! Form::text('title', '', ['placeholder' => 'Title', 'class' => '']) !!}
+      {!! Form::label('title', 'Title', ['class' => '']) !!}
+      {!! Form::text('title', '', ['class' => '']) !!}
       {!! $errors->first('title','<div class="" role="alert">:message</div>') !!}
     </br>
-      {!! Form::label('year', 'Année : ', ['class' => '']) !!}
-      {!! Form::text('year', '', ['placeholder' => 'year', 'class' => '']) !!}
+      {!! Form::label('year', 'Year', ['class' => '']) !!}
+      {!! Form::text('year', '', ['class' => '']) !!}
       {!! $errors->first('year','<div class="" role="alert">:message</div>') !!}
 
 
-      {!! Form::submit("Ajouter", ['class' => 'btn btn-primary']) !!}
+      {!! Form::submit("Submit", ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
   @endif
 
