@@ -167,20 +167,9 @@
       </main>
 
       <footer>
-<<<<<<< HEAD
-        <div id="footer-top">
-=======
 
-        <div id="footer-top">
-          <div class="contact-button">
-            <button type="button" name="contact"><a href="#">Contact</a></button>
-          </div>
-          <div class="center">
-
-
->>>>>>> 1d42f45d1577ac70133ca2019e81078c1d765c0f
-
-        </div>
+        {{-- <div id="footer-top">
+      </div> --}}
         <div id="footer-bottom">
           <div class="copyright">
             <ul>
