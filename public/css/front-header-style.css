@@ -3,12 +3,12 @@ html {
 }
 
 body {
-  background-color: #ffffff;
+  /* background-color: #ffffff;
  background-image: -webkit-linear-gradient(top, #2d2d2d, #09335d);
  background-image: -moz-linear-gradient(top, #2d2d2d, #09335d);
  background-image: -o-linear-gradient(top, #2d2d2d, #09335d);
  background-image: -ms-linear-gradient(top, #2d2d2d, #09335d);
- background-image: linear-gradient(top, #2d2d2d, #09335d);
+ background-image: linear-gradient(top, #2d2d2d, #09335d); */
   color: white;
   font-family: 'Roboto', sans-serif;
   height: 100%;
@@ -279,7 +279,7 @@ header #bottom-menu #menu2 li button:hover{
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 100; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -414,8 +414,8 @@ header #bottom-menu #menu2 li button:hover{
     display: inline-block;
     width: 110px;
   }
-  #bottom-menu h1 {
-    font-size: 1.5em;
+  #bottom-menu p {
+    font-size: 1em;
   }
   #menu2 li {
     display: none;
@@ -424,8 +424,9 @@ header #bottom-menu #menu2 li button:hover{
     display: flex;
     flex-direction: row;
   }
-  #bottom-menu h1 {
+  #bottom-menu p {
     width: 90%;
+    min-width: 100px;
     margin-left: 10%;
   }
   #bottom-menu #menu2 {
@@ -440,7 +441,9 @@ header #bottom-menu #menu2 li button:hover{
     display: block;
     position: relative;
     top: -60px;
-    left: 10%;
+    /* left: 10%; */
+    margin-left: 10%;
+    left: 0;
     z-index: 1;
     -webkit-user-select: none;
     user-select: none;

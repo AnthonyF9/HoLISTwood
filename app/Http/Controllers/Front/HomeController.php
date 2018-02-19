@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $movies = Movie::orderBy('created_at','desc')->where('moderation', '=', 'ok')->get();
+      $movies = Movie::orderBy('created_at','desc')->where('moderation', '=', 'ok')->limit(12)->get();
 
       $trailers = \DB::table('movies')
                   ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
@@ -54,10 +54,10 @@ class HomeController extends Controller
         }
     }
 
-    public function intheater()
+    public function frontmovieslist()
     {
       $movies = Movie::orderBy('created_at','desc')->get();
-      return view('front/intheater');
+      return view('front/frontmovieslist');
     }
 
     public function lastupdate()
@@ -65,7 +65,6 @@ class HomeController extends Controller
       $movies = Movie::orderBy('updated_at','desc')->get();
       return view('front/lastupdate');
     }
-
 
     public function favorite()
     {
@@ -100,5 +99,4 @@ class HomeController extends Controller
     {
         return view('front/charter');
     }
-
 }

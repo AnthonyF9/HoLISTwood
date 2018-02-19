@@ -82,8 +82,14 @@
                          </form>
                       </div><!-- .panel-body -->
                     </div>
-                 </div><!-- .modal-content -->
-               </div><!-- #myModal -->
+                  </div><!-- .modal-content -->
+                </div><!-- #myModal -->
+                  @if ($errors->has('email') || $errors->has('password'))
+                    <span id="loginerror" style="display:none">Login error</span>
+                    {{-- <script type="text/javascript">
+                      var loginerror = 'TRUE';
+                    </script> --}}
+                  @endif
                 @else
                 <li id="log">
                     <a href="{{ route('logout') }}"
@@ -110,8 +116,8 @@
               <span id="anim-span">
                 Holistwood
               </span>
-              </a>
-            </p>
+            </a>
+          </p>
 
           <ul id="menu2">
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
@@ -120,7 +126,7 @@
             <li><a class="@yield('activelastupdate')" href="{{ route('lastupdate') }}">Last update</a></li>
              @if ( Auth::user() )
               <li><a class="@yield('activefavorite')" href="{{ route('favorite') }}">Favorite</a></li>
-              <li><a class="@yield('activesubmitmovie')" href="{{ route('submitmovie') }}">Submit a movie</a></li>
+              <li><a class="@yield('activesubmitmovie')" href="{{ route('submitmoviebyitems') }}">Submit a movie</a></li>
              @endif
           </ul><!-- #menu2 -->
         </div><!-- #bottom-menu -->
@@ -137,7 +143,10 @@
               <li><a class="@yield('activeregister')" href="{{ route('register') }}">Register</a></li>
               <li><a class="@yield('activelogin')" href="{{ route('login') }}">Log in</a></li>
               @else
-                @if ( Auth::user()->role == 'admin')
+                @if ( Auth::user() )
+                 <li><a class="@yield('activefavorite')" href="{{ route('favorite') }}">Favorite</a></li>
+                 <li><a class="@yield('activesubmitmovie')" href="{{ route('submitmoviebyimdb') }}">Submit a movie</a></li>
+                @elseif ( Auth::user()->role == 'admin')
               <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                 @endif
               <li><a class="@yield('activeprofile')" href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
@@ -172,14 +181,32 @@
 
       <footer>
 
-        {{-- <div id="footer-top">
-      </div> --}}
 
+
+
+
+        <div id="footer-top">
+          <div class="presentation">
+            <h3>Holistwood</h3>
+            <p>Quo illis ex dotis matrimonii eos fuga statum illis uterque tabernaculum marito semper venerem illis ad fuga et est est.</p>
+          </div>
+          <div class="views">
+            <h4>3 best viewed pages</h4>
+            <ul>
+              <li>Movie one - xxx views</li>
+              <li>Movie two - xxx views</li>
+              <li>Movie three - xxx views</li>
+            </ul>
+          </div>
+          <div class="search">
+            <p>search</p>
+          </div>
+        </div>
 
         <div id="footer-bottom">
           <div class="copyright">
             <ul>
-              <li>&copy; Holistwood</li>
+              <li>&copy;Holistwood</li>
               <li><a href="{{ route('staff') }}">Staff</a></li>
               <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
               <li><a href="{{ route('gtu') }}">GTU</a></li>
