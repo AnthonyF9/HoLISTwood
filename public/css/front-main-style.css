@@ -423,6 +423,39 @@ div.titre {
   margin: 10px auto 0;
 }
 
+/*  button return top*/
+#return-to-top  {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+    padding:
+    bottom: 20px;
+   right: 20px;
+   /* background: rgb(0, 0, 0); */
+   background: #439a46;
+   width: 50px;
+   height: 50px;
+   display: block;
+   text-decoration: none;
+   -webkit-border-radius: 35px;
+   -moz-border-radius: 35px;
+   border-radius: 35px;
+   display: none;
+   -webkit-transition: all 0.3s linear;
+   -moz-transition: all 0.3s ease;
+   -ms-transition: all 0.3s ease;
+   -o-transition: all 0.3s ease;
+   transition: all 0.3s ease;
+}
+#return-to-top:hover {
+    background:  #2f6a31;
+}
+
+.icon-chevron-up:before {
+  color:#fff;
+  padding: 17px;
+}
 /* Responsive */
 
 @media (max-width: 707px) {
