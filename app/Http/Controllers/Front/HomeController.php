@@ -63,4 +63,29 @@ class HomeController extends Controller
       //           ->get();
         return view('front/favorite',compact('movies'));
     }
+
+    public function contact()
+    {
+        return view('front/contact');
+    }
+
+    public function staff()
+    {
+        return view('front/staff');
+    }
+
+    public function sitemap()
+    {
+        return view('front/sitemap');
+    }
+
+    public function gtu()
+    {
+        return view('front/gtu');
+    }
+
+    public function charter()
+    {
+        return view('front/charter');
+    }
 }

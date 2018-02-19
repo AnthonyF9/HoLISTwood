@@ -26,6 +26,11 @@ Route::group(['namespace' => 'Front'], function () {
   Route::get('/profile', 'HomeController@profile')->name('profile');
   Route::get('/movie/{imdb_id}', 'HomeController@oneMovie')->name('oneMovie');
   Route::get('/events', 'EventController@index')->name('events');
+  Route::get('/contact', 'HomeController@contact')->name('contact');
+  Route::get('/staff', 'HomeController@staff')->name('staff');
+  Route::get('/sitemap', 'HomeController@sitemap')->name('sitemap');
+  Route::get('/gtu', 'HomeController@gtu')->name('gtu');
+  Route::get('/charter', 'HomeController@charter')->name('charter');
 });
 
 //////////////////////////////////////////////////////////////////////////////
