@@ -114,9 +114,11 @@
 
           <ul id="menu2">
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
-            <li><a class="@yield('activecalendar')" href="{{ route('events') }}">Release Calendar</a></li>
-            <li><a class="@yield('activemovieslist')" href="{{ route('frontmovieslist') }}">Movies List</a></li>
+            <li><a class="@yield('activecalendar')" href="{{ route('events') }}">Calender</a></li>
+            <li><a class="@yield('activeintheater')" href="{{ route('intheater') }}">In theater</a></li>
+            <li><a class="@yield('activelastupdate')" href="{{ route('lastupdate') }}">Last update</a></li>
              @if ( Auth::user() )
+              <li><a class="@yield('activefavorite')" href="{{ route('favorite') }}">Favorite</a></li>
               <li><a class="@yield('activesubmitmovie')" href="{{ route('submitmoviebyitems') }}">Submit a movie</a></li>
              @endif
           </ul><!-- #menu2 -->
@@ -170,11 +172,11 @@
       <footer>
 
         <div id="footer-top">
-      </div>
+        </div>
         <div id="footer-bottom">
           <div class="copyright">
             <ul>
-              <li>&copy; Holistwood</li>
+              <li>&copy;Holistwood</li>
               <li><a href="{{ route('staff') }}">Staff</a></li>
               <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
               <li><a href="{{ route('gtu') }}">GTU</a></li>

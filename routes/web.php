@@ -20,7 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////
 Route::group(['namespace' => 'Front'], function () {
   Route::get('/', 'HomeController@index')->name('home');
-  Route::get('/movies-list', 'HomeController@frontmovieslist')->name('frontmovieslist');
+  Route::get('/intheater', 'HomeController@intheater')->name('intheater');
+  Route::get('/lastupdate', 'HomeController@lastupdate')->name('lastupdate');
   Route::get('/movie/{imdb_id}', 'HomeController@oneMovie')->name('oneMovie');
 
   Route::get('/favorite', 'HomeAuthController@favorite')->name('favorite');

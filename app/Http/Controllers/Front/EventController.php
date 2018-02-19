@@ -23,7 +23,7 @@ class EventController extends Controller
                    null,
                    // Add color and link on event
                  [
-                     'color' => '#f05050',
+                     'color' => '#3A87AD',
                      'url' => 'pass here url and any route',
                  ]
                );
