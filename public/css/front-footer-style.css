@@ -87,7 +87,7 @@ footer #footer-bottom .copyright {
 /* -le Responsive- */
 @media (max-width: 835px) {
 
-<<<<<<< HEAD
+
   /* footer #footer-top {
 =======
 
@@ -107,9 +107,9 @@ footer #footer-bottom .copyright {
     border-top: 2.5px #2D2D2D solid;
 <<<<<<< HEAD
   } */
-=======
+
   }
->>>>>>> b2a6e8e38721bc5550d5cabb772cae3eeb8677e2
+
   footer #footer-bottom {
     margin: 0;
   }
