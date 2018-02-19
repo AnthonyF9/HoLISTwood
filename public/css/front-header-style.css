@@ -60,7 +60,7 @@ header h1 a {
 #anim-span {
   font: 3em "Orbitron", sans-serif;
   font-weight: bold;
-  letter-spacing: 0;
+  letter-spacing: 2px;
   /* padding: .25em 0 .325em; */
   display: block;
   margin: 0 auto;
