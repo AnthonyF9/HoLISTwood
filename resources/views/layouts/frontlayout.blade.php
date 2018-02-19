@@ -115,11 +115,10 @@
           <ul id="menu2">
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
             <li><a class="@yield('activecalendar')" href="{{ route('events') }}">Calender</a></li>
-            <li><a class="@yield('activeintheater')" href="{{ route('intheater') }}">In theater</a></li>
-            <li><a class="@yield('activelastupdate')" href="{{ route('lastupdate') }}">Last update</a></li>
+            <li><a class="@yield('')" href="{{ route('intheater') }}">In theater</a></li>
+            <li><a class="@yield('')" href="{{ route('lastupdate') }}">Last update</a></li>
              @if ( Auth::user() )
-              <li><a class="@yield('activefavorite')" href="{{ route('favorite') }}">Favorite</a></li>
-              <li><a class="@yield('activesubmitmovie')" href="{{ route('submitmovie') }}">Submit a movie</a></li>
+              <li><a class="@yield('')" href="{{ route('favorite') }}">Favorite</a></li>
              @endif
           </ul><!-- #menu2 -->
         </div><!-- #bottom-menu -->
@@ -167,18 +166,7 @@
       </main>
 
       <footer>
-<<<<<<< HEAD
         <div id="footer-top">
-=======
-
-        <div id="footer-top">
-          <div class="contact-button">
-            <button type="button" name="contact"><a href="#">Contact</a></button>
-          </div>
-          <div class="center">
-
-
->>>>>>> 1d42f45d1577ac70133ca2019e81078c1d765c0f
 
         </div>
         <div id="footer-bottom">
