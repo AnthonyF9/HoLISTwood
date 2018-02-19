@@ -103,11 +103,6 @@ class HomeAuthController extends Controller
           $user_id = \Auth::user()->id;
           $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
           $movie_id = $movie[0]->id;
-          // MyList::create([
-          //   'user_id'  => $user_id,
-          //   'movie_id' => $movie_id,
-          //   'status'   => $status
-          // ]);
           $list = [];
           $list[] = [
             'user_id'  => $user_id,
