@@ -39,7 +39,6 @@ class HomeController extends Controller
         $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
         if (!empty($movie)) {
 
-
           $trailers = \DB::table('movies')
                       ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
                       ->where('imdb_id','=',$imdb_id)

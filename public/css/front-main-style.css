@@ -183,18 +183,14 @@ div.titre {
   display: none;
 }
 
-.calendrier .fc-button-group .fc-prev-button, .fc-next-button {
-  /* background-color: #2983DF;  */
-}
-
 .calendrier .fc-center h2 {
   font-size: 1.5em;
 }
 
+/* popup day calendar */
 .calendrier .fc-widget-content{
-  /* background-color: #262626; */
+  background-color: #262626;
 }
-
 .calendrier .fc-unthemed .fc-popover .fc-header, .fc-unthemed hr {
   background-color: #262626;
 }

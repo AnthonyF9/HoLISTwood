@@ -39,7 +39,9 @@ Route::group(['namespace' => 'Front'], function () {
   Route::match(['get', 'post'],'/submit-movie/add-by-imdb', 'HomeAuthController@findmoviebyimdb')->name('findmoviebyimdb');
   Route::post('/submit-movie/save-movie-by-imdb', 'HomeAuthController@addmoviebyimdb')->name('addmoviebyimdb');
 
+  // Calendar
   Route::get('/events', 'EventController@index')->name('events');
+
   Route::get('/contact', 'HomeController@contact')->name('contact');
   Route::get('/staff', 'HomeController@staff')->name('staff');
   Route::get('/sitemap', 'HomeController@sitemap')->name('sitemap');
