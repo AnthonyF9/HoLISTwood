@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Front;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Movie;
+use App\Trailer;
+
 class HomeController extends Controller
 {
     /**
@@ -24,23 +26,35 @@ class HomeController extends Controller
     public function index()
     {
       $movies = Movie::orderBy('created_at','desc')->where('moderation', '=', 'ok')->get();
-        return view('front/home',compact('movies'));
-    }
 
-    public function profile()
-    {
-        return view('front/profile');
+      $trailers = \DB::table('movies')
+                  ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
+                  ->get();
+
+        return view('front/home',compact('movies','trailers'));
     }
 
     public function oneMovie($imdb_id)
     {
         $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
         if (!empty($movie)) {
-          return view('front/oneMovie', compact('imdb_id','movie'));
+
+
+          $trailers = \DB::table('movies')
+                      ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
+                      ->where('imdb_id','=',$imdb_id)
+                      ->get();
+
+           // dd($trailers);
+
+          return view('front/oneMovie', compact('imdb_id','movie', 'trailers'));
         }
         else {
           abort(404);
         }
+
+
+
     }
 
     public function intheater()
@@ -54,6 +68,7 @@ class HomeController extends Controller
       $movies = Movie::orderBy('updated_at','desc')->get();
       return view('front/lastupdate');
     }
+<<<<<<< HEAD
 
     public function favorite()
     {
@@ -88,4 +103,6 @@ class HomeController extends Controller
     {
         return view('front/charter');
     }
+=======
+>>>>>>> 1d42f45d1577ac70133ca2019e81078c1d765c0f
 }

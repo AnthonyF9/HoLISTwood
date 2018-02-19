@@ -30,7 +30,7 @@ class MoviesTableSeeder extends Seeder
         'website'    =>'http://www.paramount.com/movies/forrest-gump/',
         'genre'    =>'Drama, Romance',
         'status'  => 'out',
-        // 'moderation'  => 'softdelete',
+        'moderation'  => 'ok',
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
@@ -50,9 +50,11 @@ class MoviesTableSeeder extends Seeder
         'website'    =>'http://www.thedarkknightrises.com/',
         'genre'    =>'Action, Thriller',
         'status'  => 'out',
+        'moderation'  => 'ok',
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
+
 
     $movie[] = array (
         'title'  => 'The Lord of the Rings: The Return of the King',
@@ -69,6 +71,7 @@ class MoviesTableSeeder extends Seeder
         'website' => 'http://www.lordoftherings.net/',
         'genre' => 'Adventure, Drama, Fantasy',
         'status' => 'out',
+        'moderation'  => 'ok',
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
@@ -88,6 +91,7 @@ class MoviesTableSeeder extends Seeder
         'website' => 'http://www.InterstellarMovie.com/',
         'genre' => 'Adventure, Drama, Sci-Fi',
         'status' => 'out',
+        'moderation'  => 'ok',
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
@@ -107,6 +111,7 @@ class MoviesTableSeeder extends Seeder
         'website' => 'http://inceptionmovie.warnerbros.com/',
         'genre' => 'Action, Adventure, Sci-Fi',
         'status' => 'out',
+        'moderation'  => 'ok',
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
@@ -126,6 +131,7 @@ class MoviesTableSeeder extends Seeder
         'website' => 'http://www.gladiator-thefilm.com',
         'genre' => 'Action, Adventure, Drama',
         'status' => 'out',
+        'moderation'  => 'ok',
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
@@ -145,6 +151,7 @@ class MoviesTableSeeder extends Seeder
         'website' => 'http://https://www.facebook.com/SavingPrivateRyanMovie',
         'genre' => 'Drama, War',
         'status' => 'out',
+        'moderation'  => 'ok',
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
@@ -164,6 +171,7 @@ class MoviesTableSeeder extends Seeder
         'website' => 'http://www.angelsanddemons.com/',
         'genre' => 'Mystery, Thriller',
         'status' => 'out',
+        'moderation'  => 'ok',
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
@@ -183,6 +191,7 @@ class MoviesTableSeeder extends Seeder
         'website' => 'http://www.edgeoftomorrowmovie.com',
         'genre' => 'Action, Adventure, Sci-Fi',
         'status' => 'out',
+        'moderation'  => 'ok',
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
@@ -202,6 +211,7 @@ class MoviesTableSeeder extends Seeder
         'website' => 'http://disney.go.com/disneyvideos/liveaction/pirates/main_site/main.html',
         'genre' => 'Action, Adventure, Fantasy',
         'status' => 'out',
+        'moderation'  => 'ok',
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
@@ -221,6 +231,7 @@ class MoviesTableSeeder extends Seeder
         'website' => 'http://movies.disney.com/thor-ragnarok',
         'genre' => 'Action, Adventure, Comedy',
         'status' => 'out',
+        'moderation'  => 'ok',
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
@@ -240,6 +251,7 @@ class MoviesTableSeeder extends Seeder
         'website' => 'N/A',
         'genre' => 'Action, Adventure, Fantasy',
         'status' => 'Incoming',
+        'moderation'  => 'ok',
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );

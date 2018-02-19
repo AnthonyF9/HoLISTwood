@@ -14,10 +14,10 @@ class CreateTrailerTable extends Migration
     public function up()
     {
       Schema::create('trailer', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_movie');
-            $table->text('url_trailer');
-            });
+          $table->increments('id');
+          $table->integer('id_movie');
+          $table->text('url_trailer');
+      });
     }
 
     /**
@@ -27,6 +27,6 @@ class CreateTrailerTable extends Migration
      */
     public function down()
     {
-       Schema::drop('trailer');
+       Schema::dropIfExists('trailer');
     }
 }

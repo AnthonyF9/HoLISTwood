@@ -4,7 +4,7 @@
   Last update - HOLISTWOOD
 @endsection
 
-@section('activehome')
+@section('activelastupdate')
 active @endsection
 
 @section('content')
