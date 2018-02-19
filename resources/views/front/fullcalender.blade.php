@@ -16,9 +16,9 @@ active @endsection
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading"> Calendar  movies</div>
+                <div class="panel-heading"> Release Calendar </div>
 
-                <div class="panel-body">
+                <div id="calendar" class="panel-body">
                     {!! $calendar->calendar() !!}
 
                 </div>

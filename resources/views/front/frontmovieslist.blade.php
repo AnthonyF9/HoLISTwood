@@ -1,17 +1,17 @@
 @extends('layouts/frontlayout')
 
 @section('title')
-  In theater - HOLISTWOOD
+  Movies List - HOLISTWOOD
 @endsection
 
-@section('activeintheater')
+@section('activemovieslist')
 active @endsection
 
 @section('content')
 
 
 
-in theater
+movies list
 
 
 

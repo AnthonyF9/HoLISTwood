@@ -176,12 +176,12 @@
 
       <footer>
 
-        {{-- <div id="footer-top">
-      </div> --}}
+        <div id="footer-top">
+        </div>
         <div id="footer-bottom">
           <div class="copyright">
             <ul>
-              <li>&copy; Holistwood</li>
+              <li>&copy;Holistwood</li>
               <li><a href="{{ route('staff') }}">Staff</a></li>
               <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
               <li><a href="{{ route('gtu') }}">GTU</a></li>
