@@ -114,11 +114,9 @@
 
           <ul id="menu2">
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
-            <li><a class="@yield('activecalendar')" href="{{ route('events') }}">Calender</a></li>
-            <li><a class="@yield('activeintheater')" href="{{ route('intheater') }}">In theater</a></li>
-            <li><a class="@yield('activelastupdate')" href="{{ route('lastupdate') }}">Last update</a></li>
+            <li><a class="@yield('activecalendar')" href="{{ route('events') }}">Release Calendar</a></li>
+            <li><a class="@yield('activemovieslist')" href="{{ route('frontmovieslist') }}">Movies List</a></li>
              @if ( Auth::user() )
-              <li><a class="@yield('activefavorite')" href="{{ route('favorite') }}">Favorite</a></li>
               <li><a class="@yield('activesubmitmovie')" href="{{ route('submitmovie') }}">Submit a movie</a></li>
              @endif
           </ul><!-- #menu2 -->
@@ -168,8 +166,8 @@
 
       <footer>
 
-        {{-- <div id="footer-top">
-      </div> --}}
+        <div id="footer-top">
+      </div>
         <div id="footer-bottom">
           <div class="copyright">
             <ul>
