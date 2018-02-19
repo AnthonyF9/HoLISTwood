@@ -16,11 +16,11 @@ active @endsection
       </div>
   @else
     {!! Form::open(['route' => 'findmoviebyimdb', 'method' => 'post']) !!}
-      {!! Form::label('imdb', 'Imdb : ', ['class' => '']) !!}
-      {!! Form::text('imdb', '', ['placeholder' => 'Title', 'class' => '']) !!}
+      {!! Form::label('imdb', 'Imdb', ['class' => '']) !!}
+      {!! Form::text('imdb', '', ['class' => '']) !!}
       {!! $errors->first('imdb','<div class="" role="alert">:message</div>') !!}
 
-      {!! Form::submit("Ajouter", ['class' => 'btn btn-primary']) !!}
+      {!! Form::submit("Submit", ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
   @endif
 

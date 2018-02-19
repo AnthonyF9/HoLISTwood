@@ -165,7 +165,7 @@ header nav#top-menu .log #large-screen #menu1 li a {
 }
  header nav#top-menu .log #large-screen #menu1 li span {
   white-space:nowrap;
-  padding-top: 6px;
+  padding-top: 7px;
   height: 50%;
   display: block;
   position: relative;
@@ -174,7 +174,9 @@ header nav#top-menu .log #large-screen #menu1 li a {
 
 header nav#top-menu .log #large-screen #menu1 li#log a {
 line-height: 150%;
+
 }
+
 #myBtn{
   line-height: 90%;
 }

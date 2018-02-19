@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <title>@yield('title')</title>
     @yield('css')
   </head>
@@ -175,10 +176,33 @@
 
       </main>
 
+      <!-- Return to Top -->
+      <a href="#" id="return-to-top"><i class="icon-chevron-up"></i></a>
+
       <footer>
 
+
+
+
+
         <div id="footer-top">
+          <div class="presentation">
+            <h3>Holistwood</h3>
+            <p>Quo illis ex dotis matrimonii eos fuga statum illis uterque tabernaculum marito semper venerem illis ad fuga et est est.</p>
+          </div>
+          <div class="views">
+            <h4>3 best viewed pages</h4>
+            <ul>
+              <li>Movie one - xxx views</li>
+              <li>Movie two - xxx views</li>
+              <li>Movie three - xxx views</li>
+            </ul>
+          </div>
+          <div class="search">
+            <p>search</p>
+          </div>
         </div>
+
         <div id="footer-bottom">
           <div class="copyright">
             <ul>
@@ -189,6 +213,7 @@
               <li><a href="{{ route('charter') }}">Charter</a></li>
             </ul>
           </div>
+
           <div class="social-network">
             <ul>
               <li><a href="#"><?php echo file_get_contents("img/facebook2.svg"); ?></a></li>
@@ -197,8 +222,17 @@
               <li><a href="#"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
             </ul>
           </div>
+
+
+          </div>
         </div>
+
      </footer>
+
+
+
+
+
      <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/jquery-ui.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
