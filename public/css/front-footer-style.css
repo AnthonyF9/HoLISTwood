@@ -51,6 +51,9 @@ footer #footer-bottom {
 }
 footer #footer-bottom .social-network {
   display: block;
+  width: 20%;
+  min-width: 200px;
+  margin-left: 40%;
 }
 footer #footer-bottom .social-network ul li{
   margin: 0 1.5%;
@@ -103,6 +106,8 @@ footer #footer-bottom .copyright {
 
 /* -le Responsive- */
 @media (max-width: 835px) {
+
+
 
   footer {
     margin-top: -200px;

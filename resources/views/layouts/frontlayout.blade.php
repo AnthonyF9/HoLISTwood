@@ -81,8 +81,14 @@
                          </form>
                       </div><!-- .panel-body -->
                     </div>
-                 </div><!-- .modal-content -->
-               </div><!-- #myModal -->
+                  </div><!-- .modal-content -->
+                </div><!-- #myModal -->
+                  @if ($errors->has('email') || $errors->has('password'))
+                    <span id="loginerror" style="display:none">Login error</span>
+                    {{-- <script type="text/javascript">
+                      var loginerror = 'TRUE';
+                    </script> --}}
+                  @endif
                 @else
                 <li id="log">
                     <a href="{{ route('logout') }}"
@@ -109,8 +115,8 @@
               <span id="anim-span">
                 Holistwood
               </span>
-              </a>
-            </p>
+            </a>
+          </p>
 
           <ul id="menu2">
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>

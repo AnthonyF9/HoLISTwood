@@ -8,6 +8,7 @@ use App\Http\Requests\MovieRequest;
 use App\Http\Requests\ImdbRequest;
 use App\Http\Requests\FrontMovieRequest;
 use App\Movie;
+use App\MyList;
 
 class HomeAuthController extends Controller
 {
@@ -93,5 +94,92 @@ class HomeAuthController extends Controller
         } else {
           return redirect()->route('submitmoviebyimdb')->with('error', 'This movie already exists in Holistwood'); // si l'IMDB existe déjà, on ne rajoute pas le movie
         }
+    }
+
+
+    public function addtomylist(Request $request, $imdb_id)
+    {
+          $status = $request->addtolist;
+          $user_id = \Auth::user()->id;
+          $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
+          $movie_id = $movie[0]->id;
+          // MyList::create([
+          //   'user_id'  => $user_id,
+          //   'movie_id' => $movie_id,
+          //   'status'   => $status
+          // ]);
+          $list = [];
+          $list[] = [
+            'user_id'  => $user_id,
+            'movie_id' => $movie_id,
+            'statuslist'   => $status
+          ];
+          \DB::table('mylist')->insert($list);
+
+          if (!empty($movie)) {
+            $trailers = \DB::table('movies')
+                        ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
+                        ->where('imdb_id','=',$imdb_id)
+                        ->get();
+            // dd($trailers);
+            $liststatus = \DB::table('mylist')
+                        ->join('users', 'users.id', '=', 'mylist.user_id')
+                        ->join('movies', 'movies.id', '=', 'mylist.movie_id')
+                        ->where([
+                            ['mylist.user_id', '=', $user_id],
+                            ['mylist.movie_id', '=', $movie_id]
+                          ])
+                        ->get();
+            // dd($liststatus[0]);
+            return view('front/oneMovie', compact('imdb_id','movie', 'trailers', 'liststatus'));
+          }
+          else {
+            abort(404);
+          }
+    }
+    public function updateinmylist(Request $request, $imdb_id)
+    {
+          $status = $request->addtolist;
+          $user_id = \Auth::user()->id;
+          $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
+          // dd($movie);
+          $movie_id = $movie[0]->id;
+          // \DB::table('mylist')->update($list);
+          $itemlist = \DB::table('mylist')
+                      ->where([['movie_id','=',$movie_id],['user_id','=',$user_id]])
+                      ->get();
+          // dd($itemlist);
+          $id = $itemlist[0]->id;
+          \DB::table('mylist')->where('id','=',$id)->update([
+            'user_id'  => $user_id,
+            'movie_id' => $movie_id,
+            'statuslist'   => $status
+          ]);
+          // MyList::findOrFail($id)->update([
+          //   'user_id'  => $user_id,
+          //   'movie_id' => $movie_id,
+          //   'statuslist'   => $status
+          // ]);
+
+          if (!empty($movie)) {
+            $trailers = \DB::table('movies')
+                        ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
+                        ->where('imdb_id','=',$imdb_id)
+                        ->get();
+            // dd($trailers);
+            $liststatus = \DB::table('mylist')
+                        ->join('users', 'users.id', '=', 'mylist.user_id')
+                        ->join('movies', 'movies.id', '=', 'mylist.movie_id')
+                        ->where([
+                            ['mylist.user_id', '=', $user_id],
+                            ['mylist.movie_id', '=', $movie_id]
+                          ])
+                        ->get();
+            // dd($liststatus[0]);
+            return view('front/oneMovie', compact('imdb_id','movie', 'trailers', 'liststatus'));
+          }
+          else {
+            abort(404);
+          }
     }
 }
