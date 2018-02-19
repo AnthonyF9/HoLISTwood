@@ -3,16 +3,34 @@
 
 /* Le main et son contenu */
 main {
-  max-width: 1400px;
+  max-width: 1000px;
   margin: auto;
   height: 100%;
   padding-bottom: 250px;
 }
 
 #trailer {
-  width: 80%;
+  width: 70%;
   margin: 20px auto;
 
+}
+#submitmovie {
+  width: 70%;
+  margin: 20px auto;
+  background: #212121;
+  padding: 20px;
+}
+#submitmovie nav ul {
+  display: flex;
+}
+#submitmovie nav ul li {
+  padding: 5px 10px;
+}
+#submitmovie nav ul li a {
+  color: white;
+}
+#submitmovie nav ul li a.active {
+  color: #5555FF;
 }
 
 
