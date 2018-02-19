@@ -30,7 +30,11 @@ $randomid = rand(0, $count);
 @endphp
 
 
+
   <div id="trailer">
+    <div class="bandeau-trailer">
+      <h2> Random trailer </h2>
+    </div>
       <div class="rwd-trailer">
         <iframe width = "917px" height="490px" src="{{$trailers[$randomid]->url_trailer}}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
       </div>
