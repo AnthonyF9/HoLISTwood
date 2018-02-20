@@ -13,23 +13,6 @@ active @endsection
   </div>
 @endsection
 
-@php
-$opts = array(
-  'http' => array(
-      'method' => "GET"
-  )
-);
-
-$context = stream_context_create($opts);
-$raw = file_get_contents($urlmovie, true, $context);
-$movie = json_decode($raw, true);
-// echo '<pre>';
-// print_r($movie);
-// echo '</pre>';
-@endphp
-
-
-
 @section('content-beta')
   <div class="part">
     @if (isset($movie['Title']) && !empty($movie['Title']) && $movie['Title'] !='N/A' && isset($movie['Plot']) && !empty($movie['Plot']) && $movie['Plot'] !='N/A')

@@ -14,7 +14,7 @@
 
 @section('content-beta')
   <div class="part partimdb">
-    {!! Form::open(['route' => 'findmovie', 'method' => 'post']) !!}
+    {!! Form::open(['route' => 'getimdb', 'method' => 'post']) !!}
       {!! Form::label('imdb', 'Movie IMDB : ', ['class' => '']) !!}
       {!! Form::text('imdb', null, ['placeholder' => 'Put your IMDB here', 'id' => 'imdb']) !!}
       {!! $errors->first('imdb','<div class="" role="alert">:message</div>') !!}

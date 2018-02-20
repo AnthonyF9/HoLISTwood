@@ -78,7 +78,15 @@ class HomeAuthController extends Controller
 
         // vérification de la syntaxe de l'IMDB
         if (substr( $request->imdb, 0, 2 ) === "tt" &&  strlen($request->imdb) === 9 ) {
-          return view('front/submitmovie/submitmovieimdbverif', compact('urlmovie'));
+          $opts = array(
+            'http' => array(
+                'method' => "GET"
+            )
+          );
+          $context = stream_context_create($opts);
+          $raw = file_get_contents($urlmovie, true, $context);
+          $movie = json_decode($raw, true);
+          return view('front/submitmovie/submitmovieimdbverif', compact('movie'));
         } else {
           return redirect()->route('submitmoviebyimdb')->with('error', 'invalid IMDB ID');
         }
