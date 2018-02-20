@@ -79,9 +79,9 @@ Route::group(['namespace' => 'Back'], function () {
   Route::get('/dashboard/trailers/add-new-trailer', 'MoviesController@addtrailerfornewmovie')->where('id','[0-9]+')->name('addtrailerfornewmovie');
   Route::post('/dashboard/trailers/add-new-trailer', 'MoviesController@addtrailerfornewmovieaction')->where('id','[0-9]+')->name('addtrailerfornewmovieaction');
 
-
   Route::get('/dashboard/add-imdb', 'MoviesController@addimdb')->name('addimdb');
-  Route::post('/dashboard/add-movie', 'MoviesController@findmovie')->name('findmovie');
+  Route::post('/dashboard/add-movie', 'MoviesController@getimdb')->name('getimdb');
+  Route::get('/dashboard/add-movie', 'MoviesController@verifymovie')->name('verifymovie');
   Route::post('/dashboard/save-movie', 'MoviesController@addmovie')->name('addmovie');
 
   Route::get('/dashboard/users-list', 'UsersController@userslist')->name('userslist');

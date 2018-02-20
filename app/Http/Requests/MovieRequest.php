@@ -41,7 +41,7 @@ class MovieRequest extends FormRequest
     // public function messages()
     // {
     //     return [
-    //
+    //       'title.required' => 'fdhgxngchgvcjn',
     //
     //     ];
     // }
