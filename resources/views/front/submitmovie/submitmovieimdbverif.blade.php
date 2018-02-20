@@ -57,67 +57,67 @@ $movie = json_decode($raw, true);
         @endphp
 
         {!! Form::open(['route' => 'addmoviebyimdb', 'method' => 'post']) !!}
-          {!! Form::label('title', 'Titre : ', ['class' => '']) !!}
+          {!! Form::label('title', 'Title ', ['class' => '']) !!}
           {!! Form::text('title', $title, ['placeholder' => 'Title', 'class' => '']) !!}
           {!! $errors->first('title','<div class="" role="alert">:message</div>') !!}
         </br>
-          {!! Form::label('year', 'Année : ', ['class' => '']) !!}
+          {!! Form::label('year', 'Year ', ['class' => '']) !!}
           {!! Form::text('year', $year, ['placeholder' => 'year', 'class' => '']) !!}
           {!! $errors->first('year','<div class="" role="alert">:message</div>') !!}
         </br>
-          {!! Form::label('runtime', 'Durée : ', ['class' => '']) !!}
+          {!! Form::label('runtime', 'Runtime ', ['class' => '']) !!}
           {!! Form::text('runtime', $runtime, ['placeholder' => 'runtime', 'class' => '']) !!}
           {!! $errors->first('runtime','<div class="" role="alert">:message</div>') !!}
         </br>
-          {!! Form::label('director', 'Réalisateur : ', ['class' => '']) !!}
+          {!! Form::label('director', 'Director ', ['class' => '']) !!}
           {!! Form::text('director', $director, ['placeholder' => 'director', 'class' => '']) !!}
           {!! $errors->first('director','<div class="" role="alert">:message</div>') !!}
         </br>
-          {!! Form::label('writers', 'Auteurs : ', ['class' => '']) !!}
+          {!! Form::label('writers', 'Writers ', ['class' => '']) !!}
           {!! Form::text('writers', $writers, ['placeholder' => 'writers', 'class' => '']) !!}
           {!! $errors->first('writers','<div class="" role="alert">:message</div>') !!}
         </br>
-          {!! Form::label('actors', 'Acteurs : ', ['class' => '']) !!}
+          {!! Form::label('actors', 'Actors ', ['class' => '']) !!}
           {!! Form::textarea('actors', $actors, ['placeholder' => 'actors', 'class' => '']) !!}
           {!! $errors->first('actors','<div class="" role="alert">:message</div>') !!}
         </br>
-          {!! Form::label('plot', 'Synopsis : ', ['class' => '']) !!}
+          {!! Form::label('plot', 'Plot ', ['class' => '']) !!}
           {!! Form::textarea('plot', $plot, ['placeholder' => 'plot', 'class' => '']) !!}
           {!! $errors->first('plot','<div class="" role="alert">:message</div>') !!}
         </br>
-          {!! Form::label('awards', 'Récompenses : ', ['class' => '']) !!}
+          {!! Form::label('awards', 'Awards ', ['class' => '']) !!}
           {!! Form::textarea('awards', $awards, ['placeholder' => 'awards', 'class' => '']) !!}
           {!! $errors->first('awards','<div class="" role="alert">:message</div>') !!}
         </br>
-          {!! Form::label('poster', 'URL du poster : ', ['class' => '']) !!}
+          {!! Form::label('poster', 'Poster URL ', ['class' => '']) !!}
           {!! Form::textarea('poster', $poster, ['placeholder' => 'poster', 'class' => '']) !!}
           {!! $errors->first('poster','<div class="" role="alert">:message</div>') !!}
         </br>
-          {!! Form::label('imdb_id', 'ID IMDB : ', ['class' => '']) !!}
+          {!! Form::label('imdb_id', 'ID IMDB ', ['class' => '']) !!}
           {!! Form::text('imdb_id', $imdb_id, ['placeholder' => 'imdb_id', 'class' => '']) !!}
           {!! $errors->first('imdb_id','<div class="" role="alert">:message</div>') !!}
         </br>
-          {!! Form::label('production', 'Production : ', ['class' => '']) !!}
+          {!! Form::label('production', 'Production ', ['class' => '']) !!}
           {!! Form::text('production', $production, ['placeholder' => 'production', 'class' => '']) !!}
           {!! $errors->first('production','<div class="" role="alert">:message</div>') !!}
         </br>
-          {!! Form::label('website', 'Site web : ', ['class' => '']) !!}
+          {!! Form::label('website', 'Website ', ['class' => '']) !!}
           {!! Form::text('website', $website, ['placeholder' => 'website', 'class' => '']) !!}
           {!! $errors->first('website','<div class="" role="alert">:message</div>') !!}
         </br>
-          {!! Form::label('genre', 'Genre: ', ['class' => '']) !!}
+          {!! Form::label('genre', 'Genre ', ['class' => '']) !!}
           {!! Form::text('genre', $genre, ['placeholder' => 'genre', 'class' => '']) !!}
           {!! $errors->first('genre','<div class="" role="alert">:message</div>') !!}
         </br>
-          {!! Form::label('status', 'Status : ', ['class' => '']) !!}
+          {!! Form::label('status', 'Status ', ['class' => '']) !!}
           {!! Form::select('status',['out'=>'Out','incoming'=>'Incoming'], 'out') !!}
           {!! $errors->first('status','<div class="" role="alert">:message</div>') !!}
         </br>
-          {!! Form::label('release_date', 'release_date : ', ['class' => '']) !!}
+          {!! Form::label('release_date', 'Release date ', ['class' => '']) !!}
           {!! Form::date('release_date', \Carbon\Carbon::now()) !!}
           {!! $errors->first('release_date','<div class="" role="alert">:message</div>') !!}
 
-          {!! Form::submit("Ajouter", ['class' => 'btn btn-primary']) !!}
+          {!! Form::submit("Submit", ['class' => 'btn btn-primary']) !!}
         {!! Form::close() !!}
 
 
