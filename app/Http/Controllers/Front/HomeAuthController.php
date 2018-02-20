@@ -24,15 +24,19 @@ class HomeAuthController extends Controller
 
     public function profile()
     {
-        return view('front/profile');
+        $user_id = \Auth::user()->id;
+        $mymovieslist = \DB::table('mylist')
+                    ->join('users', 'users.id', '=', 'mylist.user_id')
+                    ->join('movies', 'movies.id', '=', 'mylist.movie_id')
+                    ->where('mylist.user_id', '=', $user_id)
+                    ->get();
+        // dd($mymovieslist);
+        return view('front/profile', compact('mymovieslist'));
+        // return view('front/profile');
     }
 
     public function favorite()
     {
-      // $movie = DB::table('movies')
-      //           ->leftJoin('rating','movies.id','=','rating.id_movie')
-      //           ->orderBy('rating.note','desc')
-      //           ->get();
         return view('front/favorite',compact('movies'));
     }
 
@@ -51,6 +55,7 @@ class HomeAuthController extends Controller
         $mystring = $test;
         $findme   = $request->imdb_id;
         $pos = strpos($mystring, $findme);
+      // si l'imdb n'est pas déjà dans le BDD, on l'ajoute
         if ($pos === false) {
           Movie::Create($request->all());
           return redirect()->route('submitmoviebyitems')->with('status', 'Movie submitted');

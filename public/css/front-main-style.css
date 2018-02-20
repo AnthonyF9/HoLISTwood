@@ -1,6 +1,3 @@
-
-
-
 /* Le main et son contenu */
 main {
   max-width: 1300px;
@@ -90,6 +87,8 @@ main {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   border-radius: 5px;
 }
+
+
 .affiches {
   display: flex;
   justify-content: space-around;
@@ -101,18 +100,29 @@ main {
   width: 300px;
   margin: 15px
 }
-
 .affiche img{
   height: 380px;
   width: 300px;
 }
-
-
-
 .affiche img:hover{
   opacity: 0.2;
   filter: alpha(opacity=50);
   transform: scale(1);
+}
+#movies-list-profile {
+  width: 80%;
+  margin: auto;
+}
+#movies-list-profile ul {
+  padding-left: 40px;
+}
+#movies-list-profile ul li {
+  /* padding-left: 40px; */
+  margin: 10px;
+  list-style-type: disc;
+}
+#movies-list-profile ul li a {
+  color: white;
 }
 
 div.titre {
