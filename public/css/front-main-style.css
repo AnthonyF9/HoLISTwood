@@ -214,7 +214,7 @@ div.titre {
 /* Calendar styles */
 
 .calendrier {
-  width: 900px;
+  max-width: 900px;
   margin: auto;
 }
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Calendar;
 use App\Event;
 use App\Movie;
+use Auth;
 
 class EventController extends Controller
 {
@@ -15,6 +16,43 @@ class EventController extends Controller
    */
   public function index()
    {
+       // Si quelqu'un est connecté sur la page calendrier on affiche les films qu'il a ajouté
+       if($user = Auth::user())
+       {
+         // $userid = \DB::table('mylist')->where('user_id','=', $user->id)->get();
+
+         $usermovies = \DB::table('mylist')
+                     ->join('movies', 'movies.id', '=', 'mylist.movie_id')
+                     ->where('user_id','=', $user->id)
+                     ->where('release_date','!=','null')
+                     ->get();
+
+           // dd($usermovies);
+
+          $events = [];
+          $data = Event::all();
+          if($data->count()) {
+              foreach ($usermovies as $key => $usermovie) {
+                  $events[] = Calendar::event(
+                      $usermovie->title,
+                      true,
+                      new \DateTime($usermovie->release_date),
+                      new \DateTime($usermovie->release_date.' +1 day'),
+                      null,
+                      // Add color and link on event
+                    [
+                        'color' => '#3A87AD',
+                        'url' => route('oneMovie', array( 'imdb_id'=> $usermovie->imdb_id )),
+                    ]
+                  );
+              }
+          }
+          $calendar = Calendar::addEvents($events);
+          // dd($calendar);
+          return view('front/fullcalender', compact('calendar'));
+
+       } else {
+         // si personne n'est connecté on affiche tous les films qui ont une release date de la base de données
 
        $movies = \DB::table('movies')->where('release_date','!=','null')->get();
        // dd($movies);
@@ -41,5 +79,8 @@ class EventController extends Controller
        // dd($calendar);
        return view('front/fullcalender', compact('calendar'));
 
+
+
+     }
    }
 }
