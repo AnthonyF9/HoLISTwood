@@ -90,7 +90,6 @@ class MoviesController extends Controller
           'url_trailer' => ''
         ];
         \DB::table('trailer')->insert($trailer);
-
         return redirect()->route('addimdb')->with('status', 'Movie added');
       } else {
         return redirect()->route('addimdb')->with('error', 'This movie already exists'); // si l'IMDB existe déjà, on ne rajoute pas le movie
@@ -153,7 +152,7 @@ class MoviesController extends Controller
       $movies = \DB::table('trailer')
                   ->join('movies', 'movies.id', '=', 'trailer.id_movie')
                   ->orderBy('created_at', 'DESC')
-                  ->paginate(6);
+                  ->paginate(10);
       return view('back/movies/movies-list-trailers', compact('movies'));
   }
   public function addtrailers($id)
@@ -177,7 +176,10 @@ class MoviesController extends Controller
         'id_movie'  => $id,
         'url_trailer' => $request->trailer
       ];
-      \DB::table('trailer')->insert($trailer);
+      \DB::table('trailer')->where([['id_movie', '=', $id],['url_trailer', '=', '']])->update([
+        'id_movie'  => $id,
+        'url_trailer' => $request->trailer
+      ]);
     }
     else {
       $trailersToOneMovie = \DB::table('trailer')
