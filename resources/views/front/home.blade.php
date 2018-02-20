@@ -47,7 +47,9 @@ $randomid = rand(0, $count);
 
   <div class="affiches">
 
+
     @foreach ($movies as $movie)
+      @if (!empty($movie->poster))
 
     <div class="grid">
       <a href="{{ route('oneMovie', array( 'imdb_id'=> $movie->imdb_id )) }}">
@@ -59,7 +61,9 @@ $randomid = rand(0, $count);
     	</figure>
       </a>
     </div>
+      @endif
      @endforeach
+
 
   </div>
 

@@ -13,15 +13,15 @@
 @endsection
 
 @php
-$opts = array(
-  'http' => array(
-      'method' => "GET"
-  )
-);
-
-$context = stream_context_create($opts);
-$raw = file_get_contents($urlmovie, true, $context);
-$movie = json_decode($raw, true);
+// $opts = array(
+//   'http' => array(
+//       'method' => "GET"
+//   )
+// );
+//
+// $context = stream_context_create($opts);
+// $raw = file_get_contents($urlmovie, true, $context);
+// $movie = json_decode($raw, true);
 // echo '<pre>';
 // print_r($movie);
 // echo '</pre>';
@@ -38,7 +38,7 @@ $movie = json_decode($raw, true);
         $serie = strstr($title,'Episode');
       @endphp
       @if ($serie != FALSE)
-        <p>Ceci est une série, non un movie.</p>
+        <p>That's a serie, not a movie.</p>
       @else
         @php
           if (isset($movie['Year']) && !empty($movie['Year'])) { $year = $movie['Year']; } else { $year = 'N/A'; }
@@ -125,7 +125,7 @@ $movie = json_decode($raw, true);
 
       @endif
     @else
-      <p>Ce movie n'existe pas.</p>
+      <p>This movie doesn't exist.</p>
       <p><a href="{{ route('addimdb') }}">Retour</a></p>
     @endif
   </div>

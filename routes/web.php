@@ -73,6 +73,8 @@ Route::group(['namespace' => 'Front'], function () {
 
   Route::get('/dashboard/add-imdb', 'MoviesController@addimdb')->name('addimdb');
   Route::match(['get', 'post'],'/dashboard/add-movie', 'MoviesController@findmovie')->name('findmovie');
+
+  //Route::get('/dashboard/save-movie', 'MoviesController@addmovie2')->name('addmovie2');
   Route::post('/dashboard/save-movie', 'MoviesController@addmovie')->name('addmovie');
 
   Route::get('/dashboard/users-list', 'UsersController@userslist')->name('userslist');

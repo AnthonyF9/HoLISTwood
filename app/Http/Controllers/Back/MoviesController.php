@@ -26,24 +26,48 @@ class MoviesController extends Controller
 
       // vérification de la syntaxe de l'IMDB
       if (substr( $request->imdb, 0, 2 ) === "tt" &&  strlen($request->imdb) === 9 ) {
-        return view('back/movies/add-movie', compact('urlmovie'));
+
+        $opts = array(
+          'http' => array(
+              'method' => "GET"
+          )
+        );
+
+        $context = stream_context_create($opts);
+        $raw = file_get_contents($urlmovie, true, $context);
+        $movie = json_decode($raw, true);
+
+        return view('back/movies/add-movie', compact('movie'));
       } else {
         return redirect()->route('addimdb')->with('error', 'invalid IMDB ID');
       }
   }
 
+
+  // public function addmovie2(Request $request)
+  // {
+  //
+  //
+  //     $urlmovie = 'http://www.omdbapi.com/?i='. $request->imdb . '&apikey=1f275ea3&plot=full';
+  //       return view('back/movies/add-movie', compact('urlmovie'));
+  //
+  // }
+
+
+
   public function addmovie(MovieRequest $request)
   {
-
     // on vérifie si l'IMDB indiqué existe déjà dans la BDD
        $movies = Movie::orderBy('created_at','desc')->get();
        $plucked = $movies->pluck('imdb_id');
        $plucked->all();
        $test = implode(",", $plucked->all());
+
       $mystring = $test;
       $findme   = $request->imdb_id;
       $pos = strpos($mystring, $findme);
       if ($pos === false) {
+
         Movie::Create($request->all());
         return redirect()->route('addimdb')->with('status', 'Movie added');
       } else {

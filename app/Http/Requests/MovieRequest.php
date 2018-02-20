@@ -38,11 +38,28 @@ class MovieRequest extends FormRequest
         ];
     }
 
-    // public function messages()
-    // {
-    //     return [
+
+    // public function response(array $errors)
+    //     {
+    //         // Optionally, send a custom response on authorize failure
+    //         // (default is to just redirect to initial page with errors)
+    //         //
+    //         // Can return a response, a view, a redirect, or whatever else
     //
-    //
-    //     ];
-    // }
+    //         if ($this->ajax() || $this->wantsJson())
+    //         {
+    //             return new JsonResponse($errors, 422);
+    //         }
+    //         return $this->redirector->to('/dashboard/save-movie')
+    //              ->withInput($this->except($this->dontFlash))
+    //              ->withErrors($errors, $this->errorBag);
+    //     }
+
+    public function messages()
+    {
+        return [
+
+
+        ];
+    }
 }
