@@ -34,10 +34,13 @@ $randomid = rand(0, $count);
   <div id="trailer">
     <div class="bandeau-trailer">
       <h2> Random trailer </h2>
+
     </div>
+
       <div class="rwd-trailer">
         <iframe width = "917px" height="490px" src="{{$trailers[$randomid]->url_trailer}}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
       </div>
+
   </div>
 
   <div class="bandeau2">
@@ -47,7 +50,9 @@ $randomid = rand(0, $count);
 
   <div class="affiches">
 
+
     @foreach ($movies as $movie)
+      @if (!empty($movie->poster))
 
     <div class="grid">
       <a href="{{ route('oneMovie', array( 'imdb_id'=> $movie->imdb_id )) }}">
@@ -59,7 +64,9 @@ $randomid = rand(0, $count);
     	</figure>
       </a>
     </div>
+      @endif
      @endforeach
+
 
   </div>
 

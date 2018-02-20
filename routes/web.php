@@ -21,16 +21,13 @@
 Route::group(['namespace' => 'Front'], function () {
   //routes principales
   Route::get('/', 'HomeController@index')->name('home');
-  Route::get('/intheater', 'HomeController@intheater')->name('intheater');
-  Route::get('/lastupdate', 'HomeController@lastupdate')->name('lastupdate');
+  Route::get('/movies-list', 'HomeController@frontmovieslist')->name('frontmovieslist');
+  Route::get('/events', 'EventController@index')->name('events');   // le calendrier
 
   //vue d'un film et ajout à sa liste
   Route::get('/movie/{imdb_id}', 'HomeController@oneMovie')->name('oneMovie');
   Route::post('/movie/{imdb_id}', 'HomeAuthController@addtomylist')->name('addtomylist');
   Route::put('/movie/{imdb_id}', 'HomeAuthController@updateinmylist')->name('updateinmylist');
-
-  // inutile
-  Route::get('/favorite', 'HomeAuthController@favorite')->name('favorite');
 
   // la page profile
   Route::get('/profile', 'HomeAuthController@profile')->name('profile');
@@ -45,10 +42,9 @@ Route::group(['namespace' => 'Front'], function () {
     Route::match(['get', 'post'],'/submit-movie/add-by-imdb', 'HomeAuthController@findmoviebyimdb')->name('findmoviebyimdb');
     Route::post('/submit-movie/save-movie-by-imdb', 'HomeAuthController@addmoviebyimdb')->name('addmoviebyimdb');
 
-  // le calendrier
-  Route::get('/events', 'EventController@index')->name('events');
 
-  // autres trucs
+
+  // autres routes
   Route::get('/contact', 'HomeController@contact')->name('contact');
   Route::get('/staff', 'HomeController@staff')->name('staff');
   Route::get('/sitemap', 'HomeController@sitemap')->name('sitemap');
@@ -59,7 +55,7 @@ Route::group(['namespace' => 'Front'], function () {
 //////////////////////////////////////////////////////////////////////////////
 ///////////////////////           BACK          //////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
-  Route::group(['namespace' => 'Back'], function () {
+Route::group(['namespace' => 'Back'], function () {
   Route::get('/dashboard', 'DashboardController@dashboard')->name('dashboard');
 
   Route::get('/dashboard/movies-list', 'MoviesController@movieslist')->name('movieslist');
@@ -75,8 +71,17 @@ Route::group(['namespace' => 'Front'], function () {
   Route::put('/dashboard/delete-movie/{id}', 'MoviesController@softdeletemovie')->where('id','[0-9]+')->name('softdeletemovie');
   Route::delete('/dashboard/delete-movie/{id}', 'MoviesController@deletemovie')->where('id','[0-9]+')->name('deletemovie');
 
+  Route::get('/dashboard/trailers/search', 'SearchController@searchMovieWithtrailer')->name('searchMovieWithtrailer');
+  Route::get('/dashboard/trailers/trailers-list', 'MoviesController@movieslistrailers')->name('movieslistrailers');
+  Route::get('/dashboard/trailers/add-trailers/{id}', 'MoviesController@addtrailers')->where('id','[0-9]+')->name('addtrailers');
+  Route::post('/dashboard/trailers/add-trailers/{id}', 'MoviesController@addtraileraction')->where('id','[0-9]+')->name('addtraileraction');
+
+  Route::get('/dashboard/trailers/add-new-trailer', 'MoviesController@addtrailerfornewmovie')->where('id','[0-9]+')->name('addtrailerfornewmovie');
+  Route::post('/dashboard/trailers/add-new-trailer', 'MoviesController@addtrailerfornewmovieaction')->where('id','[0-9]+')->name('addtrailerfornewmovieaction');
+
   Route::get('/dashboard/add-imdb', 'MoviesController@addimdb')->name('addimdb');
-  Route::match(['get', 'post'],'/dashboard/add-movie', 'MoviesController@findmovie')->name('findmovie');
+  Route::post('/dashboard/add-movie', 'MoviesController@getimdb')->name('getimdb');
+  Route::get('/dashboard/add-movie', 'MoviesController@verifymovie')->name('verifymovie');
   Route::post('/dashboard/save-movie', 'MoviesController@addmovie')->name('addmovie');
 
   Route::get('/dashboard/users-list', 'UsersController@userslist')->name('userslist');

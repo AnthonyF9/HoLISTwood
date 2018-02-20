@@ -10,8 +10,8 @@ class Trailer extends Model
 
   protected $fillable = ['id_movie', 'url_trailer'];
 
-  public function getmovie()
-  {
-  return $this->belongsTo('\App\Movie');
- }
+ //  public function getmovie()
+ //  {
+ //  return $this->belongsTo('\App\Movie');
+ // }
 }

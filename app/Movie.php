@@ -10,8 +10,8 @@ class Movie extends Model
 
     protected $fillable = ['title', 'release_date','year', 'runtime', 'director', 'writers', 'actors', 'plot', 'awards', 'poster', 'imdb_id', 'production', 'website', 'genre', 'status','moderation'];
 
-    public function trailers()
-    {
-    return $this->hasMany('\App\Trailer');
-   }
+   //  public function trailers()
+   //  {
+   //  return $this->hasMany('\App\Trailer');
+   // }
 }
