@@ -9,7 +9,7 @@ active @endsection
 
 @section('bandeau')
   <div class="bandeau bandeau-calendar">
-    <h2> &mdash; Release Calendar &mdash; </h2>
+    <h2> &mdash; @if ( Auth::user()) My @endif Release Calendar &mdash; </h2>
     </div>
  @endsection
 

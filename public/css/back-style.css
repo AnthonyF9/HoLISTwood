@@ -230,6 +230,9 @@ thead {
   background: black;
   color: white;
 }
+tbody {
+  color: black;
+}
 .part thead tr th {
   border-top: 1px solid black;
 }

@@ -21,35 +21,35 @@
     <div class="detail">
       <ul>
           <li>
-            <p class="detail-entitled">Year</p>
+            <p class="detail-entitled">Year:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->year) }}</p>
           </li>
           <li>
-            <p class="detail-entitled">Director</p>
+            <p class="detail-entitled">Director:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->director) }}</p>
           </li>
           <li>
-            <p class="detail-entitled">Writers</p>
+            <p class="detail-entitled">Writers:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->writers) }}</p>
           </li>
           <li>
-            <p class="detail-entitled">Actors</p>
+            <p class="detail-entitled">Actors:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->actors) }}</p>
           </li>
           <li>
-            <p class="detail-entitled">Production</p>
+            <p class="detail-entitled">Production:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->production) }}</p>
           </li>
           <li>
-            <p class="detail-entitled">Genre</p>
+            <p class="detail-entitled">Genre:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->genre) }}</p>
           </li>
           <li>
-            <p class="detail-entitled">Runtime</p>
+            <p class="detail-entitled">Runtime:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->runtime) }}</p>
           </li>
           <li>
-            <p class="detail-entitled">Awards</p>
+            <p class="detail-entitled">Awards:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->awards) }}</p>
           </li>
       </ul>
@@ -58,13 +58,29 @@
       @php
         $imdb_id = $movie[0]->imdb_id;
         $user_id = Auth::user()->id;
+
+        $movie = DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
+        $movie_id = $movie[0]->id;
+        $itemlist = \DB::table('mylist')
+                    ->where([['movie_id','=',$movie_id],['user_id','=',$user_id]])
+                    ->get();
+        // dd($itemlist[0]);
+        // echo $itemlist[0]->id;
       @endphp
       @if (isset($liststatus[0]))
         L'user a add le film
         <div class="add-to-list">
           {!! Form::open(['route' => ['updateinmylist',$imdb_id], 'method' => 'put']) !!}
             {!! Form::select('addtolist',['completed'=>'Watched','dropped'=>'Dropped','plan to watch'=>'Plan to watch'],$liststatus[0]->statuslist) !!}
-            {!! Form::submit("Add", ['class' => '']) !!}
+            {!! Form::submit("Confirm", ['class' => '']) !!}
+          {!! Form::close() !!}
+        </div><!-- .addd-to-list -->
+      @elseif (!empty($itemlist[0]))
+        L'user a add le film
+        <div class="add-to-list">
+          {!! Form::open(['route' => ['updateinmylist',$imdb_id], 'method' => 'put']) !!}
+            {!! Form::select('addtolist',['completed'=>'Watched','dropped'=>'Dropped','plan to watch'=>'Plan to watch'],$itemlist[0]->statuslist) !!}
+            {!! Form::submit("Confirm", ['class' => '']) !!}
           {!! Form::close() !!}
         </div><!-- .addd-to-list -->
       @else
@@ -72,10 +88,14 @@
         <div class="add-to-list">
           {!! Form::open(['route' => ['addtomylist',$imdb_id], 'method' => 'post']) !!}
             {!! Form::select('addtolist', ['completed'=>'Watched','dropped'=>'Dropped','plan to watch'=>'Plan to watch', 'plan to watch'=>'Add to my list'], 'plan to watch') !!}
-            {!! Form::submit("Add", ['class' => '']) !!}
+            {!! Form::submit("Confirm", ['class' => '']) !!}
           {!! Form::close() !!}
         </div><!-- .addd-to-list -->
       @endif
+    @else
+      <div class="add-to-list">
+        <button type="button" name="button">You must log in to add this movie in your list.</button>
+      </div><!-- .addd-to-list -->
     @endif
   </div><!-- .detail-part -->
 

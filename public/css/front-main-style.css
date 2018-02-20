@@ -1,6 +1,3 @@
-
-
-
 /* Le main et son contenu */
 main {
   max-width: 1300px;
@@ -90,6 +87,8 @@ main {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   border-radius: 5px;
 }
+
+
 .affiches {
   display: flex;
   justify-content: space-around;
@@ -101,18 +100,29 @@ main {
   width: 300px;
   margin: 15px
 }
-
 .affiche img{
   height: 380px;
   width: 300px;
 }
-
-
-
 .affiche img:hover{
   opacity: 0.2;
   filter: alpha(opacity=50);
   transform: scale(1);
+}
+#movies-list-profile {
+  width: 80%;
+  margin: auto;
+}
+#movies-list-profile ul {
+  padding-left: 40px;
+}
+#movies-list-profile ul li {
+  /* padding-left: 40px; */
+  margin: 10px;
+  list-style-type: disc;
+}
+#movies-list-profile ul li a {
+  color: white;
 }
 
 div.titre {
@@ -216,7 +226,7 @@ div#trailer {
 /* Calendar styles */
 
 .calendrier {
-  width: 900px;
+  max-width: 900px;
   margin: auto;
 }
 
@@ -249,18 +259,14 @@ div#trailer {
   display: none;
 }
 
-.calendrier .fc-button-group .fc-prev-button, .fc-next-button {
-  /* background-color: #2983DF;  */
-}
-
 .calendrier .fc-center h2 {
   font-size: 1.5em;
 }
 
+/* popup day calendar */
 .calendrier .fc-widget-content{
-  /* background-color: #262626; */
+  background-color: #262626;
 }
-
 .calendrier .fc-unthemed .fc-popover .fc-header, .fc-unthemed hr {
   background-color: #262626;
 }
@@ -578,7 +584,7 @@ div#trailer {
     bottom: 20px;
    right: 20px;
    /* background: rgb(0, 0, 0); */
-   background: #439a46;
+   background: #653CB6;
    width: 50px;
    height: 50px;
    display: block;
@@ -594,7 +600,7 @@ div#trailer {
    transition: all 0.3s ease;
 }
 #return-to-top:hover {
-    background:  #2f6a31;
+    background:  #583BA9;
 }
 
 .icon-chevron-up:before {

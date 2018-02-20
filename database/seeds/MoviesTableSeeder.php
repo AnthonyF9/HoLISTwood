@@ -17,7 +17,8 @@ class MoviesTableSeeder extends Seeder
 
       $movie[] = array (
         'title'   =>'Forrest Gump',
-        'year'    =>'1994',
+        'release_date' => null,
+        'year'    => 1994,
         'runtime' =>'142 min',
         'director' =>'Robert Zemeckis',
         'writers'   =>'Winston Groom (novel), Eric Roth (screenplay)',
@@ -37,7 +38,8 @@ class MoviesTableSeeder extends Seeder
 
       $movie[] = array (
         'title'   =>'The Dark Knight Rises',
-        'year'    =>'2012',
+        'release_date' => null,
+        'year'    => 2012,
         'runtime' =>'164 min',
         'director' =>'Christopher Nolan',
         'writers'   =>'Jonathan Nolan (screenplay), Christopher Nolan (screenplay), Christopher Nolan (story), David S. Goyer (story), Bob Kane (characters)',
@@ -58,6 +60,7 @@ class MoviesTableSeeder extends Seeder
 
     $movie[] = array (
         'title'  => 'The Lord of the Rings: The Return of the King',
+        'release_date' => null,
         'year' => 2003,
         'runtime' => '201 min',
         'director' => 'Peter Jackson',
@@ -78,6 +81,7 @@ class MoviesTableSeeder extends Seeder
 
       $movie[] = array (
         'title'  => 'Interstellar',
+        'release_date' => null,
         'year' => 2014,
         'runtime' => '169 min',
         'director' => 'Christopher Nolan',
@@ -98,6 +102,7 @@ class MoviesTableSeeder extends Seeder
 
       $movie[] = array (
         'title'  => 'Inception',
+        'release_date' => null,
         'year' => 2010,
         'runtime' => '148 min',
         'director' => 'Christopher Nolan',
@@ -118,6 +123,7 @@ class MoviesTableSeeder extends Seeder
 
       $movie[] = array (
         'title'  => 'Gladiator',
+        'release_date' => null,
         'year' => 2000,
         'runtime' => '155 min',
         'director' => 'Ridley Scott',
@@ -138,6 +144,7 @@ class MoviesTableSeeder extends Seeder
 
       $movie[] = array (
         'title'  => 'Saving Private Ryan',
+        'release_date' => null,
         'year' => 1998,
         'runtime' => '169 min',
         'director' => 'Steven Spielberg',
@@ -158,6 +165,7 @@ class MoviesTableSeeder extends Seeder
 
       $movie[] = array (
         'title'  => 'Angels & Demons',
+        'release_date' => null,
         'year' => 2009,
         'runtime' => '138 min',
         'director' => 'Ron Howard',
@@ -178,6 +186,7 @@ class MoviesTableSeeder extends Seeder
 
       $movie[] = array (
         'title'  => 'Edge of Tomorrow',
+        'release_date' => null,
         'year' => 2014,
         'runtime' => '113 min',
         'director' => 'Doug Liman',
@@ -198,6 +207,7 @@ class MoviesTableSeeder extends Seeder
 
       $movie[] = array (
         'title'  => 'Pirates of the Caribbean: The Curse of the Black Pearl',
+        'release_date' => null,
         'year' => 2003,
         'runtime' => '143 min',
         'director' => 'Gore Verbinski',
@@ -218,6 +228,7 @@ class MoviesTableSeeder extends Seeder
 
       $movie[] = array (
         'title'  => 'Thor: Ragnarok',
+        'release_date' => null,
         'year' => 2017,
         'runtime' => '130 min',
         'director' => 'Taika Waititi',
@@ -238,6 +249,7 @@ class MoviesTableSeeder extends Seeder
 
       $movie[] = array (
         'title'  => 'Avengers: Infinity War',
+        'release_date' => '2018-04-25',
         'year' => 2018,
         'runtime' => 'N/A',
         'director' => 'Anthony Russo, Joe Russo',
