@@ -215,18 +215,30 @@ div.titre {
   font-weight: bold;
 }
 
+
+
+/*bandeau trailer*/
 .bandeau-trailer {
-  background-color: #212121;
+  background-color:;
   text-transform: uppercase;
   font-family: 'Orbitron';
   font-size: 1.5em;
-  height: 70px;
+  height:60px;
   text-align: center;
   line-height: 70px;
   font-weight: bold;
+  /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
+  border-radius: 5px;
+
+}
+
+div#trailer {
+  background-color:#212121;
+  padding: 28px;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   border-radius: 5px;
 }
+
 
 /* ////////////////////////////////////////////////////////////////////////////////// */
 /* Calendar styles */

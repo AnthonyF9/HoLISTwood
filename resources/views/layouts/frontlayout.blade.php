@@ -173,6 +173,7 @@
 
       <main>
 
+
         @yield('content')
         @yield('content-error')
 
