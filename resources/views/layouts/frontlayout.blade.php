@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
     <title>@yield('title')</title>
     @yield('css')
   </head>
@@ -130,7 +131,7 @@
              @endif
           </ul><!-- #menu2 -->
         </div><!-- #bottom-menu -->
-
+      
         <nav role="navigation">
           <div id="menuToggle">
             <input type="checkbox" />
@@ -170,6 +171,7 @@
       @yield('bandeau')
 
       <main>
+
 
         @yield('content')
         @yield('content-error')
