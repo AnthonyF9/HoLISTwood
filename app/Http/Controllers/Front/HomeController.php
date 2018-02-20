@@ -43,9 +43,7 @@ class HomeController extends Controller
                       ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
                       ->where('imdb_id','=',$imdb_id)
                       ->get();
-
            // dd($trailers);
-
           return view('front/oneMovie', compact('imdb_id','movie', 'trailers'));
         }
         else {
