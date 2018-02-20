@@ -72,7 +72,7 @@
         <div class="add-to-list">
           {!! Form::open(['route' => ['updateinmylist',$imdb_id], 'method' => 'put']) !!}
             {!! Form::select('addtolist',['completed'=>'Watched','dropped'=>'Dropped','plan to watch'=>'Plan to watch'],$liststatus[0]->statuslist) !!}
-            {!! Form::submit("Add", ['class' => '']) !!}
+            {!! Form::submit("Confirm", ['class' => '']) !!}
           {!! Form::close() !!}
         </div><!-- .addd-to-list -->
       @elseif (!empty($itemlist[0]))
@@ -80,7 +80,7 @@
         <div class="add-to-list">
           {!! Form::open(['route' => ['updateinmylist',$imdb_id], 'method' => 'put']) !!}
             {!! Form::select('addtolist',['completed'=>'Watched','dropped'=>'Dropped','plan to watch'=>'Plan to watch'],$itemlist[0]->statuslist) !!}
-            {!! Form::submit("Add", ['class' => '']) !!}
+            {!! Form::submit("Confirm", ['class' => '']) !!}
           {!! Form::close() !!}
         </div><!-- .addd-to-list -->
       @else
@@ -88,10 +88,14 @@
         <div class="add-to-list">
           {!! Form::open(['route' => ['addtomylist',$imdb_id], 'method' => 'post']) !!}
             {!! Form::select('addtolist', ['completed'=>'Watched','dropped'=>'Dropped','plan to watch'=>'Plan to watch', 'plan to watch'=>'Add to my list'], 'plan to watch') !!}
-            {!! Form::submit("Add", ['class' => '']) !!}
+            {!! Form::submit("Confirm", ['class' => '']) !!}
           {!! Form::close() !!}
         </div><!-- .addd-to-list -->
       @endif
+    @else
+      <div class="add-to-list">
+        <button type="button" name="button">You must log in to add this movie in your list.</button>
+      </div><!-- .addd-to-list -->
     @endif
   </div><!-- .detail-part -->
 
