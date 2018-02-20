@@ -156,10 +156,6 @@ class MoviesController extends Controller
                             ->where('trailer.url_trailer', '=', $request->trailer)
                             ->get();
     if (!isset($traileralreadyexists[0])) {
-      $trailer[] = [
-        'id_movie'  => $id,
-        'url_trailer' => $request->trailer
-      ];
       \DB::table('trailer')->where([['id_movie', '=', $id],['url_trailer', '=', '']])->update([
         'id_movie'  => $id,
         'url_trailer' => $request->trailer
