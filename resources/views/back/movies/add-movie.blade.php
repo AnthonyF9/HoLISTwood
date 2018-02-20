@@ -28,7 +28,6 @@ $movie = json_decode($raw, true);
 @endphp
 
 
-
 @section('content-beta')
   <div class="part">
     @if (isset($movie['Title']) && !empty($movie['Title']) && $movie['Title'] !='N/A' && isset($movie['Plot']) && !empty($movie['Plot']) && $movie['Plot'] !='N/A')

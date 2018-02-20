@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/default.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/back-style.css') }}" />
@@ -24,13 +24,14 @@
   					<h3><a href="{{ route('userslist') }}" class="@yield('activeuserslist')">Users</a></h3>
   				</div>
   				<div id="main_menu_nav_part3" class="main_menu_nav_part">
-  					<h3 class="@yield('activemovieslist') @yield('activeaddimdb') @yield('activemoderatemovieslist')">Movies</h3>
+  					<h3 class="@yield('activemovieslist') @yield('activeaddimdb') @yield('activemoderatemovieslist') @yield('activemovieslisttrailers')">Movies</h3>
   					<input type="checkbox" id="cb_tutorials" />
   					<label for="cb_tutorials"></label>
   					<ul>
   						<li class="transition_css"><a href="{{ route('movieslist') }}" class="@yield('activemovieslist')">Movies list</a></li>
   						<li class="transition_css"><a href="{{ route('addimdb') }}" class="@yield('activeaddimdb')">Add a movie</a></li>
   						<li class="transition_css"><a href="{{ route('moderatemovieslist') }}" class="@yield('activemoderatemovieslist')">Moderate movies submitted by users</a></li>
+  						<li class="transition_css"><a href="{{ route('movieslistrailers') }}" class="@yield('activemovieslisttrailers')">Add trailers</a></li>
   					</ul>
   				</div>
   			</nav>
