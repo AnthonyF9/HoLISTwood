@@ -190,11 +190,12 @@ header .social-network ul {
 
 header ul#menu2 {
   display: flex;
-  justify-content: flex-end;
+  /* flex-direction: row-reverse; */
+  /* justify-content: flex-end; */
 }
 
 header ul#menu2 li {
-  padding-right: 2%;
+  padding: 0 2%;
   white-space: nowrap;
 }
 
@@ -234,8 +235,6 @@ header nav ul li a.active, header nav ul li span.active {
 #bottom-menu #menu2 {
   width: 60%;
   margin: auto;
-  display: flex;
-  flex-direction: row;
 }
 #bottom-menu #menu2 li a {
   /* text-transform: uppercase; */
