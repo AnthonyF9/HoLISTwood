@@ -247,7 +247,7 @@ div.titre {
   border-bottom: 3px solid white;
   color: white;
   border-radius: 10%;
-  /* width: 19%; */
+  width: 40%;
   margin: auto;
   font-weight: bold;
 
@@ -678,6 +678,9 @@ div#trailer {
     width: 10px;
     height: 10px;
   }
+  footer #footer-bottom div.social-network ul {
+    margin: 0;
+  }
   header #top-menu div.social-network ul li svg {
     width: 10px;
     height: 10px;
@@ -685,12 +688,5 @@ div#trailer {
   header #top-menu div.social-network, header #top-menu div.social-network ul {
     width: 100%;
     min-width: 50px;
-  }
-  div.ytp-title div.ytp-title-text a.ytp-title-link.yt-uix-sessionlink {
-    width: 10px;
-    /* min-width: 50px; */
-    font-size: 0.3em;
-    overflow: hidden;
-    background: red;
   }
 }
