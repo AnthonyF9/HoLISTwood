@@ -7,13 +7,17 @@ active @endsection
 @section('content-beta')
 
   @if (session('status'))
+    <div id="submitmovie" class="alertbox">
       <div class="alert alert-success">
           {{ session('status') }}
       </div>
+    </div>
   @elseif (session('error'))
+    <div id="submitmovie" class="alertbox">
       <div class="alert alert-danger">
           {{ session('error') }}
       </div>
+    </div>
   @else
     {!! Form::open(['route' => 'findmoviebyimdb', 'method' => 'post']) !!}
       {!! Form::label('imdb', 'Imdb', ['class' => '']) !!}

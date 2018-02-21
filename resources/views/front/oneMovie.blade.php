@@ -54,49 +54,50 @@
           </li>
       </ul>
     </div><!-- .detail -->
-    <div id="list-and-rating">
-      @if ( Auth::user() )
-        @php
-          $imdb_id = $movie[0]->imdb_id;
-          $user_id = Auth::user()->id;
+  </div><!-- .detail-part -->
 
-          $movie = DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
-          $movie_id = $movie[0]->id;
-          $itemlist = \DB::table('mylist')
-                      ->where([['movie_id','=',$movie_id],['user_id','=',$user_id]])
-                      ->get();
-          // dd($itemlist[0]);
-          // echo $itemlist[0]->id;
-        @endphp
-        @if (isset($liststatus[0]))
-          <div class="add-to-list">
-            {!! Form::open(['route' => ['updateinmylist',$imdb_id], 'method' => 'put']) !!}
-              {!! Form::select('addtolist',['completed'=>'Watched','dropped'=>'Dropped','plan to watch'=>'Plan to watch'],$liststatus[0]->statuslist) !!}
-              {!! Form::submit("Confirm", ['class' => '']) !!}
-            {!! Form::close() !!}
-          </div><!-- .addd-to-list -->
-        @elseif (!empty($itemlist[0]))
-          <div class="add-to-list">
-            {!! Form::open(['route' => ['updateinmylist',$imdb_id], 'method' => 'put']) !!}
-              {!! Form::select('addtolist',['completed'=>'Watched','dropped'=>'Dropped','plan to watch'=>'Plan to watch'],$itemlist[0]->statuslist) !!}
-              {!! Form::submit("Confirm", ['class' => '']) !!}
-            {!! Form::close() !!}
-          </div><!-- .addd-to-list -->
-        @else
-          <div class="add-to-list">
-            {!! Form::open(['route' => ['addtomylist',$imdb_id], 'method' => 'post']) !!}
-              {!! Form::select('addtolist', ['completed'=>'Watched','dropped'=>'Dropped','plan to watch'=>'Plan to watch', 'plan to watch'=>'Add to my list'], 'plan to watch') !!}
-              {!! Form::submit("Confirm", ['class' => '']) !!}
-            {!! Form::close() !!}
-          </div><!-- .addd-to-list -->
-        @endif
+  <div id="list-and-rating">
+    @if ( Auth::user() )
+      @php
+        $imdb_id = $movie[0]->imdb_id;
+        $user_id = Auth::user()->id;
+
+        $movie = DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
+        $movie_id = $movie[0]->id;
+        $itemlist = \DB::table('mylist')
+                    ->where([['movie_id','=',$movie_id],['user_id','=',$user_id]])
+                    ->get();
+        // dd($itemlist[0]);
+        // echo $itemlist[0]->id;
+      @endphp
+      @if (isset($liststatus[0]))
+        <div class="add-to-list">
+          {!! Form::open(['route' => ['updateinmylist',$imdb_id], 'method' => 'put']) !!}
+            {!! Form::select('addtolist',['completed'=>'Watched','dropped'=>'Dropped','plan to watch'=>'Plan to watch'],$liststatus[0]->statuslist) !!}
+            {!! Form::submit("Confirm", ['class' => '']) !!}
+          {!! Form::close() !!}
+        </div><!-- .addd-to-list -->
+      @elseif (!empty($itemlist[0]))
+        <div class="add-to-list">
+          {!! Form::open(['route' => ['updateinmylist',$imdb_id], 'method' => 'put']) !!}
+            {!! Form::select('addtolist',['completed'=>'Watched','dropped'=>'Dropped','plan to watch'=>'Plan to watch'],$itemlist[0]->statuslist) !!}
+            {!! Form::submit("Confirm", ['class' => '']) !!}
+          {!! Form::close() !!}
+        </div><!-- .addd-to-list -->
       @else
         <div class="add-to-list">
-          <button type="button" name="button">You must log in to add this movie in your list.</button>
+          {!! Form::open(['route' => ['addtomylist',$imdb_id], 'method' => 'post']) !!}
+            {!! Form::select('addtolist', ['completed'=>'Watched','dropped'=>'Dropped','plan to watch'=>'Plan to watch', 'plan to watch'=>'Add to my list'], 'plan to watch') !!}
+            {!! Form::submit("Confirm", ['class' => '']) !!}
+          {!! Form::close() !!}
         </div><!-- .addd-to-list -->
       @endif
-    </div>
-  </div><!-- .detail-part -->
+    @else
+      <div class="add-to-list">
+        <button type="button" name="button">You must log in to add this movie in your list.</button>
+      </div><!-- .addd-to-list -->
+    @endif
+  </div>
 
   {{-- <div class="rate">
     <h3>Rate :</h3>
