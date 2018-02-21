@@ -135,11 +135,6 @@ class HomeAuthController extends Controller
                       ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
                       ->where('imdb_id','=',$imdb_id)
                       ->get();
-          $allratings = \DB::table('movies')
-                       ->select('movies.title','rating.id_user','rating.id_movie','rating.id_user','rating.note')
-                       ->join('rating', 'movies.id', '=', 'rating.id_movie')
-                       ->where('imdb_id','=',$imdb_id)
-                       ->get();
           $liststatus = \DB::table('mylist')
                       ->join('users', 'users.id', '=', 'mylist.user_id')
                       ->join('movies', 'movies.id', '=', 'mylist.movie_id')
@@ -160,6 +155,11 @@ class HomeAuthController extends Controller
                           ['rating.id_movie', '=', $movie_id]
                         ])
                       ->get();
+          $allratings = \DB::table('movies')
+                       ->select('movies.title','rating.id_user','rating.id_movie','rating.id_user','rating.note')
+                       ->join('rating', 'movies.id', '=', 'rating.id_movie')
+                       ->where('imdb_id','=',$imdb_id)
+                       ->get();
           $rating = [];
           foreach ($allratings as $key => $value) {  $rating[] = $value->note; }
           if (!empty($rating)) { $moyrating = array_sum($rating)/count($rating); }
@@ -213,7 +213,16 @@ class HomeAuthController extends Controller
                             ['rating.id_movie', '=', $movie_id]
                           ])
                         ->get();
-            return view('front/oneMovie', compact('imdb_id','movie', 'trailers', 'liststatus','itemlist', 'ratings', 'ratingstatus','ratinglist'));
+            $allratings = \DB::table('movies')
+                         ->select('movies.title','rating.id_user','rating.id_movie','rating.id_user','rating.note')
+                         ->join('rating', 'movies.id', '=', 'rating.id_movie')
+                         ->where('imdb_id','=',$imdb_id)
+                         ->get();
+            $rating = [];
+            foreach ($allratings as $key => $value) {  $rating[] = $value->note; }
+            if (!empty($rating)) { $moyrating = array_sum($rating)/count($rating); }
+            else {  $moyrating = ''; }
+            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'trailers', 'liststatus','itemlist', 'ratings', 'ratingstatus','ratinglist'));
           } else { abort(404); }
     }
     public function updateinmylist(Request $request, $imdb_id)
@@ -256,7 +265,16 @@ class HomeAuthController extends Controller
                             ['rating.id_movie', '=', $movie_id]
                           ])
                         ->get();
-            return view('front/oneMovie', compact('imdb_id','movie', 'trailers', 'liststatus', 'ratings', 'ratingstatus'));
+            $allratings = \DB::table('movies')
+                         ->select('movies.title','rating.id_user','rating.id_movie','rating.id_user','rating.note')
+                         ->join('rating', 'movies.id', '=', 'rating.id_movie')
+                         ->where('imdb_id','=',$imdb_id)
+                         ->get();
+            $rating = [];
+            foreach ($allratings as $key => $value) {  $rating[] = $value->note; }
+            if (!empty($rating)) { $moyrating = array_sum($rating)/count($rating); }
+            else {  $moyrating = ''; }
+            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'trailers', 'liststatus', 'ratings', 'ratingstatus'));
           } else { abort(404); }
     }
 
@@ -307,7 +325,16 @@ class HomeAuthController extends Controller
                             ['mylist.movie_id', '=', $movie_id]
                           ])
                         ->get();
-            return view('front/oneMovie', compact('imdb_id','movie', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist'));
+            $allratings = \DB::table('movies')
+                         ->select('movies.title','rating.id_user','rating.id_movie','rating.id_user','rating.note')
+                         ->join('rating', 'movies.id', '=', 'rating.id_movie')
+                         ->where('imdb_id','=',$imdb_id)
+                         ->get();
+            $rating = [];
+            foreach ($allratings as $key => $value) {  $rating[] = $value->note; }
+            if (!empty($rating)) { $moyrating = array_sum($rating)/count($rating); }
+            else {  $moyrating = ''; }
+            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist'));
           } else { abort(404); }
     }
     public function updatemyrating(Request $request, $imdb_id)
@@ -350,7 +377,16 @@ class HomeAuthController extends Controller
                             ['mylist.movie_id', '=', $movie_id]
                           ])
                         ->get();
-            return view('front/oneMovie', compact('imdb_id','movie', 'ratings', 'ratingstatus', 'trailers', 'liststatus'));
+            $allratings = \DB::table('movies')
+                         ->select('movies.title','rating.id_user','rating.id_movie','rating.id_user','rating.note')
+                         ->join('rating', 'movies.id', '=', 'rating.id_movie')
+                         ->where('imdb_id','=',$imdb_id)
+                         ->get();
+            $rating = [];
+            foreach ($allratings as $key => $value) {  $rating[] = $value->note; }
+            if (!empty($rating)) { $moyrating = array_sum($rating)/count($rating); }
+            else {  $moyrating = ''; }
+            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus', 'trailers', 'liststatus'));
           } else { abort(404); }
     }
 
