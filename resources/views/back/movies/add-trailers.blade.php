@@ -35,7 +35,7 @@
 
       {!! Form::label('trailer', 'Trailer : ', ['class' => '']) !!}
       {!! Form::text('trailer', null, ['placeholder' => 'Trailer url with "embed" in the url', 'class' => 'trailer']) !!}
-      {!! $errors->first('trailer','<div class="" role="alert">:message</div>') !!}
+      {!! $errors->first('trailer','<div class="alert-error" role="alert">:message</div>') !!}
     </br>
 
       {!! Form::submit("Add trailer", ['class' => 'btn btn-primary']) !!}

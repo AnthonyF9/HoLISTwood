@@ -25,19 +25,30 @@ main {
 #submitmovie-content form {
   margin: 20px;
 }
-#submitmovie form, #submitmovie.alertbox {
-
+#submitmovie-content .alert.alert-success {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background: #99ff99;
+  color: #009933;
+  font-weight: bold;
+  border-radius: 10px;
 }
-#submitmovie .alert.alert-danger {
-  width: 95%;
-  margin: 0 auto;
+#submitmovie-content .alert.alert-danger {
+  width: 80%;
+  margin: 20px auto;
   padding: 20px;
   background: #ffb3b3;
   color: #ff0000;
   font-weight: bold;
   border-radius: 10px;
 }
-#submitmovie form input[type="text"], #submitmovie input[type="date"], #submitmovie select, #submitmovie textarea {
+#submitmovie-content form .alert-error {
+  color: #ff0000;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+#submitmovie-content form input[type="text"], #submitmovie-content input[type="date"], #submitmovie-content select, #submitmovie-content textarea {
   text-align: left;
   font-family: "roboto";
   width: 100%;
@@ -48,14 +59,14 @@ main {
   border: none;
   border-bottom: 1px white solid;
 }
-#submitmovie textarea {
+#submitmovie-content textarea {
   height: auto;
 }
-#submitmovie form input:focus, #submitmovie textarea:focus, #submitmovie select:focus {
+#submitmovie-content form input:focus, #submitmovie-content textarea:focus, #submitmovie-content select:focus {
   outline:  none;
   border-bottom: 2px #2A89EB solid;
 }
-#submitmovie form input[type="submit"] {
+#submitmovie-content form input[type="submit"] {
   margin: 20px auto 0;
   max-width: 100px;
   background-color: #2A89EB;

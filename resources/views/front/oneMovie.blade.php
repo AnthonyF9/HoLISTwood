@@ -52,16 +52,6 @@
             <p class="detail-entitled">Awards:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->awards) }}</p>
           </li>
-          <li>
-            <p class="detail-entitled">Rating:</p>
-            <p class="detail-containt">
-              @if (!empty($moyrating))
-                {{ $moyrating }} / 5
-              @else
-                No rating available
-              @endif
-            </p>
-          </li>
       </ul>
     </div><!-- .detail -->
   </div><!-- .detail-part -->
@@ -93,30 +83,21 @@
             {!! Form::select('addtolist',['completed'=>'Watched','dropped'=>'Dropped','plan to watch'=>'Plan to watch'],$itemlist[0]->statuslist) !!}
             {!! Form::submit("Confirm", ['class' => '']) !!}
           {!! Form::close() !!}
-        </div><!-- .add-to-list -->
+        </div><!-- .addd-to-list -->
       @else
         <div class="add-to-list">
           {!! Form::open(['route' => ['addtomylist',$imdb_id], 'method' => 'post']) !!}
             {!! Form::select('addtolist', ['completed'=>'Watched','dropped'=>'Dropped','plan to watch'=>'Plan to watch', 'plan to watch'=>'Add to my list'], 'plan to watch') !!}
             {!! Form::submit("Confirm", ['class' => '']) !!}
           {!! Form::close() !!}
-        </div><!-- .add-to-list -->
+        </div><!-- .addd-to-list -->
       @endif
     @else
       <div class="add-to-list">
         <button type="button" name="button">You must log in to add this movie in your list.</button>
       </div><!-- .addd-to-list -->
     @endif
-    @if ( Auth::user() )
-      <div class="rating-zone">
-
-      </div>
-    @else
-      <div class="rating-zone">
-        <button type="button" name="button">You must log in to rate this movie.</button>
-      </div>
-    @endif
-  </div><!-- #list-and-rating -->
+  </div>
 
   <div class="plot">
     <h3>Plot</h3>
