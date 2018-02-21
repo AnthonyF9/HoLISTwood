@@ -492,7 +492,8 @@ class HomeAuthController extends Controller
                         ->where('imdb_id','=',$imdb_id)
                         ->orderBy('created_at','DESC')
                         ->get();
-            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments'));
+            // return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments'));
+            return redirect()->route('oneMovieAuth', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments'));
           } else { abort(404); }
     }
 

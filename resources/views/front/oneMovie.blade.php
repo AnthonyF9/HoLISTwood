@@ -144,9 +144,6 @@
 
   <div class="comment">
     <h3>Comments</h3>
-    @php
-      $emptycomment = '';
-    @endphp
     @if (Auth::user())
       {!! Form::open(['route' => ['postcomment',$imdb_id], 'method' => 'post']) !!}
         <textarea name="comment" rows="8" cols="80" placeholder="Let your comment here"></textarea>
