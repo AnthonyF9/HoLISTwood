@@ -139,42 +139,40 @@ header #top-menu .social-network ul li svg{
 header #top-menu .log {
   width: 80%;
 }
-header nav#top-menu .log #large-screen {
+#large-screen {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-header nav#top-menu .log #large-screen #menu1 {
-  height: 100%;
+#large-screen .menu-top {
   width: 90%;
   padding: 0 5%;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#large-screen .menu-top #menu1  {
+  width: 100%;
+  display: flex;
   flex-direction: row-reverse;
 }
-header nav#top-menu .log #large-screen #menu1 li {
-  line-height: 100%;
-  display: block;
+#large-screen .menu-top #menu1 li {
+  height: 20px;
   margin-left: 10px;
   position: relative;
 }
-header nav#top-menu .log #large-screen #menu1 li a {
+#large-screen .menu-top #menu1 li a {
   white-space:nowrap;
-  padding-top: 7%;
-  height: 50%;
   display: block;
   position: relative;
-  margin: 10% 0;
 }
- header nav#top-menu .log #large-screen #menu1 li span {
+#large-screen .menu-top #menu1 li span {
   white-space:nowrap;
-  padding-top: 7px;
-  height: 50%;
-  display: block;
   position: relative;
-  margin: 10% 0;
 }
-
-header nav#top-menu .log #large-screen #menu1 li#log a {
-line-height: 150%;
-
+#large-screen .menu-top #menu1 li#log a {
+  line-height: 150%;
 }
 
 #myBtn{
@@ -186,17 +184,6 @@ header .social-network ul {
   margin: auto;
   display: flex;
   justify-content: space-between;
-}
-
-header ul#menu2 {
-  display: flex;
-  /* justify-content: flex-end; */
-}
-
-header ul#menu2 li {
-  /* padding: 0 2%; */
-  padding: 0 20px;
-  white-space: nowrap;
 }
 
 header nav ul li a, header nav ul li span  {
@@ -235,6 +222,12 @@ header nav ul li a.active, header nav ul li span.active {
 #bottom-menu #menu2 {
   width: 60%;
   margin: auto;
+  display: flex;
+}
+#bottom-menu #menu2 li {
+  /* padding: 0 2%; */
+  padding: 0 20px;
+  white-space: nowrap;
 }
 #bottom-menu #menu2 li a {
   /* text-transform: uppercase; */

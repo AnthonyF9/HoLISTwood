@@ -31,83 +31,85 @@
           </div><!-- .social-network -->
           <div class="log">
             <nav id="large-screen">
-              <ul id="menu1">
-                @guest
-                <li><span id="myBtn" type="button" name="button" >Log in</span></li>
-                <li><a class="@yield('activeregister')" href="{{ route('register') }}">Register</a></li>
-                <div id="myModal" class="modal">
-                  <div class="modal-content">
-                    <div class="panel panel-default">
-                      <span class="close">&times;</span>
-                      <div class="panel-heading">Log in</div>
-                      <div class="panel-body">
-                         <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                             {{ csrf_field() }}
-                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                 <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-                                 <div class="col-md-6">
-                                     <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-                                     @if ($errors->has('email'))
-                                         <span class="help-block">
-                                             <strong>{{ $errors->first('email') }}</strong>
-                                         </span>
-                                     @endif
-                                 </div>
-                             </div>
-                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                 <label for="password" class="col-md-4 control-label">Password</label>
-                                 <div class="col-md-6">
-                                     <input id="password" type="password" class="form-control" name="password" required>
-                                     @if ($errors->has('password'))
-                                         <span class="help-block">
-                                             <strong>{{ $errors->first('password') }}</strong>
-                                         </span>
-                                     @endif
-                                 </div>
-                             </div>
-                             <div class="form-group">
-                                 <div class="col-md-6 col-md-offset-4">
-                                     <div class="checkbox">
-                                         <label>
-                                             <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                         </label>
-                                     </div>
-                                 </div>
-                             </div>
-                             <div class="form-group">
-                                 <div class="col-md-8 col-md-offset-4">
-                                     <button type="submit" class="btn btn-primary">Login</button>
-                                     <a class="btn btn-link" href="{{ route('password.request') }}">Forgot Your Password?</a>
-                                 </div>
-                             </div>
-                         </form>
-                      </div><!-- .panel-body -->
-                    </div>
-                  </div><!-- .modal-content -->
-                </div><!-- #myModal -->
-                  @if ($errors->has('email') || $errors->has('password'))
-                    <span id="loginerror" style="display:none">Login error</span>
-                    {{-- <script type="text/javascript">
-                      var loginerror = 'TRUE';
-                    </script> --}}
-                  @endif
-                @else
-                <li id="log">
-                    <a href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                       Log out
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                </li><!-- #log -->
-                <li><a class="@yield('activeprofile')" href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
-                  @if ( Auth::user()->role == 'admin')
-                <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                  @endif
-                @endguest
-              </ul><!-- #menu1 -->
+              <div class="menu-top">
+                <ul id="menu1">
+                  @guest
+                  <li><span id="myBtn" type="button" name="button" >Log in</span></li>
+                  <li><a class="@yield('activeregister')" href="{{ route('register') }}">Register</a></li>
+                  <div id="myModal" class="modal">
+                    <div class="modal-content">
+                      <div class="panel panel-default">
+                        <span class="close">&times;</span>
+                        <div class="panel-heading">Log in</div>
+                        <div class="panel-body">
+                           <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+                               {{ csrf_field() }}
+                               <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                   <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                                   <div class="col-md-6">
+                                       <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                                       @if ($errors->has('email'))
+                                           <span class="help-block">
+                                               <strong>{{ $errors->first('email') }}</strong>
+                                           </span>
+                                       @endif
+                                   </div>
+                               </div>
+                               <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                   <label for="password" class="col-md-4 control-label">Password</label>
+                                   <div class="col-md-6">
+                                       <input id="password" type="password" class="form-control" name="password" required>
+                                       @if ($errors->has('password'))
+                                           <span class="help-block">
+                                               <strong>{{ $errors->first('password') }}</strong>
+                                           </span>
+                                       @endif
+                                   </div>
+                               </div>
+                               <div class="form-group">
+                                   <div class="col-md-6 col-md-offset-4">
+                                       <div class="checkbox">
+                                           <label>
+                                               <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                           </label>
+                                       </div>
+                                   </div>
+                               </div>
+                               <div class="form-group">
+                                   <div class="col-md-8 col-md-offset-4">
+                                       <button type="submit" class="btn btn-primary">Login</button>
+                                       <a class="btn btn-link" href="{{ route('password.request') }}">Forgot Your Password?</a>
+                                   </div>
+                               </div>
+                           </form>
+                        </div><!-- .panel-body -->
+                      </div>
+                    </div><!-- .modal-content -->
+                  </div><!-- #myModal -->
+                    @if ($errors->has('email') || $errors->has('password'))
+                      <span id="loginerror" style="display:none">Login error</span>
+                      {{-- <script type="text/javascript">
+                        var loginerror = 'TRUE';
+                      </script> --}}
+                    @endif
+                  @else
+                  <li id="log">
+                      <a href="{{ route('logout') }}"
+                         onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                         Log out
+                      </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          {{ csrf_field() }}
+                      </form>
+                  </li><!-- #log -->
+                  <li><a class="@yield('activeprofile')" href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
+                    @if ( Auth::user()->role == 'admin')
+                  <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                    @endif
+                  @endguest
+                </ul><!-- #menu1 -->
+              </div><!-- .menu-top -->
             </nav><!-- #large-screen -->
           </div><!-- .log -->
         </nav><!-- #top-menu -->
