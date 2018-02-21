@@ -52,6 +52,16 @@
             <p class="detail-entitled">Awards:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->awards) }}</p>
           </li>
+          <li>
+            <p class="detail-entitled">Rating:</p>
+            <p class="detail-containt">
+              @if (!empty($moyrating))
+                {{ $moyrating }} / 5
+              @else
+                No rating available
+              @endif
+            </p>
+          </li>
       </ul>
     </div><!-- .detail -->
   </div><!-- .detail-part -->
@@ -134,6 +144,18 @@
 
   <div class="comment">
     <h3>Comments</h3>
+    @if (Auth::user())
+      {!! Form::open(['route' => ['postcomment',$imdb_id], 'method' => 'post']) !!}
+        {!! Form::textarea('comment', null, ['placeholder' => 'Let your comment here', 'class' => '']) !!}
+        {!! $errors->first('comment','<div class="alert-error" role="alert">:message</div>') !!}
+        <br/>
+        {!! Form::submit("Comment it", ['class' => '']) !!}
+      {!! Form::close() !!}
+    @else
+      <div class="comment-list">
+        <div>You must to be log in to comment.</div>
+      </div><!-- .comment-list -->
+    @endif
     {{-- {{ dd($allcomments) }} --}}
     @foreach ($allcomments as $key => $onecomment)
       <div class="comment-list">
