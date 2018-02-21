@@ -593,13 +593,6 @@ div#trailer {
 
 @media (max-width: 707px) {
 
-  .grid figure img{
-    display: inline;
-  }
-  .grid figure {
-    min-width: 0;
-  }
-
   /* Single */
 
   .detail-part {
