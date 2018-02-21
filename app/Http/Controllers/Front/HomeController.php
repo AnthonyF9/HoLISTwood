@@ -40,17 +40,21 @@ class HomeController extends Controller
     {
         $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
         if (!empty($movie)) {
-
           $trailers = \DB::table('movies')
                       ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
                       ->where('imdb_id','=',$imdb_id)
                       ->get();
-           // dd($trailers);
-          return view('front/oneMovie', compact('imdb_id','movie', 'trailers'));
-        }
-        else {
-          abort(404);
-        }
+           $allratings = \DB::table('movies')
+                       ->select('movies.title','rating.id_user','rating.id_movie','rating.id_user','rating.note')
+                       ->join('rating', 'movies.id', '=', 'rating.id_movie')
+                       ->where('imdb_id','=',$imdb_id)
+                       ->get();
+            $rating = [];
+            foreach ($allratings as $key => $value) {  $rating[] = $value->note; }
+            if (!empty($rating)) { $moyrating = array_sum($rating)/count($rating); }
+            else {  $moyrating = ''; }
+          return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating'));
+        } else { abort(404); }
     }
 
     public function frontmovieslist()

@@ -190,11 +190,12 @@ header .social-network ul {
 
 header ul#menu2 {
   display: flex;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
 }
 
 header ul#menu2 li {
-  padding-right: 2%;
+  /* padding: 0 2%; */
+  padding: 0 20px;
   white-space: nowrap;
 }
 
@@ -234,8 +235,6 @@ header nav ul li a.active, header nav ul li span.active {
 #bottom-menu #menu2 {
   width: 60%;
   margin: auto;
-  display: flex;
-  flex-direction: row;
 }
 #bottom-menu #menu2 li a {
   /* text-transform: uppercase; */
@@ -414,9 +413,15 @@ header #bottom-menu #menu2 li button:hover{
     display: inline-block;
     width: 110px;
   }
-  #bottom-menu p {
-    font-size: 1em;
+
+  #anim-span {
+    font-size:0.5em;
+
   }
+  #bottom-menu p {
+    font-size: 0.4em;
+  }
+
   #menu2 li {
     display: none;
   }
@@ -455,7 +460,7 @@ header #bottom-menu #menu2 li button:hover{
     width: 40px;
     height: 32px;
     position: absolute;
-    top: -7px;
+    top: -24px;
     left: -5px;
     cursor: pointer;
     opacity: 0; /* hide this */

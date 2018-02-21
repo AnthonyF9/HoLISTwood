@@ -33,8 +33,7 @@ $randomid = rand(0, $count);
 
   <div id="trailer">
     <div class="bandeau-trailer">
-      <h2> Random trailer </h2>
-
+      <h2> trailers </h2>
     </div>
 
       <div class="rwd-trailer">
@@ -44,7 +43,7 @@ $randomid = rand(0, $count);
   </div>
 
   <div class="bandeau2">
-    <h2> random movies </h2>
+    <h2> movies </h2>
   </div>
 
 
@@ -53,7 +52,11 @@ $randomid = rand(0, $count);
 
     @foreach ($movies as $movie)
     <div class="grid">
-      <a href="{{ route('oneMovie', array( 'imdb_id'=> $movie->imdb_id )) }}">
+      @if (Auth::user())
+        <a href="{{ route('oneMovieAuth', array( 'imdb_id'=> $movie->imdb_id )) }}">
+      @else
+        <a href="{{ route('oneMovie', array( 'imdb_id'=> $movie->imdb_id )) }}">
+      @endif
     	<figure data-aos="fade-up" class="effect-zoe">
     		<img src="{{$movie->poster}}" alt="{{$movie->title}}"/>
     		<figcaption>

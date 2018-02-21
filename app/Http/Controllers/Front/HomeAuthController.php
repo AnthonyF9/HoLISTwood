@@ -119,6 +119,56 @@ class HomeAuthController extends Controller
     }
 
 
+    public function oneMovieAuth($imdb_id)
+    {
+        $user_id = \Auth::user()->id;
+        $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
+        $movie_id = $movie[0]->id;
+        $itemlist = \DB::table('mylist')
+                    ->where([['movie_id','=',$movie_id],['user_id','=',$user_id]])
+                    ->get();
+        $ratinglist = \DB::table('rating')
+                    ->where([['id_movie','=',$movie_id],['id_user','=',$user_id]])
+                    ->get();
+        if (!empty($movie)) {
+          $trailers = \DB::table('movies')
+                      ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
+                      ->where('imdb_id','=',$imdb_id)
+                      ->get();
+          $allratings = \DB::table('movies')
+                       ->select('movies.title','rating.id_user','rating.id_movie','rating.id_user','rating.note')
+                       ->join('rating', 'movies.id', '=', 'rating.id_movie')
+                       ->where('imdb_id','=',$imdb_id)
+                       ->get();
+          $liststatus = \DB::table('mylist')
+                      ->join('users', 'users.id', '=', 'mylist.user_id')
+                      ->join('movies', 'movies.id', '=', 'mylist.movie_id')
+                      ->where([
+                          ['mylist.user_id', '=', $user_id],
+                          ['mylist.movie_id', '=', $movie_id]
+                        ])
+                      ->get();
+          $ratings = \DB::table('movies')
+                      ->join('rating', 'movies.id', '=', 'rating.id_movie')
+                      ->where('imdb_id','=',$imdb_id)
+                      ->get();
+          $ratingstatus = \DB::table('rating')
+                      ->join('users', 'users.id', '=', 'rating.id_user')
+                      ->join('movies', 'movies.id', '=', 'rating.id_movie')
+                      ->where([
+                          ['rating.id_user', '=', $user_id],
+                          ['rating.id_movie', '=', $movie_id]
+                        ])
+                      ->get();
+          $rating = [];
+          foreach ($allratings as $key => $value) {  $rating[] = $value->note; }
+          if (!empty($rating)) { $moyrating = array_sum($rating)/count($rating); }
+          else {  $moyrating = ''; }
+          return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'liststatus','itemlist', 'ratings', 'ratingstatus','ratinglist'));
+        } else { abort(404); }
+    }
+
+
     public function addtomylist(Request $request, $imdb_id)
     {
           $status = $request->addtolist;
@@ -132,13 +182,17 @@ class HomeAuthController extends Controller
             'statuslist'   => $status
           ];
           \DB::table('mylist')->insert($list);
-
+          $itemlist = \DB::table('mylist')
+                      ->where([['movie_id','=',$movie_id],['user_id','=',$user_id]])
+                      ->get();
+          $ratinglist = \DB::table('rating')
+                      ->where([['id_movie','=',$movie_id],['id_user','=',$user_id]])
+                      ->get();
           if (!empty($movie)) {
             $trailers = \DB::table('movies')
                         ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
                         ->where('imdb_id','=',$imdb_id)
                         ->get();
-            // dd($trailers);
             $liststatus = \DB::table('mylist')
                         ->join('users', 'users.id', '=', 'mylist.user_id')
                         ->join('movies', 'movies.id', '=', 'mylist.movie_id')
@@ -147,43 +201,41 @@ class HomeAuthController extends Controller
                             ['mylist.movie_id', '=', $movie_id]
                           ])
                         ->get();
-            // dd($liststatus[0]);
-            return view('front/oneMovie', compact('imdb_id','movie', 'trailers', 'liststatus'));
-          }
-          else {
-            abort(404);
-          }
+            $ratings = \DB::table('movies')
+                        ->join('rating', 'movies.id', '=', 'rating.id_movie')
+                        ->where('imdb_id','=',$imdb_id)
+                        ->get();
+            $ratingstatus = \DB::table('rating')
+                        ->join('users', 'users.id', '=', 'rating.id_user')
+                        ->join('movies', 'movies.id', '=', 'rating.id_movie')
+                        ->where([
+                            ['rating.id_user', '=', $user_id],
+                            ['rating.id_movie', '=', $movie_id]
+                          ])
+                        ->get();
+            return view('front/oneMovie', compact('imdb_id','movie', 'trailers', 'liststatus','itemlist', 'ratings', 'ratingstatus','ratinglist'));
+          } else { abort(404); }
     }
     public function updateinmylist(Request $request, $imdb_id)
     {
           $status = $request->addtolist;
           $user_id = \Auth::user()->id;
           $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
-          // dd($movie);
           $movie_id = $movie[0]->id;
-          // \DB::table('mylist')->update($list);
           $itemlist = \DB::table('mylist')
                       ->where([['movie_id','=',$movie_id],['user_id','=',$user_id]])
                       ->get();
-          // dd($itemlist);
           $id = $itemlist[0]->id;
           \DB::table('mylist')->where('id','=',$id)->update([
             'user_id'  => $user_id,
             'movie_id' => $movie_id,
             'statuslist'   => $status
           ]);
-          // MyList::findOrFail($id)->update([
-          //   'user_id'  => $user_id,
-          //   'movie_id' => $movie_id,
-          //   'statuslist'   => $status
-          // ]);
-
           if (!empty($movie)) {
             $trailers = \DB::table('movies')
                         ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
                         ->where('imdb_id','=',$imdb_id)
                         ->get();
-            // dd($trailers);
             $liststatus = \DB::table('mylist')
                         ->join('users', 'users.id', '=', 'mylist.user_id')
                         ->join('movies', 'movies.id', '=', 'mylist.movie_id')
@@ -192,11 +244,115 @@ class HomeAuthController extends Controller
                             ['mylist.movie_id', '=', $movie_id]
                           ])
                         ->get();
-            // dd($liststatus[0]);
-            return view('front/oneMovie', compact('imdb_id','movie', 'trailers', 'liststatus'));
-          }
-          else {
-            abort(404);
-          }
+            $ratings = \DB::table('movies')
+                        ->join('rating', 'movies.id', '=', 'rating.id_movie')
+                        ->where('imdb_id','=',$imdb_id)
+                        ->get();
+            $ratingstatus = \DB::table('rating')
+                        ->join('users', 'users.id', '=', 'rating.id_user')
+                        ->join('movies', 'movies.id', '=', 'rating.id_movie')
+                        ->where([
+                            ['rating.id_user', '=', $user_id],
+                            ['rating.id_movie', '=', $movie_id]
+                          ])
+                        ->get();
+            return view('front/oneMovie', compact('imdb_id','movie', 'trailers', 'liststatus', 'ratings', 'ratingstatus'));
+          } else { abort(404); }
     }
+
+    public function rate(Request $request, $imdb_id)
+    {
+          // dd($request->all());
+          $rating = $request->rating;
+          $user_id = \Auth::user()->id;
+          $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
+          $movie_id = $movie[0]->id;
+          $ratingtable = [];
+          $ratingtable[] = [
+            'id_user'  => $user_id,
+            'id_movie' => $movie_id,
+            'note'   => $rating
+          ];
+          // dd($ratingtable);
+          \DB::table('rating')->insert($ratingtable);
+          $ratinglist = \DB::table('rating')
+                      ->where([['id_movie','=',$movie_id],['id_user','=',$user_id]])
+                      ->get();
+          // dd($ratinglist);
+          $itemlist = \DB::table('mylist')
+                      ->where([['movie_id','=',$movie_id],['user_id','=',$user_id]])
+                      ->get();
+          if (!empty($movie)) {
+            $ratings = \DB::table('movies')
+                        ->join('rating', 'movies.id', '=', 'rating.id_movie')
+                        ->where('imdb_id','=',$imdb_id)
+                        ->get();
+            $ratingstatus = \DB::table('rating')
+                        ->join('users', 'users.id', '=', 'rating.id_user')
+                        ->join('movies', 'movies.id', '=', 'rating.id_movie')
+                        ->where([
+                            ['rating.id_user', '=', $user_id],
+                            ['rating.id_movie', '=', $movie_id]
+                          ])
+                        ->get();
+            $trailers = \DB::table('movies')
+                        ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
+                        ->where('imdb_id','=',$imdb_id)
+                        ->get();
+            $liststatus = \DB::table('mylist')
+                        ->join('users', 'users.id', '=', 'mylist.user_id')
+                        ->join('movies', 'movies.id', '=', 'mylist.movie_id')
+                        ->where([
+                            ['mylist.user_id', '=', $user_id],
+                            ['mylist.movie_id', '=', $movie_id]
+                          ])
+                        ->get();
+            return view('front/oneMovie', compact('imdb_id','movie', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist'));
+          } else { abort(404); }
+    }
+    public function updatemyrating(Request $request, $imdb_id)
+    {
+          $rating = $request->rating;
+          $user_id = \Auth::user()->id;
+          $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
+          $movie_id = $movie[0]->id;
+          $ratinglist = \DB::table('rating')
+                      ->where([['id_movie','=',$movie_id],['id_user','=',$user_id]])
+                      ->get();
+          $id = $ratinglist[0]->id;
+          \DB::table('rating')->where('id','=',$id)->update([
+            'id_user'  => $user_id,
+            'id_movie' => $movie_id,
+            'note'   => $rating
+          ]);
+          if (!empty($movie)) {
+            $ratings = \DB::table('movies')
+                        ->join('rating', 'movies.id', '=', 'rating.id_movie')
+                        ->where('imdb_id','=',$imdb_id)
+                        ->get();
+            $ratingstatus = \DB::table('rating')
+                        ->join('users', 'users.id', '=', 'rating.id_user')
+                        ->join('movies', 'movies.id', '=', 'rating.id_movie')
+                        ->where([
+                            ['rating.id_user', '=', $user_id],
+                            ['rating.id_movie', '=', $movie_id]
+                          ])
+                        ->get();
+            $trailers = \DB::table('movies')
+                        ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
+                        ->where('imdb_id','=',$imdb_id)
+                        ->get();
+            $liststatus = \DB::table('mylist')
+                        ->join('users', 'users.id', '=', 'mylist.user_id')
+                        ->join('movies', 'movies.id', '=', 'mylist.movie_id')
+                        ->where([
+                            ['mylist.user_id', '=', $user_id],
+                            ['mylist.movie_id', '=', $movie_id]
+                          ])
+                        ->get();
+            return view('front/oneMovie', compact('imdb_id','movie', 'ratings', 'ratingstatus', 'trailers', 'liststatus'));
+          } else { abort(404); }
+    }
+
+
 }

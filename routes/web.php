@@ -24,10 +24,14 @@ Route::group(['namespace' => 'Front'], function () {
   Route::get('/movies-list', 'HomeController@frontmovieslist')->name('frontmovieslist');
   Route::get('/events', 'EventController@index')->name('events');   // le calendrier
 
-  //vue d'un film et ajout à sa liste
+  //vue d'un film, ajout à sa liste, notation
   Route::get('/movie/{imdb_id}', 'HomeController@oneMovie')->name('oneMovie');
-  Route::post('/movie/{imdb_id}', 'HomeAuthController@addtomylist')->name('addtomylist');
-  Route::put('/movie/{imdb_id}', 'HomeAuthController@updateinmylist')->name('updateinmylist');
+
+  Route::get('/movie/{imdb_id}/view', 'HomeAuthController@oneMovieAuth')->name('oneMovieAuth');
+  Route::post('/movie/{imdb_id}/add-to-my-list', 'HomeAuthController@addtomylist')->name('addtomylist');
+  Route::put('/movie/{imdb_id}/update-my-list', 'HomeAuthController@updateinmylist')->name('updateinmylist');
+  Route::post('/movie/{imdb_id}/rating', 'HomeAuthController@rate')->name('rate');
+  Route::put('/movie/{imdb_id}/update-my-rating', 'HomeAuthController@updatemyrating')->name('updatemyrating');
 
   // la page profile
   Route::get('/profile', 'HomeAuthController@profile')->name('profile');
@@ -42,8 +46,6 @@ Route::group(['namespace' => 'Front'], function () {
     Route::post('/submit-movie/add-by-imdb', 'HomeAuthController@findmoviebyimdb')->name('findmoviebyimdb');
     Route::get('/submit-movie/add-by-imdb', 'HomeAuthController@verifymoviebyimdb')->name('verifymoviebyimdb');
     Route::post('/submit-movie/save-movie-by-imdb', 'HomeAuthController@addmoviebyimdb')->name('addmoviebyimdb');
-
-
 
   // autres routes
   Route::get('/contact', 'HomeController@contact')->name('contact');
