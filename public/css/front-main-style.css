@@ -462,6 +462,10 @@ div#trailer {
 #list-and-rating select:focus, #list-and-rating input:focus {
   outline:  none;
 }
+#list-and-rating button {
+  margin-left: 5px;
+  margin-right: 5px;
+}
 
 .rate {
   justify-content: center;
@@ -506,14 +510,41 @@ div#trailer {
   padding: 10px 0;
   color: #2A89EB;
 }
-.comment .comment-list p {
+.comment form textarea {
   background-color: #262626;
+  border: none;
+  width: 96%;
+  padding: 2%;
+  color: white;
+  border-radius: 10px;
+}
+.comment form textarea:focus {
+  outline:  none;
+}
+.comment form input[type="submit"] {
+  margin: 10px auto;
+  background-color: #653CB6;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 5px 5px;
+}
+.comment .comment-list h4 {
+  border-bottom: 1px white solid;
+}
+.comment .comment-list span {
+  color: #2A89EB;
+  font-size: 1.5em;
+}
+.comment .comment-list p {
+  margin-top: 10px;
+}
+.comment-list {
+  margin: 20px auto;;
   min-height: 100px;
   border-radius: 10px;
-
-}
-
-.comment-list {
+  background-color: #262626;
+  padding: 10px;
 }
 
 .detail-entitled {
@@ -587,6 +618,15 @@ div#trailer {
 
   /* Single */
 
+  .grid figure img{
+    display: inline;
+  }
+  .grid figure {
+    min-width: 50px;
+  }
+
+  /* Single */
+
   .detail-part {
     display: flex;
     flex-direction: column;
@@ -606,6 +646,11 @@ div#trailer {
     margin: 10px auto;
   }
 
+  #list-and-rating {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
   #list-and-rating select {
     margin-right: 0;
     margin-bottom: 5px;
@@ -613,6 +658,9 @@ div#trailer {
   #list-and-rating input[type="submit"] {
     margin-left: 0;
     margin-top: 5px;
+  }
+  #list-and-rating button {
+    margin: 5px auto;
   }
 
   .bandeau {
@@ -627,4 +675,37 @@ div#trailer {
     min-width: 270px;
   }
 
+}
+@media (max-width: 319px) {
+  div#trailer {
+    width: 100%;
+    min-width: 50px;
+    padding: 5px 0;
+    margin: 10px 0;
+    text-align: center;
+  }
+  .grid figure img {
+    width: 100%;
+    height: 100%;
+    min-width: 50px;
+    min-height: 75px;
+  }
+  footer #footer-top div.presentation h3 {
+    font-size: 0.5em;
+  }
+  footer #footer-bottom div.social-network ul li svg {
+    width: 10px;
+    height: 10px;
+  }
+  footer #footer-bottom div.social-network ul {
+    margin: 0;
+  }
+  header #top-menu div.social-network ul li svg {
+    width: 10px;
+    height: 10px;
+  }
+  header #top-menu div.social-network, header #top-menu div.social-network ul {
+    width: 100%;
+    min-width: 50px;
+  }
 }

@@ -51,23 +51,8 @@ class MoviesController extends Controller
       return view('back/movies/add-movie', compact('movie'));
   }
 
-
-  // public function addmovie2(Request $request)
-  // {
-  //
-  //
-  //     $urlmovie = 'http://www.omdbapi.com/?i='. $request->imdb . '&apikey=1f275ea3&plot=full';
-  //       return view('back/movies/add-movie', compact('urlmovie'));
-  //
-  // }
-
-
-
   public function addmovie(MovieRequest $request)
   {
-
-    // dd($errors->all());
-    // dd($request->all());
     // on vérifie si l'IMDB indiqué existe déjà dans la BDD
        $movies = Movie::orderBy('created_at','desc')->get();
        $plucked = $movies->pluck('imdb_id');

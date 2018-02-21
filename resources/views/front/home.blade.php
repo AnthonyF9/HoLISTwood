@@ -42,6 +42,7 @@ active @endsection
 
 
     @foreach ($movies as $movie)
+
     <div class="grid">
       @if (Auth::user())
         <a href="{{ route('oneMovieAuth', array( 'imdb_id'=> $movie->imdb_id )) }}">
