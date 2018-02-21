@@ -21,6 +21,14 @@ class CommentsSeeder extends Seeder
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s')
       );
+      $comments[] = array (
+        'id_user' =>1 ,
+        'id_movie' => 3,
+        'content'  => 'ceci est un commentaire',
+        'state'   => 'published',
+        'created_at' => $date->format('Y-m-d H:i:s'),
+        'updated_at' => $date->format('Y-m-d H:i:s')
+      );
       DB::table('comments')->insert($comments);
     }
 }
