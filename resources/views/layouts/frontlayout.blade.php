@@ -123,12 +123,12 @@
           </p>
 
           <ul id="menu2">
-            <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
-            <li><a class="@yield('activecalendar')" href="{{ route('events') }}">Release calendar</a></li>
-            <li><a class="@yield('activemovieslist')" href="{{ route('frontmovieslist') }}">Movies list</a></li>
-             @if ( Auth::user() )
+            @if ( Auth::user() )
               <li><a class="@yield('activesubmitmovie')" href="{{ route('submitmoviebyitems') }}">Submit a movie</a></li>
-             @endif
+            @endif
+            <li><a class="@yield('activemovieslist')" href="{{ route('frontmovieslist') }}">Movies list</a></li>
+            <li><a class="@yield('activecalendar')" href="{{ route('events') }}">Release calendar</a></li>
+            <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
           </ul><!-- #menu2 -->
         </div><!-- #bottom-menu -->
 

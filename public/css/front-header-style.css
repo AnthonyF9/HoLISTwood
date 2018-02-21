@@ -223,6 +223,7 @@ header nav ul li a.active, header nav ul li span.active {
   width: 60%;
   margin: auto;
   display: flex;
+  flex-direction: row-reverse;
 }
 #bottom-menu #menu2 li {
   /* padding: 0 2%; */
