@@ -32,6 +32,8 @@ Route::group(['namespace' => 'Front'], function () {
   Route::put('/movie/{imdb_id}/update-my-list', 'HomeAuthController@updateinmylist')->name('updateinmylist');
   Route::post('/movie/{imdb_id}/rating', 'HomeAuthController@rate')->name('rate');
   Route::put('/movie/{imdb_id}/update-my-rating', 'HomeAuthController@updatemyrating')->name('updatemyrating');
+  // commenter sur la page d'un film
+  Route::post('/movie/{imdb_id}/comment', 'HomeAuthController@postcomment')->name('postcomment');
 
   // la page profile
   Route::get('/profile', 'HomeAuthController@profile')->name('profile');
