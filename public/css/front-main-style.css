@@ -470,6 +470,10 @@ div#trailer {
 #list-and-rating select:focus, #list-and-rating input:focus {
   outline:  none;
 }
+#list-and-rating button {
+  margin-left: 5px;
+  margin-right: 5px;
+}
 
 .rate {
   justify-content: center;
@@ -593,11 +597,13 @@ div#trailer {
 
 @media (max-width: 707px) {
 
+  /* Single */
+
   .grid figure img{
     display: inline;
   }
   .grid figure {
-    min-width: 0;
+    min-width: 50px;
   }
 
   /* Single */
@@ -621,6 +627,11 @@ div#trailer {
     margin: 10px auto;
   }
 
+  #list-and-rating {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
   #list-and-rating select {
     margin-right: 0;
     margin-bottom: 5px;
@@ -628,6 +639,9 @@ div#trailer {
   #list-and-rating input[type="submit"] {
     margin-left: 0;
     margin-top: 5px;
+  }
+  #list-and-rating button {
+    margin: 5px auto;
   }
 
   .bandeau {
@@ -642,4 +656,41 @@ div#trailer {
     min-width: 270px;
   }
 
+}
+@media (max-width: 319px) {
+  div#trailer {
+    width: 100%;
+    min-width: 50px;
+    padding: 5px 0;
+    margin: 10px 0;
+    text-align: center;
+  }
+  .grid figure img {
+    width: 100%;
+    height: 100%;
+    min-width: 50px;
+    min-height: 75px;
+  }
+  footer #footer-top div.presentation h3 {
+    font-size: 0.5em;
+  }
+  footer #footer-bottom div.social-network ul li svg {
+    width: 10px;
+    height: 10px;
+  }
+  header #top-menu div.social-network ul li svg {
+    width: 10px;
+    height: 10px;
+  }
+  header #top-menu div.social-network, header #top-menu div.social-network ul {
+    width: 100%;
+    min-width: 50px;
+  }
+  div.ytp-title div.ytp-title-text a.ytp-title-link.yt-uix-sessionlink {
+    width: 10px;
+    /* min-width: 50px; */
+    font-size: 0.3em;
+    overflow: hidden;
+    background: red;
+  }
 }
