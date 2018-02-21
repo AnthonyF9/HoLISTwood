@@ -194,7 +194,8 @@ header ul#menu2 {
 }
 
 header ul#menu2 li {
-  padding: 0 2%;
+  /* padding: 0 2%; */
+  padding: 0 20px;
   white-space: nowrap;
 }
 
