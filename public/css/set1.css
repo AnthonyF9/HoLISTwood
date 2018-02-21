@@ -52,6 +52,45 @@
 	backface-visibility: hidden;
 }
 
+/* ////////////////////////////////////////////////////////// */
+/* STYLE AFFICHE MOVIES LIST  */
+/* ////////////////////////////////////////////////////////// */
+
+
+.affichesfront .grid {
+	position: relative;
+	margin: 0 auto;
+	padding: 1em 0 4em;
+	max-width: 1000px;
+	list-style: none;
+	text-align: center;
+}
+
+.affichesfront .grid figure {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	margin: 10px 1%;
+	min-width: 180px;
+	max-width: 180px;
+	width: 48%;
+	text-align: center;
+	cursor: pointer;
+}
+
+.affichesfront .grid figure img {
+	position: relative;
+	display: block;
+	height: 280px;
+	width: 180px;
+	filter: saturate(110%);
+  border-radius: 5px;
+}
+
+
+/* ////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////// */
+
 .grid figure figcaption::before,
 .grid figure figcaption::after {
 	pointer-events: none;

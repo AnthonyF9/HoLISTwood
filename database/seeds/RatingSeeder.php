@@ -18,6 +18,16 @@ class RatingSeeder extends Seeder
         'id_movie' =>1,
         'note'     =>3,
       );
-        DB::table('rating')->insert($rating);
+      $rating[] = array (
+        'id_user'  =>1,
+        'id_movie' =>5,
+        'note'     =>4,
+      );
+      $rating[] = array (
+        'id_user'  =>3,
+        'id_movie' =>5,
+        'note'     =>3,
+      );
+      DB::table('rating')->insert($rating);
     }
 }

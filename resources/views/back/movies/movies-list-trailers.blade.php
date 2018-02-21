@@ -28,7 +28,7 @@
     {!! Form::open(['route' => 'searchMovieWithtrailer', 'method' => 'get'])  !!}
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
-                    <input  type="text" name="research" class="form-control input-lg" placeholder="Enter word" />
+                    <input  type="text" name="research" class="form-control input-lg" placeholder="Enter a movie title" />
                     <span class="input-group-btn">
                         <button  class="btn btn-primary btn-lg" type="submit">
                           Search
