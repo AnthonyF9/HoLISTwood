@@ -134,9 +134,13 @@
 
   <div class="comment">
     <h3>Comments</h3>
-    <div class="comment-list">
-      <p></p>
-    </div>
+    {{-- {{ dd($allcomments) }} --}}
+    @foreach ($allcomments as $key => $onecomment)
+      <div class="comment-list">
+        <h4><span>{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</h4>
+        <p>{{ $onecomment->content }}</p>
+      </div><!-- .comment-list -->
+    @endforeach
   </div>
 
 
