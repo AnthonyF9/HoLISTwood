@@ -1,3 +1,9 @@
+#wrapper {
+  max-width:;
+  width:100%;
+  margin: 0 auto;
+}
+
 /* Le main et son contenu */
 main {
   max-width: 1300px;
@@ -108,7 +114,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
   border-radius: 5px;
 }
 
@@ -230,20 +236,20 @@ div.titre {
   border-bottom: 3px solid white;
   color: white;
   border-radius: 10%;
-  width: 50%;
+  width: 19%;
   margin: auto;
   font-weight: bold;
+
 }
 
 
 
 /*bandeau trailer*/
 .bandeau-trailer {
-  background-color:;
   text-transform: uppercase;
   font-family: 'Orbitron';
   font-size: 1.5em;
-  height:60px;
+  height:40px;
   text-align: center;
   line-height: 70px;
   font-weight: bold;
@@ -252,11 +258,19 @@ div.titre {
 
 }
 
+.bandeau-trailer h2{
+  position: relative;
+  text-align: center;
+  font-size: 0.8em;
+  top:-23px;
+}
+
 div#trailer {
   background-color:#212121;
   padding: 28px;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   border-radius: 5px;
+  margin-top: 42px;
 }
 
 

@@ -413,8 +413,12 @@ header #bottom-menu #menu2 li button:hover{
     display: inline-block;
     width: 110px;
   }
+
+  #anim-span {
+    font-size:0.4em;
+  }
   #bottom-menu p {
-    font-size: 1em;
+    font-size: 0.8em;
   }
   #menu2 li {
     display: none;
