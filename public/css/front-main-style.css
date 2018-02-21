@@ -518,14 +518,41 @@ div#trailer {
   padding: 10px 0;
   color: #2A89EB;
 }
-.comment .comment-list p {
+.comment form textarea {
   background-color: #262626;
+  border: none;
+  width: 96%;
+  padding: 2%;
+  color: white;
+  border-radius: 10px;
+}
+.comment form textarea:focus {
+  outline:  none;
+}
+.comment form input[type="submit"] {
+  margin: 10px auto;
+  background-color: #653CB6;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 5px 5px;
+}
+.comment .comment-list h4 {
+  border-bottom: 1px white solid;
+}
+.comment .comment-list span {
+  color: #2A89EB;
+  font-size: 1.5em;
+}
+.comment .comment-list p {
+  margin-top: 10px;
+}
+.comment-list {
+  margin: 20px auto;;
   min-height: 100px;
   border-radius: 10px;
-
-}
-
-.comment-list {
+  background-color: #262626;
+  padding: 10px;
 }
 
 .detail-entitled {
