@@ -518,7 +518,6 @@ div#trailer {
   background-color: #262626;
   min-height: 100px;
   border-radius: 10px;
-
 }
 
 .comment-list {
@@ -556,6 +555,7 @@ div#trailer {
 }
 
 
+
 /*  button return top*/
 #return-to-top  {
     position: fixed;
@@ -565,7 +565,6 @@ div#trailer {
     padding:
     bottom: 20px;
    right: 20px;
-   /* background: rgb(0, 0, 0); */
    background: #653CB6;
    width: 50px;
    height: 50px;
@@ -588,6 +587,47 @@ div#trailer {
 .icon-chevron-up:before {
   color:#fff;
   padding: 17px;
+}
+
+/*footer logo holistwood*/
+#anim-p {
+	text-transform: uppercase;
+	letter-spacing: .5em;
+	display: inline-block;
+	padding: 1.5em 0em;
+	position: relative;
+	width: 40em;
+	margin-left: 25px;
+  text-align: center;
+  font-size: 0.4em;
+  margin-left: -29px;
+}
+
+#anim-span {
+  font: 3em "Orbitron", sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  /* padding: .25em 0 .325em; */
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255,255,255,.5);
+ text-align: center;
+/* Clip Background Image */
+
+  background: url(../img/animated_text_fill.png) repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+/* Animate Background Image */
+
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: aitf 80s linear infinite;
+
+/* Activate hardware acceleration for smoother animations */
+
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-backface-visibility: hidden;
+
 }
 /* Responsive */
 

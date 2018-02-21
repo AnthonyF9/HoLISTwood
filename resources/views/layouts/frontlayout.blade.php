@@ -186,15 +186,21 @@
 
       <footer>
 
-
-
-
-
         <div id="footer-top">
+
           <div class="presentation">
-            <h3>Holistwood</h3>
+            <p id="anim-p">
+                <span id="anim-span">
+              <a class="@yield('activehome')" href="{{ route('home') }}">
+              Holistwood
+              </a>
+            </p>
+            </span>
             <p>Quo illis ex dotis matrimonii eos fuga statum illis uterque tabernaculum marito semper venerem illis ad fuga et est est.</p>
           </div>
+
+
+
           <div class="views">
             <h4>3 best viewed pages</h4>
             <ul>
