@@ -14,8 +14,8 @@ active @endsection
 
     <nav>
       <ul>
-        <li><a class="@yield('activesubmitmoviebyitems')" href="{{ route('submitmoviebyitems') }}">Submit a movie by filling infos</a></li>
-        <li><a class="@yield('activesubmitmoviebyimdb')" href="{{ route('submitmoviebyimdb') }}">Submit a movie with IMDB</a></li>
+        <li class="@yield('activesubmitmoviebyitems')"><a class="@yield('activesubmitmoviebyitems')" href="{{ route('submitmoviebyitems') }}">Submit a movie by filling infos</a></li>
+        <li class="@yield('activesubmitmoviebyimdb')"><a class="@yield('activesubmitmoviebyimdb')" href="{{ route('submitmoviebyimdb') }}">Submit a movie with IMDB</a></li>
       </ul>
     </nav>
 

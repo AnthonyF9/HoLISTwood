@@ -12,16 +12,21 @@ main {
 }
 /* Submit movie */
 
-#submitmovie.alertbox {
-  margin: 0 2px;
+#submitmovie {
+  margin: 30px 2px;
 }
-#submitmovie form, #submitmovie.alertbox {
-  width: 70%;
+#submitmovie-content {
+  width: 75%;
   background: #212121;
   margin: 0 auto;
-  padding: 20px;
   display: flex;
   flex-direction: column;
+}
+#submitmovie-content form {
+  margin: 20px;
+}
+#submitmovie form, #submitmovie.alertbox {
+
 }
 #submitmovie .alert.alert-danger {
   width: 95%;
@@ -65,27 +70,27 @@ main {
 #submitmovie nav ul {
   display: flex;
   text-align: center;
-  margin-left: 10%;
-  width: 70%
+  margin: auto;
+  width: 75%
 }
 #submitmovie nav ul li {
   padding: 2%;
-  background: #212121;
-  margin: 20px 0 0 5%;
+  background: #333;
+  margin: 0 1% 0 0;
   width: 20%;
   min-width: 75px;
   height: auto;
   text-transform: uppercase;
   font-weight: bold;
   padding-bottom: 0;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+#submitmovie nav ul li.active {
+  background: #212121;
 }
 #submitmovie nav ul li a {
   color: white;
-}
-#submitmovie nav ul li a.active {
-  color: #5555FF;
 }
 
 
