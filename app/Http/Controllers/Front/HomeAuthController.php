@@ -162,7 +162,7 @@ class HomeAuthController extends Controller
                        ->get();
           $rating = [];
           foreach ($allratings as $key => $value) {  $rating[] = $value->note; }
-          if (!empty($rating)) { $moyrating = array_sum($rating)/count($rating); }
+          if (!empty($rating)) { $moyrating = round(array_sum($rating)/count($rating),1); }
           else {  $moyrating = ''; }
           return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'liststatus','itemlist', 'ratings', 'ratingstatus','ratinglist'));
         } else { abort(404); }
@@ -220,7 +220,7 @@ class HomeAuthController extends Controller
                          ->get();
             $rating = [];
             foreach ($allratings as $key => $value) {  $rating[] = $value->note; }
-            if (!empty($rating)) { $moyrating = array_sum($rating)/count($rating); }
+            if (!empty($rating)) { $moyrating = round(array_sum($rating)/count($rating),1); }
             else {  $moyrating = ''; }
             return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'trailers', 'liststatus','itemlist', 'ratings', 'ratingstatus','ratinglist'));
           } else { abort(404); }
@@ -272,7 +272,7 @@ class HomeAuthController extends Controller
                          ->get();
             $rating = [];
             foreach ($allratings as $key => $value) {  $rating[] = $value->note; }
-            if (!empty($rating)) { $moyrating = array_sum($rating)/count($rating); }
+            if (!empty($rating)) { $moyrating = round(array_sum($rating)/count($rating),1); }
             else {  $moyrating = ''; }
             return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'trailers', 'liststatus', 'ratings', 'ratingstatus'));
           } else { abort(404); }
@@ -332,7 +332,7 @@ class HomeAuthController extends Controller
                          ->get();
             $rating = [];
             foreach ($allratings as $key => $value) {  $rating[] = $value->note; }
-            if (!empty($rating)) { $moyrating = array_sum($rating)/count($rating); }
+            if (!empty($rating)) { $moyrating = round(array_sum($rating)/count($rating),1); }
             else {  $moyrating = ''; }
             return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist'));
           } else { abort(404); }
@@ -384,7 +384,7 @@ class HomeAuthController extends Controller
                          ->get();
             $rating = [];
             foreach ($allratings as $key => $value) {  $rating[] = $value->note; }
-            if (!empty($rating)) { $moyrating = array_sum($rating)/count($rating); }
+            if (!empty($rating)) { $moyrating = round(array_sum($rating)/count($rating),1); }
             else {  $moyrating = ''; }
             return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus', 'trailers', 'liststatus'));
           } else { abort(404); }
