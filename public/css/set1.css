@@ -35,7 +35,7 @@
 
 .grid figure img {
 	position: relative;
-	display: block;
+	/* display: block; */
 	height: 444px;
 	width: 300px;
 	/* opacity: 0.8; */
@@ -61,7 +61,7 @@
 .grid figure figcaption > a {
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: 10px;
 	width: 81.5%;
 	height: 100%;
 }
