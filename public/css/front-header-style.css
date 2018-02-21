@@ -445,7 +445,7 @@ header #bottom-menu #menu2 li button:hover{
   {
     display: block;
     position: relative;
-    top: -60px;
+    top: -92px;
     /* left: 10%; */
     margin-left: 10%;
     left: 0;
@@ -554,5 +554,9 @@ header #bottom-menu #menu2 li button:hover{
 
   #anim-span {
     font-size: 2.5em;
+    margin-top:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
