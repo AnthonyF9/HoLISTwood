@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Movie;
 use App\Trailer;
+use App\MyList;
+
 
 class HomeController extends Controller
 {
@@ -54,7 +56,7 @@ class HomeController extends Controller
     public function frontmovieslist()
     {
       $movies = Movie::orderBy('created_at','desc')->get();
-      
+
       return view('front/frontmovieslist');
     }
 

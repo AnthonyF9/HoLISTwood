@@ -85,12 +85,21 @@ class HomeAuthController extends Controller
           );
           $context = stream_context_create($opts);
           $raw = file_get_contents($urlmovie, true, $context);
-          $movie = json_decode($raw, true);
+          $movie1 = json_decode($raw, true);
+          $request->session()->put('movie', $movie1);
+          $movie = $request->session()->get('movie');
           return view('front/submitmovie/submitmovieimdbverif', compact('movie'));
         } else {
           return redirect()->route('submitmoviebyimdb')->with('error', 'invalid IMDB ID');
         }
     }
+
+    public function verifymoviebyimdb(Request $request)
+    {
+        $movie = $request->session()->get('movie');
+        return view('front/submitmovie/submitmovieimdbverif', compact('movie'));
+    }
+
     public function addmoviebyimdb(MovieRequest $request)
     {
       // on vérifie si l'IMDB indiqué existe déjà dans la BDD
