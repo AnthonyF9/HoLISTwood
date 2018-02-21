@@ -21,6 +21,8 @@ class EventController extends Controller
        {
          // $userid = \DB::table('mylist')->where('user_id','=', $user->id)->get();
 
+         $movies = \DB::table('movies')->where('release_date','!=','null')->get();
+
          $usermovies = \DB::table('mylist')
                      ->join('movies', 'movies.id', '=', 'mylist.movie_id')
                      ->where('user_id','=', $user->id)
@@ -41,12 +43,29 @@ class EventController extends Controller
                       null,
                       // Add color and link on event
                     [
-                        'color' => '#3A87AD',
+                        'color' => '#ee0401',
                         'url' => route('oneMovie', array( 'imdb_id'=> $usermovie->imdb_id )),
                     ]
                   );
               }
+              foreach ($movies as $key => $movie) {
+                  $events[] = Calendar::event(
+                      $movie->title,
+                      true,
+                      new \DateTime($movie->release_date),
+                      new \DateTime($movie->release_date.' +1 day'),
+                      null,
+                      // Add color and link on event
+                    [
+                        'color' => '#3A87AD',
+                        'url' => route('oneMovie', array( 'imdb_id'=> $movie->imdb_id )),
+                    ]
+                  );
+              }
           }
+          // dd($events);
+
+
           $calendar = Calendar::addEvents($events);
           // dd($calendar);
           return view('front/fullcalender', compact('calendar'));

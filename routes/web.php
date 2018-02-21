@@ -24,10 +24,16 @@ Route::group(['namespace' => 'Front'], function () {
   Route::get('/movies-list', 'HomeController@frontmovieslist')->name('frontmovieslist');
   Route::get('/events', 'EventController@index')->name('events');   // le calendrier
 
-  //vue d'un film et ajout à sa liste
+  //vue d'un film, ajout à sa liste, notation
   Route::get('/movie/{imdb_id}', 'HomeController@oneMovie')->name('oneMovie');
-  Route::post('/movie/{imdb_id}', 'HomeAuthController@addtomylist')->name('addtomylist');
-  Route::put('/movie/{imdb_id}', 'HomeAuthController@updateinmylist')->name('updateinmylist');
+
+  Route::get('/movie/{imdb_id}/view', 'HomeAuthController@oneMovieAuth')->name('oneMovieAuth');
+  Route::post('/movie/{imdb_id}/add-to-my-list', 'HomeAuthController@addtomylist')->name('addtomylist');
+  Route::put('/movie/{imdb_id}/update-my-list', 'HomeAuthController@updateinmylist')->name('updateinmylist');
+  Route::post('/movie/{imdb_id}/rating', 'HomeAuthController@rate')->name('rate');
+  Route::put('/movie/{imdb_id}/update-my-rating', 'HomeAuthController@updatemyrating')->name('updatemyrating');
+  // commenter sur la page d'un film
+  Route::post('/movie/{imdb_id}/comment', 'HomeAuthController@postcomment')->name('postcomment');
 
   // la page profile
   Route::get('/profile', 'HomeAuthController@profile')->name('profile');
@@ -39,10 +45,9 @@ Route::group(['namespace' => 'Front'], function () {
     Route::post('/submit-movie/by-items', 'HomeAuthController@submitmovieaction')->name('submitmovie-action');
     // proposer un film via imdb
     Route::get('/submit-movie/by-imdb', 'HomeAuthController@submitmoviebyimdb')->name('submitmoviebyimdb');
-    Route::match(['get', 'post'],'/submit-movie/add-by-imdb', 'HomeAuthController@findmoviebyimdb')->name('findmoviebyimdb');
+    Route::post('/submit-movie/add-by-imdb', 'HomeAuthController@findmoviebyimdb')->name('findmoviebyimdb');
+    Route::get('/submit-movie/add-by-imdb', 'HomeAuthController@verifymoviebyimdb')->name('verifymoviebyimdb');
     Route::post('/submit-movie/save-movie-by-imdb', 'HomeAuthController@addmoviebyimdb')->name('addmoviebyimdb');
-
-
 
   // autres routes
   Route::get('/contact', 'HomeController@contact')->name('contact');
@@ -60,9 +65,11 @@ Route::group(['namespace' => 'Back'], function () {
 
   Route::get('/dashboard/movies-list', 'MoviesController@movieslist')->name('movieslist');
   Route::get('/dashboard/movies-list/waste', 'MoviesController@moviesintrash')->name('moviesintrash');
+  Route::get('/dashboard/movies-list/waste/searchtrash', 'SearchController@searchtrash')->name('searchtrash');
   Route::put('/dashboard/movies-list/restore/{id}', 'MoviesController@restoremovie')->where('id','[0-9]+')->name('restoremovie');
   Route::get('/dashboard/movies-list/search', 'SearchController@search')->name('search');
   Route::get('/dashboard/movies-moderate-list', 'MoviesController@moviesmoderatelist')->name('moderatemovieslist');
+  Route::get('/dashboard/movies-moderate-list/searchmoderation', 'SearchController@searchmoderation')->name('searchmoderation');
   Route::get('/dashboard/movies-moderate-list/{id}', 'MoviesController@moderatemovie')->where('id','[0-9]+')->name('moderatemovie');
   Route::put('/dashboard/movies-moderate-list/{id}', 'MoviesController@moderatemovieaction')->where('id','[0-9]+')->name('moderatemovie-action');
 

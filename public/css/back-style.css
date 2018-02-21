@@ -24,6 +24,13 @@ a:visited {
   color : white;
 }
 
+/* Alerte */
+form div.alert-error {
+  color: #b30000;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
 /* Le header */
 header {
   /* background-color: #E3E5E6; */
