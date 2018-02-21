@@ -52,6 +52,16 @@
             <p class="detail-entitled">Awards:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->awards) }}</p>
           </li>
+          <li>
+            <p class="detail-entitled">Rating:</p>
+            <p class="detail-containt">
+              @if (!empty($moyrating))
+                {{ $moyrating }} / 5
+              @else
+                No rating available
+              @endif
+            </p>
+          </li>
       </ul>
     </div><!-- .detail -->
     <div id="list-and-rating">
@@ -95,7 +105,16 @@
           <button type="button" name="button">You must log in to add this movie in your list.</button>
         </div><!-- .addd-to-list -->
       @endif
-    </div>
+      @if ( Auth::user() )
+        <div class="rating-zone">
+          
+        </div>
+      @else
+        <div class="rating-zone">
+          <button type="button" name="button">You must log in to rate this movie.</button>
+        </div>
+      @endif
+    </div><!-- #list-and-rating -->
   </div><!-- .detail-part -->
 
   {{-- <div class="rate">
