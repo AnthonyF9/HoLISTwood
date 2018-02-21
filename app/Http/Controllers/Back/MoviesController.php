@@ -234,6 +234,14 @@ class MoviesController extends Controller
   public function moderatemovieaction(MovieRequest $request, $id)
   {
     Movie::findOrFail($id)->update($request->all());
+    $thisMovie = \DB::table('movies')
+                ->where('imdb_id', '=', $request->imdb_id)
+                ->get();
+    $trailer[] = [
+      'id_movie'  => $thisMovie[0]->id,
+      'url_trailer' => ''
+    ];
+    \DB::table('trailer')->insert($trailer);
     return redirect()->route('moderatemovieslist')->with('status', 'Movie edited');
   }
 

@@ -12,13 +12,25 @@ main {
 }
 /* Submit movie */
 
-#submitmovie form {
+#submitmovie.alertbox {
+  margin: 0 2px;
+}
+#submitmovie form, #submitmovie.alertbox {
   width: 70%;
   background: #212121;
   margin: 0 auto;
   padding: 20px;
   display: flex;
   flex-direction: column;
+}
+#submitmovie .alert.alert-danger {
+  width: 95%;
+  margin: 0 auto;
+  padding: 20px;
+  background: #ffb3b3;
+  color: #ff0000;
+  font-weight: bold;
+  border-radius: 10px;
 }
 #submitmovie form input[type="text"], #submitmovie input[type="date"], #submitmovie select, #submitmovie textarea {
   text-align: left;
@@ -66,6 +78,8 @@ main {
   text-transform: uppercase;
   font-weight: bold;
   padding-bottom: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 #submitmovie nav ul li a {
   color: white;
@@ -73,6 +87,7 @@ main {
 #submitmovie nav ul li a.active {
   color: #5555FF;
 }
+
 
 /* Home */
 
@@ -395,6 +410,34 @@ div#trailer {
   float: left;
   margin-right: 5%;
 }
+
+#list-and-rating {
+  background-color: #262626;
+  margin: 10px 5% 20px;
+  width: 85%;
+  border-radius: 10px;
+  padding: 10px 0;
+  padding-left: 5%;
+}
+#list-and-rating select, #list-and-rating button, #list-and-rating input[type="submit"] {
+  margin: 0 auto;
+  max-width: 200px;
+  background-color: #653CB6;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 5px 5px;
+}
+#list-and-rating select {
+  margin-right: 5px;
+}
+#list-and-rating input[type="submit"] {
+  margin-left: 5px;
+}
+#list-and-rating select:focus, #list-and-rating input:focus {
+  outline:  none;
+}
+
 .rate {
   justify-content: center;
   width: 40%;
@@ -534,6 +577,15 @@ div#trailer {
     width: 90%;
     padding: 2%;
     margin: 10px auto;
+  }
+
+  #list-and-rating select {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+  #list-and-rating input[type="submit"] {
+    margin-left: 0;
+    margin-top: 5px;
   }
 
   .bandeau {

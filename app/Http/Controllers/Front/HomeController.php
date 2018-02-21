@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Movie;
 use App\Trailer;
+use App\MyList;
+
 
 class HomeController extends Controller
 {
