@@ -63,9 +63,11 @@ Route::group(['namespace' => 'Back'], function () {
 
   Route::get('/dashboard/movies-list', 'MoviesController@movieslist')->name('movieslist');
   Route::get('/dashboard/movies-list/waste', 'MoviesController@moviesintrash')->name('moviesintrash');
+  Route::get('/dashboard/movies-list/waste/searchtrash', 'SearchController@searchtrash')->name('searchtrash');
   Route::put('/dashboard/movies-list/restore/{id}', 'MoviesController@restoremovie')->where('id','[0-9]+')->name('restoremovie');
   Route::get('/dashboard/movies-list/search', 'SearchController@search')->name('search');
   Route::get('/dashboard/movies-moderate-list', 'MoviesController@moviesmoderatelist')->name('moderatemovieslist');
+  Route::get('/dashboard/movies-moderate-list/searchmoderation', 'SearchController@searchmoderation')->name('searchmoderation');
   Route::get('/dashboard/movies-moderate-list/{id}', 'MoviesController@moderatemovie')->where('id','[0-9]+')->name('moderatemovie');
   Route::put('/dashboard/movies-moderate-list/{id}', 'MoviesController@moderatemovieaction')->where('id','[0-9]+')->name('moderatemovie-action');
 
