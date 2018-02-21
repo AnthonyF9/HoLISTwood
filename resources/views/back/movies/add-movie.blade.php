@@ -18,12 +18,8 @@
     @if (isset($movie['Title']) && !empty($movie['Title']) && $movie['Title'] !='N/A' && isset($movie['Plot']) && !empty($movie['Plot']) && $movie['Plot'] !='N/A')
       @php
         $title = $movie['Title'];
-        // echo $title;
-        $serie = strstr($title,'Episode');
       @endphp
-      @if ($serie != FALSE)
-        <p>That's a serie, not a movie.</p>
-      @else
+
         @php
           if (isset($movie['Year']) && !empty($movie['Year'])) { $year = $movie['Year']; } else { $year = 'N/A'; }
           if (isset($movie['Runtime']) && !empty($movie['Runtime'])) { $runtime = $movie['Runtime']; } else { $runtime = 'N/A'; }
@@ -97,7 +93,7 @@
           {!! $errors->first('status','<div class="alert-error" role="alert">:message</div>') !!}
         </br>
           {!! Form::label('release_date', 'Release date : ', ['class' => '']) !!}
-          {!! Form::date('release_date', \Carbon\Carbon::now()) !!}
+            {!! Form::date('release_date') !!}
           {!! $errors->first('release_date','<div class="alert-error" role="alert">:message</div>') !!}
         </br>
           {!! Form::label('moderation', 'Moderation : ', ['class' => '']) !!}
@@ -174,7 +170,6 @@
         {!! Form::close() !!} --}}
 
 
-      @endif
     @else
       <p>This movie doesn't exist.</p>
       <p><a href="{{ route('addimdb') }}">Retour</a></p>

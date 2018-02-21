@@ -31,9 +31,13 @@ class HomeController extends Controller
 
       $trailers = \DB::table('movies')
                   ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
+                  ->where('url_trailer', '!=', '')
                   ->get();
 
-        return view('front/home',compact('movies','trailers'));
+      $count = count($trailers) - 1;
+      $randomid = rand(0, $count);
+
+        return view('front/home',compact('movies','trailers', 'randomid'));
     }
 
     public function oneMovie($imdb_id)
@@ -59,9 +63,9 @@ class HomeController extends Controller
 
     public function frontmovieslist()
     {
-      $movies = Movie::orderBy('created_at','desc')->get();
+      $movies = Movie::orderBy('created_at','desc')->where('moderation', '=', 'ok')->paginate(24);
 
-      return view('front/frontmovieslist');
+      return view('front/frontmovieslist', compact('movies'));
     }
 
 

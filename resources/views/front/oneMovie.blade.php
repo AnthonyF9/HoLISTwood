@@ -5,14 +5,12 @@
 @endsection
 
 @section('bandeau')
-  <div class="bandeau">
+  <div class="bandeau bandeau-single">
     <h2> &mdash; {{ $movie[0]->title }} &mdash; </h2>
     </div>
  @endsection
 
 @section('content')
-  <div class="title">
-  </div>
 
   <div class="detail-part">
     <div class="detail-poster">

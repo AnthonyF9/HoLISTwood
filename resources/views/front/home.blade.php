@@ -21,15 +21,6 @@ active @endsection
 
 @section('content')
 
-@php
-
-$count = count($trailers) - 1;
-$randomid = rand(0, $count);
-// $randomid
-
-@endphp
-
-
 
   <div id="trailer">
     <div class="bandeau-trailer">
