@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/default.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/back-style.css') }}" />
+    <link rel="icon" href="{{ asset('img/favicon.png') }}" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>@yield('title')</title>
   </head>

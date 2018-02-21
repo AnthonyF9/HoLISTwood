@@ -590,6 +590,10 @@ div#trailer {
 
 @media (max-width: 707px) {
 
+  .grid figure img{
+    max-width: 300px;
+  }
+
   /* Single */
 
   .detail-part {
