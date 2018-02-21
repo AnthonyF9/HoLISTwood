@@ -21,15 +21,6 @@ active @endsection
 
 @section('content')
 
-@php
-
-$count = count($trailers) - 1;
-$randomid = rand(0, $count);
-// $randomid
-
-@endphp
-
-
 
   <div id="trailer">
     <div class="bandeau-trailer">
@@ -51,6 +42,7 @@ $randomid = rand(0, $count);
 
 
     @foreach ($movies as $movie)
+
     <div class="grid">
       @if (Auth::user())
         <a href="{{ route('oneMovieAuth', array( 'imdb_id'=> $movie->imdb_id )) }}">

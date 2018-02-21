@@ -5,14 +5,12 @@
 @endsection
 
 @section('bandeau')
-  <div class="bandeau">
+  <div class="bandeau bandeau-single">
     <h2> &mdash; {{ $movie[0]->title }} &mdash; </h2>
     </div>
  @endsection
 
 @section('content')
-  <div class="title">
-  </div>
 
   <div class="detail-part">
     <div class="detail-poster">
@@ -51,6 +49,16 @@
           <li>
             <p class="detail-entitled">Awards:</p>
             <p class="detail-containt">{{ ucfirst($movie[0]->awards) }}</p>
+          </li>
+          <li>
+            <p class="detail-entitled">Rating:</p>
+            <p class="detail-containt">
+              @if (!empty($moyrating))
+                {{ $moyrating }} / 5
+              @else
+                No rating available
+              @endif
+            </p>
           </li>
       </ul>
     </div><!-- .detail -->
@@ -134,9 +142,25 @@
 
   <div class="comment">
     <h3>Comments</h3>
-    <div class="comment-list">
-      <p></p>
-    </div>
+    @if (Auth::user())
+      {!! Form::open(['route' => ['postcomment',$imdb_id], 'method' => 'post']) !!}
+        <textarea name="comment" rows="8" cols="80" placeholder="Let your comment here"></textarea>
+        {!! $errors->first('comment','<div class="alert-error" role="alert">:message</div>') !!}
+        <br/>
+        {!! Form::submit("Comment it", ['class' => '']) !!}
+      {!! Form::close() !!}
+    @else
+      <div class="comment-list">
+        <div>You must to be log in to comment.</div>
+      </div><!-- .comment-list -->
+    @endif
+    {{-- {{ dd($allcomments) }} --}}
+    @foreach ($allcomments as $key => $onecomment)
+      <div class="comment-list">
+        <h4><span>{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</h4>
+        <p>{{ $onecomment->content }}</p>
+      </div><!-- .comment-list -->
+    @endforeach
   </div>
 
 
