@@ -189,8 +189,8 @@
         <div id="footer-top">
 
           <div class="presentation">
-            <p id="anim-p">
-                <span id="anim-span">
+            <p id="anim-p-footer">
+                <span id="anim-span-footer">
               <a class="@yield('activehome')" href="{{ route('home') }}">
               Holistwood
               </a>
