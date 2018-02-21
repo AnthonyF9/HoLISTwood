@@ -51,7 +51,7 @@ class HomeController extends Controller
                        ->get();
             $rating = [];
             foreach ($allratings as $key => $value) {  $rating[] = $value->note; }
-            if (!empty($rating)) { $moyrating = array_sum($rating)/count($rating); }
+            if (!empty($rating)) { $moyrating = round(array_sum($rating)/count($rating),1); }
             else {  $moyrating = ''; }
           return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating'));
         } else { abort(404); }

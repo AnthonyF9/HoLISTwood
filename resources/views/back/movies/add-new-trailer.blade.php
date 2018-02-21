@@ -33,11 +33,11 @@
 
       {!! Form::label('id_movie', 'Movie ID : ', ['class' => '']) !!}
       {!! Form::number('id_movie', null, ['placeholder' => 'Movie ID here', 'class' => 'trailer']) !!}
-      {!! $errors->first('id_movie','<div class="" role="alert">:message</div>') !!}
+      {!! $errors->first('id_movie','<div class="alert-error" role="alert">:message</div>') !!}
     </br>
       {!! Form::label('trailer', 'Trailer : ', ['class' => '']) !!}
       {!! Form::text('trailer', null, ['placeholder' => 'Trailer url with "embed" in the url', 'class' => 'trailer']) !!}
-      {!! $errors->first('trailer','<div class="" role="alert">:message</div>') !!}
+      {!! $errors->first('trailer','<div class="alert-error" role="alert">:message</div>') !!}
     </br>
 
       {!! Form::submit("Add trailer", ['class' => 'btn btn-primary']) !!}
