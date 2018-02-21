@@ -18,16 +18,34 @@ main {
 }
 /* Submit movie */
 
-#submitmovie form {
-  width: 70%;
+#submitmovie {
+  margin: 30px 2px;
+}
+#submitmovie-content {
+  width: 75%;
   background: #212121;
   margin: 0 auto;
-  padding: 20px;
   display: flex;
   flex-direction: column;
 }
-#submitmovie form input[type="text"]{
+#submitmovie-content form {
+  margin: 20px;
+}
+#submitmovie form, #submitmovie.alertbox {
+
+}
+#submitmovie .alert.alert-danger {
+  width: 95%;
+  margin: 0 auto;
+  padding: 20px;
+  background: #ffb3b3;
+  color: #ff0000;
+  font-weight: bold;
+  border-radius: 10px;
+}
+#submitmovie form input[type="text"], #submitmovie input[type="date"], #submitmovie select, #submitmovie textarea {
   text-align: left;
+  font-family: "roboto";
   width: 100%;
   height: 30px;
   font-size: 1.2em;
@@ -36,7 +54,10 @@ main {
   border: none;
   border-bottom: 1px white solid;
 }
-#submitmovie form input:focus {
+#submitmovie textarea {
+  height: auto;
+}
+#submitmovie form input:focus, #submitmovie textarea:focus, #submitmovie select:focus {
   outline:  none;
   border-bottom: 2px #2A89EB solid;
 }
@@ -55,26 +76,29 @@ main {
 #submitmovie nav ul {
   display: flex;
   text-align: center;
-  margin-left: 10%;
-  width: 70%
+  margin: auto;
+  width: 75%
 }
 #submitmovie nav ul li {
   padding: 2%;
-  background: #212121;
-  margin: 20px 0 0 5%;
+  background: #333;
+  margin: 0 1% 0 0;
   width: 20%;
   min-width: 75px;
   height: auto;
   text-transform: uppercase;
   font-weight: bold;
   padding-bottom: 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+#submitmovie nav ul li.active {
+  background: #212121;
 }
 #submitmovie nav ul li a {
   color: white;
 }
-#submitmovie nav ul li a.active {
-  color: #5555FF;
-}
+
 
 /* Home */
 
@@ -129,6 +153,20 @@ main {
 }
 #movies-list-profile ul li a {
   color: white;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+#movies-list-profile ul li a:visited {
+  color: white;
+}
+#movies-list-profile ul li a:hover {
+  color: #73b3f2;
+}
+#movies-list-profile ul li a:active {
+  color: #2A89EB;
 }
 
 div.titre {
@@ -391,6 +429,34 @@ div#trailer {
   float: left;
   margin-right: 5%;
 }
+
+#list-and-rating {
+  background-color: #262626;
+  margin: 10px 5% 20px;
+  width: 85%;
+  border-radius: 10px;
+  padding: 10px 0;
+  padding-left: 5%;
+}
+#list-and-rating select, #list-and-rating button, #list-and-rating input[type="submit"] {
+  margin: 0 auto;
+  max-width: 200px;
+  background-color: #653CB6;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 5px 5px;
+}
+#list-and-rating select {
+  margin-right: 5px;
+}
+#list-and-rating input[type="submit"] {
+  margin-left: 5px;
+}
+#list-and-rating select:focus, #list-and-rating input:focus {
+  outline:  none;
+}
+
 .rate {
   justify-content: center;
   width: 40%;
@@ -462,131 +528,19 @@ div#trailer {
   font-weight: bold;
   color: #2A89EB;
 }
-.profile-head .profile-button input[type=button] {
-  background-color: #2A89EB;
-  color: white;
-  text-transform: uppercase;
-  font-size: 0.75em;
-  font-weight: bold;
-  border: none;
-  padding: 2%;
-  border-radius: 10px;
-  margin: 2% auto;
-}
-.profile-head .profile-description {
-  width: 100%;
-  min-height: 150px;
-  text-align: center;
-}
-.profile-menu, .setting-menu {
+.profile-menu {
   background-color: #262626;
   width: 80%;
   margin: 0 auto;
 }
-.profile-menu ul, .setting-menu ul {
+.profile-menu ul {
   display: flex;
   flex-direction: row;
   margin: 0 5%;
   justify-content: center;
+  list-style: none;
 }
-.profile-menu ul li, .setting-menu ul li {
-  margin: 0 5%;
-}
-.profile-menu ul li a, .setting-menu ul li a, .profile-friend ul li a {
-  margin-left: 10px;
-  color: white;
-  -o-transition:.5s;
-  -ms-transition:.5s;
-  -moz-transition:.5s;
-  -webkit-transition:.5s;
-  transition:.5s;
-}
-.profile-menu ul li a:visited, .setting-menu ul li a:visited, .profile-friend ul li a:visited {
-  color: white;
-}
-.profile-menu ul li a:hover, .setting-menu ul li a:hover, .profile-friend ul li a:hover {
-  color: #73b3f2;
-}
-.profile-menu ul li a:active, .setting-menu ul li a:active, .profile-friend ul li a:active {
-  color: #2A89EB;
-}
-.profile-favorite, .profile-rating {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 10px 0;
-}
-.profile-friend ul {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-.profile-friend ul li {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-.setting-content, .profile-friend, .profile-description {
-  width: 80%;
-  background-color: #262626;
-  margin: 20px auto;
-  padding: 20px 0;
-  justify-content: center;
-}
-.profile-info {
-  width: 80%;
-  margin: 20px auto;
-  padding: 20px 0;
-  display: flex;
-  flex-direction: row;
-  min-height: 200px;
-}
-.section-detail {
-  width: 45%;
-  background-color: #262626;
-  padding: 2% 2%;
-  margin-right: 2.5%
-}
-.section-contact {
-  width: 45%;
-  background-color: #262626;
-  padding: 2% 2%;
-  margin-left: 2.5%
-}
-.setting-content form {
-  display: flex;
-  flex-direction: column;
-}
-.form-setting {
-  width: 100%;
-}
-.setting-content label {
-  display: block;
-  width: 15%;
-  float: left;
-  margin-left: 20%;
-}
-.setting-content input, .setting-content select, .setting-content textarea {
-  display: block;
-  width: 45%;
-}
-.setting-content .visual-avatar {
-  text-align: center;
-  margin: auto;
-}
-.setting-content input[type=submit], .setting-content input[type=button] {
-  background-color: #2A89EB;
-  color: white;
-  text-transform: uppercase;
-  font-weight: bold;
-  border: none;
-  padding: 15px 15px;
-  border-radius: 10px;
-  width: 150px;
-  margin: 10px auto 0;
-}
+
 
 /*  button return top*/
 #return-to-top  {
@@ -644,53 +598,25 @@ div#trailer {
     margin: 10px auto;
   }
 
-  /* Profile */
-
-  .profile-head .profile-button {
-    display: flex;
-    flex-direction: column;
-  }
-  .profile-friend ul {
-    display: flex;
-    flex-direction: column;
-  }
-  .profile-info {
-    margin: 0 10%;
-    display: flex;
-    flex-direction: column;
-  }
-  .section-detail {
-    width: 96%;
-    margin-bottom: 10px;
+  #list-and-rating select {
     margin-right: 0;
-    float: none;
+    margin-bottom: 5px;
   }
-  .section-contact {
-    width: 96%;
-    margin-top: 10px;
+  #list-and-rating input[type="submit"] {
     margin-left: 0;
-    float: none;
-  }
-  .form-setting {
-    display: flex;
-    flex-direction: column;
-  }
-  .setting-content label {
-    margin: 5px 5%;
-    width: 90%
-  }
-  .setting-content input, .setting-content select, .setting-content textarea {
-    width: 90%;
-    margin: 5px 5%;
-  }
-  .profile-menu ul, .setting-menu ul {
-    flex-wrap: wrap;
-    justify-content: space-around;
+    margin-top: 5px;
   }
 
   .bandeau {
     font-size: 1em;
   }
 
+  /* Calendar styles */
+
+  .calendrier {
+    margin: auto 5%;
+    max-width: 600px;
+    min-width: 270px;
+  }
 
 }

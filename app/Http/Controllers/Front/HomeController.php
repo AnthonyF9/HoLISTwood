@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Movie;
 use App\Trailer;
+use App\MyList;
+
 
 class HomeController extends Controller
 {
@@ -44,7 +46,22 @@ class HomeController extends Controller
                       ->where('imdb_id','=',$imdb_id)
                       ->get();
            // dd($trailers);
-          return view('front/oneMovie', compact('imdb_id','movie', 'trailers'));
+           $allratings = \DB::table('movies')
+                       ->select('movies.title','rating.id_user','rating.id_movie','rating.id_user','rating.note')
+                       ->join('rating', 'movies.id', '=', 'rating.id_movie')
+                       ->where('imdb_id','=',$imdb_id)
+                       ->get();
+            $rating = [];
+            foreach ($allratings as $key => $value) {
+              $rating[] = $value->note;
+            }
+            if (!empty($rating)) {
+              $moyrating = array_sum($rating)/count($rating);
+            }
+            else {
+              $moyrating = '';
+            }
+          return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating'));
         }
         else {
           abort(404);
@@ -54,7 +71,7 @@ class HomeController extends Controller
     public function frontmovieslist()
     {
       $movies = Movie::orderBy('created_at','desc')->get();
-      
+
       return view('front/frontmovieslist');
     }
 
