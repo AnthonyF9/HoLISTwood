@@ -60,7 +60,6 @@ class HomeController extends Controller
                       ->where('imdb_id','=',$imdb_id)
                       ->orderBy('created_at','DESC')
                       ->get();
-          // dd($allcomments);
           return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'allcomments'));
         } else { abort(404); }
     }
