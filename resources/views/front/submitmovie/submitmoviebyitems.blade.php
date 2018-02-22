@@ -33,7 +33,9 @@ active @endsection
           {!! Form::submit("Submit", ['class' => 'btn btn-primary']) !!}
         {!! Form::close() !!}
       @else
-        <p>You are banned. You can't submit movies.</p>
+        <div class="banned-error">
+          <div class="alert-error" role="alert">You are banned. You can't submit movies.</div>
+        </div>
       @endif
     </div>
   @endif

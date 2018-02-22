@@ -64,4 +64,6 @@ class SearchController extends Controller
       return view('back/movies/movies-list-trailers', compact('movies'));
        // return $movies;
   }
+
+
 }
