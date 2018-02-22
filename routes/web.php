@@ -53,6 +53,9 @@ Route::group(['namespace' => 'Front'], function () {
     Route::get('/submit-movie/add-by-imdb', 'HomeAuthController@verifymoviebyimdb')->name('verifymoviebyimdb');
     Route::post('/submit-movie/save-movie-by-imdb', 'HomeAuthController@addmoviebyimdb')->name('addmoviebyimdb');
 
+  // pour les modo
+  Route::get('/mod/reported-comments/all', 'HomeModController@allreportedcomments');
+
   // autres routes
   Route::get('/contact', 'HomeController@contact')->name('contact');
   Route::get('/staff', 'HomeController@staff')->name('staff');
