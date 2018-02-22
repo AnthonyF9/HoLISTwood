@@ -16,6 +16,7 @@
     <link rel="icon" href="{{ asset('img/favicon.png') }}" />
     <title>@yield('title')</title>
     @yield('css')
+    <meta name="_token" content="{{ csrf_token() }}">
   </head>
   <body>
     <div id="wrapper">
@@ -235,7 +236,6 @@
           </div>
 
 
-          </div>
         </div>
 
      </footer>

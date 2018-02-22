@@ -28,6 +28,27 @@ main {
   display: flex;
   flex-direction: column;
 }
+#submitmovie-content .imdb-link {
+  text-align: center;
+  margin-top: 20px;
+}
+#submitmovie-content .imdb-link a {
+  color: white;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+#submitmovie-content .imdb-link a:visited {
+  color: white;
+}
+#submitmovie-content .imdb-link a:hover {
+  color: #73b3f2;
+}
+#submitmovie-content .imdb-link a:active {
+  color: #2A89EB;
+}
 #submitmovie-content form {
   margin: 20px;
 }
@@ -40,7 +61,7 @@ main {
   font-weight: bold;
   border-radius: 10px;
 }
-#submitmovie-content .alert.alert-danger {
+#submitmovie-content .alert.alert-danger, #submitmovie-content div.part .imdb-alert, #submitmovie-content .banned-error .alert-error, .comment .comment-list .comment-banned {
   width: 80%;
   margin: 20px auto;
   padding: 20px;
@@ -48,6 +69,9 @@ main {
   color: #ff0000;
   font-weight: bold;
   border-radius: 10px;
+}
+#submitmovie-content div.part .imdb-alert p a, #submitmovie-content div.part .imdb-alert p a:visited {
+  color: white;
 }
 #submitmovie-content form .alert-error {
   color: #ff0000;
@@ -67,6 +91,12 @@ main {
 }
 #submitmovie-content textarea {
   height: auto;
+}
+#submitmovie-content textarea.award {
+  height: 50px;
+}
+#submitmovie-content textarea.poster {
+  height: 75px;
 }
 #submitmovie-content form input:focus, #submitmovie-content textarea:focus, #submitmovie-content select:focus {
   outline:  none;
@@ -327,6 +357,27 @@ div#trailer {
 }
 
 /* ////////////////////////////////////////////////////////////////////////////////// */
+/* pagination movies list */
+
+
+.paginatemovieslist ul.pagination li{
+	display: inline;
+  color: #2a85e4;
+}
+
+.paginatemovieslist {
+  display: inline;
+}
+
+.paginatemovieslist ul.pagination li a:active, .paginatemovieslist ul.pagination li a:visited, .paginatemovieslist ul.pagination li a {
+  color: white;
+}
+
+.paginatemovieslist ul.pagination li a:hover {
+color: #2a85e4;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////// */
 /* login/register */
 
 .panel {
@@ -435,11 +486,10 @@ div#trailer {
 
 #list-and-rating {
   background-color: #262626;
-  margin: 10px 5% 20px;
-  width: 85%;
+  margin: 10px auto 20px;
+  width: 70%;
   border-radius: 10px;
-  padding: 10px 0;
-  padding-left: 5%;
+  padding: 10px 5%;
   display: flex;
   flex-direction: row;
 }
@@ -450,14 +500,14 @@ div#trailer {
   color: white;
   font-weight: bold;
   border: none;
-  padding: 5px 5px;
+  padding: 10px 10px;
+  border-radius: 10px;
 }
 #list-and-rating select {
   margin-right: 5px;
 }
 #list-and-rating input[type="submit"] {
   margin-left: 5px;
-  margin-right: 10px;
 }
 #list-and-rating select:focus, #list-and-rating input:focus {
   outline:  none;
@@ -465,6 +515,13 @@ div#trailer {
 #list-and-rating button {
   margin-left: 5px;
   margin-right: 5px;
+}
+#list-and-rating .add-to-list {
+  padding-right: 5%;
+  border-right: 2px white solid;
+}
+#list-and-rating .rating-zone {
+  padding-left: 5%;
 }
 
 .rate {
@@ -503,6 +560,9 @@ div#trailer {
   width: 80%;
   justify-content: center;
 }
+.comment form .alert-error {
+  color: red;
+}
 .comment h3 {
   font-size: 1.5em;
   text-transform: uppercase;
@@ -522,15 +582,31 @@ div#trailer {
   outline:  none;
 }
 .comment form input[type="submit"] {
-  margin: 10px auto;
-  background-color: #653CB6;
+  background-color: #2A89EB;
   color: white;
+  text-transform: uppercase;
   font-weight: bold;
   border: none;
-  padding: 5px 5px;
+  padding: 15px 15px;
+  border-radius: 10px;
+  margin: 0 auto;
 }
 .comment .comment-list h4 {
   border-bottom: 1px white solid;
+}
+.comment .comment-list .edit-comment {
+  text-align: right;
+  margin-top: 20px;
+}
+.comment .comment-list .edit-comment a {
+  color: #2A89EB;
+}
+.comment .comment-list .edit-comment textarea {
+  border-bottom: 1px white solid;
+  border-radius: 0;
+}
+.comment .comment-list .edit-comment input[type="submit"] {
+  margin: 0 40%;
 }
 .comment .comment-list span {
   color: #2A89EB;
@@ -664,6 +740,14 @@ div#trailer {
   #list-and-rating button {
     margin: 5px auto;
   }
+  #list-and-rating .add-to-list {
+    border: 0;
+    padding-right: 0;
+  }
+  #list-and-rating .rating-zone {
+    border: 0;
+    padding-left: 0;
+  }
 
   .bandeau {
     font-size: 1em;
@@ -679,35 +763,10 @@ div#trailer {
 
 }
 @media (max-width: 319px) {
-  div#trailer {
-    width: 100%;
-    min-width: 50px;
-    padding: 5px 0;
-    margin: 10px 0;
-    text-align: center;
-  }
   .grid figure img {
     width: 100%;
     height: 100%;
     min-width: 50px;
     min-height: 75px;
-  }
-  footer #footer-top div.presentation h3 {
-    font-size: 0.5em;
-  }
-  footer #footer-bottom div.social-network ul li svg {
-    width: 10px;
-    height: 10px;
-  }
-  footer #footer-bottom div.social-network ul {
-    margin: 0;
-  }
-  header #top-menu div.social-network ul li svg {
-    width: 10px;
-    height: 10px;
-  }
-  header #top-menu div.social-network, header #top-menu div.social-network ul {
-    width: 100%;
-    min-width: 50px;
   }
 }
