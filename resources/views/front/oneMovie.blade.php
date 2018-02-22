@@ -154,7 +154,7 @@
         @endif
       @else
         <div class="comment-list">
-          <div class="comment-guest">You are banned. You can't comment.</div>
+          <div class="comment-banned">You are banned. You can't comment.</div>
         </div><!-- .comment-list -->
       @endif
     @else
