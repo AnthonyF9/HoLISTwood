@@ -24,6 +24,13 @@ a:visited {
   color : white;
 }
 
+/* Alerte */
+form div.alert-error {
+  color: #b30000;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
 /* Le header */
 header {
   /* background-color: #E3E5E6; */
@@ -45,6 +52,9 @@ header {
   font-size: 1.5em;
   color: #ECECE7;
   font-weight: bold;
+}
+#titreHeader h1 a:hover {
+  text-decoration: none;
 }
 #titreHeader h2 a {
   color: #53F9FF;
@@ -226,6 +236,9 @@ main {
 thead {
   background: black;
   color: white;
+}
+tbody {
+  color: black;
 }
 .part thead tr th {
   border-top: 1px solid black;

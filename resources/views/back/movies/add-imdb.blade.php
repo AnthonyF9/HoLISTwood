@@ -14,10 +14,10 @@
 
 @section('content-beta')
   <div class="part partimdb">
-    {!! Form::open(['route' => 'findmovie', 'method' => 'post'/*, 'onsubmit' => 'return false', 'id' => 'search-by-id-form'*/]) !!}
+    {!! Form::open(['route' => 'getimdb', 'method' => 'post']) !!}
       {!! Form::label('imdb', 'Movie IMDB : ', ['class' => '']) !!}
       {!! Form::text('imdb', null, ['placeholder' => 'Put your IMDB here', 'id' => 'imdb']) !!}
-      {!! $errors->first('imdb','<div class="" role="alert">:message</div>') !!}
+      {!! $errors->first('imdb','<div class="alert-error" role="alert">:message</div>') !!}
       {!! Form::submit("Find", ['id' => '', 'class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
   </div>

@@ -7,16 +7,23 @@
 @section('activecalendar')
 active @endsection
 
+@section('bandeau')
+  <div class="bandeau bandeau-calendar">
+    <h2> &mdash; @if ( Auth::user()) My @endif Release Calendar &mdash; </h2>
+    </div>
+ @endsection
+
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+
 @endsection
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading"> Calendar  movies</div>
+            <div class="calendrier">
+                {{-- <div class="panel-heading"> Release Calendar </div> --}}
 
                 <div class="panel-body">
                     {!! $calendar->calendar() !!}

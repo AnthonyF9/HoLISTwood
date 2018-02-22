@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Movie;
 use App\Trailer;
+use App\MyList;
+
 
 class HomeController extends Controller
 {
@@ -25,56 +27,54 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $movies = Movie::orderBy('created_at','desc')->where('moderation', '=', 'ok')->get();
+      $movies = Movie::orderBy('created_at','desc')->where('moderation', '=', 'ok')->limit(12)->get();
 
       $trailers = \DB::table('movies')
                   ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
+                  ->where('url_trailer', '!=', '')
                   ->get();
 
-        return view('front/home',compact('movies','trailers'));
+      $count = count($trailers) - 1;
+      $randomid = rand(0, $count);
+
+        return view('front/home',compact('movies','trailers', 'randomid'));
     }
 
     public function oneMovie($imdb_id)
     {
         $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
         if (!empty($movie)) {
-
-
           $trailers = \DB::table('movies')
                       ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
                       ->where('imdb_id','=',$imdb_id)
                       ->get();
-
-           // dd($trailers);
-
-          return view('front/oneMovie', compact('imdb_id','movie', 'trailers'));
-        }
-        else {
-          abort(404);
-        }
+          $allratings = \DB::table('movies')
+                      ->select('movies.title','rating.id_user','rating.id_movie','rating.id_user','rating.note')
+                      ->join('rating', 'movies.id', '=', 'rating.id_movie')
+                      ->where('imdb_id','=',$imdb_id)
+                      ->get();
+          $rating = [];
+          foreach ($allratings as $key => $value) {  $rating[] = $value->note; }
+          if (!empty($rating)) { $moyrating = round(array_sum($rating)/count($rating),1); }
+          else {  $moyrating = ''; }
+          $allcomments = \DB::table('comments')
+                      ->select('comments.id_user','comments.id_movie','comments.content','comments.content','comments.created_at','comments.updated_at','users.name')
+                      ->join('movies', 'movies.id', '=', 'comments.id_movie')
+                      ->join('users', 'users.id', '=', 'comments.id_user')
+                      ->where('imdb_id','=',$imdb_id)
+                      ->orderBy('created_at','DESC')
+                      ->get();
+          return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'allcomments'));
+        } else { abort(404); }
     }
 
-    public function intheater()
+    public function frontmovieslist()
     {
-      $movies = Movie::orderBy('created_at','desc')->get();
-      return view('front/intheater');
+      $movies = Movie::orderBy('created_at','desc')->where('moderation', '=', 'ok')->paginate(24);
+
+      return view('front/frontmovieslist', compact('movies'));
     }
 
-    public function lastupdate()
-    {
-      $movies = Movie::orderBy('updated_at','desc')->get();
-      return view('front/lastupdate');
-    }
-
-
-    public function favorite()
-    {
-      // $movie = DB::table('movies')
-      //           ->leftJoin('rating','movies.id','=','rating.id_movie')
-      //           ->orderBy('rating.note','desc')
-      //           ->get();
-        return view('front/favorite',compact('movies'));
-    }
 
     public function contact()
     {
@@ -100,5 +100,4 @@ class HomeController extends Controller
     {
         return view('front/charter');
     }
-
 }

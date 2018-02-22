@@ -19,18 +19,37 @@
 ///////////////////////           FRONT         //////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 Route::group(['namespace' => 'Front'], function () {
+  //routes principales
   Route::get('/', 'HomeController@index')->name('home');
-  Route::get('/intheater', 'HomeController@intheater')->name('intheater');
-  Route::get('/lastupdate', 'HomeController@lastupdate')->name('lastupdate');
+  Route::get('/movies-list', 'HomeController@frontmovieslist')->name('frontmovieslist');
+  Route::get('/events', 'EventController@index')->name('events');   // le calendrier
+
+  //vue d'un film, ajout à sa liste, notation
   Route::get('/movie/{imdb_id}', 'HomeController@oneMovie')->name('oneMovie');
 
-  Route::get('/favorite', 'HomeAuthController@favorite')->name('favorite');
+  Route::get('/movie/{imdb_id}/view', 'HomeAuthController@oneMovieAuth')->name('oneMovieAuth');
+  Route::post('/movie/{imdb_id}/add-to-my-list', 'HomeAuthController@addtomylist')->name('addtomylist');
+  Route::put('/movie/{imdb_id}/update-my-list', 'HomeAuthController@updateinmylist')->name('updateinmylist');
+  Route::post('/movie/{imdb_id}/rating', 'HomeAuthController@rate')->name('rate');
+  Route::put('/movie/{imdb_id}/update-my-rating', 'HomeAuthController@updatemyrating')->name('updatemyrating');
+  // commenter sur la page d'un film
+  Route::post('/movie/{imdb_id}/comment', 'HomeAuthController@postcomment')->name('postcomment');
+
+  // la page profile
   Route::get('/profile', 'HomeAuthController@profile')->name('profile');
 
-  Route::get('/submitmovie', 'HomeAuthController@submitmovie')->name('submitmovie');
-  Route::post('/submitmovie', 'HomeAuthController@submitmovieaction')->name('submitmovie-action');
+  // proposer un film
+  Route::get('/submit-movie', 'HomeAuthController@submitmoviebyimdb');
+    // proposer un film via title
+    Route::get('/submit-movie/by-items', 'HomeAuthController@submitmoviebyitems')->name('submitmoviebyitems');
+    Route::post('/submit-movie/by-items', 'HomeAuthController@submitmovieaction')->name('submitmovie-action');
+    // proposer un film via imdb
+    Route::get('/submit-movie/by-imdb', 'HomeAuthController@submitmoviebyimdb')->name('submitmoviebyimdb');
+    Route::post('/submit-movie/add-by-imdb', 'HomeAuthController@findmoviebyimdb')->name('findmoviebyimdb');
+    Route::get('/submit-movie/add-by-imdb', 'HomeAuthController@verifymoviebyimdb')->name('verifymoviebyimdb');
+    Route::post('/submit-movie/save-movie-by-imdb', 'HomeAuthController@addmoviebyimdb')->name('addmoviebyimdb');
 
-  Route::get('/events', 'EventController@index')->name('events');
+  // autres routes
   Route::get('/contact', 'HomeController@contact')->name('contact');
   Route::get('/staff', 'HomeController@staff')->name('staff');
   Route::get('/sitemap', 'HomeController@sitemap')->name('sitemap');
@@ -41,14 +60,16 @@ Route::group(['namespace' => 'Front'], function () {
 //////////////////////////////////////////////////////////////////////////////
 ///////////////////////           BACK          //////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
-  Route::group(['namespace' => 'Back'], function () {
+Route::group(['namespace' => 'Back'], function () {
   Route::get('/dashboard', 'DashboardController@dashboard')->name('dashboard');
 
   Route::get('/dashboard/movies-list', 'MoviesController@movieslist')->name('movieslist');
   Route::get('/dashboard/movies-list/waste', 'MoviesController@moviesintrash')->name('moviesintrash');
+  Route::get('/dashboard/movies-list/waste/searchtrash', 'SearchController@searchtrash')->name('searchtrash');
   Route::put('/dashboard/movies-list/restore/{id}', 'MoviesController@restoremovie')->where('id','[0-9]+')->name('restoremovie');
   Route::get('/dashboard/movies-list/search', 'SearchController@search')->name('search');
   Route::get('/dashboard/movies-moderate-list', 'MoviesController@moviesmoderatelist')->name('moderatemovieslist');
+  Route::get('/dashboard/movies-moderate-list/searchmoderation', 'SearchController@searchmoderation')->name('searchmoderation');
   Route::get('/dashboard/movies-moderate-list/{id}', 'MoviesController@moderatemovie')->where('id','[0-9]+')->name('moderatemovie');
   Route::put('/dashboard/movies-moderate-list/{id}', 'MoviesController@moderatemovieaction')->where('id','[0-9]+')->name('moderatemovie-action');
 
@@ -57,8 +78,17 @@ Route::group(['namespace' => 'Front'], function () {
   Route::put('/dashboard/delete-movie/{id}', 'MoviesController@softdeletemovie')->where('id','[0-9]+')->name('softdeletemovie');
   Route::delete('/dashboard/delete-movie/{id}', 'MoviesController@deletemovie')->where('id','[0-9]+')->name('deletemovie');
 
+  Route::get('/dashboard/trailers/search', 'SearchController@searchMovieWithtrailer')->name('searchMovieWithtrailer');
+  Route::get('/dashboard/trailers/trailers-list', 'MoviesController@movieslistrailers')->name('movieslistrailers');
+  Route::get('/dashboard/trailers/add-trailers/{id}', 'MoviesController@addtrailers')->where('id','[0-9]+')->name('addtrailers');
+  Route::post('/dashboard/trailers/add-trailers/{id}', 'MoviesController@addtraileraction')->where('id','[0-9]+')->name('addtraileraction');
+
+  Route::get('/dashboard/trailers/add-new-trailer', 'MoviesController@addtrailerfornewmovie')->where('id','[0-9]+')->name('addtrailerfornewmovie');
+  Route::post('/dashboard/trailers/add-new-trailer', 'MoviesController@addtrailerfornewmovieaction')->where('id','[0-9]+')->name('addtrailerfornewmovieaction');
+
   Route::get('/dashboard/add-imdb', 'MoviesController@addimdb')->name('addimdb');
-  Route::match(['get', 'post'],'/dashboard/add-movie', 'MoviesController@findmovie')->name('findmovie');
+  Route::post('/dashboard/add-movie', 'MoviesController@getimdb')->name('getimdb');
+  Route::get('/dashboard/add-movie', 'MoviesController@verifymovie')->name('verifymovie');
   Route::post('/dashboard/save-movie', 'MoviesController@addmovie')->name('addmovie');
 
   Route::get('/dashboard/users-list', 'UsersController@userslist')->name('userslist');

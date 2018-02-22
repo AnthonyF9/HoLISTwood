@@ -6,6 +6,24 @@ $(document).ready(function() {
     $(this).css({'cursor':'pointer'})
   });
 
+
+  /* Scroll to Top */
+  $(window).scroll(function() {
+      if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+          $('#return-to-top').fadeIn(300);    // Fade in the arrow
+      } else {
+          $('#return-to-top').fadeOut(300);   // Else fade out the arrow
+      }
+  });
+  $('#return-to-top').click(function() {      // When arrow is clicked
+      $('body,html').animate({
+          scrollTop : 0                      // Scroll to top of body
+      }, 900);
+  });
+
+
+
+
   ///////////////////////////////////////////////////
   /////////////////// Les modales ///////////////////
   ///////////////////////////////////////////////////
@@ -20,6 +38,10 @@ $(document).ready(function() {
     btn.onclick = function() {
         modal.style.display = "block";
     }
+    if ($('#loginerror').text() == 'Login error') {
+        modal.style.display = "block";
+        console.log('Login error');
+    }
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.style.display = "none";
@@ -28,9 +50,9 @@ $(document).ready(function() {
         modal.style.display = "none";
     }
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
+    // window.onclick = function(event) {
+    //     if (event.target == modal) {
+    //         modal.style.display = "none";
+    //     }
+    // }
 });

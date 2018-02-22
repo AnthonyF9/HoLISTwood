@@ -3,12 +3,12 @@ html {
 }
 
 body {
-  background-color: #ffffff;
+  /* background-color: #ffffff;
  background-image: -webkit-linear-gradient(top, #2d2d2d, #09335d);
  background-image: -moz-linear-gradient(top, #2d2d2d, #09335d);
  background-image: -o-linear-gradient(top, #2d2d2d, #09335d);
  background-image: -ms-linear-gradient(top, #2d2d2d, #09335d);
- background-image: linear-gradient(top, #2d2d2d, #09335d);
+ background-image: linear-gradient(top, #2d2d2d, #09335d); */
   color: white;
   font-family: 'Roboto', sans-serif;
   height: 100%;
@@ -139,42 +139,42 @@ header #top-menu .social-network ul li svg{
 header #top-menu .log {
   width: 80%;
 }
-header nav#top-menu .log #large-screen {
+#large-screen {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-header nav#top-menu .log #large-screen #menu1 {
-  height: 100%;
+#large-screen .menu-top {
   width: 90%;
   padding: 0 5%;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#large-screen .menu-top #menu1  {
+  width: 100%;
+  display: flex;
   flex-direction: row-reverse;
 }
-header nav#top-menu .log #large-screen #menu1 li {
-  line-height: 100%;
-  display: block;
+#large-screen .menu-top #menu1 li {
+  height: 20px;
   margin-left: 10px;
   position: relative;
 }
-header nav#top-menu .log #large-screen #menu1 li a {
+#large-screen .menu-top #menu1 li a {
   white-space:nowrap;
-  padding-top: 7%;
-  height: 50%;
   display: block;
   position: relative;
-  margin: 10% 0;
 }
- header nav#top-menu .log #large-screen #menu1 li span {
+#large-screen .menu-top #menu1 li span {
   white-space:nowrap;
-  padding-top: 6px;
-  height: 50%;
-  display: block;
   position: relative;
-  margin: 10% 0;
+}
+#large-screen .menu-top #menu1 li#log a {
+  line-height: 150%;
 }
 
-header nav#top-menu .log #large-screen #menu1 li#log a {
-line-height: 150%;
-}
 #myBtn{
   line-height: 90%;
 }
@@ -184,16 +184,6 @@ header .social-network ul {
   margin: auto;
   display: flex;
   justify-content: space-between;
-}
-
-header ul#menu2 {
-  display: flex;
-  justify-content: flex-end;
-}
-
-header ul#menu2 li {
-  padding-right: 2%;
-  white-space: nowrap;
 }
 
 header nav ul li a, header nav ul li span  {
@@ -233,7 +223,12 @@ header nav ul li a.active, header nav ul li span.active {
   width: 60%;
   margin: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
+}
+#bottom-menu #menu2 li {
+  /* padding: 0 2%; */
+  padding: 0 20px;
+  white-space: nowrap;
 }
 #bottom-menu #menu2 li a {
   /* text-transform: uppercase; */
@@ -277,7 +272,7 @@ header #bottom-menu #menu2 li button:hover{
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 100; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -412,9 +407,15 @@ header #bottom-menu #menu2 li button:hover{
     display: inline-block;
     width: 110px;
   }
-  #bottom-menu h1 {
-    font-size: 1.5em;
+
+  #anim-span {
+    font-size:0.5em;
+
   }
+  #bottom-menu p {
+    font-size: 0.4em;
+  }
+
   #menu2 li {
     display: none;
   }
@@ -422,9 +423,10 @@ header #bottom-menu #menu2 li button:hover{
     display: flex;
     flex-direction: row;
   }
-  #bottom-menu h1 {
+  #bottom-menu p {
     width: 90%;
-    margin-left: 10%;
+    min-width: 100px;
+    margin-left: 5%;
   }
   #bottom-menu #menu2 {
     width: 0%;
@@ -437,9 +439,11 @@ header #bottom-menu #menu2 li button:hover{
   {
     display: block;
     position: relative;
-    top: -60px;
-    left: 10%;
-    z-index: 1;
+    top: -92px;
+    /* left: 10%; */
+    margin-left: 10%;
+    left: 0;
+    z-index: 100;
     -webkit-user-select: none;
     user-select: none;
     width: 90%;
@@ -447,11 +451,9 @@ header #bottom-menu #menu2 li button:hover{
   #menuToggle input
   {
     display: block;
-    width: 40px;
-    height: 32px;
+    width: 33px;
+    height: 22px;
     position: absolute;
-    top: -7px;
-    left: -5px;
     cursor: pointer;
     opacity: 0; /* hide this */
     z-index: 2; /* and place it over the hamburger */
@@ -544,5 +546,9 @@ header #bottom-menu #menu2 li button:hover{
 
   #anim-span {
     font-size: 2.5em;
+    margin-top:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }

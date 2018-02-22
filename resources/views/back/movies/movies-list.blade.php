@@ -61,6 +61,7 @@
         <tr>
           <th>#</th>
           <th>Title</th>
+          <th>Release</th>
           <th>Year</th>
           <th>Director </th>
           <th>IMDB ID </th>
@@ -77,13 +78,15 @@
         <tr>
           <td scope="row">{{ $movie->id }}</td>
           <td scope="row">{{ $movie->title }}</td>
+          <td scope="row">{{ $movie->release_date }}</td>
           <td scope="row">{{ $movie->year }}</td>
           <td scope="row">{{ $movie->director }}</td>
           <td scope="row">{{ $movie->imdb_id }}</td>
           <td scope="row">{{ $movie->status }}</td>
           <td scope="row">{{ $movie->created_at }}</td>
           <td scope="row">{{ $movie->updated_at }}</td>
-          <td><a class="btn btn-primary" href="{{ route('editmovie', array('id'=> $movie->id )) }}"> Edit </a>
+          <td>
+            <a class="btn btn-primary" href="{{ route('editmovie', array('id'=> $movie->id )) }}"> Edit </a>
             {{ Form::open(['route' => ['softdeletemovie', $movie->id],'method' => 'put']) }}
               {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
             {{ Form::close() }}
