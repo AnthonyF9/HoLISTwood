@@ -20,6 +20,7 @@ active @endsection
     </div>
   @else
     <div id="submitmovie-content">
+      <div class="imdb-link"><a href="http://www.imdb.com/?ref_=nv_home" target="_blank">You can fond IMDB here.</a></div>
       {!! Form::open(['route' => 'findmoviebyimdb', 'method' => 'post']) !!}
         {!! Form::label('imdb', 'Imdb', ['class' => '']) !!}
         {!! Form::text('imdb', '', ['class' => '']) !!}

@@ -23,7 +23,9 @@ active @endsection
         $serie = strstr($title,'Episode');
       @endphp
       @if ($serie != FALSE)
-        <p>Ceci est une série, non un movie.</p>
+        <div class="imdb-alert alert-error" role="alert">
+          <p>Ceci est une série, non un movie.</p>
+        </div>
       @else
         @php
           if (isset($movie['Year']) && !empty($movie['Year'])) { $year = $movie['Year']; } else { $year = 'N/A'; }
@@ -70,11 +72,11 @@ active @endsection
           {!! $errors->first('plot','<div class="alert-error" role="alert">:message</div>') !!}
         </br>
           {!! Form::label('awards', 'Awards ', ['class' => '']) !!}
-          {!! Form::textarea('awards', $awards, ['placeholder' => 'awards', 'class' => '']) !!}
+          {!! Form::textarea('awards', $awards, ['placeholder' => 'awards', 'class' => 'award']) !!}
           {!! $errors->first('awards','<div class="alert-error" role="alert">:message</div>') !!}
         </br>
           {!! Form::label('poster', 'Poster URL ', ['class' => '']) !!}
-          {!! Form::textarea('poster', $poster, ['placeholder' => 'poster', 'class' => '']) !!}
+          {!! Form::textarea('poster', $poster, ['placeholder' => 'poster', 'class' => 'poster']) !!}
           {!! $errors->first('poster','<div class="alert-error" role="alert">:message</div>') !!}
         </br>
           {!! Form::label('imdb_id', 'ID IMDB ', ['class' => '']) !!}
@@ -107,8 +109,10 @@ active @endsection
 
       @endif
     @else
-      <p>This movie does not exist.</p>
-      <p><a href="{{ route('submitmoviebyimdb') }}">Go back.</a></p>
+      <div class="imdb-alert alert-error" role="alert">
+        <p>This movie does not exist.</p>
+        <p><a href="{{ route('submitmoviebyimdb') }}">Go back.</a></p>
+      </div>
     @endif
   </div>
 </div>

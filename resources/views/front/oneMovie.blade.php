@@ -151,13 +151,21 @@
       {!! Form::close() !!}
     @else
       <div class="comment-list">
-        <div>You must to be log in to comment.</div>
+        <div class="comment-guest">You must to be log in to comment.</div>
       </div><!-- .comment-list -->
     @endif
     {{-- {{ dd($allcomments) }} --}}
+    {{-- {{ dd(session()) }} --}}
     @foreach ($allcomments as $key => $onecomment)
       <div class="comment-list">
-        <h4><span>{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</h4>
+        <div class="one-comment">
+          <h4><span>{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</h4>
+          {{-- @if (Auth::user())
+            @if ($condition)
+
+            @endif
+          @endif --}}
+        </div>
         <p>{{ $onecomment->content }}</p>
       </div><!-- .comment-list -->
     @endforeach

@@ -1,8 +1,3 @@
-#wrapper {
-  max-width:;
-  width:100%;
-  margin: 0 auto;
-}
 
 /* Le main et son contenu */
 main {
@@ -39,8 +34,9 @@ main {
   color: #009933;
   font-weight: bold;
   border-radius: 10px;
+  text-align: center;
 }
-#submitmovie-content .alert.alert-danger {
+#submitmovie-content .alert.alert-danger,#submitmovie-content .part .imdb-alert.alert-error {
   width: 80%;
   margin: 20px auto;
   padding: 20px;
@@ -48,6 +44,20 @@ main {
   color: #ff0000;
   font-weight: bold;
   border-radius: 10px;
+  text-align: center;
+}
+#submitmovie-content .imdb-link {
+  text-align: center;
+  margin-top: 10px;
+}
+#submitmovie-content .imdb-link a, #submitmovie-content .imdb-link a:visited {
+  color: white;
+}
+#submitmovie-content .imdb-link a:hover {
+  color: #73b3f2;
+}
+#submitmovie-content .imdb-link a:active {
+  color: #2A89EB;
 }
 #submitmovie-content form .alert-error {
   color: #ff0000;
@@ -67,6 +77,12 @@ main {
 }
 #submitmovie-content textarea {
   height: auto;
+}
+#submitmovie-content textarea.award {
+  height: 50px;
+}
+#submitmovie-content textarea.poster {
+  height: 75px;
 }
 #submitmovie-content form input:focus, #submitmovie-content textarea:focus, #submitmovie-content select:focus {
   outline:  none;
@@ -532,6 +548,10 @@ div#trailer {
 .comment .comment-list h4 {
   border-bottom: 1px white solid;
 }
+.comment .comment-list div.comment-guest {
+  text-align: center;
+  margin-top: 40px;
+}
 .comment .comment-list span {
   color: #2A89EB;
   font-size: 1.5em;
@@ -679,35 +699,11 @@ div#trailer {
 
 }
 @media (max-width: 319px) {
-  div#trailer {
-    width: 100%;
-    min-width: 50px;
-    padding: 5px 0;
-    margin: 10px 0;
-    text-align: center;
-  }
   .grid figure img {
     width: 100%;
     height: 100%;
     min-width: 50px;
     min-height: 75px;
   }
-  footer #footer-top div.presentation h3 {
-    font-size: 0.5em;
-  }
-  footer #footer-bottom div.social-network ul li svg {
-    width: 10px;
-    height: 10px;
-  }
-  footer #footer-bottom div.social-network ul {
-    margin: 0;
-  }
-  header #top-menu div.social-network ul li svg {
-    width: 10px;
-    height: 10px;
-  }
-  header #top-menu div.social-network, header #top-menu div.social-network ul {
-    width: 100%;
-    min-width: 50px;
-  }
+
 }
