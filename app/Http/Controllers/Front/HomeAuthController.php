@@ -166,7 +166,8 @@ class HomeAuthController extends Controller
           $ratingstatus = $this->ratingstatus($user_id,$movie_id);
           $moyrating = $this->moyrating($imdb_id);
           $allcomments = $this->allcomments($imdb_id);
-          return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'liststatus','itemlist', 'ratings', 'ratingstatus','ratinglist', 'allcomments'));
+          $thiscomment = 0;
+          return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'liststatus','itemlist', 'ratings', 'ratingstatus','ratinglist', 'allcomments', 'thiscomment'));
         } else { abort(404); }
     }
 
@@ -194,7 +195,8 @@ class HomeAuthController extends Controller
             $ratingstatus = $this->ratingstatus($user_id,$movie_id);
             $moyrating = $this->moyrating($imdb_id);
             $allcomments = $this->allcomments($imdb_id);
-            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'trailers', 'liststatus','itemlist', 'ratings', 'ratingstatus','ratinglist', 'allcomments'));
+            $thiscomment = 0;
+            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'trailers', 'liststatus','itemlist', 'ratings', 'ratingstatus','ratinglist', 'allcomments', 'thiscomment'));
           } else { abort(404); }
     }
 
@@ -220,7 +222,8 @@ class HomeAuthController extends Controller
             $ratingstatus = $this->ratingstatus($user_id,$movie_id);
             $moyrating = $this->moyrating($imdb_id);
             $allcomments = $this->allcomments($imdb_id);
-            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'trailers', 'liststatus', 'ratings', 'ratingstatus', 'allcomments'));
+            $thiscomment = 0;
+            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'trailers', 'liststatus', 'ratings', 'ratingstatus', 'allcomments', 'thiscomment'));
           } else { abort(404); }
     }
 
@@ -251,7 +254,8 @@ class HomeAuthController extends Controller
             $liststatus = $this->liststatus($user_id,$movie_id);
             $moyrating = $this->moyrating($imdb_id);
             $allcomments = $this->allcomments($imdb_id);
-            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments'));
+            $thiscomment = 0;
+            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments', 'thiscomment'));
           } else { abort(404); }
     }
 
@@ -277,7 +281,8 @@ class HomeAuthController extends Controller
             $liststatus = $this->liststatus($user_id,$movie_id);
             $moyrating = $this->moyrating($imdb_id);
             $allcomments = $this->allcomments($imdb_id);
-            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus', 'trailers', 'liststatus', 'allcomments'));
+            $thiscomment = 0;
+            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus', 'trailers', 'liststatus', 'allcomments', 'thiscomment'));
           } else { abort(404); }
     }
 
@@ -312,7 +317,74 @@ class HomeAuthController extends Controller
             $liststatus = $this->liststatus($user_id,$movie_id);
             $moyrating = $this->moyrating($imdb_id);
             $allcomments = $this->allcomments($imdb_id);
-            return redirect()->route('oneMovieAuth', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments'));
+            $thiscomment = 0;
+            return redirect()->route('oneMovieAuth', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments', 'thiscomment'));
+          } else { abort(404); }
+    }
+
+
+    public function updatecomment($imdb_id, $idcomment)
+    {
+          $user_id = \Auth::user()->id;
+          $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
+          $movie_id = $movie[0]->id;
+          $date = new \DateTime();
+          $ratinglist = $this->ratinglist($movie_id,$user_id);
+          $itemlist = $this->itemlist($movie_id,$user_id);
+          $thiscomment = \DB::table('comments')->where('id','=',$idcomment)->get();
+          // dd($thiscomment[0]);
+          if (!empty($movie)) {
+            $ratings = $this->ratings($imdb_id);
+            $ratingstatus = $this->ratingstatus($user_id,$movie_id);
+            $trailers = $this->trailers($imdb_id);
+            $liststatus = $this->liststatus($user_id,$movie_id);
+            $moyrating = $this->moyrating($imdb_id);
+            $allcomments = $this->allcomments($imdb_id);
+            return redirect()->route('oneMovieAuthEditComment', compact('imdb_id','idcomment'));
+            // return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus', 'trailers', 'liststatus', 'allcomments','thiscomment'));
+          } else { abort(404); }
+    }
+
+    public function oneMovieAuthEditComment($imdb_id, $idcomment)
+    {
+        $user_id = \Auth::user()->id;
+        $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
+        $movie_id = $movie[0]->id;
+        $itemlist = $this->itemlist($movie_id,$user_id);
+        $ratinglist = $this->ratinglist($movie_id,$user_id);
+        $thiscomment = \DB::table('comments')->where('id','=',$idcomment)->get();
+        if (!empty($movie)) {
+          $trailers = $this->trailers($imdb_id);
+          $liststatus = $this->liststatus($user_id,$movie_id);
+          $ratings = $this->ratings($imdb_id);
+          $ratingstatus = $this->ratingstatus($user_id,$movie_id);
+          $moyrating = $this->moyrating($imdb_id);
+          $allcomments = $this->allcomments($imdb_id);
+          // dd($allcomments);
+          return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments','thiscomment'));
+        } else { abort(404); }
+    }
+
+
+    public function updatecommentaction(CommentRequest $request, $imdb_id, $idcomment)
+    {
+          $content= $request->comment;
+          $user_id = \Auth::user()->id;
+          $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
+          $movie_id = $movie[0]->id;
+          $date = new \DateTime();
+          $ratinglist = $this->ratinglist($movie_id,$user_id);
+          $itemlist = $this->itemlist($movie_id,$user_id);
+          \DB::table('comments')->where('id','=',$idcomment)->update(['content' => $content, 'updated_at'=> $date->format('Y-m-d H:i:s')]);
+          if (!empty($movie)) {
+            $ratings = $this->ratings($imdb_id);
+            $ratingstatus = $this->ratingstatus($user_id,$movie_id);
+            $trailers = $this->trailers($imdb_id);
+            $liststatus = $this->liststatus($user_id,$movie_id);
+            $moyrating = $this->moyrating($imdb_id);
+            $allcomments = $this->allcomments($imdb_id);
+            $thiscomment = 0;
+            return redirect()->to(route('oneMovieAuth', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments', 'thiscomment')).'#comment'.$idcomment);
           } else { abort(404); }
     }
 
@@ -358,7 +430,7 @@ class HomeAuthController extends Controller
     }
     public function allcomments($imdb_id) {
       $allcomments = \DB::table('comments')
-                  ->select('comments.id_user','comments.id_movie','comments.content','comments.content','comments.created_at','comments.updated_at','users.name')
+                  ->select('comments.id','comments.id_user','comments.id_movie','comments.content','comments.content','comments.created_at','comments.updated_at','users.name')
                   ->join('movies', 'movies.id', '=', 'comments.id_movie')->join('users', 'users.id', '=', 'comments.id_user')
                   ->where('imdb_id','=',$imdb_id)->orderBy('created_at','DESC')->get();
       return $allcomments;
