@@ -46,7 +46,7 @@ footer #footer-top .search {
 
 footer #footer-bottom {
   width: 100%;
-  max-width: 1300px;
+  /* max-width: 1500px; */
   position: absolute;
   bottom: 0;
   justify-content: space-around;
