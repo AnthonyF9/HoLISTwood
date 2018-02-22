@@ -61,7 +61,7 @@ main {
   font-weight: bold;
   border-radius: 10px;
 }
-#submitmovie-content .alert.alert-danger, #submitmovie-content div.part .imdb-alert {
+#submitmovie-content .alert.alert-danger, #submitmovie-content div.part .imdb-alert, #submitmovie-content .banned-error .alert-error {
   width: 80%;
   margin: 20px auto;
   padding: 20px;
