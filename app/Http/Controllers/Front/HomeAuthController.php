@@ -318,7 +318,10 @@ class HomeAuthController extends Controller
             $moyrating = $this->moyrating($imdb_id);
             $allcomments = $this->allcomments($imdb_id);
             $thiscomment = 0;
-            return redirect()->route('oneMovieAuth', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments', 'thiscomment'));
+            $idcommentpre = \DB::table('comments')->select('id')->where('created_at','=',$date->format('Y-m-d H:i:s'))->get();
+            $idcomment = $idcommentpre[0]->id;
+            // return redirect()->route('oneMovieAuth', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments', 'thiscomment'));
+            return redirect()->to(route('oneMovieAuth', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments', 'thiscomment')).'#comment'.$idcomment);
           } else { abort(404); }
     }
 
