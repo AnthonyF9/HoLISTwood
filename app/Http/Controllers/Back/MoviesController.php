@@ -126,9 +126,10 @@ class MoviesController extends Controller
   public function deletemovie(Request $request, $id)
   {
     Movie::findOrFail($id)->delete($request->all());
-    \DB::table('trailer')
-            ->where('id_movie', '=', $id)
-            ->delete();
+    \DB::table('trailer')->where('id_movie', '=', $id)->delete();
+    \DB::table('comments')->where('id_movie', '=', $id)->delete();
+    \DB::table('mylist')->where('movie_id', '=', $id)->delete();
+    \DB::table('rating')->where('id_movie', '=', $id)->delete();
     return redirect()->route('movieslist')->with('status', 'Movie deleted');
   }
 
