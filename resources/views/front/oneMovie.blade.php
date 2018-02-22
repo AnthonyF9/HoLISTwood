@@ -151,7 +151,7 @@
       {!! Form::close() !!}
     @else
       <div class="comment-list">
-        <div>You must to be log in to comment.</div>
+        <div class="comment-guest">You must to be log in to comment.</div>
       </div><!-- .comment-list -->
     @endif
     @foreach ($allcomments as $key => $onecomment)

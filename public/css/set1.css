@@ -71,8 +71,8 @@
 	float: left;
 	overflow: hidden;
 	margin: 10px 1%;
-	min-width: 180px;
-	max-width: 180px;
+	min-width: 200px;
+	max-width: 200px;
 	width: 48%;
 	text-align: center;
 	cursor: pointer;
@@ -81,8 +81,8 @@
 .affichesfront .grid figure img {
 	position: relative;
 	display: block;
-	height: 280px;
-	width: 180px;
+	height: 300px;
+	width: 200px;
 	filter: saturate(110%);
   border-radius: 5px;
 }
