@@ -170,12 +170,8 @@
       <div id="comment{{$onecomment->id}}" class="comment-list">
         <div class="one-comment">
           <h4><span>{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</h4>
-          @if (isset($thiscomment))
-            @if (is_object($thiscomment))
-              @if ($onecomment->id != $thiscomment[0]->id)
-                <p>{{ $onecomment->content }}</p>
-              @endif
-            @else
+          @if (isset($thiscomment) && is_object($thiscomment))
+            @if ($onecomment->id != $thiscomment[0]->id)
               <p>{{ $onecomment->content }}</p>
             @endif
           @else
