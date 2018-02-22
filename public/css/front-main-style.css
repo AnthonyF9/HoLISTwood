@@ -70,6 +70,9 @@ main {
   font-weight: bold;
   border-radius: 10px;
 }
+#submitmovie-content div.part .imdb-alert p a, #submitmovie-content div.part .imdb-alert p a:visited {
+  color: white;
+}
 #submitmovie-content form .alert-error {
   color: #ff0000;
   margin-top: 10px;
@@ -529,6 +532,9 @@ div#trailer {
   margin: 20px auto;
   width: 80%;
   justify-content: center;
+}
+.comment form .alert-error {
+  color: red;
 }
 .comment h3 {
   font-size: 1.5em;
