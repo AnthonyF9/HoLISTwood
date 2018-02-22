@@ -61,7 +61,7 @@ main {
   font-weight: bold;
   border-radius: 10px;
 }
-#submitmovie-content .alert.alert-danger, #submitmovie-content div.part .imdb-alert, #submitmovie-content .banned-error .alert-error {
+#submitmovie-content .alert.alert-danger, #submitmovie-content div.part .imdb-alert, #submitmovie-content .banned-error .alert-error, .comment .comment-list .comment-banned {
   width: 80%;
   margin: 20px auto;
   padding: 20px;
@@ -466,10 +466,9 @@ div#trailer {
 #list-and-rating {
   background-color: #262626;
   margin: 10px 5% 20px;
-  width: 85%;
+  width: 80%;
   border-radius: 10px;
-  padding: 10px 0;
-  padding-left: 5%;
+  padding: 10px 5%;
   display: flex;
   flex-direction: row;
 }
@@ -480,14 +479,14 @@ div#trailer {
   color: white;
   font-weight: bold;
   border: none;
-  padding: 5px 5px;
+  padding: 10px 10px;
+  border-radius: 10px;
 }
 #list-and-rating select {
   margin-right: 5px;
 }
 #list-and-rating input[type="submit"] {
   margin-left: 5px;
-  margin-right: 10px;
 }
 #list-and-rating select:focus, #list-and-rating input:focus {
   outline:  none;
@@ -495,6 +494,13 @@ div#trailer {
 #list-and-rating button {
   margin-left: 5px;
   margin-right: 5px;
+}
+#list-and-rating .add-to-list {
+  padding-right: 5%;
+  border-right: 2px white solid;
+}
+#list-and-rating .rating-zone {
+  padding-left: 5%;
 }
 
 .rate {
@@ -712,6 +718,14 @@ div#trailer {
   }
   #list-and-rating button {
     margin: 5px auto;
+  }
+  #list-and-rating .add-to-list {
+    border: 0;
+    padding-right: 0;
+  }
+  #list-and-rating .rating-zone {
+    border: 0;
+    padding-left: 0;
   }
 
   .bandeau {
