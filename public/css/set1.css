@@ -71,8 +71,8 @@
 	float: left;
 	overflow: hidden;
 	margin: 10px 1%;
-	min-width: 200px;
-	max-width: 200px;
+	min-width: 180px;
+	max-width: 180px;
 	width: 48%;
 	text-align: center;
 	cursor: pointer;
@@ -81,9 +81,8 @@
 .affichesfront .grid figure img {
 	position: relative;
 	display: block;
-	height: 300px;
-	width: 200px;
-	/* margin: 0 10px; */
+	height: 280px;
+	width: 180px;
 	filter: saturate(110%);
   border-radius: 5px;
 }
@@ -117,7 +116,7 @@
 }
 
 .grid figure h2 {
-	/* word-spacing: -0.15em; */
+	word-spacing: -0.15em;
 	font-weight: 300;
 }
 
@@ -1044,16 +1043,6 @@ figure.effect-zoe figcaption {
 figure.effect-zoe h2 {
 	/* float: left; */
 	text-align: center;
-}
-
-figure.effect-zoe figcaption  {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-.affichesfront figure.effect-zoe figcaption h2 {
-	font-size: 0.9em;
 }
 
 figure.effect-zoe p.icon-links a {
