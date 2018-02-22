@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Movie;
 use App\Trailer;
 use App\MyList;
+use Auth;
 
 
 class HomeController extends Controller
@@ -89,10 +90,18 @@ class HomeController extends Controller
 
           if (!empty($movies[0])) {
 
+
+
         foreach ($movies as $movie) {
 
+          if (Auth::user()) {
+            $route = '<a href='. route('oneMovieAuth', array( 'imdb_id'=> $movie->imdb_id ))  .'>';
+          } else {
+            $route = '<a href='. route('oneMovie', array( 'imdb_id'=> $movie->imdb_id ))  .'>';
+          }
+
           $output.= '<div class="grid">'.
-                   '<a href='. route('oneMovieAuth', array( 'imdb_id'=> $movie->imdb_id ))  .'>'.
+                   $route.
                    '<figure data-aos="fade-up" class="effect-zoe">'.
                    '<img src=' .$movie->poster. 'alt=' .$movie->title. '/>'.
                    '<figcaption>'.
