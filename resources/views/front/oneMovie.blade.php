@@ -154,19 +154,35 @@
         <div>You must to be log in to comment.</div>
       </div><!-- .comment-list -->
     @endif
-    {{-- {{ dd($allcomments) }} --}}
-    {{-- {{ dd(session()) }} --}}
     @foreach ($allcomments as $key => $onecomment)
-      <div class="comment-list">
+      <div id="comment{{$onecomment->id}}" class="comment-list">
         <div class="one-comment">
           <h4><span>{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</h4>
-          {{-- @if (Auth::user())
-            @if ($condition)
-
+          @if (Auth::user())
+            @if (Auth::user()->id == $onecomment->id_user)
+              @if (!is_object($thiscomment))
+                @php $idcomment = $onecomment->id @endphp
+                <a href="{{ route('updatecomment', [$imdb_id, $idcomment]) }}#comment{{$onecomment->id}}">Edit</a>
+              @else
+                @if ($onecomment->id == $thiscomment[0]->id)
+                  {!! Form::open(['route' => ['updatecommentaction', $imdb_id, $idcomment = $thiscomment[0]->id], 'method' => 'put']) !!}
+                    <textarea name="comment" rows="8" cols="80" placeholder="Let your comment here">{{ $thiscomment[0]->content }}</textarea>
+                    {!! $errors->first('comment','<div class="alert-error" role="alert">:message</div>') !!}
+                    <br/>
+                    {!! Form::submit("Save comment", ['class' => '']) !!}
+                  {!! Form::close() !!}
+                @endif
+              @endif
             @endif
-          @endif --}}
+          @endif
         </div>
-        <p>{{ $onecomment->content }}</p>
+        @if (is_object($thiscomment))
+          @if ($onecomment->id != $thiscomment[0]->id)
+            <p>{{ $onecomment->content }}</p>
+          @endif
+        @else
+          <p>{{ $onecomment->content }}</p>
+        @endif
       </div><!-- .comment-list -->
     @endforeach
   </div>
