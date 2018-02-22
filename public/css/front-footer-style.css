@@ -45,9 +45,16 @@ footer #footer-top .search {
 }
 
 footer #footer-bottom {
+  width: 100%;
+  max-width: 1300px;
   position: absolute;
   bottom: 0;
   justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  background-color: #212121;
+  height: 50px;
+  line-height: 50px;
 }
 footer #footer-bottom .social-network {
   display: block;
@@ -88,15 +95,6 @@ footer #footer-bottom ul li a:hover {
 }
 footer #footer-bottom ul li a:active {
   color: #2A89EB;
-}
-
-footer #footer-bottom {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  background-color: #212121;
-  height: 50px;
-  line-height: 50px;
 }
 footer #footer-bottom .copyright {
   font-size: 0.75em;

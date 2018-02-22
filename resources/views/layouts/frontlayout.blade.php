@@ -20,6 +20,7 @@
   <body>
     <div id="wrapper">
       <header>
+        <div id="header-wrapper">
         <nav id="top-menu">
           <div class="social-network">
             <ul>
@@ -169,6 +170,7 @@
             </ul><!-- #menu -->
           </div><!-- #menuToggle -->
         </nav>
+        </div><!-- #header-wrapper -->
       </header>
 
       @yield('bandeau')
@@ -185,11 +187,7 @@
       <a href="#" id="return-to-top"><i class="icon-chevron-up"></i></a>
 
       <footer>
-
-
-
-
-
+        <div id="footer-wrapper">
         <div id="footer-top">
           <div class="presentation">
             <h3>Holistwood</h3>
@@ -231,7 +229,7 @@
 
           </div>
         </div>
-
+      </div><!-- #footer-wrapper -->
      </footer>
 
 
