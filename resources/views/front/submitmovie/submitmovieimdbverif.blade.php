@@ -100,7 +100,7 @@ active @endsection
           {!! $errors->first('status','<div class="alert-error" role="alert">:message</div>') !!}
         </br>
           {!! Form::label('release_date', 'Release date ', ['class' => '']) !!}
-          {!! Form::date('release_date', \Carbon\Carbon::now()) !!}
+          {!! Form::date('release_date') !!}
           {!! $errors->first('release_date','<div class="alert-error" role="alert">:message</div>') !!}
 
           {!! Form::submit("Submit", ['class' => 'btn btn-primary']) !!}

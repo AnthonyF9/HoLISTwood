@@ -151,21 +151,7 @@ main {
   justify-content: space-around;
   flex-wrap: wrap;
 }
-.affiche {
-  background-color: #212121;
-  height: 360px;
-  width: 300px;
-  margin: 15px
-}
-.affiche img{
-  height: 380px;
-  width: 300px;
-}
-.affiche img:hover{
-  opacity: 0.2;
-  filter: alpha(opacity=50);
-  transform: scale(1);
-}
+
 #movies-list-profile {
   width: 80%;
   margin: auto;
@@ -241,6 +227,14 @@ div.titre {
   margin-bottom: 20px;
 }
 
+.bandeau-movieslist h2{
+  font-size: 1.2em;
+}
+
+.bandeau-single{
+  margin-bottom: 25px;
+}
+
 .bandeau2 {
   /* background-color: #212121; */
   min-height: 70px;
@@ -266,9 +260,7 @@ div.titre {
   width: 40%;
   margin: auto;
   font-weight: bold;
-
 }
-
 
 
 /*bandeau trailer*/
@@ -607,6 +599,7 @@ div#trailer {
 }
 
 
+
 /*  button return top*/
 #return-to-top  {
     position: fixed;
@@ -616,7 +609,6 @@ div#trailer {
     padding:
     bottom: 20px;
    right: 20px;
-   /* background: rgb(0, 0, 0); */
    background: #653CB6;
    width: 50px;
    height: 50px;
@@ -640,6 +632,8 @@ div#trailer {
   color:#fff;
   padding: 17px;
 }
+
+
 /* Responsive */
 
 @media (max-width: 707px) {

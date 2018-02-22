@@ -5,14 +5,12 @@
 @endsection
 
 @section('bandeau')
-  <div class="bandeau">
+  <div class="bandeau bandeau-single">
     <h2> &mdash; {{ $movie[0]->title }} &mdash; </h2>
     </div>
  @endsection
 
 @section('content')
-  <div class="title">
-  </div>
 
   <div class="detail-part">
     <div class="detail-poster">
@@ -157,9 +155,17 @@
       </div><!-- .comment-list -->
     @endif
     {{-- {{ dd($allcomments) }} --}}
+    {{-- {{ dd(session()) }} --}}
     @foreach ($allcomments as $key => $onecomment)
       <div class="comment-list">
-        <h4><span>{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</h4>
+        <div class="one-comment">
+          <h4><span>{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</h4>
+          {{-- @if (Auth::user())
+            @if ($condition)
+
+            @endif
+          @endif --}}
+        </div>
         <p>{{ $onecomment->content }}</p>
       </div><!-- .comment-list -->
     @endforeach
