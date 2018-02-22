@@ -170,16 +170,20 @@
       <div id="comment{{$onecomment->id}}" class="comment-list">
         <div class="one-comment">
           <h4><span>{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</h4>
-        </div>
-        @if (is_object($thiscomment))
-          @if ($onecomment->id != $thiscomment[0]->id)
+          @if (isset($thiscomment))
+            @if (is_object($thiscomment))
+              @if ($onecomment->id != $thiscomment[0]->id)
+                <p>{{ $onecomment->content }}</p>
+              @endif
+            @else
+              <p>{{ $onecomment->content }}</p>
+            @endif
+          @else
             <p>{{ $onecomment->content }}</p>
           @endif
-        @else
-          <p>{{ $onecomment->content }}</p>
-        @endif
+        </div>
         <div class="edit-comment">
-          @if (Auth::user()  && Auth::user()->role != "banned")
+          @if (Auth::user() && Auth::user()->role != "banned")
             @if (Auth::user()->id == $onecomment->id_user || Auth::user()->role == "admin" || Auth::user()->role == "mod")
               @if (!is_object($thiscomment))
                 @php $idcomment = $onecomment->id @endphp

@@ -26,9 +26,9 @@ Route::group(['namespace' => 'Front'], function () {
   Route::get('/events', 'EventController@index')->name('events');   // le calendrier
 
   //vue d'un film, ajout à sa liste, notation
-  Route::get('/movie/{imdb_id}', 'HomeController@oneMovie')->name('oneMovie');
+  Route::get('/movie/{imdb_id}/view', 'HomeController@oneMovie')->name('oneMovie');
 
-  Route::get('/movie/{imdb_id}/view', 'HomeAuthController@oneMovieAuth')->name('oneMovieAuth');
+  Route::get('/movie/{imdb_id}', 'HomeAuthController@oneMovieAuth')->name('oneMovieAuth');
   Route::post('/movie/{imdb_id}/add-to-my-list', 'HomeAuthController@addtomylist')->name('addtomylist');
   Route::put('/movie/{imdb_id}/update-my-list', 'HomeAuthController@updateinmylist')->name('updateinmylist');
   Route::post('/movie/{imdb_id}/rating', 'HomeAuthController@rate')->name('rate');
