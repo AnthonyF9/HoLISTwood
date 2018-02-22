@@ -143,22 +143,56 @@
   <div class="comment">
     <h3>Comments</h3>
     @if (Auth::user())
-      {!! Form::open(['route' => ['postcomment',$imdb_id], 'method' => 'post']) !!}
-        <textarea name="comment" rows="8" cols="80" placeholder="Let your comment here"></textarea>
-        {!! $errors->first('comment','<div class="alert-error" role="alert">:message</div>') !!}
-        <br/>
-        {!! Form::submit("Comment it", ['class' => '']) !!}
-      {!! Form::close() !!}
+      @if (Auth::user()->role != "banned")
+        @if (!is_object($thiscomment))
+          {!! Form::open(['route' => ['postcomment',$imdb_id], 'method' => 'post']) !!}
+            <textarea name="comment" rows="8" cols="80" placeholder="Let your comment here"></textarea>
+            {!! $errors->first('comment','<div class="alert-error" role="alert">:message</div>') !!}
+            <br/>
+            {!! Form::submit("Comment it", ['class' => '']) !!}
+          {!! Form::close() !!}
+        @endif
+      @else
+        <div class="comment-list">
+          <div class="comment-banned">You are banned. You can't comment.</div>
+        </div><!-- .comment-list -->
+      @endif
     @else
       <div class="comment-list">
-        <div>You must to be log in to comment.</div>
+        <div class="comment-guest">You must to be log in to comment.</div>
       </div><!-- .comment-list -->
     @endif
-    {{-- {{ dd($allcomments) }} --}}
     @foreach ($allcomments as $key => $onecomment)
-      <div class="comment-list">
-        <h4><span>{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</h4>
-        <p>{{ $onecomment->content }}</p>
+      <div id="comment{{$onecomment->id}}" class="comment-list">
+        <div class="one-comment">
+          <h4><span>{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</h4>
+        </div>
+        @if (is_object($thiscomment))
+          @if ($onecomment->id != $thiscomment[0]->id)
+            <p>{{ $onecomment->content }}</p>
+          @endif
+        @else
+          <p>{{ $onecomment->content }}</p>
+        @endif
+        <div class="edit-comment">
+          @if (Auth::user()  && Auth::user()->role != "banned")
+            @if (Auth::user()->id == $onecomment->id_user || Auth::user()->role == "admin" || Auth::user()->role == "mod")
+              @if (!is_object($thiscomment))
+                @php $idcomment = $onecomment->id @endphp
+                <a href="{{ route('updatecomment', [$imdb_id, $idcomment]) }}#comment{{$onecomment->id}}">Edit</a>
+              @else
+                @if ($onecomment->id == $thiscomment[0]->id)
+                  {!! Form::open(['route' => ['updatecommentaction', $imdb_id, $idcomment = $thiscomment[0]->id], 'method' => 'put']) !!}
+                    <textarea name="comment" rows="8" cols="80" placeholder="Let your comment here">{{ $thiscomment[0]->content }}</textarea>
+                    {!! $errors->first('comment','<div class="alert-error" role="alert">:message</div>') !!}
+                    <br/>
+                    {!! Form::submit("Save comment", ['class' => '']) !!}
+                  {!! Form::close() !!}
+                @endif
+              @endif
+            @endif
+          @endif
+        </div>
       </div><!-- .comment-list -->
     @endforeach
   </div>

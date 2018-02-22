@@ -46,13 +46,15 @@ $(document).ready(function() {
     span.onclick = function() {
         modal.style.display = "none";
     }
-    nodelete.onclick = function() {
-        modal.style.display = "none";
-    }
-    // When the user clicks anywhere outside of the modal, close it
-    // window.onclick = function(event) {
-    //     if (event.target == modal) {
-    //         modal.style.display = "none";
-    //     }
+    // nodelete.onclick = function() {
+    //     modal.style.display = "none";
     // }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      // console.log('ferme-là !');
+        if (event.target == modal) {
+            modal.style.display = "none";
+            console.log('mais ferme-là, bon sang !!!');
+        }
+    }
 });

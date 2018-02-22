@@ -22,6 +22,7 @@ Route::group(['namespace' => 'Front'], function () {
   //routes principales
   Route::get('/', 'HomeController@index')->name('home');
   Route::get('/movies-list', 'HomeController@frontmovieslist')->name('frontmovieslist');
+  Route::get('/movies-list/search', 'HomeController@searchfrontmovies')->name('searchfrontmovies');
   Route::get('/events', 'EventController@index')->name('events');   // le calendrier
 
   //vue d'un film, ajout à sa liste, notation
@@ -34,6 +35,10 @@ Route::group(['namespace' => 'Front'], function () {
   Route::put('/movie/{imdb_id}/update-my-rating', 'HomeAuthController@updatemyrating')->name('updatemyrating');
   // commenter sur la page d'un film
   Route::post('/movie/{imdb_id}/comment', 'HomeAuthController@postcomment')->name('postcomment');
+  // modifier un commentaire
+  Route::get('/movie/{imdb_id}/comment/update-number-{idcomment}', 'HomeAuthController@updatecomment')->name('updatecomment');
+  Route::get('/movie/{imdb_id}/comment/edit-number-{idcomment}', 'HomeAuthController@oneMovieAuthEditComment')->name('oneMovieAuthEditComment');
+  Route::put('/movie/{imdb_id}/comment/update-number-{idcomment}/go', 'HomeAuthController@updatecommentaction')->name('updatecommentaction');
 
   // la page profile
   Route::get('/profile', 'HomeAuthController@profile')->name('profile');
