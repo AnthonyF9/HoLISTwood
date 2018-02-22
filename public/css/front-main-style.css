@@ -465,8 +465,8 @@ div#trailer {
 
 #list-and-rating {
   background-color: #262626;
-  margin: 10px 5% 20px;
-  width: 80%;
+  margin: 10px auto 20px;
+  width: 70%;
   border-radius: 10px;
   padding: 10px 5%;
   display: flex;
