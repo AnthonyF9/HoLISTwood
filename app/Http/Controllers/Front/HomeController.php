@@ -72,11 +72,49 @@ class HomeController extends Controller
 
     public function frontmovieslist()
     {
-      $movies = Movie::inRandomOrder()->where('moderation', '=', 'ok')->paginate(24);
+      $movies = Movie::orderBy('title','asc')->where('moderation', '=', 'ok')->paginate(36);
 
       return view('front/frontmovieslist', compact('movies'));
     }
 
+    public function searchfrontmovies(Request $request) {
+
+        if($request->ajax()){
+
+        $output="";
+
+        $movies = \DB::table('movies')->where([['title', 'like', '%' . $request->search . '%'],['moderation', '=', 'ok']])->orWhere([['year', '=', $request->search ],['moderation', '=', 'ok']])->orderBy('created_at','desc')->paginate(7);
+
+
+
+          if (!empty($movies[0])) {
+
+        foreach ($movies as $movie) {
+
+          $output.= '<div class="grid">'.
+                   '<a href='. route('oneMovieAuth', array( 'imdb_id'=> $movie->imdb_id ))  .'>'.
+                   '<figure data-aos="fade-up" class="effect-zoe">'.
+                   '<img src=' .$movie->poster. 'alt=' .$movie->title. '/>'.
+                   '<figcaption>'.
+                   '<h2>' .$movie->title. '</h2>'.
+                   '</figcaption>'.
+                   '</figure>'.
+                   '</a>'.
+                   '</div>';
+
+
+           }
+
+
+        } else {
+          $output.="Sorry we didn't find any movies";
+        }
+            return response()->json([
+              'output' => $output,
+            ]);
+
+      }
+    }
 
     public function contact()
     {

@@ -56,6 +56,11 @@
 /* STYLE AFFICHE MOVIES LIST  */
 /* ////////////////////////////////////////////////////////// */
 
+.pagination {
+	width: 100%;
+	height: 20px;
+	position: relative;
+}
 
 .affichesfront .grid {
 	position: relative;
@@ -87,6 +92,12 @@
   border-radius: 5px;
 }
 
+.affichesfront .grid figure figcaption h2 {
+	font-size: 0.9em;
+}
+
+
+
 
 /* ////////////////////////////////////////////////////////// */
 /* ////////////////////////////////////////////////////////// */
@@ -116,7 +127,7 @@
 }
 
 .grid figure h2 {
-	word-spacing: -0.15em;
+	/* word-spacing: -0.15em; */
 	font-weight: 300;
 }
 
@@ -1038,6 +1049,9 @@ figure.effect-zoe figcaption {
 	-webkit-transform: translate3d(0,100%,0);
 	transform: translate3d(0,100%,0);
 	border-radius: 2px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 figure.effect-zoe h2 {
