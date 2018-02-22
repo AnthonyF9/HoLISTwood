@@ -90,7 +90,9 @@
       @endif
     @else
       <div class="add-to-list">
-        <button type="button" name="button">You must log in to add this movie in your list.</button>
+        <a href="{{ route('login') }}">
+          <button type="button" name="button">You must log in to add this movie in your list.</button>
+        </a>
       </div><!-- .add-to-list -->
     @endif
     @if ( Auth::user() )
@@ -119,7 +121,9 @@
       @endif
     @else
       <div class="rating-zone">
-        <button type="button" name="button">You must log in to rate this movie.</button>
+        <a href="{{ route('login') }}">
+          <button type="button" name="button">You must log in to rate this movie.</button>
+        </a>
       </div>
     @endif
   </div><!-- #list-and-rating -->
