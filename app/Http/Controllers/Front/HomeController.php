@@ -27,7 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $movies = Movie::orderBy('created_at','desc')->where('moderation', '=', 'ok')->limit(12)->get();
+      $movies = Movie::inRandomOrder()->where('moderation', '=', 'ok')->limit(12)->get();
 
       $trailers = \DB::table('movies')
                   ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
@@ -70,7 +70,7 @@ class HomeController extends Controller
 
     public function frontmovieslist()
     {
-      $movies = Movie::orderBy('created_at','desc')->where('moderation', '=', 'ok')->paginate(24);
+      $movies = Movie::inRandomOrder()->where('moderation', '=', 'ok')->paginate(24);
 
       return view('front/frontmovieslist', compact('movies'));
     }
