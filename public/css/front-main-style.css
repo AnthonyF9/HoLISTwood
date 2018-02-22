@@ -1,3 +1,8 @@
+#wrapper {
+  max-width:;
+  width:100%;
+  margin: 0 auto;
+}
 
 /* Le main et son contenu */
 main {
@@ -23,6 +28,27 @@ main {
   display: flex;
   flex-direction: column;
 }
+#submitmovie-content .imdb-link {
+  text-align: center;
+  margin-top: 20px;
+}
+#submitmovie-content .imdb-link a {
+  color: white;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+#submitmovie-content .imdb-link a:visited {
+  color: white;
+}
+#submitmovie-content .imdb-link a:hover {
+  color: #73b3f2;
+}
+#submitmovie-content .imdb-link a:active {
+  color: #2A89EB;
+}
 #submitmovie-content form {
   margin: 20px;
 }
@@ -34,9 +60,8 @@ main {
   color: #009933;
   font-weight: bold;
   border-radius: 10px;
-  text-align: center;
 }
-#submitmovie-content .alert.alert-danger,#submitmovie-content .part .imdb-alert.alert-error {
+#submitmovie-content .alert.alert-danger, #submitmovie-content div.part .imdb-alert {
   width: 80%;
   margin: 20px auto;
   padding: 20px;
@@ -44,20 +69,6 @@ main {
   color: #ff0000;
   font-weight: bold;
   border-radius: 10px;
-  text-align: center;
-}
-#submitmovie-content .imdb-link {
-  text-align: center;
-  margin-top: 10px;
-}
-#submitmovie-content .imdb-link a, #submitmovie-content .imdb-link a:visited {
-  color: white;
-}
-#submitmovie-content .imdb-link a:hover {
-  color: #73b3f2;
-}
-#submitmovie-content .imdb-link a:active {
-  color: #2A89EB;
 }
 #submitmovie-content form .alert-error {
   color: #ff0000;
@@ -538,19 +549,17 @@ div#trailer {
   outline:  none;
 }
 .comment form input[type="submit"] {
-  margin: 10px auto;
-  background-color: #653CB6;
+  background-color: #2A89EB;
   color: white;
+  text-transform: uppercase;
   font-weight: bold;
   border: none;
-  padding: 5px 5px;
+  padding: 15px 15px;
+  border-radius: 10px;
+  margin: 0 auto;
 }
 .comment .comment-list h4 {
   border-bottom: 1px white solid;
-}
-.comment .comment-list div.comment-guest {
-  text-align: center;
-  margin-top: 40px;
 }
 .comment .comment-list span {
   color: #2A89EB;
@@ -705,5 +714,4 @@ div#trailer {
     min-width: 50px;
     min-height: 75px;
   }
-
 }

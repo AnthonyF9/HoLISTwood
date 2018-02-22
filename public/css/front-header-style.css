@@ -27,11 +27,6 @@ body {
   position: relative;
 }
 
-#header-wrapper/* , #footer-wrapper */ {
-  max-width: 1300px;
-  margin: auto auto;
-}
-
 
 /* Le header */
 header {
