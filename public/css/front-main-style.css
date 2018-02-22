@@ -561,6 +561,20 @@ div#trailer {
 .comment .comment-list h4 {
   border-bottom: 1px white solid;
 }
+.comment .comment-list .edit-comment {
+  text-align: right;
+  margin-top: 20px;
+}
+.comment .comment-list .edit-comment a {
+  color: #2A89EB;
+}
+.comment .comment-list .edit-comment textarea {
+  border-bottom: 1px white solid;
+  border-radius: 0;
+}
+.comment .comment-list .edit-comment input[type="submit"] {
+  margin: 0 40%;
+}
 .comment .comment-list span {
   color: #2A89EB;
   font-size: 1.5em;
