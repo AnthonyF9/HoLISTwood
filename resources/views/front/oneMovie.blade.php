@@ -143,12 +143,20 @@
   <div class="comment">
     <h3>Comments</h3>
     @if (Auth::user())
-      {!! Form::open(['route' => ['postcomment',$imdb_id], 'method' => 'post']) !!}
-        <textarea name="comment" rows="8" cols="80" placeholder="Let your comment here"></textarea>
-        {!! $errors->first('comment','<div class="alert-error" role="alert">:message</div>') !!}
-        <br/>
-        {!! Form::submit("Comment it", ['class' => '']) !!}
-      {!! Form::close() !!}
+      @if (Auth::user()->role != "banned")
+        @if (!is_object($thiscomment))
+          {!! Form::open(['route' => ['postcomment',$imdb_id], 'method' => 'post']) !!}
+            <textarea name="comment" rows="8" cols="80" placeholder="Let your comment here"></textarea>
+            {!! $errors->first('comment','<div class="alert-error" role="alert">:message</div>') !!}
+            <br/>
+            {!! Form::submit("Comment it", ['class' => '']) !!}
+          {!! Form::close() !!}
+        @endif
+      @else
+        <div class="comment-list">
+          <div class="comment-guest">You are banned. You can't comment.</div>
+        </div><!-- .comment-list -->
+      @endif
     @else
       <div class="comment-list">
         <div class="comment-guest">You must to be log in to comment.</div>
@@ -167,8 +175,8 @@
           <p>{{ $onecomment->content }}</p>
         @endif
         <div class="edit-comment">
-          @if (Auth::user())
-            @if (Auth::user()->id == $onecomment->id_user)
+          @if (Auth::user()  && Auth::user()->role != "banned")
+            @if (Auth::user()->id == $onecomment->id_user || Auth::user()->role == "admin" || Auth::user()->role == "mod")
               @if (!is_object($thiscomment))
                 @php $idcomment = $onecomment->id @endphp
                 <a href="{{ route('updatecomment', [$imdb_id, $idcomment]) }}#comment{{$onecomment->id}}">Edit</a>

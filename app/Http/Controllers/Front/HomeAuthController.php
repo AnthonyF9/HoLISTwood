@@ -156,18 +156,20 @@ class HomeAuthController extends Controller
     {
         $user_id = \Auth::user()->id;
         $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
-        $movie_id = $movie[0]->id;
-        $itemlist = $this->itemlist($movie_id,$user_id);
-        $ratinglist = $this->ratinglist($movie_id,$user_id);
-        if (!empty($movie)) {
-          $trailers = $this->trailers($imdb_id);
-          $liststatus = $this->liststatus($user_id,$movie_id);
-          $ratings = $this->ratings($imdb_id);
-          $ratingstatus = $this->ratingstatus($user_id,$movie_id);
-          $moyrating = $this->moyrating($imdb_id);
-          $allcomments = $this->allcomments($imdb_id);
-          $thiscomment = 0;
-          return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'liststatus','itemlist', 'ratings', 'ratingstatus','ratinglist', 'allcomments', 'thiscomment'));
+        if (isset($movie[0])) {
+          $movie_id = $movie[0]->id;
+          $itemlist = $this->itemlist($movie_id,$user_id);
+          $ratinglist = $this->ratinglist($movie_id,$user_id);
+          if (!empty($movie) && $movie[0]->moderation != 'softdelete') {
+            $trailers = $this->trailers($imdb_id);
+            $liststatus = $this->liststatus($user_id,$movie_id);
+            $ratings = $this->ratings($imdb_id);
+            $ratingstatus = $this->ratingstatus($user_id,$movie_id);
+            $moyrating = $this->moyrating($imdb_id);
+            $allcomments = $this->allcomments($imdb_id);
+            $thiscomment = 0;
+            return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'liststatus','itemlist', 'ratings', 'ratingstatus','ratinglist', 'allcomments', 'thiscomment'));
+          } else { abort(404); }
         } else { abort(404); }
     }
 
@@ -320,7 +322,6 @@ class HomeAuthController extends Controller
             $thiscomment = 0;
             $idcommentpre = \DB::table('comments')->select('id')->where('created_at','=',$date->format('Y-m-d H:i:s'))->get();
             $idcomment = $idcommentpre[0]->id;
-            // return redirect()->route('oneMovieAuth', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments', 'thiscomment'));
             return redirect()->to(route('oneMovieAuth', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments', 'thiscomment')).'#comment'.$idcomment);
           } else { abort(404); }
     }
@@ -328,13 +329,13 @@ class HomeAuthController extends Controller
 
     public function updatecomment($imdb_id, $idcomment)
     {
-          $user_id = \Auth::user()->id;
+          $thiscomment = \DB::table('comments')->where('id','=',$idcomment)->get();
+          $user_id = $thiscomment[0]->id;
           $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
           $movie_id = $movie[0]->id;
           $date = new \DateTime();
           $ratinglist = $this->ratinglist($movie_id,$user_id);
           $itemlist = $this->itemlist($movie_id,$user_id);
-          $thiscomment = \DB::table('comments')->where('id','=',$idcomment)->get();
           // dd($thiscomment[0]);
           if (!empty($movie)) {
             $ratings = $this->ratings($imdb_id);
@@ -350,12 +351,12 @@ class HomeAuthController extends Controller
 
     public function oneMovieAuthEditComment($imdb_id, $idcomment)
     {
-        $user_id = \Auth::user()->id;
+        $thiscomment = \DB::table('comments')->where('id','=',$idcomment)->get();
+        $user_id = $thiscomment[0]->id;
         $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
         $movie_id = $movie[0]->id;
         $itemlist = $this->itemlist($movie_id,$user_id);
         $ratinglist = $this->ratinglist($movie_id,$user_id);
-        $thiscomment = \DB::table('comments')->where('id','=',$idcomment)->get();
         if (!empty($movie)) {
           $trailers = $this->trailers($imdb_id);
           $liststatus = $this->liststatus($user_id,$movie_id);
