@@ -59,25 +59,20 @@ active @endsection
   });
 </script>
   <script type="text/javascript">
-
     $('#searchmovies').on('keyup',function(){
-
       $value=$(this).val();
-         if($value.length>= 3){
-
-      $.ajax({
+      if($value.length>= 3){
+        $.ajax({
           type : 'get',
           url : '{{route('searchfrontmovies')}}',
           data:{'search':$value},
-      success:function(response){
-        console.log(response);
-
-        $('#affichesfront').html(response.output);
-
-        }
-      });
-    }
-  })
+          success:function(response){
+            console.log(response);
+            $('#affichesfront').html(response.output);
+          }
+        });
+      }
+    })
 
   </script>
 
