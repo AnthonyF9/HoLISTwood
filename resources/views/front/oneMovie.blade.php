@@ -173,7 +173,11 @@
         <div class="one-comment">
           <h4><span><span>{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</span>
             @if (Auth::user() && Auth::user()->role != "banned")
-              <button id="report{{$onecomment->id}}" class="report">Report</button>
+              {{-- {{ dd($onecomment) }} --}}
+              {!! Form::open(['route' => ['reportcomment', $imdb_id], 'method' => 'post']) !!}
+                {!! Form::hidden('id', $onecomment->id) !!}
+                {!! Form::submit("Report", ['class' => 'report','id' => 'report'.$onecomment->id]) !!}
+              {!! Form::close() !!}
             @endif
           </h4>
           @if (isset($thiscomment) && is_object($thiscomment))
@@ -215,12 +219,4 @@
       </div><!-- .comment-list -->
     @endforeach
   </div>
-@endsection
-
-@section('js')
-  <script type="text/javascript">
-    $(document).ready(function() {
-      
-    });
-  </script>
 @endsection

@@ -60,10 +60,10 @@ class HomeController extends Controller
             if (!empty($rating)) { $moyrating = round(array_sum($rating)/count($rating),1); }
             else {  $moyrating = ''; }
             $allcomments = \DB::table('comments')
-                        ->select('comments.id','comments.id_user','comments.id_movie','comments.content','comments.content','comments.created_at','comments.updated_at','users.name')
+                        ->select('comments.state','comments.id','comments.id_user','comments.id_movie','comments.content','comments.content','comments.created_at','comments.updated_at','users.name')
                         ->join('movies', 'movies.id', '=', 'comments.id_movie')
                         ->join('users', 'users.id', '=', 'comments.id_user')
-                        ->where('imdb_id','=',$imdb_id)
+                        ->where([['imdb_id','=',$imdb_id],['state','!=','deleted']])
                         ->orderBy('created_at','DESC')
                         ->get();
             return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'allcomments'));
@@ -79,49 +79,33 @@ class HomeController extends Controller
     }
 
     public function searchfrontmovies(Request $request) {
-
-        if($request->ajax()){
-
+      if($request->ajax()){
         $output="";
-
         $movies = \DB::table('movies')->where([['title', 'like', '%' . $request->search . '%'],['moderation', '=', 'ok']])->orWhere([['year', '=', $request->search ],['moderation', '=', 'ok']])->orderBy('created_at','desc')->paginate(7);
-
-
-
-          if (!empty($movies[0])) {
-
-
-
-        foreach ($movies as $movie) {
-
-          if (Auth::user()) {
-            $route = '<a href='. route('oneMovieAuth', array( 'imdb_id'=> $movie->imdb_id ))  .'>';
-          } else {
-            $route = '<a href='. route('oneMovie', array( 'imdb_id'=> $movie->imdb_id ))  .'>';
-          }
-
-          $output.= '<div class="grid">'.
-                   $route.
-                   '<figure data-aos="fade-up" class="effect-zoe">'.
-                   '<img src=' .$movie->poster. 'alt=' .$movie->title. '/>'.
-                   '<figcaption>'.
-                   '<h2>' .$movie->title. '</h2>'.
-                   '</figcaption>'.
-                   '</figure>'.
-                   '</a>'.
-                   '</div>';
-
-
-           }
-
-
+        if (!empty($movies[0])) {
+          foreach ($movies as $movie) {
+            if (Auth::user()) {
+              $route = '<a href='. route('oneMovieAuth', array( 'imdb_id'=> $movie->imdb_id ))  .'>';
+            } else {
+              $route = '<a href='. route('oneMovie', array( 'imdb_id'=> $movie->imdb_id ))  .'>';
+            }
+            $output.= '<div class="grid">'.
+                     $route.
+                     '<figure data-aos="fade-up" class="effect-zoe">'.
+                     '<img src=' .$movie->poster. 'alt=' .$movie->title. '/>'.
+                     '<figcaption>'.
+                     '<h2>' .$movie->title. '</h2>'.
+                     '</figcaption>'.
+                     '</figure>'.
+                     '</a>'.
+                     '</div>';
+             }
         } else {
           $output.="Sorry we didn't find any movies";
         }
-            return response()->json([
-              'output' => $output,
-            ]);
-
+        return response()->json([
+          'output' => $output,
+        ]);
       }
     }
 

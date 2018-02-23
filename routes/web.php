@@ -39,6 +39,8 @@ Route::group(['namespace' => 'Front'], function () {
   Route::get('/movie/{imdb_id}/comment/update-number-{idcomment}', 'HomeAuthController@updatecomment')->name('updatecomment');
   Route::get('/movie/{imdb_id}/comment/edit-number-{idcomment}', 'HomeAuthController@oneMovieAuthEditComment')->name('oneMovieAuthEditComment');
   Route::put('/movie/{imdb_id}/comment/update-number-{idcomment}/go', 'HomeAuthController@updatecommentaction')->name('updatecommentaction');
+  // signaler un commentaire
+  Route::post('/movie/{imdb_id}/report-comment', 'HomeAuthController@reportcomment')->name('reportcomment');
 
   // la page profile
   Route::get('/profile', 'HomeAuthController@profile')->name('profile');
