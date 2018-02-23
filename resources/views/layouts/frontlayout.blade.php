@@ -93,6 +93,7 @@
                         var loginerror = 'TRUE';
                       </script> --}}
                     @endif
+                    {{-- {{ dd($errors) }} --}}
                   @else
                   <li id="log">
                       <a href="{{ route('logout') }}"
@@ -109,9 +110,11 @@
                   <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                     @endif
                   @endguest
-                  @if ( Auth::user()->role == 'mod' || Auth::user()->role == 'admin')
-                    <li><a class="@yield('activereportedcomments')" href="{{ route('allreportedcomments') }}">Reported comments</a></li>
-                  @endif
+                  @auth
+                    @if ( Auth::user()->role == 'mod' || Auth::user()->role == 'admin')
+                      <li><a class="@yield('activereportedcomments')" href="{{ route('allreportedcomments') }}">Reported comments</a></li>
+                    @endif
+                  @endauth
                 </ul><!-- #menu1 -->
               </div><!-- .menu-top -->
             </nav><!-- #large-screen -->
@@ -150,12 +153,16 @@
               <li><a class="@yield('activecalendar')" href="{{ route('events') }}">Release calendar</a></li>
               <li><a class="@yield('activemovieslist')" href="{{ route('frontmovieslist') }}">Movies list</a></li>
               @else
+                @if ( Auth::user()->role == 'admin')
+                  <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                @endif
+                @if ( Auth::user()->role == 'mod' || Auth::user()->role == 'admin')
+                  <li><a class="@yield('activereportedcomments')" href="{{ route('allreportedcomments') }}">Reported comments</a></li>
+                @endif
                 @if ( Auth::user() )
                   <li><a class="@yield('activecalendar')" href="{{ route('events') }}">Release calendar</a></li>
                   <li><a class="@yield('activemovieslist')" href="{{ route('frontmovieslist') }}">Movies list</a></li>
                  <li><a class="@yield('activesubmitmovie')" href="{{ route('submitmoviebyimdb') }}">Submit a movie</a></li>
-                @elseif ( Auth::user()->role == 'admin')
-              <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                 @endif
               <li><a class="@yield('activeprofile')" href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
               <li id="hello-user">
