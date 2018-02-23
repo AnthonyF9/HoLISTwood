@@ -133,14 +133,14 @@
     <p>{{ ucfirst($movie[0]->plot) }}</p>
   </div>
 
-@if (!empty($trailers[0]->url_trailer))
-  <div id="trailer">
-    <div class="rwd-trailer">
-      <iframe width = "917px" height="490px" src="{{$trailers[0]->url_trailer}}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+@if (isset($trailers[0]))
+  @if (!empty($trailers[0]->url_trailer))
+    <div id="trailer">
+      <div class="rwd-trailer">
+        <iframe width = "917px" height="490px" src="{{$trailers[0]->url_trailer}}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+      </div>
     </div>
-  </div>
-@else
-
+  @endif
 @endif
 
 
