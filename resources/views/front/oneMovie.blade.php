@@ -169,7 +169,11 @@
     @foreach ($allcomments as $key => $onecomment)
       <div id="comment{{$onecomment->id}}" class="comment-list">
         <div class="one-comment">
-          <h4><span>{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</h4>
+          <h4><span><span>{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</span>
+            @if (Auth::user() && Auth::user()->role != "banned")
+              <button id="report{{$onecomment->id}}" class="report">Report</button>
+            @endif
+          </h4>
           @if (isset($thiscomment) && is_object($thiscomment))
             @if ($onecomment->id != $thiscomment[0]->id)
               <p>{{ $onecomment->content }}</p>
@@ -180,8 +184,10 @@
         </div>
         <div class="edit-infos">
           <div class="last-update-comment">
-            @if ($onecomment->created_at != $onecomment->updated_at)
-              <p>Last edit the {{ $onecomment->updated_at }}</p>
+            @if (!is_object($thiscomment))
+              @if ($onecomment->created_at != $onecomment->updated_at)
+                <p>Last edit the {{ $onecomment->updated_at }}</p>
+              @endif
             @endif
           </div>
           <div class="edit-comment">
