@@ -699,9 +699,13 @@ color: #2a85e4;
   padding: 5px 10px;
   border-radius: 10px;
 }
-.affiches .pagination ul li a:active, .affiches .pagination ul li a:hover, .affiches .pagination ul li span {
-  color: #a2ccf6;
+.affiches .pagination ul.pagination li:active a, .affiches .pagination ul.pagination li:hover a, .affiches .pagination ul.pagination li span {
+  color: white;
 }
+.affiches .pagination ul.pagination li a {
+  color: black;
+}
+
 .searchbar {
   width: 100%;
   text-align: center;
