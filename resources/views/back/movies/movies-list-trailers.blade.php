@@ -62,7 +62,7 @@
           <td scope="row">{{ $movie->imdb_id }}</td>
           <td scope="row">{{ $movie->url_trailer }}</td>
           <td>
-            <a class="btn btn-primary" href="{{ route('addtrailers', array('id'=> $movie->id )) }}"> Change trailer </a>
+            <a class="btn btn-primary" href="{{ route('changetrailer', array('id'=> $movie->id )) }}"> Change trailer </a>
           </td>
         </tr>
 

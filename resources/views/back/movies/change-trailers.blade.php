@@ -15,7 +15,7 @@
 
 @section('content-beta')
   <div class="part">
-    <h2> Add trailer for <b>{{ $trailersToOneMovie[0]->title }}</b> by <i>{{ $trailersToOneMovie[0]->director }}</i> </h2>
+    <h2>Change trailer for <b>{{ $trailersToOneMovie[0]->title }}</b> by <i>{{ $trailersToOneMovie[0]->director }}</i> </h2>
     <br/>
     <small>To add a tralier, you have to go on Youtube, click on "share", then "integer" and copy the src url in the iframe code.</small>
 
@@ -31,10 +31,10 @@
         </div>
     @endif
 
-    {!! Form::open(['route' => ['addtraileraction', $id], 'method' => 'post']) !!}
+    {!! Form::open(['route' => ['changetraileraction', $id], 'method' => 'put']) !!}
 
       {!! Form::label('trailer', 'Trailer : ', ['class' => '']) !!}
-      {!! Form::text('trailer', null, ['placeholder' => 'Trailer url with "embed" in the url', 'class' => 'trailer']) !!}
+      {!! Form::textarea('trailer', $trailersToOneMovie[0]->url_trailer, ['placeholder' => 'Trailer url with "embed" in the url', 'class' => 'trailer']) !!}
       {!! $errors->first('trailer','<div class="alert-error" role="alert">:message</div>') !!}
     </br>
 

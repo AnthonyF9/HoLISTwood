@@ -21,6 +21,7 @@ class HomeModController extends Controller
     public function __construct()
     {
         $this->middleware('mod');
+        $this->middleware('admin');
     }
 
 
