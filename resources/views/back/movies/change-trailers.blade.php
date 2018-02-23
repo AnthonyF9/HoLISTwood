@@ -4,7 +4,7 @@
   Add Trailers - HOLISTWOOD
 @endsection
 
-@section('activemovieslist','active')
+@section('activemovieslisttrailers','active')
 
 @section('content-alpha')
   <div class="part">
