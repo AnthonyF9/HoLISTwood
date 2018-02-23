@@ -597,6 +597,20 @@ color: #2a85e4;
 }
 .comment .comment-list h4 {
   border-bottom: 1px white solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.comment .comment-list h4 .report {
+  background: transparent;
+  border: none;
+  color: #2A89EB;
+  font-size: 1em;
+  height: 10px;
+  margin-top: 30px;
+}
+.comment .comment-list h4 .report:hover {
+  color: red;
 }
 .comment .comment-list .edit-comment {
   text-align: right;

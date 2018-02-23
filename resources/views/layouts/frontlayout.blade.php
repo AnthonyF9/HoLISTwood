@@ -219,6 +219,7 @@
           <div class="copyright">
             <ul>
               <li>&copy;Holistwood</li>
+              <li><a href="{{ route('about') }}">About</a></li>
               <li><a href="{{ route('staff') }}">Staff</a></li>
               <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
               <li><a href="{{ route('gtu') }}">GTU</a></li>

@@ -125,9 +125,9 @@ class HomeController extends Controller
       }
     }
 
-    public function contact()
+    public function about()
     {
-        return view('front/contact');
+        return view('front/about');
     }
 
     public function staff()
