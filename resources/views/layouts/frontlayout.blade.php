@@ -24,10 +24,10 @@
         <nav id="top-menu">
           <div class="social-network">
             <ul>
-              <li><a href="#"><?php echo file_get_contents("img/facebook2.svg"); ?></a></li>
-              <li><a href="#"><?php echo file_get_contents("img/twitter2.svg"); ?></a></li>
-              <li><a href="#"><?php echo file_get_contents("img/youtube.svg"); ?></a></li>
-              <li><a href="#"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
+              <li><a href="https://fr-fr.facebook.com/" target="_blank"><?php echo file_get_contents("img/facebook2.svg"); ?></a></li>
+              <li><a href="https://twitter.com/" target="_blank"><?php echo file_get_contents("img/twitter2.svg"); ?></a></li>
+              <li><a href="https://www.youtube.com/" target="_blank"><?php echo file_get_contents("img/youtube.svg"); ?></a></li>
+              <li><a href="https://plus.google.com/discover" target="_blank"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
             </ul>
           </div><!-- .social-network -->
           <div class="log">
@@ -222,6 +222,7 @@
           <div class="copyright">
             <ul>
               <li>&copy;Holistwood</li>
+              <li><a href="{{ route('about') }}">About</a></li>
               <li><a href="{{ route('staff') }}">Staff</a></li>
               <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
               <li><a href="{{ route('gtu') }}">GTU</a></li>
@@ -231,10 +232,10 @@
 
           <div class="social-network">
             <ul>
-              <li><a href="#"><?php echo file_get_contents("img/facebook2.svg"); ?></a></li>
-              <li><a href="#"><?php echo file_get_contents("img/twitter2.svg"); ?></a></li>
-              <li><a href="#"><?php echo file_get_contents("img/youtube.svg"); ?></a></li>
-              <li><a href="#"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
+              <li><a href="https://fr-fr.facebook.com/" target="_blank"><?php echo file_get_contents("img/facebook2.svg"); ?></a></li>
+              <li><a href="https://twitter.com/" target="_blank"><?php echo file_get_contents("img/twitter2.svg"); ?></a></li>
+              <li><a href="https://www.youtube.com/" target="_blank"><?php echo file_get_contents("img/youtube.svg"); ?></a></li>
+              <li><a href="https://plus.google.com/discover" target="_blank"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
             </ul>
           </div>
 

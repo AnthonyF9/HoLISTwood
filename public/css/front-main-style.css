@@ -597,10 +597,32 @@ color: #2a85e4;
 }
 .comment .comment-list h4 {
   border-bottom: 1px white solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.comment .comment-list h4 .report {
+  background: transparent;
+  border: none;
+  color: #2A89EB;
+  font-size: 1em;
+  height: 10px;
+}
+.comment .comment-list h4 .report:hover {
+  color: red;
 }
 .comment .comment-list .edit-comment {
   text-align: right;
   margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.comment .comment-list .edit-comment .last-update-comment {
+  font-size: 0.75em;
+}
+.comment .comment-list .edit-comment .last-update-comment p {
+  margin-top: 0;
 }
 .comment .comment-list .edit-comment a {
   color: #2A89EB;
@@ -612,7 +634,7 @@ color: #2a85e4;
 .comment .comment-list .edit-comment input[type="submit"] {
   margin: 0 40%;
 }
-.comment .comment-list span {
+.comment .comment-list span.username {
   color: #2A89EB;
   font-size: 1.5em;
 }
@@ -723,6 +745,32 @@ color: #2a85e4;
 }
 .searchbar #searchmovies:focus {
   outline:  none;
+}
+
+/* About/staff */
+
+#about-group, #staff-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%
+}
+#about-group .about, #staff-group .staff {
+  background: white;
+  color: black;
+  margin: 5% auto;
+  padding: 10px;
+  border-radius: 10px;
+  width: 40%;
+  min-height: 150px;
+  text-align: center;
+}
+#about-group .about h4, #staff-group .staff h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+#about-group .about p, #staff-group .staff p {
+  margin: 10px auto;
 }
 
 

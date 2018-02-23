@@ -171,7 +171,7 @@
     @foreach ($allcomments as $key => $onecomment)
       <div id="comment{{$onecomment->id}}" class="comment-list">
         <div class="one-comment">
-          <h4><span><span>{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</span>
+          <h4><span><span class="username">{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</span>
             @if (Auth::user() && Auth::user()->role != "banned")
               {{-- {{ dd($onecomment) }} --}}
               {!! Form::open(['route' => ['reportcomment', $imdb_id], 'method' => 'post']) !!}
@@ -189,14 +189,14 @@
           @endif
         </div>
         <div class="edit-infos">
-          <div class="last-update-comment">
-            @if (!is_object($thiscomment))
-              @if ($onecomment->created_at != $onecomment->updated_at)
-                <p>Last edit the {{ $onecomment->updated_at }}</p>
-              @endif
-            @endif
-          </div>
           <div class="edit-comment">
+            <div class="last-update-comment">
+              @if (!is_object($thiscomment))
+                @if ($onecomment->created_at != $onecomment->updated_at)
+                  <p>Last edit the {{ $onecomment->updated_at }}</p>
+                @endif
+              @endif
+            </div>
             @if (Auth::user() && Auth::user()->role != "banned")
               @if (Auth::user()->id == $onecomment->id_user || Auth::user()->role == "admin" || Auth::user()->role == "mod")
                 @if (!is_object($thiscomment))

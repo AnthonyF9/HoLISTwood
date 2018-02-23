@@ -61,6 +61,7 @@ Route::group(['namespace' => 'Front'], function () {
 
   // autres routes
   Route::get('/contact', 'HomeController@contact')->name('contact');
+  Route::get('/about', 'HomeController@about')->name('about');
   Route::get('/staff', 'HomeController@staff')->name('staff');
   Route::get('/sitemap', 'HomeController@sitemap')->name('sitemap');
   Route::get('/gtu', 'HomeController@gtu')->name('gtu');
