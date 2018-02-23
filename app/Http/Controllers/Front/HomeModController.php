@@ -21,8 +21,17 @@ class HomeModController extends Controller
     public function __construct()
     {
         $this->middleware('mod');
-        $this->middleware('admin');
     }
+    public function allreportedcomments()
+    {
+      $reportedcomments = \DB::table('comments')->select('comments.id','comments.content','comments.id_user','comments.id_movie','comments.state','comments.created_at','comments.updated_at','users.name','movies.title','movies.imdb_id')->join('users', 'users.id', '=', 'comments.id_user')->join('movies', 'movies.id', '=', 'comments.id_movie')->where('state','=','waiting moderation')->get();
+      return view('front/mod/allreportedcomments', compact('reportedcomments'));
+    }
+
+
+
+
+
 
 
 
