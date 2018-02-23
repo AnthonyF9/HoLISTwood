@@ -601,6 +601,12 @@ color: #2a85e4;
   flex-direction: row;
   justify-content: space-between;
 }
+.comment .comment-list .edit-comment .last-update-comment {
+  font-size: 0.75em;
+}
+.comment .comment-list .edit-comment .last-update-comment p {
+  margin-top: 0;
+}
 .comment .comment-list .edit-comment a {
   color: #2A89EB;
 }

@@ -15,21 +15,6 @@ active @endsection
       </div>
 @endsection
 
-{{-- search --}}
-
-{{-- {!! Form::open(['route' => 'searchfrontmovies', 'method' => 'get'])  !!}
-        <div id="">
-            <div class="">
-                <input  type="text" name="research" class="" placeholder="Enter word" />
-                <span class="input-group-btn">
-                    <button  class="" type="submit">
-                      Search
-                    </button>
-                </span>
-            </div>
-        </div>
-{!! Form::close() !!} --}}
-
 <div class="searchbar">
   <input type="text" class="form-controller" id="searchmovies" name="searchmovies" placeholder="Search movies here"></input>
 </div>
