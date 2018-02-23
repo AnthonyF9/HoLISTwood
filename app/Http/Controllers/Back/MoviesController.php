@@ -165,14 +165,14 @@ class MoviesController extends Controller
     // Movie::findOrFail($id)->create($request->all());
     $traileralreadyexists = \DB::table('trailer')
                             ->join('movies', 'movies.id', '=', 'trailer.id_movie')
-                            ->where('trailer.url_trailer', '=', $request->trailer)
+                            ->where('trailer.id_movie', '=', $request->id_movie)
                             ->get();
     if (!isset($traileralreadyexists[0])) {
       $trailer[] = [
         'id_movie'  => $request->id_movie,
         'url_trailer' => $request->trailer
       ];
-      \DB::table('trailer')->where([['id_movie', '=', $id],['url_trailer', '=', '']])->update([
+      \DB::table('trailer')->where([['id_movie', '=', $request->id_movie],['url_trailer', '=', '']])->update([
         'id_movie'  => $id,
         'url_trailer' => $request->trailer
       ]);
@@ -180,10 +180,10 @@ class MoviesController extends Controller
     else {
       $trailersToOneMovie = \DB::table('trailer')
                   ->join('movies', 'movies.id', '=', 'trailer.id_movie')
-                  ->where('trailer.id_movie', '=', $id)
+                  ->where('trailer.id_movie', '=', $request->id_movie)
                   ->get();
       // return view('back/movies/add-trailers', compact('id', 'trailersToOneMovie'))->with('status', 'Trailer already exists');
-      return redirect()->route('addtrailers', compact('id', 'trailersToOneMovie'))->with('status-error', 'Trailer already exists');
+      return redirect()->route('addtrailerfornewmovie', compact('trailersToOneMovie'))->with('status-error', 'This movie ID already is in the movies trailers table');
     }
     return redirect()->route('movieslistrailers')->with('status', 'Trailer added');
   }
