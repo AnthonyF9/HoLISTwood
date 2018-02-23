@@ -57,4 +57,19 @@ $(document).ready(function() {
             console.log('mais ferme-là, bon sang !!!');
         }
     }
+
+
+    ////// Signaler un commentaire //////
+    
+
+
+
+
+
+
+
+
+
+
+
 });
