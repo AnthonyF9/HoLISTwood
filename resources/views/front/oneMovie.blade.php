@@ -171,7 +171,7 @@
     @foreach ($allcomments as $key => $onecomment)
       <div id="comment{{$onecomment->id}}" class="comment-list">
         <div class="one-comment">
-          <h4><span><span>{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</span>
+          <h4><span><span class="username">{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</span>
             @if (Auth::user() && Auth::user()->role != "banned")
               {{-- {{ dd($onecomment) }} --}}
               {!! Form::open(['route' => ['reportcomment', $imdb_id], 'method' => 'post']) !!}

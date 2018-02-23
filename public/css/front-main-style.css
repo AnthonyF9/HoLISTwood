@@ -607,7 +607,6 @@ color: #2a85e4;
   color: #2A89EB;
   font-size: 1em;
   height: 10px;
-  margin-top: 30px;
 }
 .comment .comment-list h4 .report:hover {
   color: red;
@@ -635,7 +634,7 @@ color: #2a85e4;
 .comment .comment-list .edit-comment input[type="submit"] {
   margin: 0 40%;
 }
-.comment .comment-list span {
+.comment .comment-list span.username {
   color: #2A89EB;
   font-size: 1.5em;
 }
@@ -746,6 +745,32 @@ color: #2a85e4;
 }
 .searchbar #searchmovies:focus {
   outline:  none;
+}
+
+/* About/staff */
+
+#about-group, #staff-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%
+}
+#about-group .about, #staff-group .staff {
+  background: white;
+  color: black;
+  margin: 5% auto;
+  padding: 10px;
+  border-radius: 10px;
+  width: 40%;
+  min-height: 150px;
+  text-align: center;
+}
+#about-group .about h4, #staff-group .staff h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+#about-group .about p, #staff-group .staff p {
+  margin: 10px auto;
 }
 
 
