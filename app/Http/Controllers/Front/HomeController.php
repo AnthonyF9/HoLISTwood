@@ -73,7 +73,7 @@ class HomeController extends Controller
 
     public function frontmovieslist()
     {
-      $movies = Movie::orderBy('title','asc')->where('moderation', '=', 'ok')->paginate(36);
+        $movies = Movie::orderBy('title','asc')->where('moderation', '=', 'ok')->paginate(42);
 
       return view('front/frontmovieslist', compact('movies'));
     }
