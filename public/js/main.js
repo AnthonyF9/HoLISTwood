@@ -59,17 +59,15 @@ $(document).ready(function() {
     }
 
 
-    ////// Signaler un commentaire //////
-    
-
-
-
-
-
-
-
-
-
+    // ////// Signaler un commentaire //////
+    $('.report').click(function(event) {
+      alert("hello");
+      console.log("hello");
+    });
+    // var report = document.getElementsByClassName("report")[0];
+    // report.onclick = function() {
+    //   alert("hello");
+    // }
 
 
 });
