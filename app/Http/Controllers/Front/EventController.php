@@ -44,7 +44,7 @@ class EventController extends Controller
                       // Add color and link on event
                     [
                         'color' => '#ee0401',
-                        'url' => route('oneMovie', array( 'imdb_id'=> $usermovie->imdb_id )),
+                        'url' => route('oneMovieAuth', array( 'imdb_id'=> $usermovie->imdb_id )),
                     ]
                   );
               }
@@ -58,7 +58,7 @@ class EventController extends Controller
                       // Add color and link on event
                     [
                         'color' => '#3A87AD',
-                        'url' => route('oneMovie', array( 'imdb_id'=> $movie->imdb_id )),
+                        'url' => route('oneMovieAuth', array( 'imdb_id'=> $movie->imdb_id )),
                     ]
                   );
               }
