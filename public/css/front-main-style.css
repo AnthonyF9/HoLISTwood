@@ -689,6 +689,23 @@ color: #2a85e4;
   padding: 17px;
 }
 
+/* Movie list */
+
+.affiches .pagination {
+  text-align: center;
+}
+.affiches .pagination ul li {
+  background: #73b3f2;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+#searchmovies {
+  margin: 10px auto;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 
 /* Responsive */
 

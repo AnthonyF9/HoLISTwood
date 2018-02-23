@@ -56,9 +56,9 @@ active @endsection
     </div>
      @endforeach
 
-
-
-
+     <div class="pagination">
+       <span id="paginationlinks" class="paginatemovieslist">{{ $movies->links() }}</span>
+     </div>
 
 </div>
 
