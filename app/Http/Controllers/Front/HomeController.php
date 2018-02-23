@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Movie;
 use App\Trailer;
 use App\MyList;
+use Auth;
 
 
 class HomeController extends Controller
@@ -59,7 +60,7 @@ class HomeController extends Controller
             if (!empty($rating)) { $moyrating = round(array_sum($rating)/count($rating),1); }
             else {  $moyrating = ''; }
             $allcomments = \DB::table('comments')
-                        ->select('comments.id_user','comments.id_movie','comments.content','comments.content','comments.created_at','comments.updated_at','users.name')
+                        ->select('comments.id','comments.id_user','comments.id_movie','comments.content','comments.content','comments.created_at','comments.updated_at','users.name')
                         ->join('movies', 'movies.id', '=', 'comments.id_movie')
                         ->join('users', 'users.id', '=', 'comments.id_user')
                         ->where('imdb_id','=',$imdb_id)
@@ -72,7 +73,7 @@ class HomeController extends Controller
 
     public function frontmovieslist()
     {
-      $movies = Movie::orderBy('title','asc')->where('moderation', '=', 'ok')->paginate(36);
+        $movies = Movie::orderBy('title','asc')->where('moderation', '=', 'ok')->paginate(42);
 
       return view('front/frontmovieslist', compact('movies'));
     }
@@ -89,10 +90,18 @@ class HomeController extends Controller
 
           if (!empty($movies[0])) {
 
+
+
         foreach ($movies as $movie) {
 
+          if (Auth::user()) {
+            $route = '<a href='. route('oneMovieAuth', array( 'imdb_id'=> $movie->imdb_id ))  .'>';
+          } else {
+            $route = '<a href='. route('oneMovie', array( 'imdb_id'=> $movie->imdb_id ))  .'>';
+          }
+
           $output.= '<div class="grid">'.
-                   '<a href='. route('oneMovieAuth', array( 'imdb_id'=> $movie->imdb_id ))  .'>'.
+                   $route.
                    '<figure data-aos="fade-up" class="effect-zoe">'.
                    '<img src=' .$movie->poster. 'alt=' .$movie->title. '/>'.
                    '<figcaption>'.

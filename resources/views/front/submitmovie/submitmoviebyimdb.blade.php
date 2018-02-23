@@ -21,7 +21,7 @@ active @endsection
   @else
     <div id="submitmovie-content">
       @if (Auth::user()->role != "banned")
-        <div class="imdb-link"><a href="http://www.imdb.com/?ref_=nv_home" target="_blank">You can fond IMDB here.</a></div>
+        <div class="imdb-link"><a href="http://www.imdb.com/?ref_=nv_home" target="_blank">You can find IMDB here.</a></div>
         {!! Form::open(['route' => 'findmoviebyimdb', 'method' => 'post']) !!}
           {!! Form::label('imdb', 'Imdb', ['class' => '']) !!}
           {!! Form::text('imdb', '', ['class' => '']) !!}

@@ -486,8 +486,8 @@ color: #2a85e4;
 
 #list-and-rating {
   background-color: #262626;
-  margin: 10px 5% 20px;
-  width: 80%;
+  margin: 10px auto 20px;
+  width: 70%;
   border-radius: 10px;
   padding: 10px 5%;
   display: flex;
@@ -687,6 +687,38 @@ color: #2a85e4;
 .icon-chevron-up:before {
   color:#fff;
   padding: 17px;
+}
+
+/* Movie list */
+
+.affiches .pagination {
+  text-align: center;
+}
+.affiches .pagination ul li {
+  background: #2A89EB;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.affiches .pagination ul.pagination li:active a, .affiches .pagination ul.pagination li:hover a, .affiches .pagination ul.pagination li span {
+  color: white;
+}
+.affiches .pagination ul.pagination li a {
+  color: black;
+}
+
+.searchbar {
+  width: 100%;
+  text-align: center;
+}
+.searchbar #searchmovies {
+  margin: 20px auto;
+  width: 200px;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+.searchbar #searchmovies:focus {
+  outline:  none;
 }
 
 

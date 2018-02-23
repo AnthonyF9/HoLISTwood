@@ -26,9 +26,9 @@ Route::group(['namespace' => 'Front'], function () {
   Route::get('/events', 'EventController@index')->name('events');   // le calendrier
 
   //vue d'un film, ajout à sa liste, notation
-  Route::get('/movie/{imdb_id}', 'HomeController@oneMovie')->name('oneMovie');
+  Route::get('/movie/{imdb_id}/view', 'HomeController@oneMovie')->name('oneMovie');
 
-  Route::get('/movie/{imdb_id}/view', 'HomeAuthController@oneMovieAuth')->name('oneMovieAuth');
+  Route::get('/movie/{imdb_id}', 'HomeAuthController@oneMovieAuth')->name('oneMovieAuth');
   Route::post('/movie/{imdb_id}/add-to-my-list', 'HomeAuthController@addtomylist')->name('addtomylist');
   Route::put('/movie/{imdb_id}/update-my-list', 'HomeAuthController@updateinmylist')->name('updateinmylist');
   Route::post('/movie/{imdb_id}/rating', 'HomeAuthController@rate')->name('rate');
@@ -53,6 +53,9 @@ Route::group(['namespace' => 'Front'], function () {
     Route::post('/submit-movie/add-by-imdb', 'HomeAuthController@findmoviebyimdb')->name('findmoviebyimdb');
     Route::get('/submit-movie/add-by-imdb', 'HomeAuthController@verifymoviebyimdb')->name('verifymoviebyimdb');
     Route::post('/submit-movie/save-movie-by-imdb', 'HomeAuthController@addmoviebyimdb')->name('addmoviebyimdb');
+
+  // pour les modo
+  Route::get('/mod/reported-comments/all', 'HomeModController@allreportedcomments');
 
   // autres routes
   Route::get('/contact', 'HomeController@contact')->name('contact');
@@ -85,11 +88,12 @@ Route::group(['namespace' => 'Back'], function () {
 
   Route::get('/dashboard/trailers/search', 'SearchController@searchMovieWithtrailer')->name('searchMovieWithtrailer');
   Route::get('/dashboard/trailers/trailers-list', 'MoviesController@movieslistrailers')->name('movieslistrailers');
-  Route::get('/dashboard/trailers/add-trailers/{id}', 'MoviesController@addtrailers')->where('id','[0-9]+')->name('addtrailers');
-  Route::post('/dashboard/trailers/add-trailers/{id}', 'MoviesController@addtraileraction')->where('id','[0-9]+')->name('addtraileraction');
 
-  Route::get('/dashboard/trailers/add-new-trailer', 'MoviesController@addtrailerfornewmovie')->where('id','[0-9]+')->name('addtrailerfornewmovie');
-  Route::post('/dashboard/trailers/add-new-trailer', 'MoviesController@addtrailerfornewmovieaction')->where('id','[0-9]+')->name('addtrailerfornewmovieaction');
+  Route::get('/dashboard/trailers/update-trailer/{id}', 'MoviesController@changetrailer')->where('id','[0-9]+')->name('changetrailer');
+  Route::put('/dashboard/trailers/update-trailer/{id}', 'MoviesController@changetraileraction')->where('id','[0-9]+')->name('changetraileraction');
+
+  Route::get('/dashboard/trailers/add-new-trailer', 'MoviesController@addtrailerfornewmovie')->name('addtrailerfornewmovie');
+  Route::post('/dashboard/trailers/add-new-trailer', 'MoviesController@addtrailerfornewmovieaction')->name('addtrailerfornewmovieaction');
 
   Route::get('/dashboard/add-imdb', 'MoviesController@addimdb')->name('addimdb');
   Route::post('/dashboard/add-movie', 'MoviesController@getimdb')->name('getimdb');

@@ -57,8 +57,7 @@ class MoviesTableSeeder extends Seeder
         'updated_at' => $date->format('Y-m-d H:i:s'),
       );
 
-
-    $movie[] = array (
+      $movies[] = array (
         'title'  => 'The Lord of the Rings: The Return of the King',
         'release_date' => null,
         'year' => 2003,

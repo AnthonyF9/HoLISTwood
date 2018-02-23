@@ -90,7 +90,9 @@
       @endif
     @else
       <div class="add-to-list">
-        <button type="button" name="button">You must log in to add this movie in your list.</button>
+        <a href="{{ route('login') }}">
+          <button type="button" name="button">You must log in to add this movie in your list.</button>
+        </a>
       </div><!-- .add-to-list -->
     @endif
     @if ( Auth::user() )
@@ -119,7 +121,9 @@
       @endif
     @else
       <div class="rating-zone">
-        <button type="button" name="button">You must log in to rate this movie.</button>
+        <a href="{{ route('login') }}">
+          <button type="button" name="button">You must log in to rate this movie.</button>
+        </a>
       </div>
     @endif
   </div><!-- #list-and-rating -->
@@ -129,13 +133,15 @@
     <p>{{ ucfirst($movie[0]->plot) }}</p>
   </div>
 
-@if (!empty($trailers[0]->url_trailer))
-  <div id="trailer">
-    <div class="rwd-trailer">
-      <iframe width = "917px" height="490px" src="{{$trailers[0]->url_trailer}}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+@if (isset($trailers[0]))
+  @if (!empty($trailers[0]->url_trailer))
+    <div id="trailer">
+      <div class="rwd-trailer">
+        <iframe width = "917px" height="490px" src="{{$trailers[0]->url_trailer}}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+      </div>
     </div>
-  </div>
-@else
+
+  @endif
 
 @endif
 
@@ -166,33 +172,40 @@
       <div id="comment{{$onecomment->id}}" class="comment-list">
         <div class="one-comment">
           <h4><span>{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</h4>
-        </div>
-        @if (is_object($thiscomment))
-          @if ($onecomment->id != $thiscomment[0]->id)
+          @if (isset($thiscomment) && is_object($thiscomment))
+            @if ($onecomment->id != $thiscomment[0]->id)
+              <p>{{ $onecomment->content }}</p>
+            @endif
+          @else
             <p>{{ $onecomment->content }}</p>
           @endif
-        @else
-          <p>{{ $onecomment->content }}</p>
-        @endif
-        <div class="edit-comment">
-          @if (Auth::user()  && Auth::user()->role != "banned")
-            @if (Auth::user()->id == $onecomment->id_user || Auth::user()->role == "admin" || Auth::user()->role == "mod")
-              @if (!is_object($thiscomment))
-                @php $idcomment = $onecomment->id @endphp
-                <a href="{{ route('updatecomment', [$imdb_id, $idcomment]) }}#comment{{$onecomment->id}}">Edit</a>
-              @else
-                @if ($onecomment->id == $thiscomment[0]->id)
-                  {!! Form::open(['route' => ['updatecommentaction', $imdb_id, $idcomment = $thiscomment[0]->id], 'method' => 'put']) !!}
-                    <textarea name="comment" rows="8" cols="80" placeholder="Let your comment here">{{ $thiscomment[0]->content }}</textarea>
-                    {!! $errors->first('comment','<div class="alert-error" role="alert">:message</div>') !!}
-                    <br/>
-                    {!! Form::submit("Save comment", ['class' => '']) !!}
-                  {!! Form::close() !!}
+        </div>
+        <div class="edit-infos">
+          <div class="last-update-comment">
+            @if ($onecomment->created_at != $onecomment->updated_at)
+              <p>Last edit the {{ $onecomment->updated_at }}</p>
+            @endif
+          </div>
+          <div class="edit-comment">
+            @if (Auth::user() && Auth::user()->role != "banned")
+              @if (Auth::user()->id == $onecomment->id_user || Auth::user()->role == "admin" || Auth::user()->role == "mod")
+                @if (!is_object($thiscomment))
+                  @php $idcomment = $onecomment->id @endphp
+                  <a href="{{ route('updatecomment', [$imdb_id, $idcomment]) }}#comment{{$onecomment->id}}">Edit</a>
+                @else
+                  @if ($onecomment->id == $thiscomment[0]->id)
+                    {!! Form::open(['route' => ['updatecommentaction', $imdb_id, $idcomment = $thiscomment[0]->id], 'method' => 'put']) !!}
+                      <textarea name="comment" rows="8" cols="80" placeholder="Let your comment here">{{ $thiscomment[0]->content }}</textarea>
+                      {!! $errors->first('comment','<div class="alert-error" role="alert">:message</div>') !!}
+                      <br/>
+                      {!! Form::submit("Save comment", ['class' => '']) !!}
+                    {!! Form::close() !!}
+                  @endif
                 @endif
               @endif
             @endif
-          @endif
-        </div>
+          </div><!-- .edit-comment -->
+        </div><!-- .edit-infos -->
       </div><!-- .comment-list -->
     @endforeach
   </div>
