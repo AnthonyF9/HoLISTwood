@@ -179,12 +179,12 @@
           @endif
         </div>
         <div class="edit-infos">
-          <div class="last-update-comment">
-            @if ($onecomment->created_at != $onecomment->updated_at)
-              <p>Last edit the {{ $onecomment->updated_at }}</p>
-            @endif
-          </div>
           <div class="edit-comment">
+            <div class="last-update-comment">
+              @if ($onecomment->created_at != $onecomment->updated_at)
+                <p>Last edit the {{ $onecomment->updated_at }}</p>
+              @endif
+            </div>
             @if (Auth::user() && Auth::user()->role != "banned")
               @if (Auth::user()->id == $onecomment->id_user || Auth::user()->role == "admin" || Auth::user()->role == "mod")
                 @if (!is_object($thiscomment))
