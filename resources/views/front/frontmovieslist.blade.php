@@ -16,7 +16,7 @@ active @endsection
 @endsection
 
 <div class="searchbar">
-  <input type="text" class="form-controller" id="searchmovies" name="searchmovies" placeholder="Search movies here"></input>
+  <input type="text" class="form-controller" id="searchmovies" name="searchmovies" placeholder="Find movies by title, year, actor, director..."></input>
 </div>
 
 <div class="affiches affichesfront" id="affichesfront">
@@ -41,6 +41,7 @@ active @endsection
       </a>
     </div>
      @endforeach
+
 
      <div class="pagination">
        <div id="paginationlinks" class="paginatemovieslist">{{ $movies->links() }}</div>
@@ -69,6 +70,16 @@ active @endsection
           success:function(response){
             console.log(response);
             $('#affichesfront').html(response.output);
+          }
+        });
+      } else if ($value.length == 0) {
+        $.ajax({
+          type : 'get',
+          url : '{{route('searchfrontmovies')}}',
+          data:{'search':$value},
+          success:function(response){
+            console.log(response);
+            $('#affichesfront').html(response.outputfull);
           }
         });
       }

@@ -83,10 +83,11 @@ class HomeController extends Controller
         if($request->ajax()){
 
         $output="";
+        $outputfull="";
 
-        $movies = \DB::table('movies')->where([['title', 'like', '%' . $request->search . '%'],['moderation', '=', 'ok']])->orWhere([['year', '=', $request->search ],['moderation', '=', 'ok']])->orderBy('created_at','desc')->paginate(7);
+        $movies = \DB::table('movies')->where([['title', 'like', '%' . $request->search . '%'],['moderation', '=', 'ok']])->orWhere([['year', '=', $request->search ],['moderation', '=', 'ok']])->orWhere([['actors', 'like', '%'.  $request->search .'%' ],['moderation', '=', 'ok']])->orWhere([['director', 'like', '%'.  $request->search .'%' ],['moderation', '=', 'ok']])->orderBy('created_at','desc')->get();
 
-
+        $moviesfull = Movie::orderBy('title','asc')->where('moderation', '=', 'ok')->paginate(42);
 
           if (!empty($movies[0])) {
 
@@ -110,9 +111,33 @@ class HomeController extends Controller
                    '</figure>'.
                    '</a>'.
                    '</div>';
-
-
            }
+
+           $outputfull.='<div class="pagination">'.
+                    '<div id="paginationlinks" class="paginatemovieslist">' .$moviesfull->links(). '</div>'.
+                    '</div>';
+
+           foreach ($moviesfull as $moviefull) {
+
+             if (Auth::user()) {
+               $routefull = '<a href='. route('oneMovieAuth', array( 'imdb_id'=> $moviefull->imdb_id ))  .'>';
+             } else {
+               $routefull = '<a href='. route('oneMovie', array( 'imdb_id'=> $moviefull->imdb_id ))  .'>';
+             }
+
+             $outputfull.=
+                      '<div class="grid">'.
+                      $routefull.
+                      '<figure data-aos="fade-up" class="effect-zoe">'.
+                      '<img src=' .$moviefull->poster. 'alt=' .$moviefull->title. '/>'.
+                      '<figcaption>'.
+                      '<h2>' .$moviefull->title. '</h2>'.
+                      '</figcaption>'.
+                      '</figure>'.
+                      '</a>'.
+                      '</div>';
+              }
+
 
 
         } else {
@@ -120,6 +145,7 @@ class HomeController extends Controller
         }
             return response()->json([
               'output' => $output,
+              'outputfull' => $outputfull,
             ]);
 
       }

@@ -716,7 +716,7 @@ color: #2a85e4;
 }
 .searchbar #searchmovies {
   margin: 20px auto;
-  width: 200px;
+  width: 300px;
   border: none;
   padding: 10px;
   border-radius: 10px;
@@ -732,12 +732,12 @@ color: #2a85e4;
 
   /* Single */
 
-  .grid figure img{
+  /* .grid figure img{
     display: inline;
   }
   .grid figure {
     min-width: 50px;
-  }
+  } */
 
   /* Single */
 
