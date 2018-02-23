@@ -30,8 +30,9 @@ active @endsection
         </div>
 {!! Form::close() !!} --}}
 
-<input type="text" class="form-controller" id="searchmovies" name="searchmovies"></input>
-
+<div class="searchbar">
+  <input type="text" class="form-controller" id="searchmovies" name="searchmovies" placeholder="Search movies here"></input>
+</div>
 
 <div class="affiches affichesfront" id="affichesfront">
 

@@ -695,15 +695,26 @@ color: #2a85e4;
   text-align: center;
 }
 .affiches .pagination ul li {
-  background: #73b3f2;
+  background: #2A89EB;
   padding: 5px 10px;
   border-radius: 10px;
 }
-#searchmovies {
-  margin: 10px auto;
+.affiches .pagination ul li a:active, .affiches .pagination ul li a:hover, .affiches .pagination ul li span {
+  color: #a2ccf6;
+}
+.searchbar {
+  width: 100%;
+  text-align: center;
+}
+.searchbar #searchmovies {
+  margin: 20px auto;
+  width: 200px;
   border: none;
   padding: 10px;
   border-radius: 10px;
+}
+.searchbar #searchmovies:focus {
+  outline:  none;
 }
 
 
