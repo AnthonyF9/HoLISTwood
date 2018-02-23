@@ -27,6 +27,7 @@ active @endsection
             <td>{{ $reportedcomment->name }}</td>
             <td>{{ $reportedcomment->title }}</td>
             <td>
+              <input type="submit" name="" value="Moderation is ok" class="view-comment">
               <input type="submit" name="" value="View in the page" class="view-comment">
               <input type="submit" name="" value="Delete" class="delete-comment">
             </td>
