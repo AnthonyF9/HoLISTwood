@@ -33,7 +33,7 @@
       {!! $errors->first('email','<div class="" role="alert">:message</div>') !!}
     </br>
       {!! Form::label('role', 'Role : ', ['class' => '']) !!}
-      {!! Form::select('role',['admin'=>'Admin','mod'=>'Moderator','user'=>'User','banned'=>'Banned']) !!}
+      {!! Form::select('role',['admin'=>'Admin','mod'=>'Moderator','user'=>'User','banned'=>'Banned'],$user->role) !!}
       {!! $errors->first('role','<div class="" role="alert">:message</div>') !!}
 
       {!! Form::submit("Edit", ['class' => 'btn btn-primary']) !!}

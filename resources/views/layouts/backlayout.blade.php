@@ -31,7 +31,7 @@
   					<ul>
   						<li class="transition_css"><a href="{{ route('movieslist') }}" class="@yield('activemovieslist')">Movies list</a></li>
   						<li class="transition_css"><a href="{{ route('addimdb') }}" class="@yield('activeaddimdb')">Add a movie</a></li>
-  						<li class="transition_css"><a href="{{ route('moderatemovieslist') }}" class="@yield('activemoderatemovieslist')">Moderate movies submitted by users</a></li>
+  						<li class="transition_css"><a href="{{ route('moderatemovieslist') }}" class="@yield('activemoderatemovieslist')">Moderate movies</a></li>
   						<li class="transition_css"><a href="{{ route('movieslistrailers') }}" class="@yield('activemovieslisttrailers')">Add trailers</a></li>
   					</ul>
   				</div>
