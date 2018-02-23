@@ -26,7 +26,10 @@ active @endsection
             <td>{{ $reportedcomment->content }}</td>
             <td>{{ $reportedcomment->name }}</td>
             <td>{{ $reportedcomment->title }}</td>
-            <td>Action man !</td>
+            <td>
+              <input type="submit" name="" value="View in the page" class="view-comment">
+              <input type="submit" name="" value="Delete" class="delete-comment">
+            </td>
           </tr>
         @endforeach
       </table>
