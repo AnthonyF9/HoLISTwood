@@ -37,7 +37,7 @@ active @endsection
 <div class="affiches affichesfront" id="affichesfront">
 
   <div class="pagination">
-    <span id="paginationlinks" class="paginatemovieslist">{{ $movies->links() }}</span>
+    <div id="paginationlinks" class="paginatemovieslist">{{ $movies->links() }}</div>
   </div>
 
     @foreach ($movies as $movie)
@@ -58,7 +58,7 @@ active @endsection
      @endforeach
 
      <div class="pagination">
-       <span id="paginationlinks" class="paginatemovieslist">{{ $movies->links() }}</span>
+       <div id="paginationlinks" class="paginatemovieslist">{{ $movies->links() }}</div>
      </div>
 
 </div>
