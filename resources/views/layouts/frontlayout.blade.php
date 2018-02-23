@@ -109,6 +109,9 @@
                   <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                     @endif
                   @endguest
+                  @if ( Auth::user()->role == 'mod' || Auth::user()->role == 'admin')
+                    <li><a class="@yield('activereportedcomments')" href="{{ route('allreportedcomments') }}">Reported comments</a></li>
+                  @endif
                 </ul><!-- #menu1 -->
               </div><!-- .menu-top -->
             </nav><!-- #large-screen -->
