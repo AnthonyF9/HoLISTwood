@@ -21,72 +21,73 @@ active @endsection
 
 <div class="affiches affichesfront" id="affichesfront">
 
-  <div class="pagination">
-    <div id="paginationlinks" class="paginatemovieslist">{{ $movies->links() }}</div>
+
+    <div class="pagination">
+      <div id="paginationlinks" class="paginatemovieslist">{{ $movies->links() }}</div>
+    </div>
+
+      @foreach ($movies as $movie)
+      <div class="grid">
+        @if (Auth::user())
+          <a href="{{ route('oneMovieAuth', array( 'imdb_id'=> $movie->imdb_id )) }}">
+        @else
+          <a href="{{ route('oneMovie', array( 'imdb_id'=> $movie->imdb_id )) }}">
+        @endif
+        <figure data-aos="fade-up" class="effect-zoe">
+          <img src="{{$movie->poster}}" alt="{{$movie->title}}"/>
+          <figcaption>
+            <h2>{{$movie->title}}</h2>
+          </figcaption>
+        </figure>
+        </a>
+      </div>
+       @endforeach
+
+       <div class="pagination">
+         <div id="paginationlinks" class="paginatemovieslist">{{ $movies->links() }}</div>
+       </div>
+
   </div>
 
-    @foreach ($movies as $movie)
-    <div class="grid">
-      @if (Auth::user())
-        <a href="{{ route('oneMovieAuth', array( 'imdb_id'=> $movie->imdb_id )) }}">
-      @else
-        <a href="{{ route('oneMovie', array( 'imdb_id'=> $movie->imdb_id )) }}">
-      @endif
-      <figure data-aos="fade-up" class="effect-zoe">
-        <img src="{{$movie->poster}}" alt="{{$movie->title}}"/>
-        <figcaption>
-          <h2>{{$movie->title}}</h2>
-        </figcaption>
-      </figure>
-      </a>
-    </div>
-     @endforeach
-
-
-     <div class="pagination">
-       <div id="paginationlinks" class="paginatemovieslist">{{ $movies->links() }}</div>
-     </div>
-
-</div>
-
-@section('js')
-
-  <script type="text/javascript">
-
-  $.ajaxSetup({
-      headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-  });
-</script>
-  <script type="text/javascript">
-    $('#searchmovies').on('keyup',function(){
-      $value=$(this).val();
-      if($value.length>= 3){
-        $.ajax({
-          type : 'get',
-          url : '{{route('searchfrontmovies')}}',
-          data:{'search':$value},
-          success:function(response){
-            console.log(response);
-            $('#affichesfront').html(response.output);
+  @section('js')
+    <script type="text/javascript">
+      $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           }
         });
-      } else if ($value.length == 0) {
-        $.ajax({
-          type : 'get',
-          url : '{{route('searchfrontmovies')}}',
-          data:{'search':$value},
-          success:function(response){
-            console.log(response);
-            $('#affichesfront').html(response.outputfull);
+        </script>
+        <script type="text/javascript">
+        $('#searchmovies').on('keyup',function(){
+          $value=$(this).val();
+          if($value.length>= 3){
+            $.ajax({
+              type : 'get',
+              url : '{{route('searchfrontmovies')}}',
+              data:{'search':$value},
+              success:function(response){
+                console.log(response);
+                $('#affichesfront').html(response.output);
+              }
+            });
+          } else if ($value.length == 0) {
+            $.ajax({
+              type : 'get',
+              url : '{{route('searchfrontmovies')}}',
+              data:{'search':$value},
+              success:function(response){
+                console.log(response);
+                $('#affichesfront').html(response.outputfull);
+              }
+            });
           }
-        });
-      }
-    })
+        })
 
-  </script>
 
-@endsection
+
+
+
+    </script>
+  @endsection
 
 @endsection

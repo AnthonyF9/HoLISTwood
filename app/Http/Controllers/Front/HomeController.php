@@ -60,10 +60,10 @@ class HomeController extends Controller
             if (!empty($rating)) { $moyrating = round(array_sum($rating)/count($rating),1); }
             else {  $moyrating = ''; }
             $allcomments = \DB::table('comments')
-                        ->select('comments.id','comments.id_user','comments.id_movie','comments.content','comments.content','comments.created_at','comments.updated_at','users.name')
+                        ->select('comments.state','comments.id','comments.id_user','comments.id_movie','comments.content','comments.content','comments.created_at','comments.updated_at','users.name')
                         ->join('movies', 'movies.id', '=', 'comments.id_movie')
                         ->join('users', 'users.id', '=', 'comments.id_user')
-                        ->where('imdb_id','=',$imdb_id)
+                        ->where([['imdb_id','=',$imdb_id],['state','!=','deleted']])
                         ->orderBy('created_at','DESC')
                         ->get();
             return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'allcomments'));
@@ -79,9 +79,7 @@ class HomeController extends Controller
     }
 
     public function searchfrontmovies(Request $request) {
-
-        if($request->ajax()){
-
+      if($request->ajax()){
         $output="";
         $outputfull="";
 
@@ -148,12 +146,12 @@ class HomeController extends Controller
               'outputfull' => $outputfull,
             ]);
 
-      }
     }
+  }
 
-    public function contact()
+    public function about()
     {
-        return view('front/contact');
+        return view('front/about');
     }
 
     public function staff()

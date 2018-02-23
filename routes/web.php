@@ -39,6 +39,8 @@ Route::group(['namespace' => 'Front'], function () {
   Route::get('/movie/{imdb_id}/comment/update-number-{idcomment}', 'HomeAuthController@updatecomment')->name('updatecomment');
   Route::get('/movie/{imdb_id}/comment/edit-number-{idcomment}', 'HomeAuthController@oneMovieAuthEditComment')->name('oneMovieAuthEditComment');
   Route::put('/movie/{imdb_id}/comment/update-number-{idcomment}/go', 'HomeAuthController@updatecommentaction')->name('updatecommentaction');
+  // signaler un commentaire
+  Route::post('/movie/{imdb_id}/report-comment', 'HomeAuthController@reportcomment')->name('reportcomment');
 
   // la page profile
   Route::get('/profile', 'HomeAuthController@profile')->name('profile');
@@ -55,10 +57,11 @@ Route::group(['namespace' => 'Front'], function () {
     Route::post('/submit-movie/save-movie-by-imdb', 'HomeAuthController@addmoviebyimdb')->name('addmoviebyimdb');
 
   // pour les modo
-  Route::get('/mod/reported-comments/all', 'HomeModController@allreportedcomments');
+  Route::get('/mod/reported-comments/all', 'HomeModController@allreportedcomments')->name('allreportedcomments');
 
   // autres routes
   Route::get('/contact', 'HomeController@contact')->name('contact');
+  Route::get('/about', 'HomeController@about')->name('about');
   Route::get('/staff', 'HomeController@staff')->name('staff');
   Route::get('/sitemap', 'HomeController@sitemap')->name('sitemap');
   Route::get('/gtu', 'HomeController@gtu')->name('gtu');
