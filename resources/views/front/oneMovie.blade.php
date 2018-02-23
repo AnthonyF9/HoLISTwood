@@ -140,7 +140,9 @@
         <iframe width = "917px" height="490px" src="{{$trailers[0]->url_trailer}}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
       </div>
     </div>
+
   @endif
+
 @endif
 
 

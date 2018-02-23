@@ -93,9 +93,14 @@
 }
 
 .affichesfront .grid figure figcaption h2 {
-	font-size: 0.9em;
+	font-size: 0.8em;
 }
 
+.affichesfront {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 
 
 
