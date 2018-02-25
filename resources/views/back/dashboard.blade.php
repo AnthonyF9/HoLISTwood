@@ -12,4 +12,7 @@
   Most ad-listed movies
   <br/>
   Most active users in comments
+  <br/>
+
+  <h1>There are actually <b>{{ $totalmovies }}</b> movies on Holistwood !</h2>
 @endsection

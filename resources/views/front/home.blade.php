@@ -21,10 +21,9 @@ active @endsection
 
 @section('content')
 
-
   <div id="trailer">
     <div class="bandeau-trailer">
-      <h2> trailers </h2>
+      <h2> {{$titre}} </h2>
     </div>
 
       <div class="rwd-trailer">

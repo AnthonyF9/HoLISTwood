@@ -19,6 +19,10 @@ class DashboardController extends Controller
   }
   public function dashboard()
   {
-      return view('back/dashboard');
+      $movies = Movie::where('moderation', '=', 'ok')->get();
+      $totalmovies = count($movies);
+
+
+      return view('back/dashboard',compact('totalmovies'));
   }
 }

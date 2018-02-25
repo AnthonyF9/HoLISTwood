@@ -26,19 +26,41 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
       $movies = Movie::inRandomOrder()->where('moderation', '=', 'ok')->limit(12)->get();
 
       $trailers = \DB::table('movies')
                   ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
                   ->where('url_trailer', '!=', '')
+                  ->where('release_date', '>=', \DB::raw('CURDATE()'))
                   ->get();
 
       $count = count($trailers) - 1;
       $randomid = rand(0, $count);
+      $titre = 'coming soon';
 
-        return view('front/home',compact('movies','trailers', 'randomid'));
+      // dd($count);
+
+      if ($count < 0) {
+
+        $trailers = \DB::table('movies')
+                    ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
+                    ->where('url_trailer', '!=', '')
+                    ->get();
+
+        $count = count($trailers) - 1;
+        $randomid = mt_rand(0, $count);
+        $titre = 'trailers';
+
+        // $request->session()->put('randomid', $randomid);
+        // $value = $request->session()->get('randomid');
+
+
+        return view('front/home',compact('movies','trailers', 'randomid', 'titre'));
+      }
+
+        return view('front/home',compact('movies','trailers', 'randomid', 'titre'));
     }
 
     public function oneMovie($imdb_id)
@@ -83,9 +105,10 @@ class HomeController extends Controller
         $output="";
         $outputfull="";
 
-        $movies = \DB::table('movies')->where([['title', 'like', '%' . $request->search . '%'],['moderation', '=', 'ok']])->orWhere([['year', '=', $request->search ],['moderation', '=', 'ok']])->orWhere([['actors', 'like', '%'.  $request->search .'%' ],['moderation', '=', 'ok']])->orWhere([['director', 'like', '%'.  $request->search .'%' ],['moderation', '=', 'ok']])->orderBy('created_at','desc')->get();
+        $movies = \DB::table('movies')->where([['title', 'like', '%' . $request->search . '%'],['moderation', '=', 'ok']])->orWhere([['year', '=', $request->search ],['moderation', '=', 'ok']])->orWhere([['actors', 'like', '%'.  $request->search .'%' ],['moderation', '=', 'ok']])->orWhere([['director', 'like', '%'.  $request->search .'%' ],['moderation', '=', 'ok']])->orderBy('year','asc')->get();
 
         $moviesfull = Movie::orderBy('title','asc')->where('moderation', '=', 'ok')->paginate(42);
+        $moviesfull->withPath('movies-list'); // Précise l'url de la pagination ( sans ça les liens de la pagination en ajax ne marchait pas )
 
           if (!empty($movies[0])) {
 
@@ -136,6 +159,9 @@ class HomeController extends Controller
                       '</div>';
               }
 
+              $outputfull.='<div class="pagination">'.
+                       '<div id="paginationlinks" class="paginatemovieslist">' .$moviesfull->links(). '</div>'.
+                       '</div>';
 
 
         } else {

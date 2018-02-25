@@ -63,7 +63,13 @@ class EventController extends Controller
                   );
               }
           }
-          // dd($events);
+           // dd($events);
+           // $test = array_get($events, '0.options.color');
+           // dd($test);
+
+
+          // $no_dupes_array = array_unique($events);print_r($no_dupes_array); echo'<br />';
+
 
 
           $calendar = Calendar::addEvents($events);
