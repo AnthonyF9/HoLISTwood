@@ -5,6 +5,12 @@ $(document).ready(function() {
   $('input[type="submit"]').on('mouseover',function () {
     $(this).css({'cursor':'pointer'})
   });
+  $('span#myBtn').on('mouseover',function () {
+    $(this).css({'cursor':'pointer'})
+  });
+  $('span#myBtn-bis').on('mouseover',function () {
+    $(this).css({'cursor':'pointer'})
+  });
 
 
   /* Scroll to Top */
@@ -21,7 +27,7 @@ $(document).ready(function() {
       }, 900);
   });
 
-  ////// Signaler un commentaire //////
+  // ////// Signaler un commentaire //////
   $('.report').click(function(event) {
     alert("This comment is reported.");
     console.log("This comment is reported.");
@@ -48,9 +54,9 @@ $(document).ready(function() {
     btn.onclick = function() {
         modal.style.display = "block";
     }
-    // nodelete.onclick = function() {
-    //     modal.style.display = "none";
-    // }
+    nodelete.onclick = function() {
+        modal.style.display = "none";
+    }
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
       // console.log('ferme-là !');

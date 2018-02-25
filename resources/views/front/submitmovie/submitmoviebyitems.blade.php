@@ -22,15 +22,19 @@ active @endsection
     <div id="submitmovie-content">
       @if (Auth::user()->role != "banned")
         {!! Form::open(['route' => 'submitmovie-action', 'method' => 'post']) !!}
-          {!! Form::label('title', 'Title', ['class' => '']) !!}
-          {!! Form::text('title', '', ['class' => '']) !!}
-          {!! $errors->first('title','<div class="alert-error" role="alert">:message</div>') !!}
-        </br>
-          {!! Form::label('year', 'Year', ['class' => '']) !!}
-          {!! Form::text('year', '', ['class' => '']) !!}
-          {!! $errors->first('year','<div class="alert-error" role="alert">:message</div>') !!}
-
-          {!! Form::submit("Submit", ['class' => 'btn btn-primary']) !!}
+          <p class="formulaire">
+            {!! Form::label('title', 'Title', ['class' => '']) !!}
+            {!! Form::text('title', '', ['class' => '']) !!}
+          </p>
+            {!! $errors->first('title','<div class="alert-error" role="alert">:message</div>') !!}
+          <p class="formulaire">
+            {!! Form::label('year', 'Year', ['class' => '']) !!}
+            {!! Form::text('year', '', ['class' => '']) !!}
+          </p>
+            {!! $errors->first('year','<div class="alert-error" role="alert">:message</div>') !!}
+          <p class="formulaire">
+            {!! Form::submit("Submit", ['class' => 'btn btn-primary']) !!}
+          </p>
         {!! Form::close() !!}
       @else
         <div class="banned-error">

@@ -152,10 +152,13 @@
       @if (Auth::user()->role != "banned")
         @if (!is_object($thiscomment))
           {!! Form::open(['route' => ['postcomment',$imdb_id], 'method' => 'post']) !!}
-            <textarea name="comment" rows="8" cols="80" placeholder="Let your comment here"></textarea>
-            {!! $errors->first('comment','<div class="alert-error" role="alert">:message</div>') !!}
-            <br/>
-            {!! Form::submit("Comment it", ['class' => '']) !!}
+            <p class="formulaire">
+              <textarea name="comment" rows="8" cols="80" placeholder="Let your comment here"></textarea>
+            </p>
+              {!! $errors->first('comment','<div class="alert-error" role="alert">:message</div>') !!}
+            <p class="formulaire">
+              {!! Form::submit("Comment it", ['class' => '']) !!}
+            </p>
           {!! Form::close() !!}
         @endif
       @else
@@ -171,15 +174,14 @@
     @foreach ($allcomments as $key => $onecomment)
       <div id="comment{{$onecomment->id}}" class="comment-list">
         <div class="one-comment">
-          <h4><span><span class="username">{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</span>
+          <div class="headline"><span><span class="username">{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</span>
             @if (Auth::user() && Auth::user()->role != "banned")
-              {{-- {{ dd($onecomment) }} --}}
-              {!! Form::open(['route' => ['reportcomment', $imdb_id], 'method' => 'post']) !!}
+              {{ Form::open(['route' => ['reportcomment', $imdb_id],'method' => 'post']) }}
                 {!! Form::hidden('id', $onecomment->id) !!}
-                {!! Form::submit("Report", ['class' => 'report','id' => 'report'.$onecomment->id]) !!}
-              {!! Form::close() !!}
+                {!! Form::submit('Report', ['class' => 'report report'.$onecomment->id]) !!}
+              {{ Form::close() }}
             @endif
-          </h4>
+          </div><!-- .headline -->
           @if (isset($thiscomment) && is_object($thiscomment))
             @if ($onecomment->id != $thiscomment[0]->id)
               <p>{{ $onecomment->content }}</p>
@@ -198,17 +200,20 @@
               @endif
             </div>
             @if (Auth::user() && Auth::user()->role != "banned")
-              @if (Auth::user()->id == $onecomment->id_user || Auth::user()->role == "admin" || Auth::user()->role == "mod")
+              @if (Auth::user()->id == $onecomment->id_user || Auth::user()->role == "admin" || Auth::user()->role == "mod" && $onecomment->state != "deleted")
                 @if (!is_object($thiscomment))
                   @php $idcomment = $onecomment->id @endphp
                   <a href="{{ route('updatecomment', [$imdb_id, $idcomment]) }}#comment{{$onecomment->id}}">Edit</a>
                 @else
                   @if ($onecomment->id == $thiscomment[0]->id)
                     {!! Form::open(['route' => ['updatecommentaction', $imdb_id, $idcomment = $thiscomment[0]->id], 'method' => 'put']) !!}
-                      <textarea name="comment" rows="8" cols="80" placeholder="Let your comment here">{{ $thiscomment[0]->content }}</textarea>
-                      {!! $errors->first('comment','<div class="alert-error" role="alert">:message</div>') !!}
-                      <br/>
-                      {!! Form::submit("Save comment", ['class' => '']) !!}
+                      <p class="formulaire">
+                        <textarea name="comment" rows="8" cols="80" placeholder="Let your comment here">{{ $thiscomment[0]->content }}</textarea>
+                      </p>
+                        {!! $errors->first('comment','<div class="alert-error" role="alert">:message</div>') !!}
+                      <p class="formulaire">
+                        {!! Form::submit("Save comment", ['class' => '']) !!}
+                      </p>
                     {!! Form::close() !!}
                   @endif
                 @endif

@@ -4,7 +4,7 @@
   Edit one user - HOLISTWOOD
 @endsection
 
-@section('activeuserslist','active')
+@section('activeusersreported','active')
 
 @section('content-alpha')
   <div class="part">
@@ -22,16 +22,16 @@
   <div class="part">
     <h2> Edit <b>{{ $user->name }}</b> </h2>
 
-    {!! Form::open(['route' => ['edituser-action', $id], 'method' => 'put']) !!}
+    {!! Form::open(['route' => ['edituserreported-action', $id], 'method' => 'put']) !!}
       <p class="formulaire">
         {!! Form::label('name', 'Name : ', ['class' => '']) !!}
         {!! Form::text('name', $user->name, ['placeholder' => 'Name', 'class' => '']) !!}
-      </p>  
+      </p>
         {!! $errors->first('name','<div class="" role="alert">:message</div>') !!}
       <p class="formulaire">
         {!! Form::label('email', 'Email : ', ['class' => '']) !!}
         {!! Form::text('email', $user->email, ['placeholder' => 'ex : john.doe@gmail.com', 'class' => '']) !!}
-      </p>  
+      </p>
         {!! $errors->first('email','<div class="" role="alert">:message</div>') !!}
       <p class="formulaire">
         {!! Form::label('role', 'Role : ', ['class' => '']) !!}

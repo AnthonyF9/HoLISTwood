@@ -30,17 +30,19 @@
     @endif
 
     {!! Form::open(['route' => 'addtrailerfornewmovieaction', 'method' => 'post']) !!}
-
-      {!! Form::label('id_movie', 'Movie ID : ', ['class' => '']) !!}
-      {!! Form::number('id_movie', null, ['placeholder' => 'Movie ID here', 'class' => 'trailer']) !!}
-      {!! $errors->first('id_movie','<div class="alert-error" role="alert">:message</div>') !!}
-    </br>
-      {!! Form::label('trailer', 'Trailer : ', ['class' => '']) !!}
-      {!! Form::text('trailer', null, ['placeholder' => 'Trailer url with "embed" in the url', 'class' => 'trailer']) !!}
-      {!! $errors->first('trailer','<div class="alert-error" role="alert">:message</div>') !!}
-    </br>
-
-      {!! Form::submit("Add trailer", ['class' => 'btn btn-primary']) !!}
+      <p class="formulaire">
+        {!! Form::label('id_movie', 'Movie ID : ', ['class' => '']) !!}
+        {!! Form::number('id_movie', null, ['placeholder' => 'Movie ID here', 'class' => 'trailer']) !!}
+      </p>
+        {!! $errors->first('id_movie','<div class="alert-error" role="alert">:message</div>') !!}
+      <p class="formulaire">
+        {!! Form::label('trailer', 'Trailer : ', ['class' => '']) !!}
+        {!! Form::text('trailer', null, ['placeholder' => 'Trailer url with "embed" in the url', 'class' => 'trailer']) !!}
+      </p>
+        {!! $errors->first('trailer','<div class="alert-error" role="alert">:message</div>') !!}
+      <p class="formulaire">
+        {!! Form::submit("Add trailer", ['class' => 'btn btn-primary']) !!}
+      </p>
     {!! Form::close() !!}
 
   </div>

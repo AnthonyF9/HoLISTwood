@@ -595,20 +595,23 @@ color: #2a85e4;
   border-radius: 10px;
   margin: 0 auto;
 }
-.comment .comment-list h4 {
+.comment .comment-list .headline {
   border-bottom: 1px white solid;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.comment .comment-list h4 .report {
+.comment .comment-list .headline form input[type="submit"].report {
   background: transparent;
-  border: none;
+  text-align: right;
   color: #2A89EB;
   font-size: 1em;
-  height: 10px;
+  margin: none;
+  padding: 15px 0;
+  text-transform: none;
+  font-weight: normal;
 }
-.comment .comment-list h4 .report:hover {
+.comment .comment-list .headline .report:hover {
   color: red;
 }
 .comment .comment-list .edit-comment {

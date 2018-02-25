@@ -22,12 +22,18 @@
   					<h3><a href="{{ route('dashboard') }}" class="@yield('activedashboard')">Dashboard home</a></h3>
   				</div>
   				<div id="main_menu_nav_part2" class="main_menu_nav_part">
-  					<h3><a href="{{ route('userslist') }}" class="@yield('activeuserslist')">Users</a></h3>
+            <h3 class="@yield('activeuserslist') @yield('activeusersreported')">Users</h3>
+            <input type="checkbox" id="cb_users" />
+            <label for="cb_users"></label>
+            <ul>
+  						<li class="transition_css"><a href="{{ route('userslist') }}" class="@yield('activeuserslist')">Users list</a></li>
+              <li class="transition_css"><a href="{{ route('usersreported') }}" class="@yield('activeusersreported')">Users reported</a></li>
+  					</ul>
   				</div>
   				<div id="main_menu_nav_part3" class="main_menu_nav_part">
   					<h3 class="@yield('activemovieslist') @yield('activeaddimdb') @yield('activemoderatemovieslist') @yield('activemovieslisttrailers')">Movies</h3>
-  					<input type="checkbox" id="cb_tutorials" />
-  					<label for="cb_tutorials"></label>
+  					<input type="checkbox" id="cb_movies" />
+  					<label for="cb_movies"></label>
   					<ul>
   						<li class="transition_css"><a href="{{ route('movieslist') }}" class="@yield('activemovieslist')">Movies list</a></li>
   						<li class="transition_css"><a href="{{ route('addimdb') }}" class="@yield('activeaddimdb')">Add a movie</a></li>
