@@ -32,13 +32,14 @@
     @endif
 
     {!! Form::open(['route' => ['changetraileraction', $id], 'method' => 'put']) !!}
-
-      {!! Form::label('trailer', 'Trailer : ', ['class' => '']) !!}
-      {!! Form::textarea('trailer', $trailersToOneMovie[0]->url_trailer, ['placeholder' => 'Trailer url with "embed" in the url', 'class' => 'trailer']) !!}
-      {!! $errors->first('trailer','<div class="alert-error" role="alert">:message</div>') !!}
-    </br>
-
-      {!! Form::submit("Add trailer", ['class' => 'btn btn-primary']) !!}
+      <p class="formulaire">
+        {!! Form::label('trailer', 'Trailer : ', ['class' => '']) !!}
+        {!! Form::textarea('trailer', $trailersToOneMovie[0]->url_trailer, ['placeholder' => 'Trailer url with "embed" in the url', 'class' => 'trailer']) !!}
+      </p>
+        {!! $errors->first('trailer','<div class="alert-error" role="alert">:message</div>') !!}
+      <p class="formulaire">
+        {!! Form::submit("Add trailer", ['class' => 'btn btn-primary']) !!}
+      </p>
     {!! Form::close() !!}
 
   </div>
