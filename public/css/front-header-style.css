@@ -33,6 +33,9 @@ header {
   background-color: #212121;
   min-height: 100px;
 }
+/* .small-wrapper {
+  max-width: 1300px;
+} */
 header h1 a {
   text-transform: uppercase;
   font-size: 2em;
@@ -540,9 +543,8 @@ header #bottom-menu #menu2 li button:hover{
   {
     position: absolute;
     width: 100%;
-    margin: -130px 0 0 -80px;
-    padding: 50px;
-    padding-top: 125px;
+    margin: -130px 0 0 -10%;
+    padding: 125px 0 50px 12%;
     background: rgba(0,0,0,0.7);
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
