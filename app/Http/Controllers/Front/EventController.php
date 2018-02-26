@@ -34,6 +34,7 @@ class EventController extends Controller
           $events = [];
           $data = Event::all();
           if($data->count()) {
+              $moveinmylist = [];
               foreach ($usermovies as $key => $usermovie) {
                   $events[] = Calendar::event(
                       $usermovie->title,
@@ -47,8 +48,10 @@ class EventController extends Controller
                         'url' => route('oneMovieAuth', array( 'imdb_id'=> $usermovie->imdb_id )),
                     ]
                   );
+                  $moveinmylist[] = $usermovie->title;
               }
               foreach ($movies as $key => $movie) {
+                if (in_array($movie->title,$moveinmylist) == FALSE) {
                   $events[] = Calendar::event(
                       $movie->title,
                       true,
@@ -61,6 +64,8 @@ class EventController extends Controller
                         'url' => route('oneMovieAuth', array( 'imdb_id'=> $movie->imdb_id )),
                     ]
                   );
+                }
+
               }
           }
            // dd($events);
