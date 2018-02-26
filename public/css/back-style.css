@@ -206,6 +206,27 @@ main {
   width: 100%;
   color: black;
 }
+#stats h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+#stats .stats-zone {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px auto;
+}
+#stats .stats-zone h2 {
+  font-weight: bold;
+}
+#stats .stats-zone h2 b {
+  color: #07B5DA;
+}
+#stats .stats-zone ul li b {
+  color: #07B5DA;
+}
+
+/* Le nivigateur */
 #nav-movies {
   background: #212529;
   padding: 5px;
