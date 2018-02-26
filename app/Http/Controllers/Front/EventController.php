@@ -80,7 +80,8 @@ class EventController extends Controller
 
           $calendar = Calendar::addEvents($events);
           // dd($calendar);
-          return view('front/fullcalender', compact('calendar','nbcomm'));
+          $mostaddlistedmovies = $this->mostaddlistedmovies();
+          return view('front/fullcalender', compact('calendar','nbcomm','mostaddlistedmovies'));
 
        } else {
          // si personne n'est connecté on affiche tous les films qui ont une release date de la base de données
@@ -108,10 +109,24 @@ class EventController extends Controller
        }
        $calendar = Calendar::addEvents($events);
        // dd($calendar);
-       return view('front/fullcalender', compact('calendar','nbcomm'));
+       $mostaddlistedmovies = $this->mostaddlistedmovies();
+       return view('front/fullcalender', compact('calendar','nbcomm','mostaddlistedmovies'));
 
 
 
      }
+   }
+
+
+
+
+   public function mostaddlistedmovies()
+   {
+     $mostaddlistedmovies = \DB::table('mylist')
+                           ->join('movies', 'movies.id', '=', 'mylist.movie_id')
+                           ->groupBy('title')
+                           ->orderBy('count','DESC')
+                           ->get(['title', \DB::raw('count(title) as count')]);
+     return $mostaddlistedmovies;
    }
 }

@@ -214,24 +214,24 @@
               </a>
             </p>
             </span>
-            <p>Quo illis ex dotis matrimonii eos fuga statum illis uterque tabernaculum marito semper venerem illis ad fuga et est est.</p>
+            <p>Holistwood is an active online movie community and database. Join the online community, create your movie list, explore the comments section, follow news, and so much more!</p>
           </div>
 
+          @if (isset($mostaddlistedmovies[0]))
+            <div class="views">
+              <h4>Most added movies</h4>
+              <ul>
+                @foreach ($mostaddlistedmovies as $key => $value)
+                  @if ($key < 3)
+                    <li>{{ $value->title }} : add {{ $value->count }} @if ($value->count > 1) times. @else time. @endif</li>
+                  @endif
+                @endforeach
+              </ul>
+            </div>
+          @endif
 
-
-          <div class="views">
-            <h4>3 best viewed pages</h4>
-            <ul>
-              <li>Movie one - xxx views</li>
-              <li>Movie two - xxx views</li>
-              <li>Movie three - xxx views</li>
-            </ul>
-          </div>
-          <div class="search">
-            <p>search</p>
-          </div>
         </div>
-
+        
         <div id="footer-bottom">
           <div class="copyright">
             <ul>

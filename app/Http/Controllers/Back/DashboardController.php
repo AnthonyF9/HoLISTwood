@@ -25,12 +25,12 @@ class DashboardController extends Controller
                             ->join('movies', 'movies.id', '=', 'mylist.movie_id')
                             ->groupBy('title')
                             ->orderBy('count','DESC')
-                            ->get(['title', DB::raw('count(title) as count')]);
+                            ->get(['title', \DB::raw('count(title) as count')]);
       $mostactiveusersincomments = \DB::table('comments')
                                     ->join('users', 'users.id', '=', 'comments.id_user')
                                     ->groupBy('name')
                                     ->orderBy('count','DESC')
-                                    ->get(['name', DB::raw('count(name) as count')]);
+                                    ->get(['name', \DB::raw('count(name) as count')]);
       return view('back/dashboard',compact('totalmovies','mostaddlistedmovies','mostactiveusersincomments'));
   }
 }

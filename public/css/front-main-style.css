@@ -40,9 +40,6 @@ main {
   -webkit-transition:.5s;
   transition:.5s;
 }
-#submitmovie-content .imdb-link a:visited {
-  /* color: white; */
-}
 #submitmovie-content .imdb-link a:hover {
   color: #73b3f2;
 }
