@@ -99,7 +99,6 @@ footer #footer-bottom .copyright {
   width: 60%;
   text-align: left;
 }
-
 /*footer logo holistwood*/
 #anim-p-footer {
 	text-transform: uppercase;
@@ -140,6 +139,7 @@ footer #footer-bottom .copyright {
   -webkit-backface-visibility: hidden;
 
 }
+
 
 /* -le Responsive- */
 @media (max-width: 950px) {
