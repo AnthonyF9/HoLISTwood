@@ -238,9 +238,9 @@
               <li>&copy;Holistwood</li>
               <li><a href="{{ route('about') }}">About</a></li>
               <li><a href="{{ route('staff') }}">Staff</a></li>
-              <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
-              <li><a href="{{ route('gtu') }}">GTU</a></li>
-              <li><a href="{{ route('charter') }}">Charter</a></li>
+              <li><a href="#">Sitemap</a></li>
+              <li><a href="#">GTU</a></li>
+              <li><a href="#">Charter</a></li>
             </ul>
           </div>
 

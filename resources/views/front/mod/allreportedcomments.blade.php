@@ -9,12 +9,12 @@ active @endsection
 
 @section('content')
 
-  <div>
+  <div id="report-comment">
     <h1>Reported comments</h1>
     @if (isset($reportedcomments))
       <table>
         <tr>
-          <th>ID comment</th>
+          <th>#</th>
           <th>Comment</th>
           <th>User reported</th>
           <th>User reportman</th>
@@ -45,7 +45,7 @@ active @endsection
     @endif
   </div>
 
-  <div>
+  <div id="report-ban">
     @if (session('status'))
       <div>
         <div class="alert alert-success">
@@ -55,11 +55,11 @@ active @endsection
     @endif
 
     @if (isset($reportedusers))
-      Reported users :
-      (Only admins can bannish users, moderators can only ask for)
+      <h2>Reported users :</h2>
+      <h6>(Only admins can bannish users, moderators can only ask for)</h6>
       <table>
         <tr>
-          <th>User reported ID</th>
+          <th>#</th>
           <th>User reported name</th>
           <th>Moderator name</th>
           <th>Reason</th>
@@ -81,7 +81,7 @@ active @endsection
       </table>
     @endif
 
-    <h1>Asking for bannish user</h1>
+    <h2>Asking for bannish user</h2>
 
     {!! Form::open(['route' => 'askingbannishuser', 'method' => 'post']) !!}
       {!! Form::hidden('id_mod', Auth::user()->id) !!}
@@ -92,7 +92,7 @@ active @endsection
       {!! $errors->first('name_user_reported','<div class="alert-error" role="alert">:message</div>') !!}
       @if (session('error'))
         <div>
-          <div class="alert alert-danger">
+          <div class="alert alert-error">
               {{ session('error') }}
           </div>
         </div>
