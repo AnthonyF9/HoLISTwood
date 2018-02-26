@@ -62,14 +62,22 @@ active @endsection
           <th>User reported ID</th>
           <th>User reported name</th>
           <th>Moderator name</th>
+          <th>Reason</th>
         </tr>
-        @foreach ($reportedusers as $key => $reporteduser)
+        @if (!empty($reportedusers[0]))
+          @foreach ($reportedusers as $key => $reporteduser)
+            <tr>
+              <td>{{ $reporteduser->id }}</td>
+              <td>{{ $reporteduser->name_user_reported }}</td>
+              <td>{{ $reporteduser->name_mod }}</td>
+              <td>{{ $reporteduser->why }}</td>
+            </tr>
+          @endforeach
+        @else
           <tr>
-            <td>{{ $reporteduser->id }}</td>
-            <td>{{ $reporteduser->name_user_reported }}</td>
-            <td>{{ $reporteduser->name_mod }}</td>
+            <td colspan="4">No user reported.</td>
           </tr>
-        @endforeach
+        @endif
       </table>
     @endif
 
