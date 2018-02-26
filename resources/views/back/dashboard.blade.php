@@ -9,10 +9,6 @@
 @section('content-alpha')
   <h1>Dashboard</h1>
 
-  <br/>
-  Most active users in comments
-  <br/>
-
   <h2>There are actually <b>{{ $totalmovies }}</b> movies on Holistwood !</h2>
 
   <div>
