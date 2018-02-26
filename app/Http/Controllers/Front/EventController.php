@@ -11,6 +11,7 @@ use Auth;
 
 class EventController extends Controller
 {
+
   /**
    * [index description]
    */
@@ -63,9 +64,15 @@ class EventController extends Controller
                   );
               }
           }
+
+
            // dd($events);
            // $test = array_get($events, '0.options.color');
            // dd($test);
+
+//            foreach ($events as $event) {
+//     echo "<br>titre: ". $event->title . ", couleur: " . $event->options['color'] ;
+// }
 
 
           // $no_dupes_array = array_unique($events);print_r($no_dupes_array); echo'<br />';
@@ -108,4 +115,5 @@ class EventController extends Controller
 
      }
    }
+
 }
