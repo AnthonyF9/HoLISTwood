@@ -28,6 +28,7 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+
       $movies = Movie::inRandomOrder()->where('moderation', '=', 'ok')->limit(12)->get();
 
       $trailers = \DB::table('movies')
@@ -99,7 +100,10 @@ class HomeController extends Controller
     {
         $movies = Movie::orderBy('title','asc')->where('moderation', '=', 'ok')->paginate(42);
 
-      return view('front/frontmovieslist', compact('movies'));
+        $moviesfull = Movie::where('moderation', '=', 'ok')->get();
+        $totalmovies = count($moviesfull);
+
+      return view('front/frontmovieslist', compact('movies', 'totalmovies'));
     }
 
     public function searchfrontmovies(Request $request) {
@@ -108,13 +112,16 @@ class HomeController extends Controller
         $outputfull="";
 
         $movies = \DB::table('movies')->where([['title', 'like', '%' . $request->search . '%'],['moderation', '=', 'ok']])->orWhere([['year', '=', $request->search ],['moderation', '=', 'ok']])->orWhere([['actors', 'like', '%'.  $request->search .'%' ],['moderation', '=', 'ok']])->orWhere([['director', 'like', '%'.  $request->search .'%' ],['moderation', '=', 'ok']])->orderBy('year','asc')->get();
+        $totalmoviessearch = count($movies);
 
         $moviesfull = Movie::orderBy('title','asc')->where('moderation', '=', 'ok')->paginate(42);
         $moviesfull->withPath('movies-list'); // Précise l'url de la pagination ( sans ça les liens de la pagination en ajax ne marchait pas )
 
           if (!empty($movies[0])) {
 
-
+        $output.='<div class="pagination">'.
+                 $totalmoviessearch . ' results for '. '"'.$request->search.'"' .
+                 '</div>';
 
         foreach ($movies as $movie) {
 
@@ -135,6 +142,8 @@ class HomeController extends Controller
                    '</a>'.
                    '</div>';
            }
+
+
 
            $outputfull.='<div class="pagination">'.
                     '<div id="paginationlinks" class="paginatemovieslist">' .$moviesfull->links(). '</div>'.

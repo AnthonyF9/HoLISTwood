@@ -33,11 +33,14 @@ class HomeAuthController extends Controller
         $mymovieslist = \DB::table('mylist')
                     ->join('users', 'users.id', '=', 'mylist.user_id')
                     ->join('movies', 'movies.id', '=', 'mylist.movie_id')
-                    // ->join('rating', 'rating.id_movie', '=', 'mylist.movie_id')
                     ->where('mylist.user_id', '=', $user_id)
-                    // ->where('rating.id_user', '=', $user_id)
                     ->get();
-        return view('front/profile', compact('mymovieslist'));
+        $mymoviesrating = \DB::table('rating')
+                        ->join('users', 'users.id', '=', 'rating.id_user')
+                        ->join('movies', 'movies.id', '=', 'rating.id_movie')
+                        ->where('rating.id_user', '=', $user_id)
+                        ->get();
+        return view('front/profile', compact('mymovieslist','mymoviesrating'));
     }
 
     /**
