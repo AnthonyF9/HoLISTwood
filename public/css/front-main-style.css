@@ -41,7 +41,7 @@ main {
   transition:.5s;
 }
 #submitmovie-content .imdb-link a:visited {
-  color: white;
+  /* color: white; */
 }
 #submitmovie-content .imdb-link a:hover {
   color: #73b3f2;
@@ -310,6 +310,23 @@ div#trailer {
   margin-top: 42px;
 }
 
+/* image submit */
+
+#submitflex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#submitflex a, #submitflex a:visited  {
+  color: #2A89EB;
+}
+
+#imdbexplanation {
+  width: 50%;
+  height: 50%;
+  border-radius: 10px;
+}
 
 /* ////////////////////////////////////////////////////////////////////////////////// */
 /* Calendar styles */
@@ -617,9 +634,6 @@ color: #2a85e4;
 .comment .comment-list .edit-comment {
   text-align: right;
   margin-top: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 .comment .comment-list .edit-comment .last-update-comment {
   font-size: 0.75em;
@@ -630,7 +644,7 @@ color: #2a85e4;
 .comment .comment-list .edit-comment a {
   color: #2A89EB;
 }
-.comment .comment-list .edit-comment textarea {
+.comment .comment-list .edit-comment form .formulaire textarea {
   border-bottom: 1px white solid;
   border-radius: 0;
 }
@@ -645,7 +659,7 @@ color: #2a85e4;
   margin-top: 10px;
 }
 .comment-list {
-  margin: 20px auto;;
+  margin: 20px auto;
   min-height: 100px;
   border-radius: 10px;
   background-color: #262626;
@@ -767,6 +781,9 @@ color: #2a85e4;
   width: 40%;
   min-height: 150px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 #about-group .about h4, #staff-group .staff h1 {
   font-size: 2em;
@@ -776,6 +793,114 @@ color: #2a85e4;
   margin: 10px auto;
 }
 
+/* Reported comments */
+
+#report-comment, #report-ban {
+  width: 90%;
+  margin: 20px auto;
+}
+#report-comment h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #2A89EB;
+  text-transform: uppercase;
+  text-align: center;
+}
+#report-comment table {
+  width: 100%;
+}
+#report-ban table {
+  width: 80%;
+  margin: 20px auto;
+}
+#report-comment table tr th, #report-ban table tr th {
+  background: black;
+  color: white;
+  text-align: center;
+}
+#report-comment table tr td, #report-ban table tr td {
+  background-color: white;
+  color: black;
+  border-top: 1px solid #AAAAAA;
+  text-align: left;
+}
+#report-comment table tr td form {
+  text-align: center;
+}
+#report-comment table tr td form input, #report-comment table tr td a {
+  background-color: #2A89EB;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  width: 120px;
+  margin: 10px 0;
+}
+#report-comment table tr td a {
+  font-size: 0.8em;
+  min-width: 110px;
+  padding: 10px 13px;
+}
+#report-comment table tr th, #report-comment table tr td, #report-ban table tr th, #report-ban table tr td{
+  padding: 2%;
+}
+
+#report-ban {
+  background-color: #262626;
+  padding: 20px;
+  border-radius: 10px;
+}
+#report-ban .alert.alert-success {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background: #99ff99;
+  color: #009933;
+  font-weight: bold;
+  border-radius: 10px;
+}
+#report-ban .alert.alert-danger {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffb3b3;
+  color: #ff0000;
+  font-weight: bold;
+  border-radius: 10px;
+}
+#report-ban .alert-error {
+  color: red;
+}
+#report-ban h2 {
+  font-size: 1.5em;
+}
+#report-ban h6 {
+  font-size: 0.75em;
+}
+#report-ban form {
+  width: 50%;
+  margin: 10px auto;
+  text-align: center;
+}
+#report-ban form input[type="text"], #report-ban form textarea {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+#report-ban form input[type="submit"] {
+  background-color: #2A89EB;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  width: 120px;
+  margin: 0 auto;
+}
+#report-ban form input:focus, #report-ban form textarea:focus {
+  outline:  none;
+}
 
 /* Responsive */
 

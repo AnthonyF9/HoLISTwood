@@ -55,6 +55,8 @@
             <p class="detail-containt">
               @if (!empty($moyrating))
                 {{ $moyrating }} / 5
+              @elseif (is_numeric($moyrating))
+                0 / 5
               @else
                 No rating available
               @endif
@@ -174,7 +176,7 @@
     @foreach ($allcomments as $key => $onecomment)
       <div id="comment{{$onecomment->id}}" class="comment-list">
         <div class="one-comment">
-          <div class="headline"><span><span class="username">{{ $onecomment->name }}</span> the {{ $onecomment->created_at }}</span>
+          <div class="headline"><span><span class="username">{{ $onecomment->name }}</span> {{ Carbon\Carbon::parse($onecomment->created_at)->format('F j, Y  H:i:s') }}</span>
             @if (Auth::user() && Auth::user()->role != "banned")
               {{ Form::open(['route' => ['reportcomment', $imdb_id],'method' => 'post']) }}
                 {!! Form::hidden('id', $onecomment->id) !!}

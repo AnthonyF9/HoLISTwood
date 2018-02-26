@@ -29,8 +29,8 @@ active @endsection
       <p></p>
     </section>
     <section class="staff">
-      <h1></h1>
-      <p></p>
+      <h1>Béryl de Vos</h1>
+      <p>Creator of the databases, logo of the site (css, js), setting up of the full calendar</p>
     </section>
   </div>
 

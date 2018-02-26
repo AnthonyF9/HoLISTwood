@@ -11,13 +11,14 @@ active @endsection
 
 @section('bandeau')
     <div class="bandeau bandeau-movieslist">
-      <h2> &mdash; list of movies &mdash; </h2>
-      </div>
+      <h2> &mdash; list of movies ({{ $totalmovies }}) &mdash;</h2>
+    </div>
 @endsection
 
 <div class="searchbar">
   <input type="text" class="form-controller" id="searchmovies" name="searchmovies" placeholder="Find movies by title, year, actor, director..."></input>
 </div>
+
 
 <div class="affiches affichesfront" id="affichesfront">
 
@@ -58,28 +59,36 @@ active @endsection
         });
         </script>
         <script type="text/javascript">
+        var timer;
+
         $('#searchmovies').on('keyup',function(){
           $value=$(this).val();
           if($value.length>= 3){
+            clearTimeout(timer) // clear the request from the previous event
+            timer = setTimeout(function() {
             $.ajax({
               type : 'get',
               url : '{{route('searchfrontmovies')}}',
               data:{'search':$value},
               success:function(response){
-                console.log(response);
+                // console.log(response);
                 $('#affichesfront').html(response.output);
               }
             });
+          }, 400);
           } else if ($value.length == 0) {
+            clearTimeout(timer) // clear the request from the previous event
+            timer = setTimeout(function() {
             $.ajax({
               type : 'get',
               url : '{{route('searchfrontmovies')}}',
               data:{'search':$value},
               success:function(response){
-                console.log(response);
+                // console.log(response);
                 $('#affichesfront').html(response.outputfull);
               }
             });
+          }, 200);
           }
         })
 

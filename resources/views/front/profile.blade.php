@@ -9,7 +9,7 @@ active @endsection
 
 @section('content')
   <div class="profile-head">
-    <img src="{{ asset('img/avatar.svg') }}" alt="avatar">
+    <img src="{{ asset('/img/star.png') }}" alt="beautiful star">
     <h1>{{ Auth::user()->name }}</h1>
     <div class="profile-button">
     </div>
@@ -22,10 +22,20 @@ active @endsection
   </nav>
 
   <div id="movies-list-profile">
-    <ul>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Status</th>
+        {{-- <th>My rate</th> --}}
+      </tr>
+      {{-- {{ dd($mymovieslist) }} --}}
       @foreach ($mymovieslist as $movie)
-      <li><a href="{{ route('oneMovie', array( 'imdb_id'=> $movie->imdb_id )) }}"><h2>{{$movie->title}}</h2></a></li>
+        <tr>
+          <td><a href="{{ route('oneMovieAuth', array( 'imdb_id'=> $movie->imdb_id )) }}">{{$movie->title}}</a></td>
+          <td>{{$movie->statuslist}}</td>
+          {{-- <td>{{$movie->note}}</td> --}}
+        </tr>
       @endforeach
-    </ul>
+    </table>
   </div>
 @endsection
