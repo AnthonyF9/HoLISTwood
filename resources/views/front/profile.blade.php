@@ -26,14 +26,14 @@ active @endsection
       <tr>
         <th>Title</th>
         <th>Status</th>
-        <th>My rate</th>
+        {{-- <th>My rate</th> --}}
       </tr>
       {{-- {{ dd($mymovieslist) }} --}}
       @foreach ($mymovieslist as $movie)
         <tr>
           <td><a href="{{ route('oneMovieAuth', array( 'imdb_id'=> $movie->imdb_id )) }}">{{$movie->title}}</a></td>
           <td>{{$movie->statuslist}}</td>
-          <td>{{$movie->note}}</td>
+          {{-- <td>{{$movie->note}}</td> --}}
         </tr>
       @endforeach
     </table>
