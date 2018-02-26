@@ -40,9 +40,6 @@ main {
   -webkit-transition:.5s;
   transition:.5s;
 }
-#submitmovie-content .imdb-link a:visited {
-  /* color: white; */
-}
 #submitmovie-content .imdb-link a:hover {
   color: #73b3f2;
 }
@@ -382,6 +379,33 @@ div#trailer {
 .calendrier .fc-unthemed .fc-popover .fc-header, .fc-unthemed hr {
   background-color: #262626;
 }
+
+.legend_calendar {
+  margin-top: 2%;
+}
+
+.legend_calendar p{
+  text-align: center;
+  line-height: 17px;
+  font-size: 0.9em;
+}
+
+.legend_calendar .red_legend {
+  width: 120px;
+  height: 17px;
+  background-color: #EE0401;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+.legend_calendar .blue_legend {
+  width: 120px;
+  height: 17px;
+  background-color: #3A87AD;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
 
 /* ////////////////////////////////////////////////////////////////////////////////// */
 /* pagination movies list */

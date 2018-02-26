@@ -214,7 +214,7 @@
               </a>
             </p>
             </span>
-            <p>Quo illis ex dotis matrimonii eos fuga statum illis uterque tabernaculum marito semper venerem illis ad fuga et est est.</p>
+            <p>Holistwood is an active online movie community and database. Join the online community, create your movie list, explore the comments section, follow news, and so much more!</p>
           </div>
 
 
@@ -228,9 +228,6 @@
                 @endif
               @endforeach
             </ul>
-          </div>
-          <div class="search">
-            <p>search</p>
           </div>
         </div>
 
