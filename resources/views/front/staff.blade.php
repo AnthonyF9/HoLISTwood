@@ -21,12 +21,12 @@ active @endsection
       <p>An excentric and creative Web-designer. If you love or hate Holistwood web-design, it's because of her.</p>
     </section>
     <section class="staff">
-      <h1></h1>
-      <p></p>
+      <h1>Guillaume Giudici</h1>
+      <p>Multitask developper and debugger. Also a cinema lover with his own blog. You can check it here : <a href="https://films-et-animes.blogspot.fr/">Les visionnages de Guy</a></p>
     </section>
     <section class="staff">
-      <h1></h1>
-      <p></p>
+      <h1>Anthony Fabrégat</h1>
+      <p>Project Manager of Holistwood. Loves epic movies and even more their soundtracks.</p>
     </section>
     <section class="staff">
       <h1>Béryl de Vos</h1>

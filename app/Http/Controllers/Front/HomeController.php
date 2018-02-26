@@ -69,6 +69,7 @@ class HomeController extends Controller
     public function oneMovie($imdb_id)
     {
         $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
         if (isset($movie[0])) {
           if (!empty($movie) && $movie[0]->moderation != 'softdelete') {
             $trailers = \DB::table('movies')
@@ -91,7 +92,7 @@ class HomeController extends Controller
                         ->where([['imdb_id','=',$imdb_id],['state','!=','deleted']])
                         ->orderBy('created_at','DESC')
                         ->get();
-            return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'allcomments'));
+            return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'allcomments','nbcomm'));
           } else { abort(404); }
         } else { abort(404); }
     }
@@ -99,11 +100,11 @@ class HomeController extends Controller
     public function frontmovieslist()
     {
         $movies = Movie::orderBy('title','asc')->where('moderation', '=', 'ok')->paginate(42);
-
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
         $moviesfull = Movie::where('moderation', '=', 'ok')->get();
         $totalmovies = count($moviesfull);
 
-      return view('front/frontmovieslist', compact('movies', 'totalmovies'));
+      return view('front/frontmovieslist', compact('movies', 'totalmovies','nbcomm'));
     }
 
     public function searchfrontmovies(Request $request) {
@@ -188,26 +189,31 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('front/about');
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
+        return view('front/about', compact('nbcomm'));
     }
 
     public function staff()
     {
-        return view('front/staff');
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
+        return view('front/staff', compact('nbcomm'));
     }
 
     public function sitemap()
     {
-        return view('front/sitemap');
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
+        return view('front/sitemap', compact('nbcomm'));
     }
 
     public function gtu()
     {
-        return view('front/gtu');
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
+        return view('front/gtu', compact('nbcomm'));
     }
 
     public function charter()
     {
-        return view('front/charter');
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
+        return view('front/charter', compact('nbcomm'));
     }
 }

@@ -174,29 +174,35 @@ main {
   width: 80%;
   margin: auto;
 }
-#movies-list-profile ul {
-  padding-left: 40px;
+#movies-list-profile table {
+  background: white;
+  color: black;
+  width: 100%;
+  margin: 0 auto;
 }
-#movies-list-profile ul li {
-  /* padding-left: 40px; */
-  margin: 10px;
-  list-style-type: disc;
+#movies-list-profile table tbody tr th {
+  background: #dddddd;
+  text-align: left;
+  font-weight: bold;
 }
-#movies-list-profile ul li a {
-  color: white;
+#movies-list-profile table tbody tr td, #movies-list-profile table tbody tr th {
+  padding: 10px;
+}
+#movies-list-profile table tbody tr td a {
+  color: black;
   -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;
   -webkit-transition:.5s;
   transition:.5s;
 }
-#movies-list-profile ul li a:visited {
-  color: white;
+#movies-list-profile table tbody tr td a:visited {
+  color: black;
 }
-#movies-list-profile ul li a:hover {
+#movies-list-profile table tbody tr td a:hover {
   color: #73b3f2;
 }
-#movies-list-profile ul li a:active {
+#movies-list-profile table tbody tr td a:active {
   color: #2A89EB;
 }
 
@@ -376,6 +382,33 @@ div#trailer {
 .calendrier .fc-unthemed .fc-popover .fc-header, .fc-unthemed hr {
   background-color: #262626;
 }
+
+.legend_calendar {
+  margin-top: 2%;
+}
+
+.legend_calendar p{
+  text-align: center;
+  line-height: 17px;
+  font-size: 0.9em;
+}
+
+.legend_calendar .red_legend {
+  width: 120px;
+  height: 17px;
+  background-color: #EE0401;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+.legend_calendar .blue_legend {
+  width: 120px;
+  height: 17px;
+  background-color: #3A87AD;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
 
 /* ////////////////////////////////////////////////////////////////////////////////// */
 /* pagination movies list */
@@ -675,7 +708,7 @@ color: #2a85e4;
 
 .profile-head {
   width: 80%;
-  margin: 30px auto;
+  margin: 0 auto;
   justify-content: center;
   text-align: center;
 }
@@ -687,16 +720,13 @@ color: #2a85e4;
 .profile-menu {
   background-color: #262626;
   width: 80%;
-  margin: 0 auto;
+  margin: 30px auto 0;
+  padding: 20px 0;
+  text-align: center;
 }
-.profile-menu ul {
-  display: flex;
-  flex-direction: row;
-  margin: 0 5%;
-  justify-content: center;
-  list-style: none;
+.profile-menu h1 {
+  font-size: 2em;
 }
-
 
 
 /*  button return top*/
