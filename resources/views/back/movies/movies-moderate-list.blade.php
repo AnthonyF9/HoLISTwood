@@ -63,28 +63,34 @@
       </thead>
       <tbody>
 
-    @foreach ($movies as $movie)
+    @if (!empty($movies[0]))
 
-        <tr>
-          <td scope="row">{{ $movie->id }}</td>
-          <td scope="row">{{ $movie->title }}</td>
-          <td scope="row">{{ $movie->year }}</td>
-          <td scope="row">{{ $movie->director }}</td>
-          <td scope="row">{{ $movie->imdb_id }}</td>
-          <td scope="row">{{ $movie->status }}</td>
-          <td scope="row">{{ $movie->created_at }}</td>
-          <td scope="row">{{ $movie->updated_at }}</td>
-          <td><a class="btn btn-primary" href="{{ route('moderatemovie', array('id'=> $movie->id )) }}"> Edit </a>
-            {{ Form::open(['route' => ['deletemovie', $movie->id],'method' => 'delete']) }}
-              {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-            {{ Form::close() }}
-          </td>
-        </tr>
+      @foreach ($movies as $movie)
 
-    @endforeach
+          <tr>
+            <td scope="row">{{ $movie->id }}</td>
+            <td scope="row">{{ $movie->title }}</td>
+            <td scope="row">{{ $movie->year }}</td>
+            <td scope="row">{{ $movie->director }}</td>
+            <td scope="row">{{ $movie->imdb_id }}</td>
+            <td scope="row">{{ $movie->status }}</td>
+            <td scope="row">{{ $movie->created_at }}</td>
+            <td scope="row">{{ $movie->updated_at }}</td>
+            <td><a class="btn btn-primary" href="{{ route('moderatemovie', array('id'=> $movie->id )) }}"> Edit </a>
+              {{ Form::open(['route' => ['deletemovie', $movie->id],'method' => 'delete']) }}
+                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+              {{ Form::close() }}
+            </td>
+          </tr>
 
+      @endforeach
+    @else
+      <tr>
+        <td colspan="9">No movie waiting moderation.</td>
+      </tr>
+    @endif
       </tbody>
-      </table>
+    </table>
 
 
   </div>
