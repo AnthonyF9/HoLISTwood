@@ -92,7 +92,7 @@ active @endsection
       <p>
         {!! Form::textarea('why', null, ['placeholder' => 'Reason of asking bannishment', 'class' => '']) !!}
       </p>
-      {!! $errors->first('why','<div class="alert-error" role="alert">:message</div>') !!}
+      {!! $errors->first('why','<div class="alert-error" role="alert">The reason of asking bannishment is required.</div>') !!}
       <p>
         {!! Form::submit("Report an user", ['class' => 'report-user']) !!}
       </p>

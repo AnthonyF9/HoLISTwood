@@ -261,12 +261,12 @@
 
      <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/jquery-ui.js') }}"></script>
-     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
      <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
      <script>
       AOS.init();
      </script>
      @yield('js')
+     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
    </div>
  </body>
 </html>
