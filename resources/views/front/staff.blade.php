@@ -30,7 +30,7 @@ active @endsection
     </section>
     <section class="staff">
       <h1>Béryl de Vos</h1>
-      <p>Creator of the databases, logo of the site (css, js), setting up of the full calendar</p>
+      <p>Databases Creator Assistant logo of the site (css, js), setting up of the full calendar</p>
     </section>
   </div>
 
