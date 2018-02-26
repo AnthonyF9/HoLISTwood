@@ -26,9 +26,9 @@ class HomeModController extends Controller
     public function allreportedcomments()
     {
       $reportedcomments = \DB::table('reported_comments')->select('reported_comments.id_comment','reported_comments.id_user_reportman','reported_comments.id_user_reported','comments.id','comments.content','reported_comments.id_movie','comments.state','comments.created_at','comments.updated_at','ug.name AS user_reported','ua.name AS user_reportman','movies.title','movies.imdb_id')->join('users AS ug', 'ug.id', '=', 'reported_comments.id_user_reported')->join('users AS ua', 'ua.id', '=', 'reported_comments.id_user_reportman')->join('movies', 'movies.id', '=', 'reported_comments.id_movie')->join('comments', 'comments.id', '=', 'reported_comments.id_comment')->where('state','=','waiting moderation')->get();
-      // $howManyTimesOneCommentIsReported = \DB::table('reported_comments')->select(\DB::raw('*'))->groupBy('id_comment')->count();
       $reportedusers = \DB::table('asking_bannish_user')->get();
-      return view('front/mod/allreportedcomments', compact('reportedcomments','reportedusers'));
+      $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->groupBy('id_comment')->count();
+      return view('front/mod/allreportedcomments', compact('reportedcomments','reportedusers','nbcomm'));
     }
     public function commentIsOk(Request $request)
     {

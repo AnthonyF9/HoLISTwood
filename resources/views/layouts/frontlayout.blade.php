@@ -112,7 +112,11 @@
                   @endguest
                   @auth
                     @if ( Auth::user()->role == 'mod' || Auth::user()->role == 'admin')
-                      <li><a class="@yield('activereportedcomments')" href="{{ route('allreportedcomments') }}">Reported comments</a></li>
+                      @if (isset($nbcomm) && $nbcomm != 0)
+                        <li><a class="@yield('activemoderation') waitingmoderation" href="{{ route('allreportedcomments') }}">Moderation<span> ({{ $nbcomm }})</span></a></li>
+                      @else
+                        <li><a class="@yield('activemoderation')" href="{{ route('allreportedcomments') }}">Moderation<span></a></li>
+                      @endif
                     @endif
                   @endauth
                 </ul><!-- #menu1 -->
@@ -231,9 +235,9 @@
               <li>&copy;Holistwood</li>
               <li><a href="{{ route('about') }}">About</a></li>
               <li><a href="{{ route('staff') }}">Staff</a></li>
-              <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
-              <li><a href="{{ route('gtu') }}">GTU</a></li>
-              <li><a href="{{ route('charter') }}">Charter</a></li>
+              <li><a href="#">Sitemap</a></li>
+              <li><a href="#">GTU</a></li>
+              <li><a href="#">Charter</a></li>
             </ul>
           </div>
 

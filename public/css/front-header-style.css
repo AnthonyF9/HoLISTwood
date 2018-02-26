@@ -175,6 +175,13 @@ header #top-menu .log {
   line-height: 150%;
 }
 
+#menu1 li a.waitingmoderation {
+  color: orange;
+}
+#menu1 li a.waitingmoderation.active {
+  color: #2A89EB;
+}
+
 #myBtn{
   line-height: 90%;
 }
@@ -262,6 +269,7 @@ header #bottom-menu #menu2 li button{
 header #bottom-menu #menu2 li button:hover{
   color: #73b3f2;
 }
+
 
 
 
@@ -373,7 +381,7 @@ header #bottom-menu #menu2 li button:hover{
 
 
 /* -le Responsive- */
-@media (max-width: 835px) {
+@media (max-width: 950px) {
 
   header #top-menu {
     width: 100%;

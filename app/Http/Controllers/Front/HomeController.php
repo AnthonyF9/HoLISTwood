@@ -42,6 +42,8 @@ class HomeController extends Controller
 
       // dd($count);
 
+      $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->groupBy('id_comment')->count();
+
       if ($count < 0) {
 
         $trailers = \DB::table('movies')
@@ -57,10 +59,10 @@ class HomeController extends Controller
         // $value = $request->session()->get('randomid');
 
 
-        return view('front/home',compact('movies','trailers', 'randomid', 'titre'));
+        return view('front/home',compact('movies','trailers', 'randomid', 'titre', 'nbcomm'));
       }
 
-        return view('front/home',compact('movies','trailers', 'randomid', 'titre'));
+        return view('front/home',compact('movies','trailers', 'randomid', 'titre', 'nbcomm'));
     }
 
     public function oneMovie($imdb_id)

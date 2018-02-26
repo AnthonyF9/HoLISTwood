@@ -1,10 +1,10 @@
 @extends('layouts/frontlayout')
 
 @section('title')
-  Reported comments - HOLISTWOOD
+  Moderation - HOLISTWOOD
 @endsection
 
-@section('activereportedcomments')
+@section('activemoderation')
 active @endsection
 
 @section('content')
@@ -52,21 +52,14 @@ active @endsection
             {{ session('status') }}
         </div>
       </div>
-    @elseif (session('error'))
-      <div>
-        <div class="alert alert-danger">
-            {{ session('error') }}
-        </div>
-      </div>
-    @else
     @endif
 
     @if (isset($reportedusers))
-      Reported users :
-      (Only admins can bannish users, moderators can only ask for)
+      <h2>Reported users :</h2>
+      <h6>(Only admins can bannish users, moderators can only ask for)</h6>
       <table>
         <tr>
-          <th>User reported ID</th>
+          <th>#</th>
           <th>User reported name</th>
           <th>Moderator name</th>
         </tr>
@@ -80,7 +73,7 @@ active @endsection
       </table>
     @endif
 
-    <h1>Asking for bannish user</h1>
+    <h2>Asking for bannish user</h2>
 
     {!! Form::open(['route' => 'askingbannishuser', 'method' => 'post']) !!}
       {!! Form::hidden('id_mod', Auth::user()->id) !!}
@@ -89,6 +82,13 @@ active @endsection
         {!! Form::text('name_user_reported', null, ['placeholder' => 'Name of the user you want to ban', 'class' => '']) !!}
       </p>
       {!! $errors->first('name_user_reported','<div class="alert-error" role="alert">:message</div>') !!}
+      @if (session('error'))
+        <div>
+          <div class="alert alert-error">
+              {{ session('error') }}
+          </div>
+        </div>
+      @endif
       <p>
         {!! Form::textarea('why', null, ['placeholder' => 'Reason of asking bannishment', 'class' => '']) !!}
       </p>
