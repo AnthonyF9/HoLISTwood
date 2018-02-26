@@ -9,12 +9,12 @@ active @endsection
 
 @section('content')
 
-  <div>
+  <div id="report-comment">
     <h1>Reported comments</h1>
     @if (isset($reportedcomments))
       <table>
         <tr>
-          <th>ID comment</th>
+          <th>#</th>
           <th>Comment</th>
           <th>User reported</th>
           <th>User reportman</th>
@@ -45,7 +45,7 @@ active @endsection
     @endif
   </div>
 
-  <div>
+  <div id="report-ban">
     @if (session('status'))
       <div>
         <div class="alert alert-success">

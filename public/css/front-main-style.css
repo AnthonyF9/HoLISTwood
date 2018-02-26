@@ -645,7 +645,7 @@ color: #2a85e4;
   margin-top: 10px;
 }
 .comment-list {
-  margin: 20px auto;;
+  margin: 20px auto;
   min-height: 100px;
   border-radius: 10px;
   background-color: #262626;
@@ -775,6 +775,79 @@ color: #2a85e4;
 #about-group .about p, #staff-group .staff p {
   margin: 10px auto;
 }
+
+/* Reported comments */
+
+#report-comment, #report-ban {
+  width: 90%;
+  margin: 20px auto;
+}
+#report-comment h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #2A89EB;
+  text-transform: uppercase;
+  text-align: center;
+}
+#report-comment table {
+  width: 100%;
+}
+#report-comment table tr th {
+  background: black;
+  color: white;
+  text-align: center;
+}
+#report-comment table tr td {
+  background-color: white;
+  color: black;
+  border-top: 1px solid #AAAAAA;
+  text-align: left;
+}
+#report-comment table tr td form {
+  text-align: center;
+}
+#report-comment table tr td form input, #report-comment table tr td a {
+  background-color: #2A89EB;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  width: 120px;
+  margin: 10px 0;
+}
+#report-comment table tr td a {
+  font-size: 0.8em;
+  min-width: 110px;
+  padding: 10px 13px;
+}
+#report-comment table tr th, #report-comment table tr td{
+  padding: 2%;
+}
+
+#report-ban {
+  background-color: #262626;
+  padding: 20px;
+  border-radius: 10px;
+}
+#report-ban .alert.alert-success {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background: #99ff99;
+  color: #009933;
+  font-weight: bold;
+  border-radius: 10px;
+}
+#report-ban .alert.alert-danger {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffb3b3;
+  color: #ff0000;
+  font-weight: bold;
+  border-radius: 10px;
+}
+#report-ban 
 
 
 /* Responsive */
