@@ -41,7 +41,7 @@ main {
   transition:.5s;
 }
 #submitmovie-content .imdb-link a:visited {
-  color: white;
+  /* color: white; */
 }
 #submitmovie-content .imdb-link a:hover {
   color: #73b3f2;
@@ -310,6 +310,23 @@ div#trailer {
   margin-top: 42px;
 }
 
+/* image submit */
+
+#submitflex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#submitflex a, #submitflex a:visited  {
+  color: #2A89EB;
+}
+
+#imdbexplanation {
+  width: 50%;
+  height: 50%;
+  border-radius: 10px;
+}
 
 /* ////////////////////////////////////////////////////////////////////////////////// */
 /* Calendar styles */
