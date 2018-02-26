@@ -28,7 +28,9 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+
       $movies = Movie::inRandomOrder()->where('moderation', '=', 'ok')->limit(12)->get();
+      $mostaddlistedmovies = $this->mostaddlistedmovies();
 
       $trailers = \DB::table('movies')
                   ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
@@ -41,6 +43,8 @@ class HomeController extends Controller
       $titre = 'coming soon';
 
       // dd($count);
+
+      $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
 
       if ($count < 0) {
 
@@ -57,15 +61,17 @@ class HomeController extends Controller
         // $value = $request->session()->get('randomid');
 
 
-        return view('front/home',compact('movies','trailers', 'randomid', 'titre'));
+        return view('front/home',compact('movies','trailers', 'randomid', 'titre', 'nbcomm','mostaddlistedmovies'));
       }
 
-        return view('front/home',compact('movies','trailers', 'randomid', 'titre'));
+        return view('front/home',compact('movies','trailers', 'randomid', 'titre', 'nbcomm','mostaddlistedmovies'));
     }
 
     public function oneMovie($imdb_id)
     {
         $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
+        $mostaddlistedmovies = $this->mostaddlistedmovies();
         if (isset($movie[0])) {
           if (!empty($movie) && $movie[0]->moderation != 'softdelete') {
             $trailers = \DB::table('movies')
@@ -88,7 +94,7 @@ class HomeController extends Controller
                         ->where([['imdb_id','=',$imdb_id],['state','!=','deleted']])
                         ->orderBy('created_at','DESC')
                         ->get();
-            return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'allcomments'));
+            return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'allcomments','nbcomm','mostaddlistedmovies'));
           } else { abort(404); }
         } else { abort(404); }
     }
@@ -96,8 +102,12 @@ class HomeController extends Controller
     public function frontmovieslist()
     {
         $movies = Movie::orderBy('title','asc')->where('moderation', '=', 'ok')->paginate(42);
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
+        $moviesfull = Movie::where('moderation', '=', 'ok')->get();
+        $totalmovies = count($moviesfull);
+        $mostaddlistedmovies = $this->mostaddlistedmovies();
 
-      return view('front/frontmovieslist', compact('movies'));
+      return view('front/frontmovieslist', compact('movies', 'totalmovies','nbcomm','mostaddlistedmovies'));
     }
 
     public function searchfrontmovies(Request $request) {
@@ -106,13 +116,16 @@ class HomeController extends Controller
         $outputfull="";
 
         $movies = \DB::table('movies')->where([['title', 'like', '%' . $request->search . '%'],['moderation', '=', 'ok']])->orWhere([['year', '=', $request->search ],['moderation', '=', 'ok']])->orWhere([['actors', 'like', '%'.  $request->search .'%' ],['moderation', '=', 'ok']])->orWhere([['director', 'like', '%'.  $request->search .'%' ],['moderation', '=', 'ok']])->orderBy('year','asc')->get();
+        $totalmoviessearch = count($movies);
 
         $moviesfull = Movie::orderBy('title','asc')->where('moderation', '=', 'ok')->paginate(42);
         $moviesfull->withPath('movies-list'); // Précise l'url de la pagination ( sans ça les liens de la pagination en ajax ne marchait pas )
 
           if (!empty($movies[0])) {
 
-
+        $output.='<div class="pagination">'.
+                 $totalmoviessearch . ' results for '. '"'.$request->search.'"' .
+                 '</div>';
 
         foreach ($movies as $movie) {
 
@@ -133,6 +146,8 @@ class HomeController extends Controller
                    '</a>'.
                    '</div>';
            }
+
+
 
            $outputfull.='<div class="pagination">'.
                     '<div id="paginationlinks" class="paginatemovieslist">' .$moviesfull->links(). '</div>'.
@@ -177,26 +192,49 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('front/about');
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
+        $mostaddlistedmovies = $this->mostaddlistedmovies();
+        return view('front/about', compact('nbcomm','mostaddlistedmovies'));
     }
 
     public function staff()
     {
-        return view('front/staff');
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
+        $mostaddlistedmovies = $this->mostaddlistedmovies();
+        return view('front/staff', compact('nbcomm','mostaddlistedmovies'));
     }
 
     public function sitemap()
     {
-        return view('front/sitemap');
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
+        $mostaddlistedmovies = $this->mostaddlistedmovies();
+        return view('front/sitemap', compact('nbcomm','mostaddlistedmovies'));
     }
 
     public function gtu()
     {
-        return view('front/gtu');
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
+        $mostaddlistedmovies = $this->mostaddlistedmovies();
+        return view('front/gtu', compact('nbcomm','mostaddlistedmovies'));
     }
 
     public function charter()
     {
-        return view('front/charter');
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
+        $mostaddlistedmovies = $this->mostaddlistedmovies();
+        return view('front/charter', compact('nbcomm','mostaddlistedmovies'));
+    }
+
+
+
+
+    public function mostaddlistedmovies()
+    {
+      $mostaddlistedmovies = \DB::table('mylist')
+                            ->join('movies', 'movies.id', '=', 'mylist.movie_id')
+                            ->groupBy('title')
+                            ->orderBy('count','DESC')
+                            ->get(['title', \DB::raw('count(title) as count')]);
+      return $mostaddlistedmovies;
     }
 }

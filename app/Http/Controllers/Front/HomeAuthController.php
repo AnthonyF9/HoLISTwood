@@ -30,12 +30,19 @@ class HomeAuthController extends Controller
     public function profile()
     {
         $user_id = \Auth::user()->id;
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
         $mymovieslist = \DB::table('mylist')
                     ->join('users', 'users.id', '=', 'mylist.user_id')
                     ->join('movies', 'movies.id', '=', 'mylist.movie_id')
                     ->where('mylist.user_id', '=', $user_id)
                     ->get();
-        return view('front/profile', compact('mymovieslist'));
+        $mymoviesrating = \DB::table('rating')
+                        ->join('users', 'users.id', '=', 'rating.id_user')
+                        ->join('movies', 'movies.id', '=', 'rating.id_movie')
+                        ->where('rating.id_user', '=', $user_id)
+                        ->get();
+        $mostaddlistedmovies = $this->mostaddlistedmovies();
+        return view('front/profile', compact('mymovieslist','mymoviesrating','nbcomm','mostaddlistedmovies'));
     }
 
     /**
@@ -44,7 +51,9 @@ class HomeAuthController extends Controller
      */
     public function favorite()
     {
-        return view('front/favorite',compact('movies'));
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
+        $mostaddlistedmovies = $this->mostaddlistedmovies();
+        return view('front/favorite',compact('movies','nbcomm','mostaddlistedmovies'));
     }
 
     /**
@@ -53,7 +62,9 @@ class HomeAuthController extends Controller
      */
     public function submitmoviebyitems()
     {
-        return view('front/submitmovie/submitmoviebyitems');
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
+        $mostaddlistedmovies = $this->mostaddlistedmovies();
+        return view('front/submitmovie/submitmoviebyitems', compact('nbcomm','mostaddlistedmovies'));
     }
 
     /**
@@ -74,9 +85,9 @@ class HomeAuthController extends Controller
       // si l'imdb n'est pas déjà dans le BDD, on l'ajoute
         if ($pos === false) {
           Movie::Create($request->all());
-          return redirect()->route('submitmoviebyitems')->with('status', 'Movie submitted');
+          return redirect()->route('submitmoviebyitems')->with('status', 'Movie submitted, thank you for your contribution.');
         } else {
-          return redirect()->route('submitmoviebyitems')->with('error', 'This movie already exists in Holistwood'); // si l'IMDB existe déjà, on ne rajoute pas le movie
+          return redirect()->route('submitmoviebyitems')->with('error', 'This movie already exists in Holistwood.'); // si l'IMDB existe déjà, on ne rajoute pas le movie
         }
     }
 
@@ -86,7 +97,9 @@ class HomeAuthController extends Controller
      */
     public function submitmoviebyimdb()
     {
-        return view('front/submitmovie/submitmoviebyimdb');
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
+        $mostaddlistedmovies = $this->mostaddlistedmovies();
+        return view('front/submitmovie/submitmoviebyimdb', compact('nbcomm','mostaddlistedmovies'));
     }
 
     /**
@@ -96,6 +109,7 @@ class HomeAuthController extends Controller
      */
     public function findmoviebyimdb(ImdbRequest $request)
     {
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
         $urlmovie = 'http://www.omdbapi.com/?i='. $request->imdb . '&apikey=1f275ea3&plot=full';
         // 1f275ea3
         // 67f441c
@@ -107,7 +121,8 @@ class HomeAuthController extends Controller
           $movie1 = json_decode($raw, true);
           $request->session()->put('movie', $movie1);
           $movie = $request->session()->get('movie');
-          return view('front/submitmovie/submitmovieimdbverif', compact('movie'));
+          $mostaddlistedmovies = $this->mostaddlistedmovies();
+          return view('front/submitmovie/submitmovieimdbverif', compact('movie','nbcomm','mostaddlistedmovies'));
         } else {
           return redirect()->route('submitmoviebyimdb')->with('error', 'invalid IMDB ID');
         }
@@ -121,7 +136,9 @@ class HomeAuthController extends Controller
     public function verifymoviebyimdb(Request $request)
     {
         $movie = $request->session()->get('movie');
-        return view('front/submitmovie/submitmovieimdbverif', compact('movie'));
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
+        $mostaddlistedmovies = $this->mostaddlistedmovies();
+        return view('front/submitmovie/submitmovieimdbverif', compact('movie','nbcomm','mostaddlistedmovies'));
     }
 
     /**
@@ -141,9 +158,9 @@ class HomeAuthController extends Controller
         $pos = strpos($mystring, $findme);
         if ($pos === false) {
           Movie::Create($request->all());
-          return redirect()->route('submitmoviebyimdb')->with('status', 'Movie submitted');
+          return redirect()->route('submitmoviebyimdb')->with('status', 'Movie submitted, thank you for your contribution');
         } else {
-          return redirect()->route('submitmoviebyimdb')->with('error', 'This movie already exists in Holistwood'); // si l'IMDB existe déjà, on ne rajoute pas le movie
+          return redirect()->route('submitmoviebyimdb')->with('error', 'This movie already exists in Holistwood.'); // si l'IMDB existe déjà, on ne rajoute pas le movie
         }
     }
 
@@ -154,8 +171,10 @@ class HomeAuthController extends Controller
      */
     public function oneMovieAuth($imdb_id)
     {
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
         $user_id = \Auth::user()->id;
         $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
+        $mostaddlistedmovies = $this->mostaddlistedmovies();
         if (isset($movie[0])) {
           $movie_id = $movie[0]->id;
           $itemlist = $this->itemlist($movie_id,$user_id);
@@ -168,7 +187,7 @@ class HomeAuthController extends Controller
             $moyrating = $this->moyrating($imdb_id);
             $allcomments = $this->allcomments($imdb_id);
             $thiscomment = 0;
-            return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'liststatus','itemlist', 'ratings', 'ratingstatus','ratinglist', 'allcomments', 'thiscomment'));
+            return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'liststatus','itemlist', 'ratings', 'ratingstatus','ratinglist', 'allcomments', 'thiscomment','nbcomm','mostaddlistedmovies'));
           } else { abort(404); }
         } else { abort(404); }
     }
@@ -181,6 +200,7 @@ class HomeAuthController extends Controller
      */
     public function addtomylist(Request $request, $imdb_id)
     {
+          $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
           $status = $request->addtolist;
           $user_id = \Auth::user()->id;
           $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
@@ -190,6 +210,7 @@ class HomeAuthController extends Controller
           \DB::table('mylist')->insert($list);
           $itemlist = $this->itemlist($movie_id,$user_id);
           $ratinglist = $this->ratinglist($movie_id,$user_id);
+          $mostaddlistedmovies = $this->mostaddlistedmovies();
           if (!empty($movie)) {
             $trailers = $this->trailers($imdb_id);
             $liststatus = $this->liststatus($user_id,$movie_id);
@@ -198,7 +219,7 @@ class HomeAuthController extends Controller
             $moyrating = $this->moyrating($imdb_id);
             $allcomments = $this->allcomments($imdb_id);
             $thiscomment = 0;
-            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'trailers', 'liststatus','itemlist', 'ratings', 'ratingstatus','ratinglist', 'allcomments', 'thiscomment'));
+            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'trailers', 'liststatus','itemlist', 'ratings', 'ratingstatus','ratinglist', 'allcomments', 'thiscomment','nbcomm','mostaddlistedmovies'));
           } else { abort(404); }
     }
 
@@ -210,6 +231,7 @@ class HomeAuthController extends Controller
      */
     public function updateinmylist(Request $request, $imdb_id)
     {
+          $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
           $status = $request->addtolist;
           $user_id = \Auth::user()->id;
           $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
@@ -217,6 +239,7 @@ class HomeAuthController extends Controller
           $itemlist = $this->itemlist($movie_id,$user_id);
           $id = $itemlist[0]->id;
           \DB::table('mylist')->where('id','=',$id)->update(['user_id' => $user_id, 'movie_id' => $movie_id, 'statuslist' => $status]);
+          $mostaddlistedmovies = $this->mostaddlistedmovies();
           if (!empty($movie)) {
             $trailers = $this->trailers($imdb_id);
             $liststatus = $this->liststatus($user_id,$movie_id);
@@ -225,7 +248,7 @@ class HomeAuthController extends Controller
             $moyrating = $this->moyrating($imdb_id);
             $allcomments = $this->allcomments($imdb_id);
             $thiscomment = 0;
-            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'trailers', 'liststatus', 'ratings', 'ratingstatus', 'allcomments', 'thiscomment'));
+            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'trailers', 'liststatus', 'ratings', 'ratingstatus', 'allcomments', 'thiscomment','nbcomm','mostaddlistedmovies'));
           } else { abort(404); }
     }
 
@@ -237,18 +260,23 @@ class HomeAuthController extends Controller
      */
     public function rate(Request $request, $imdb_id)
     {
+          $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
           $rating = $request->rating;
           $user_id = \Auth::user()->id;
           $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
           $movie_id = $movie[0]->id;
-          $list = [];
-          $list[] = ['user_id' => $user_id, 'movie_id' => $movie_id, 'statuslist' => 'completed'];
-          \DB::table('mylist')->insert($list);
+          $movieExistInMyList = \DB::table('mylist')->where('movie_id','=',$movie_id)->get();
+          if (!isset($movieExistInMyList[0]) || empty($movieExistInMyList[0])) {
+            $list = [];
+            $list[] = ['user_id' => $user_id, 'movie_id' => $movie_id, 'statuslist' => 'completed'];
+            \DB::table('mylist')->insert($list);
+          }
           $ratingtable = [];
           $ratingtable[] = ['id_user' => $user_id, 'id_movie' => $movie_id, 'note' => $rating];
           \DB::table('rating')->insert($ratingtable);
           $ratinglist = $this->ratinglist($movie_id,$user_id);
           $itemlist = $this->itemlist($movie_id,$user_id);
+          $mostaddlistedmovies = $this->mostaddlistedmovies();
           if (!empty($movie)) {
             $ratings = $this->ratings($imdb_id);
             $ratingstatus = $this->ratingstatus($user_id,$movie_id);
@@ -257,7 +285,7 @@ class HomeAuthController extends Controller
             $moyrating = $this->moyrating($imdb_id);
             $allcomments = $this->allcomments($imdb_id);
             $thiscomment = 0;
-            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments', 'thiscomment'));
+            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments', 'thiscomment','nbcomm','mostaddlistedmovies'));
           } else { abort(404); }
     }
 
@@ -269,12 +297,14 @@ class HomeAuthController extends Controller
      */
     public function updatemyrating(Request $request, $imdb_id)
     {
+          $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
           $rating = $request->rating;
           $user_id = \Auth::user()->id;
           $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
           $movie_id = $movie[0]->id;
           $ratinglist = $this->ratinglist($movie_id,$user_id);
           $id = $ratinglist[0]->id;
+          $mostaddlistedmovies = $this->mostaddlistedmovies();
           \DB::table('rating')->where('id','=',$id)->update(['id_user'  => $user_id, 'id_movie' => $movie_id, 'note' => $rating]);
           if (!empty($movie)) {
             $ratings = $this->ratings($imdb_id);
@@ -284,7 +314,7 @@ class HomeAuthController extends Controller
             $moyrating = $this->moyrating($imdb_id);
             $allcomments = $this->allcomments($imdb_id);
             $thiscomment = 0;
-            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus', 'trailers', 'liststatus', 'allcomments', 'thiscomment'));
+            return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus', 'trailers', 'liststatus', 'allcomments', 'thiscomment','nbcomm','mostaddlistedmovies'));
           } else { abort(404); }
     }
 
@@ -351,12 +381,14 @@ class HomeAuthController extends Controller
 
     public function oneMovieAuthEditComment($imdb_id, $idcomment)
     {
+        $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
         $thiscomment = \DB::table('comments')->where('id','=',$idcomment)->get();
         $user_id = $thiscomment[0]->id;
         $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
         $movie_id = $movie[0]->id;
         $itemlist = $this->itemlist($movie_id,$user_id);
         $ratinglist = $this->ratinglist($movie_id,$user_id);
+        $mostaddlistedmovies = $this->mostaddlistedmovies();
         if (!empty($movie)) {
           $trailers = $this->trailers($imdb_id);
           $liststatus = $this->liststatus($user_id,$movie_id);
@@ -365,7 +397,7 @@ class HomeAuthController extends Controller
           $moyrating = $this->moyrating($imdb_id);
           $allcomments = $this->allcomments($imdb_id);
           // dd($allcomments);
-          return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments','thiscomment'));
+          return view('front/oneMovie', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments','thiscomment','nbcomm','mostaddlistedmovies'));
         } else { abort(404); }
     }
 
@@ -464,6 +496,15 @@ class HomeAuthController extends Controller
                   ->join('movies', 'movies.id', '=', 'comments.id_movie')->join('users', 'users.id', '=', 'comments.id_user')
                   ->where([['imdb_id','=',$imdb_id],['state','!=','deleted']])->orderBy('created_at','DESC')->get();
       return $allcomments;
+    }
+    public function mostaddlistedmovies()
+    {
+      $mostaddlistedmovies = \DB::table('mylist')
+                            ->join('movies', 'movies.id', '=', 'mylist.movie_id')
+                            ->groupBy('title')
+                            ->orderBy('count','DESC')
+                            ->get(['title', \DB::raw('count(title) as count')]);
+      return $mostaddlistedmovies;
     }
 
 

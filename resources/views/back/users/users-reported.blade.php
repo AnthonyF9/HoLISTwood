@@ -32,10 +32,8 @@
           <th>Name</th>
           <th>Email</th>
           <th>Role</th>
-          <th>Created</th>
-          <th>Updated</th>
           <th>Mod reportman</th>
-          <th>Reason</th>
+          <th class="reason">Reason</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -48,10 +46,8 @@
           <td scope="row">{{ $user->name_user_reported }}</td>
           <td scope="row">{{ $user->email }}</td>
           <td scope="row">{{ $user->role }}</td>
-          <td scope="row">{{ $user->created_at }}</td>
-          <td scope="row">{{ $user->updated_at }}</td>
           <td scope="row">{{ $user->name_mod }}</td>
-          <td scope="row">{{ $user->why }}</td>
+          <td  class="reason"scope="row">{{ $user->why }}</td>
           <td>
             <a class="btn btn-primary" href="{{ route('editreporteduser', array('id'=> $user->id )) }}"> Edit </a>
             {!! Form::open(['route' => 'dontban', 'method' => 'post']) !!}

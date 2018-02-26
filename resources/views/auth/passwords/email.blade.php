@@ -1,11 +1,7 @@
 @extends('layouts/frontlayout')
 
 @section('title')
-<<<<<<< HEAD
-Mot de passe oublié - HOLLISTWOOD
-=======
-Mot de passe oublié - HOLISTWOOD
->>>>>>> fb3ba1c0b2bd54aeef450aad6e58e09909b4c597
+Password forgotten - HOLLISTWOOD
 @endsection
 
 @section('content')

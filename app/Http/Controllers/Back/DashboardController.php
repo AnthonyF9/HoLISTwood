@@ -21,8 +21,16 @@ class DashboardController extends Controller
   {
       $movies = Movie::where('moderation', '=', 'ok')->get();
       $totalmovies = count($movies);
-
-
-      return view('back/dashboard',compact('totalmovies'));
+      $mostaddlistedmovies = \DB::table('mylist')
+                            ->join('movies', 'movies.id', '=', 'mylist.movie_id')
+                            ->groupBy('title')
+                            ->orderBy('count','DESC')
+                            ->get(['title', \DB::raw('count(title) as count')]);
+      $mostactiveusersincomments = \DB::table('comments')
+                                    ->join('users', 'users.id', '=', 'comments.id_user')
+                                    ->groupBy('name')
+                                    ->orderBy('count','DESC')
+                                    ->get(['name', \DB::raw('count(name) as count')]);
+      return view('back/dashboard',compact('totalmovies','mostaddlistedmovies','mostactiveusersincomments'));
   }
 }

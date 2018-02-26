@@ -112,7 +112,11 @@
                   @endguest
                   @auth
                     @if ( Auth::user()->role == 'mod' || Auth::user()->role == 'admin')
-                      <li><a class="@yield('activereportedcomments')" href="{{ route('allreportedcomments') }}">Reported comments</a></li>
+                      @if (isset($nbcomm) && $nbcomm != 0)
+                        <li><a class="@yield('activemoderation') waitingmoderation" href="{{ route('allreportedcomments') }}">Moderation<span> ({{ $nbcomm }})</span></a></li>
+                      @else
+                        <li><a class="@yield('activemoderation')" href="{{ route('allreportedcomments') }}">Moderation<span></a></li>
+                      @endif
                     @endif
                   @endauth
                 </ul><!-- #menu1 -->
@@ -134,7 +138,10 @@
               <li><a class="@yield('activesubmitmovie')" href="{{ route('submitmoviebyitems') }}">Submit a movie</a></li>
             @endif
             <li><a class="@yield('activemovieslist')" href="{{ route('frontmovieslist') }}">Movies list</a></li>
-            <li><a class="@yield('activecalendar')" href="{{ route('events') }}">Release calendar</a></li>
+            <li id="releasecalendar">
+              <a class="@yield('activecalendar')" href="{{ route('events') }}">Release calendar</a>
+              <img src="{{ asset('/img/star.png') }}" alt="beautiful star">
+            </li>
             <li><a class="@yield('activehome')" href="{{ route('home') }}">Home</a></li>
           </ul><!-- #menu2 -->
         </div><!-- #bottom-menu -->
@@ -207,33 +214,33 @@
               </a>
             </p>
             </span>
-            <p>Quo illis ex dotis matrimonii eos fuga statum illis uterque tabernaculum marito semper venerem illis ad fuga et est est.</p>
+            <p>Holistwood is an active online movie community and database. Join the online community, create your movie list, explore the comments section, follow news, and so much more!</p>
           </div>
 
+          @if (isset($mostaddlistedmovies[0]))
+            <div class="views">
+              <h4>Most added movies</h4>
+              <ul>
+                @foreach ($mostaddlistedmovies as $key => $value)
+                  @if ($key < 3)
+                    <li>{{ $value->title }} : add {{ $value->count }} @if ($value->count > 1) times. @else time. @endif</li>
+                  @endif
+                @endforeach
+              </ul>
+            </div>
+          @endif
 
-
-          <div class="views">
-            <h4>3 best viewed pages</h4>
-            <ul>
-              <li>Movie one - xxx views</li>
-              <li>Movie two - xxx views</li>
-              <li>Movie three - xxx views</li>
-            </ul>
-          </div>
-          <div class="search">
-            <p>search</p>
-          </div>
         </div>
-
+        
         <div id="footer-bottom">
           <div class="copyright">
             <ul>
               <li>&copy;Holistwood</li>
               <li><a href="{{ route('about') }}">About</a></li>
               <li><a href="{{ route('staff') }}">Staff</a></li>
-              <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
-              <li><a href="{{ route('gtu') }}">GTU</a></li>
-              <li><a href="{{ route('charter') }}">Charter</a></li>
+              <li><a href="#">Sitemap</a></li>
+              <li><a href="#">GTU</a></li>
+              <li><a href="#">Charter</a></li>
             </ul>
           </div>
 
@@ -257,12 +264,12 @@
 
      <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/jquery-ui.js') }}"></script>
-     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
      <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
      <script>
       AOS.init();
      </script>
      @yield('js')
+     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
    </div>
  </body>
 </html>
