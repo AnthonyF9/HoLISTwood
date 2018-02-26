@@ -269,10 +269,24 @@ header #bottom-menu #menu2 li button{
 header #bottom-menu #menu2 li button:hover{
   color: #73b3f2;
 }
-#releasecalendar {
-  background: url("../img/star.png") no-repeat;
+/* #releasecalendar {
+  background-image: url("../img/star.png");
+  background-repeat: no-repeat;
   background-position: top right;
   background-size: contain;
+} */
+#releasecalendar {
+  position: relative;
+  z-index: 10;
+}
+#releasecalendar img {
+  width: 35px;
+  position: absolute;
+  top: -10px;
+  /* right: 0; */
+  left: 0;
+  opacity: 0.6;
+  z-index: 1;
 }
 
 

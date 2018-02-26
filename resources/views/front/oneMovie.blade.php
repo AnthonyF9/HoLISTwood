@@ -55,6 +55,8 @@
             <p class="detail-containt">
               @if (!empty($moyrating))
                 {{ $moyrating }} / 5
+              @elseif (is_numeric($moyrating))
+                0 / 5
               @else
                 No rating available
               @endif

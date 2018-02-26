@@ -241,9 +241,12 @@ class HomeAuthController extends Controller
           $user_id = \Auth::user()->id;
           $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
           $movie_id = $movie[0]->id;
-          $list = [];
-          $list[] = ['user_id' => $user_id, 'movie_id' => $movie_id, 'statuslist' => 'completed'];
-          \DB::table('mylist')->insert($list);
+          $movieExistInMyList = \DB::table('mylist')->where('movie_id','=',$movie_id)->get();
+          if (!isset($movieExistInMyList[0]) || empty($movieExistInMyList[0])) {
+            $list = [];
+            $list[] = ['user_id' => $user_id, 'movie_id' => $movie_id, 'statuslist' => 'completed'];
+            \DB::table('mylist')->insert($list);
+          }
           $ratingtable = [];
           $ratingtable[] = ['id_user' => $user_id, 'id_movie' => $movie_id, 'note' => $rating];
           \DB::table('rating')->insert($ratingtable);
