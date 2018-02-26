@@ -380,6 +380,36 @@ div#trailer {
   background-color: #262626;
 }
 
+/* legend calendrier */
+
+.legend_calendar {
+  margin-top: 2%;
+}
+
+.legend_calendar p{
+  margin-top: 1%;
+  font-size: 0.9em;
+  padding: 2px;
+}
+
+.red_legend {
+  width: 130px;
+  height: 17px;
+  background-color: #EE0401;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 17px;
+}
+
+.blue_legend {
+  width: 130px;
+  height: 17px;
+  background-color: #3A87AD;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 17px;
+}
+
 /* ////////////////////////////////////////////////////////////////////////////////// */
 /* pagination movies list */
 

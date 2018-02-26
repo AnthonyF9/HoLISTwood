@@ -125,21 +125,23 @@ header #top-menu .social-network ul li svg{
   width: 30px;
   height: 30px;
 }
-#Facebook:hover{
+
+a svg:hover #Facebook{
   fill: #4867AA;
 }
 
-.Google:hover{
+a svg:hover .Google{
   fill: #DC4A38;
 }
 
-#Twitter__x28_alt_x29_:hover{
+a svg:hover #Twitter__x28_alt_x29_{
   fill:#1DA1F2;
 }
 
-#YouTube:hover {
+a svg:hover #YouTube {
   fill:#FF0000;
 }
+
 
 header #top-menu .log {
   width: 80%;
