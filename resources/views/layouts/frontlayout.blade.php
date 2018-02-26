@@ -24,10 +24,10 @@
         <nav id="top-menu">
           <div class="social-network">
             <ul>
-              <li><a href="#"><?php echo file_get_contents("img/facebook2.svg"); ?></a></li>
-              <li><a href="#"><?php echo file_get_contents("img/twitter2.svg"); ?></a></li>
-              <li><a href="#"><?php echo file_get_contents("img/youtube.svg"); ?></a></li>
-              <li><a href="#"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
+              <li><a href="https://fr-fr.facebook.com/" target="_blank"><?php echo file_get_contents("img/facebook2.svg"); ?></a></li>
+              <li><a href="https://twitter.com/" target="_blank"><?php echo file_get_contents("img/twitter2.svg"); ?></a></li>
+              <li><a href="https://www.youtube.com/" target="_blank"><?php echo file_get_contents("img/youtube.svg"); ?></a></li>
+              <li><a href="https://plus.google.com/discover" target="_blank"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
             </ul>
           </div><!-- .social-network -->
           <div class="log">
@@ -93,6 +93,7 @@
                         var loginerror = 'TRUE';
                       </script> --}}
                     @endif
+                    {{-- {{ dd($errors) }} --}}
                   @else
                   <li id="log">
                       <a href="{{ route('logout') }}"
@@ -109,6 +110,11 @@
                   <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                     @endif
                   @endguest
+                  @auth
+                    @if ( Auth::user()->role == 'mod' || Auth::user()->role == 'admin')
+                      <li><a class="@yield('activereportedcomments')" href="{{ route('allreportedcomments') }}">Reported comments</a></li>
+                    @endif
+                  @endauth
                 </ul><!-- #menu1 -->
               </div><!-- .menu-top -->
             </nav><!-- #large-screen -->
@@ -147,12 +153,16 @@
               <li><a class="@yield('activecalendar')" href="{{ route('events') }}">Release calendar</a></li>
               <li><a class="@yield('activemovieslist')" href="{{ route('frontmovieslist') }}">Movies list</a></li>
               @else
+                @if ( Auth::user()->role == 'admin')
+                  <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                @endif
+                @if ( Auth::user()->role == 'mod' || Auth::user()->role == 'admin')
+                  <li><a class="@yield('activereportedcomments')" href="{{ route('allreportedcomments') }}">Reported comments</a></li>
+                @endif
                 @if ( Auth::user() )
                   <li><a class="@yield('activecalendar')" href="{{ route('events') }}">Release calendar</a></li>
                   <li><a class="@yield('activemovieslist')" href="{{ route('frontmovieslist') }}">Movies list</a></li>
                  <li><a class="@yield('activesubmitmovie')" href="{{ route('submitmoviebyimdb') }}">Submit a movie</a></li>
-                @elseif ( Auth::user()->role == 'admin')
-              <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                 @endif
               <li><a class="@yield('activeprofile')" href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
               <li id="hello-user">
@@ -219,6 +229,7 @@
           <div class="copyright">
             <ul>
               <li>&copy;Holistwood</li>
+              <li><a href="{{ route('about') }}">About</a></li>
               <li><a href="{{ route('staff') }}">Staff</a></li>
               <li><a href="{{ route('sitemap') }}">Sitemap</a></li>
               <li><a href="{{ route('gtu') }}">GTU</a></li>
@@ -228,10 +239,10 @@
 
           <div class="social-network">
             <ul>
-              <li><a href="#"><?php echo file_get_contents("img/facebook2.svg"); ?></a></li>
-              <li><a href="#"><?php echo file_get_contents("img/twitter2.svg"); ?></a></li>
-              <li><a href="#"><?php echo file_get_contents("img/youtube.svg"); ?></a></li>
-              <li><a href="#"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
+              <li><a href="https://fr-fr.facebook.com/" target="_blank"><?php echo file_get_contents("img/facebook2.svg"); ?></a></li>
+              <li><a href="https://twitter.com/" target="_blank"><?php echo file_get_contents("img/twitter2.svg"); ?></a></li>
+              <li><a href="https://www.youtube.com/" target="_blank"><?php echo file_get_contents("img/youtube.svg"); ?></a></li>
+              <li><a href="https://plus.google.com/discover" target="_blank"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
             </ul>
           </div>
 

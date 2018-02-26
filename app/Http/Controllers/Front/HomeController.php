@@ -26,19 +26,41 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
       $movies = Movie::inRandomOrder()->where('moderation', '=', 'ok')->limit(12)->get();
 
       $trailers = \DB::table('movies')
                   ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
                   ->where('url_trailer', '!=', '')
+                  ->where('release_date', '>=', \DB::raw('CURDATE()'))
                   ->get();
 
       $count = count($trailers) - 1;
       $randomid = rand(0, $count);
+      $titre = 'coming soon';
 
-        return view('front/home',compact('movies','trailers', 'randomid'));
+      // dd($count);
+
+      if ($count < 0) {
+
+        $trailers = \DB::table('movies')
+                    ->join('trailer', 'movies.id', '=', 'trailer.id_movie')
+                    ->where('url_trailer', '!=', '')
+                    ->get();
+
+        $count = count($trailers) - 1;
+        $randomid = mt_rand(0, $count);
+        $titre = 'trailers';
+
+        // $request->session()->put('randomid', $randomid);
+        // $value = $request->session()->get('randomid');
+
+
+        return view('front/home',compact('movies','trailers', 'randomid', 'titre'));
+      }
+
+        return view('front/home',compact('movies','trailers', 'randomid', 'titre'));
     }
 
     public function oneMovie($imdb_id)
@@ -60,10 +82,10 @@ class HomeController extends Controller
             if (!empty($rating)) { $moyrating = round(array_sum($rating)/count($rating),1); }
             else {  $moyrating = ''; }
             $allcomments = \DB::table('comments')
-                        ->select('comments.id','comments.id_user','comments.id_movie','comments.content','comments.content','comments.created_at','comments.updated_at','users.name')
+                        ->select('comments.state','comments.id','comments.id_user','comments.id_movie','comments.content','comments.content','comments.created_at','comments.updated_at','users.name')
                         ->join('movies', 'movies.id', '=', 'comments.id_movie')
                         ->join('users', 'users.id', '=', 'comments.id_user')
-                        ->where('imdb_id','=',$imdb_id)
+                        ->where([['imdb_id','=',$imdb_id],['state','!=','deleted']])
                         ->orderBy('created_at','DESC')
                         ->get();
             return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'allcomments'));
@@ -79,14 +101,14 @@ class HomeController extends Controller
     }
 
     public function searchfrontmovies(Request $request) {
-
-        if($request->ajax()){
-
+      if($request->ajax()){
         $output="";
+        $outputfull="";
 
-        $movies = \DB::table('movies')->where([['title', 'like', '%' . $request->search . '%'],['moderation', '=', 'ok']])->orWhere([['year', '=', $request->search ],['moderation', '=', 'ok']])->orderBy('created_at','desc')->paginate(7);
+        $movies = \DB::table('movies')->where([['title', 'like', '%' . $request->search . '%'],['moderation', '=', 'ok']])->orWhere([['year', '=', $request->search ],['moderation', '=', 'ok']])->orWhere([['actors', 'like', '%'.  $request->search .'%' ],['moderation', '=', 'ok']])->orWhere([['director', 'like', '%'.  $request->search .'%' ],['moderation', '=', 'ok']])->orderBy('year','asc')->get();
 
-
+        $moviesfull = Movie::orderBy('title','asc')->where('moderation', '=', 'ok')->paginate(42);
+        $moviesfull->withPath('movies-list'); // Précise l'url de la pagination ( sans ça les liens de la pagination en ajax ne marchait pas )
 
           if (!empty($movies[0])) {
 
@@ -110,9 +132,36 @@ class HomeController extends Controller
                    '</figure>'.
                    '</a>'.
                    '</div>';
-
-
            }
+
+           $outputfull.='<div class="pagination">'.
+                    '<div id="paginationlinks" class="paginatemovieslist">' .$moviesfull->links(). '</div>'.
+                    '</div>';
+
+           foreach ($moviesfull as $moviefull) {
+
+             if (Auth::user()) {
+               $routefull = '<a href='. route('oneMovieAuth', array( 'imdb_id'=> $moviefull->imdb_id ))  .'>';
+             } else {
+               $routefull = '<a href='. route('oneMovie', array( 'imdb_id'=> $moviefull->imdb_id ))  .'>';
+             }
+
+             $outputfull.=
+                      '<div class="grid">'.
+                      $routefull.
+                      '<figure data-aos="fade-up" class="effect-zoe">'.
+                      '<img src=' .$moviefull->poster. 'alt=' .$moviefull->title. '/>'.
+                      '<figcaption>'.
+                      '<h2>' .$moviefull->title. '</h2>'.
+                      '</figcaption>'.
+                      '</figure>'.
+                      '</a>'.
+                      '</div>';
+              }
+
+              $outputfull.='<div class="pagination">'.
+                       '<div id="paginationlinks" class="paginatemovieslist">' .$moviesfull->links(). '</div>'.
+                       '</div>';
 
 
         } else {
@@ -120,14 +169,15 @@ class HomeController extends Controller
         }
             return response()->json([
               'output' => $output,
+              'outputfull' => $outputfull,
             ]);
 
-      }
     }
+  }
 
-    public function contact()
+    public function about()
     {
-        return view('front/contact');
+        return view('front/about');
     }
 
     public function staff()

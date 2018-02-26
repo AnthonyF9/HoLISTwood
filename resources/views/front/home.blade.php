@@ -14,17 +14,21 @@ active @endsection
 
     @endguest
     @if ( Auth::user())
-      <p>&mdash; Hey {{ Auth::user()->name }} ! How are you today ? :) &mdash;</p>
+      @if (Auth::user()->role == "banned")
+        <p style="color:red;font-weight:bold;background:#FFBBBB">You are banned because of your behavior. You cannot submit movies, comment or report comments. To object this, you can contact us at support@holistwood.com</p>
+      @else
+        <p>&mdash; Hey {{ Auth::user()->name }} ! How are you today ? :) &mdash;</p>
+      @endif
     @endif
     </div>
+
  @endsection
 
 @section('content')
 
-
   <div id="trailer">
     <div class="bandeau-trailer">
-      <h2> trailers </h2>
+      <h2> {{$titre}} </h2>
     </div>
 
       <div class="rwd-trailer">

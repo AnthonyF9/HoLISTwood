@@ -373,7 +373,9 @@ class HomeAuthController extends Controller
     public function updatecommentaction(CommentRequest $request, $imdb_id, $idcomment)
     {
           $content= $request->comment;
-          $user_id = \Auth::user()->id;
+          // $user_id = \Auth::user()->id;
+          $thiscomment = \DB::table('comments')->where('id','=',$idcomment)->get();
+          $user_id = $thiscomment[0]->id;
           $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
           $movie_id = $movie[0]->id;
           $date = new \DateTime();
@@ -391,6 +393,30 @@ class HomeAuthController extends Controller
             return redirect()->to(route('oneMovieAuth', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments', 'thiscomment')).'#comment'.$idcomment);
           } else { abort(404); }
     }
+
+
+    public function reportcomment(Request $request, $imdb_id) {
+      $idcomment = $request->id;
+      \DB::table('comments')->where('id','=',$idcomment)->update(['state' => 'waiting moderation']);
+      $thiscomment = \DB::table('comments')->where('id','=',$idcomment)->get();
+      $user_id_reported = $thiscomment[0]->id_user;
+      $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
+      $movie_id = $movie[0]->id;
+      $id_user_reportman = \Auth::user()->id;
+      \DB::table('reported_comments')->insert(['id_movie' => $movie_id,'id_comment' => $idcomment,'id_user_reported' => $user_id_reported, 'id_user_reportman' => $id_user_reportman]);
+      $date = new \DateTime();
+      $ratinglist = $this->ratinglist($movie_id,$id_user_reportman);
+      $itemlist = $this->itemlist($movie_id,$id_user_reportman);
+      $ratings = $this->ratings($imdb_id);
+      $ratingstatus = $this->ratingstatus($id_user_reportman,$movie_id);
+      $trailers = $this->trailers($imdb_id);
+      $liststatus = $this->liststatus($id_user_reportman,$movie_id);
+      $moyrating = $this->moyrating($imdb_id);
+      $allcomments = $this->allcomments($imdb_id);
+      $thiscomment = 0;
+      return redirect()->to(route('oneMovieAuth', compact('imdb_id','movie', 'moyrating', 'ratings', 'ratingstatus','ratinglist', 'trailers', 'liststatus','itemlist', 'allcomments', 'thiscomment')).'#comment'.$idcomment);
+    }
+
 
 
 
@@ -434,9 +460,9 @@ class HomeAuthController extends Controller
     }
     public function allcomments($imdb_id) {
       $allcomments = \DB::table('comments')
-                  ->select('comments.id','comments.id_user','comments.id_movie','comments.content','comments.content','comments.created_at','comments.updated_at','users.name')
+                  ->select('comments.state','comments.id','comments.id_user','comments.id_movie','comments.content','comments.content','comments.created_at','comments.updated_at','users.name')
                   ->join('movies', 'movies.id', '=', 'comments.id_movie')->join('users', 'users.id', '=', 'comments.id_user')
-                  ->where('imdb_id','=',$imdb_id)->orderBy('created_at','DESC')->get();
+                  ->where([['imdb_id','=',$imdb_id],['state','!=','deleted']])->orderBy('created_at','DESC')->get();
       return $allcomments;
     }
 

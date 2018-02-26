@@ -39,6 +39,8 @@ Route::group(['namespace' => 'Front'], function () {
   Route::get('/movie/{imdb_id}/comment/update-number-{idcomment}', 'HomeAuthController@updatecomment')->name('updatecomment');
   Route::get('/movie/{imdb_id}/comment/edit-number-{idcomment}', 'HomeAuthController@oneMovieAuthEditComment')->name('oneMovieAuthEditComment');
   Route::put('/movie/{imdb_id}/comment/update-number-{idcomment}/go', 'HomeAuthController@updatecommentaction')->name('updatecommentaction');
+  // signaler un commentaire
+  Route::post('/movie/{imdb_id}/report-comment', 'HomeAuthController@reportcomment')->name('reportcomment');
 
   // la page profile
   Route::get('/profile', 'HomeAuthController@profile')->name('profile');
@@ -55,10 +57,14 @@ Route::group(['namespace' => 'Front'], function () {
     Route::post('/submit-movie/save-movie-by-imdb', 'HomeAuthController@addmoviebyimdb')->name('addmoviebyimdb');
 
   // pour les modo
-  Route::get('/mod/reported-comments/all', 'HomeModController@allreportedcomments');
+  Route::get('/mod/reported-comments/all', 'HomeModController@allreportedcomments')->name('allreportedcomments');
+  Route::post('/mod/reported-comments/commentIsOk', 'HomeModController@commentIsOk')->name('commentIsOk');
+  Route::put('/mod/reported-comments/deleteComment', 'HomeModController@deleteComment')->name('deleteComment');
+  Route::post('/mod/reported-comments/askingbannishuser', 'HomeModController@askingbannishuser')->name('askingbannishuser');
 
   // autres routes
   Route::get('/contact', 'HomeController@contact')->name('contact');
+  Route::get('/about', 'HomeController@about')->name('about');
   Route::get('/staff', 'HomeController@staff')->name('staff');
   Route::get('/sitemap', 'HomeController@sitemap')->name('sitemap');
   Route::get('/gtu', 'HomeController@gtu')->name('gtu');
@@ -103,6 +109,11 @@ Route::group(['namespace' => 'Back'], function () {
   Route::get('/dashboard/users-list', 'UsersController@userslist')->name('userslist');
   Route::get('/dashboard/update-user/{id}', 'UsersController@edituser')->where('id','[0-9]+')->name('edituser');
   Route::put('/dashboard/update-user/{id}', 'UsersController@edituseraction')->where('id','[0-9]+')->name('edituser-action');
+  Route::get('/dashboard/users-reported', 'UsersController@usersreported')->name('usersreported');
+  Route::get('/dashboard/users-reported/{id}', 'UsersController@editreporteduser')->where('id','[0-9]+')->name('editreporteduser');
+  Route::put('/dashboard/users-reported/{id}', 'UsersController@edituserreportedaction')->where('id','[0-9]+')->name('edituserreported-action');
+  Route::post('/dashboard/users-list/dont-ban', 'UsersController@dontban')->name('dontban');
+  Route::post('/dashboard/users-list/ban', 'UsersController@ban')->name('ban');
 
 });
 

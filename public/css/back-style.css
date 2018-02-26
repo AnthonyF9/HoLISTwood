@@ -102,14 +102,11 @@ header ul li a.active {
 }
 #main_menu_nav li {
   color: #D2D7D8;
-  /* background: #00789a; */
   padding: 10px;
   padding-left: 30px;
-  /* border-bottom: 1px solid #035c7e; */
 }
   #main_menu_nav li:hover {
     color: #FFF;
-    /* background: #108BAD; */
   }
     #main_menu_nav li:last-child {
       border-bottom: none;
@@ -136,7 +133,6 @@ header ul li a.active {
   top: 10px;
   right: 10px;
   font-size: 14px;
-  /* color: #002E41; */
   transition: all .2s;
 }
 /* Aspect si "pas cochée" */
@@ -166,7 +162,6 @@ header ul li a.active {
   top: 10px;
   right: 10px;
   font-size: 14px;
-  /* color: #002E41; */
   transition: all .2s;
   opacity: 1; /* coche opaque */
 }
@@ -177,6 +172,9 @@ header ul li a.active {
   position: relative;
 }
 #main_menu_nav_part1 [type="checkbox"]:checked + label + ul, #main_menu_nav_part2 [type="checkbox"]:checked + label + ul, #main_menu_nav_part3 [type="checkbox"]:checked + label + ul {
+  display: block;
+}
+#main_menu_nav_part2 h3.active + [type="checkbox"] + label + ul {
   display: block;
 }
 #main_menu_nav_part3 h3.active + [type="checkbox"] + label + ul {
@@ -204,14 +202,11 @@ main {
 #stats {
   margin-left: 1%;
   background-color: #AAA;
-  /* border: 1px solid #444; */
   min-height: 100%;
   width: 100%;
   color: black;
 }
 #nav-movies {
-  /* border-top: 1px solid #444;
-  border-bottom: 1px solid #444; */
   background: #212529;
   padding: 5px;
   margin-bottom: 20px;
@@ -273,17 +268,14 @@ h1 {
     top: 0;
     width: 100%; /* Full width */
     height: 100%;
-    /* height: 100%; /* Full height */ */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 /* Modal Content/Box */
 .modal-content {
-    /* background-color: #fefefe; */
     margin: 20% auto; /* 15% from the top and centered */
     padding: 20px;
-    /* border: 1px solid #888; */
     width: 40%; /* Could be more or less, depending on screen size */
     min-width: 100px;
     position: relative;
@@ -292,11 +284,6 @@ h1 {
   width: 100%;
   text-align: center;
 }
-/* .modal-content form span {
-  color: black;
-  text-align: center;
-  width: 100%;
-} */
 .modal-content form span#question {
   color: black;
   width: 100%;

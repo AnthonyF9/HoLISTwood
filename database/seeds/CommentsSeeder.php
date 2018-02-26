@@ -17,7 +17,7 @@ class CommentsSeeder extends Seeder
         'id_user' =>2 ,
         'id_movie' => 3,
         'content'  => 'testons les commentaires',
-        'state'   => 'published',
+        'state'   => 'waiting moderation',
         'created_at' => $date->format('Y-m-d H:i:s'),
         'updated_at' => $date->format('Y-m-d H:i:s')
       );

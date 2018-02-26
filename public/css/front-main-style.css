@@ -595,12 +595,37 @@ color: #2a85e4;
   border-radius: 10px;
   margin: 0 auto;
 }
-.comment .comment-list h4 {
+.comment .comment-list .headline {
   border-bottom: 1px white solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.comment .comment-list .headline form input[type="submit"].report {
+  background: transparent;
+  text-align: right;
+  color: #2A89EB;
+  font-size: 1em;
+  margin: none;
+  padding: 15px 0;
+  text-transform: none;
+  font-weight: normal;
+}
+.comment .comment-list .headline .report:hover {
+  color: red;
 }
 .comment .comment-list .edit-comment {
   text-align: right;
   margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.comment .comment-list .edit-comment .last-update-comment {
+  font-size: 0.75em;
+}
+.comment .comment-list .edit-comment .last-update-comment p {
+  margin-top: 0;
 }
 .comment .comment-list .edit-comment a {
   color: #2A89EB;
@@ -612,7 +637,7 @@ color: #2a85e4;
 .comment .comment-list .edit-comment input[type="submit"] {
   margin: 0 40%;
 }
-.comment .comment-list span {
+.comment .comment-list span.username {
   color: #2A89EB;
   font-size: 1.5em;
 }
@@ -716,13 +741,39 @@ color: #2a85e4;
 }
 .searchbar #searchmovies {
   margin: 20px auto;
-  width: 200px;
+  width: 300px;
   border: none;
   padding: 10px;
   border-radius: 10px;
 }
 .searchbar #searchmovies:focus {
   outline:  none;
+}
+
+/* About/staff */
+
+#about-group, #staff-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%
+}
+#about-group .about, #staff-group .staff {
+  background: white;
+  color: black;
+  margin: 5% auto;
+  padding: 10px;
+  border-radius: 10px;
+  width: 40%;
+  min-height: 150px;
+  text-align: center;
+}
+#about-group .about h4, #staff-group .staff h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+#about-group .about p, #staff-group .staff p {
+  margin: 10px auto;
 }
 
 
@@ -732,12 +783,12 @@ color: #2a85e4;
 
   /* Single */
 
-  .grid figure img{
+  /* .grid figure img{
     display: inline;
   }
   .grid figure {
     min-width: 50px;
-  }
+  } */
 
   /* Single */
 

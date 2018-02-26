@@ -91,7 +91,7 @@
             <span id="myModal" class="modal">
               <span class="modal-content">
                 <span class="close">&times;</span>
-                {{ Form::open(['route' => ['softdeletemovie', $movie->id],'method' => 'delete']) }}
+                {{ Form::open(['route' => ['deletemovie', $movie->id],'method' => 'delete']) }}
                   <span id="question">Are you sure about it ?</span>
                   <span id="choices">
                     <span id="no-delete" class="btn btn-primary nodelete choice">No, don't delete</span>
