@@ -79,9 +79,9 @@ class HomeAuthController extends Controller
       // si l'imdb n'est pas déjà dans le BDD, on l'ajoute
         if ($pos === false) {
           Movie::Create($request->all());
-          return redirect()->route('submitmoviebyitems')->with('status', 'Movie submitted');
+          return redirect()->route('submitmoviebyitems')->with('status', 'Movie submitted, thank you for your contribution.');
         } else {
-          return redirect()->route('submitmoviebyitems')->with('error', 'This movie already exists in Holistwood'); // si l'IMDB existe déjà, on ne rajoute pas le movie
+          return redirect()->route('submitmoviebyitems')->with('error', 'This movie already exists in Holistwood.'); // si l'IMDB existe déjà, on ne rajoute pas le movie
         }
     }
 
@@ -146,9 +146,9 @@ class HomeAuthController extends Controller
         $pos = strpos($mystring, $findme);
         if ($pos === false) {
           Movie::Create($request->all());
-          return redirect()->route('submitmoviebyimdb')->with('status', 'Movie submitted');
+          return redirect()->route('submitmoviebyimdb')->with('status', 'Movie submitted, thank you for your contribution');
         } else {
-          return redirect()->route('submitmoviebyimdb')->with('error', 'This movie already exists in Holistwood'); // si l'IMDB existe déjà, on ne rajoute pas le movie
+          return redirect()->route('submitmoviebyimdb')->with('error', 'This movie already exists in Holistwood.'); // si l'IMDB existe déjà, on ne rajoute pas le movie
         }
     }
 

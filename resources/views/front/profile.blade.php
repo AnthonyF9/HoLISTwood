@@ -49,18 +49,19 @@ active @endsection
                 @if (in_array($movie->movie_id,$ratingmovie) != 0)
                   @if ($onemovierating->id_movie == $movie->movie_id)
                     @if (!empty($onemovierating->note))
-                      {{$onemovierating->note}} / 5
+                      @php $oneraiting = $onemovierating->note . " / 5"; @endphp
+                      {{-- {{$onemovierating->note}} / 5 --}}
                     @else
-                      @php $noraitingavailable = "No rating available"; @endphp
+                      @php $oneraiting = "No rating available"; @endphp
                     @endif
                   @endif
                 @else
-                  @php $noraitingavailable = "No rating available"; @endphp
+                  @php $oneraiting = "No rating available"; @endphp
                 @endif
               @endif
             @endforeach
-            @if (isset($noraitingavailable))
-              {{ $noraitingavailable }}
+            @if (isset($oneraiting))
+              {{ $oneraiting }}
             @endif
           </td>
         </tr>
