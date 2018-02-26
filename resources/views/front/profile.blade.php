@@ -24,7 +24,7 @@ active @endsection
   <div id="movies-list-profile">
     <ul>
       @foreach ($mymovieslist as $movie)
-      <li><a href="{{ route('oneMovie', array( 'imdb_id'=> $movie->imdb_id )) }}"><h2>{{$movie->title}}</h2></a></li>
+      <li><a href="{{ route('oneMovieAuth', array( 'imdb_id'=> $movie->imdb_id )) }}"><h2>{{$movie->title}}</h2></a></li>
       @endforeach
     </ul>
   </div>

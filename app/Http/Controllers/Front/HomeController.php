@@ -42,7 +42,7 @@ class HomeController extends Controller
 
       // dd($count);
 
-      $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->groupBy('id_comment')->count();
+      $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
 
       if ($count < 0) {
 
