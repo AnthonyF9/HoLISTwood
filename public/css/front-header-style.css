@@ -101,6 +101,8 @@ header #top-menu {
   padding: 10px 0;
   height: 40px;
   text-align: right;
+  max-width: 2000px;
+  margin: auto;
 }
 header #top-menu .social-network {
   display: flex;
@@ -112,25 +114,32 @@ header #top-menu .social-network {
   min-width: 200px;
 }
 
-/* Logos réseaux sociaux */
+/* ANIMATION LOGO  */
+
+
+
+/*  */
+
+
 header #top-menu .social-network ul li svg{
   width: 30px;
   height: 30px;
 }
-
-a svg:hover #Facebook {
+#Facebook:hover{
   fill: #4867AA;
 }
-a svg:hover .Google {
+
+.Google:hover{
   fill: #DC4A38;
 }
-a svg:hover #Twitter__x28_alt_x29_ {
-  fill: #1DA1F2;
+
+#Twitter__x28_alt_x29_:hover{
+  fill:#1DA1F2;
 }
-a svg:hover #YouTube {
-  fill: #FF0000;
+
+#YouTube:hover {
+  fill:#FF0000;
 }
-/* //// */
 
 header #top-menu .log {
   width: 80%;
@@ -217,6 +226,8 @@ header nav ul li a.active, header nav ul li span.active {
 #bottom-menu {
   display: flex;
   flex-direction: row;
+  max-width: 2000px;
+  margin: auto;
 }
 #bottom-menu h1 {
   width: 30%;

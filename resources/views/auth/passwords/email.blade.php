@@ -1,7 +1,7 @@
 @extends('layouts/frontlayout')
 
 @section('title')
-Mot de passe oublié - HOLLISTWOOD
+Password forgotten - HOLLISTWOOD
 @endsection
 
 @section('content')

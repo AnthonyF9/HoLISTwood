@@ -22,106 +22,104 @@
     <div id="wrapper">
       <header>
         <nav id="top-menu">
-          {{-- <div class="small-wrapper"> --}}
-            <div class="social-network">
-              <ul>
-                <li><a href="https://fr-fr.facebook.com/" target="_blank"><?php echo file_get_contents("img/facebook2.svg"); ?></a></li>
-                <li><a href="https://twitter.com/" target="_blank"><?php echo file_get_contents("img/twitter2.svg"); ?></a></li>
-                <li><a href="https://www.youtube.com/" target="_blank"><?php echo file_get_contents("img/youtube.svg"); ?></a></li>
-                <li><a href="https://plus.google.com/discover" target="_blank"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
-              </ul>
-            </div><!-- .social-network -->
-            <div class="log">
-              <nav id="large-screen">
-                <div class="menu-top">
-                  <ul id="menu1">
-                    @guest
-                    <li><span id="myBtn" type="button" name="button" >Log in</span></li>
-                    <li><a class="@yield('activeregister')" href="{{ route('register') }}">Register</a></li>
-                    <div id="myModal" class="modal">
-                      <div class="modal-content">
-                        <div class="panel panel-default">
-                          <span class="close">&times;</span>
-                          <div class="panel-heading">Log in</div>
-                          <div class="panel-body">
-                             <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                                 {{ csrf_field() }}
-                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                     <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-                                     <div class="col-md-6">
-                                         <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-                                         @if ($errors->has('email'))
-                                             <span class="help-block">
-                                                 <strong>{{ $errors->first('email') }}</strong>
-                                             </span>
-                                         @endif
-                                     </div>
-                                 </div>
-                                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                     <label for="password" class="col-md-4 control-label">Password</label>
-                                     <div class="col-md-6">
-                                         <input id="password" type="password" class="form-control" name="password" required>
-                                         @if ($errors->has('password'))
-                                             <span class="help-block">
-                                                 <strong>{{ $errors->first('password') }}</strong>
-                                             </span>
-                                         @endif
-                                     </div>
-                                 </div>
-                                 <div class="form-group">
-                                     <div class="col-md-6 col-md-offset-4">
-                                         <div class="checkbox">
-                                             <label>
-                                                 <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                             </label>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <div class="form-group">
-                                     <div class="col-md-8 col-md-offset-4">
-                                         <button type="submit" class="btn btn-primary">Login</button>
-                                         <a class="btn btn-link" href="{{ route('password.request') }}">Forgot Your Password?</a>
-                                     </div>
-                                 </div>
-                             </form>
-                          </div><!-- .panel-body -->
-                        </div>
-                      </div><!-- .modal-content -->
-                    </div><!-- #myModal -->
-                      @if ($errors->has('email') || $errors->has('password'))
-                        <span id="loginerror" style="display:none">Login error</span>
-                        {{-- <script type="text/javascript">
-                          var loginerror = 'TRUE';
-                        </script> --}}
+          <div class="social-network">
+            <ul>
+              <li><a href="https://fr-fr.facebook.com/" target="_blank"><?php echo file_get_contents("img/facebook2.svg"); ?></a></li>
+              <li><a href="https://twitter.com/" target="_blank"><?php echo file_get_contents("img/twitter2.svg"); ?></a></li>
+              <li><a href="https://www.youtube.com/" target="_blank"><?php echo file_get_contents("img/youtube.svg"); ?></a></li>
+              <li><a href="https://plus.google.com/discover" target="_blank"><?php echo file_get_contents("img/google-plus.svg"); ?></a></li>
+            </ul>
+          </div><!-- .social-network -->
+          <div class="log">
+            <nav id="large-screen">
+              <div class="menu-top">
+                <ul id="menu1">
+                  @guest
+                  <li><span id="myBtn" type="button" name="button" >Log in</span></li>
+                  <li><a class="@yield('activeregister')" href="{{ route('register') }}">Register</a></li>
+                  <div id="myModal" class="modal">
+                    <div class="modal-content">
+                      <div class="panel panel-default">
+                        <span class="close">&times;</span>
+                        <div class="panel-heading">Log in</div>
+                        <div class="panel-body">
+                           <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+                               {{ csrf_field() }}
+                               <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                   <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                                   <div class="col-md-6">
+                                       <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                                       @if ($errors->has('email'))
+                                           <span class="help-block">
+                                               <strong>{{ $errors->first('email') }}</strong>
+                                           </span>
+                                       @endif
+                                   </div>
+                               </div>
+                               <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                   <label for="password" class="col-md-4 control-label">Password</label>
+                                   <div class="col-md-6">
+                                       <input id="password" type="password" class="form-control" name="password" required>
+                                       @if ($errors->has('password'))
+                                           <span class="help-block">
+                                               <strong>{{ $errors->first('password') }}</strong>
+                                           </span>
+                                       @endif
+                                   </div>
+                               </div>
+                               <div class="form-group">
+                                   <div class="col-md-6 col-md-offset-4">
+                                       <div class="checkbox">
+                                           <label>
+                                               <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                           </label>
+                                       </div>
+                                   </div>
+                               </div>
+                               <div class="form-group">
+                                   <div class="col-md-8 col-md-offset-4">
+                                       <button type="submit" class="btn btn-primary">Login</button>
+                                       <a class="btn btn-link" href="{{ route('password.request') }}">Forgot Your Password?</a>
+                                   </div>
+                               </div>
+                           </form>
+                        </div><!-- .panel-body -->
+                      </div>
+                    </div><!-- .modal-content -->
+                  </div><!-- #myModal -->
+                    @if ($errors->has('email') || $errors->has('password'))
+                      <span id="loginerror" style="display:none">Login error</span>
+                      {{-- <script type="text/javascript">
+                        var loginerror = 'TRUE';
+                      </script> --}}
+                    @endif
+                    {{-- {{ dd($errors) }} --}}
+                  @else
+                  <li id="log">
+                      <a href="{{ route('logout') }}"
+                         onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                         Log out
+                      </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          {{ csrf_field() }}
+                      </form>
+                  </li><!-- #log -->
+                  <li><a class="@yield('activeprofile')" href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
+                    @if ( Auth::user()->role == 'admin')
+                  <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                    @endif
+                  @endguest
+                  @auth
+                    @if ( Auth::user()->role == 'mod' || Auth::user()->role == 'admin')
+                      @if (isset($nbcomm) && $nbcomm != 0)
+                        <li><a class="@yield('activemoderation') waitingmoderation" href="{{ route('allreportedcomments') }}">Moderation<span> ({{ $nbcomm }})</span></a></li>
+                      @else
+                        <li><a class="@yield('activemoderation')" href="{{ route('allreportedcomments') }}">Moderation<span></a></li>
                       @endif
-                      {{-- {{ dd($errors) }} --}}
-                    @else
-                    <li id="log">
-                        <a href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                           Log out
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
-                    </li><!-- #log -->
-                    <li><a class="@yield('activeprofile')" href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
-                      @if ( Auth::user()->role == 'admin')
-                    <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                      @endif
-                    @endguest
-                    @auth
-                      @if ( Auth::user()->role == 'mod' || Auth::user()->role == 'admin')
-                        @if (isset($nbcomm) && $nbcomm != 0)
-                          <li><a class="@yield('activemoderation') waitingmoderation" href="{{ route('allreportedcomments') }}">Moderation<span> ({{ $nbcomm }})</span></a></li>
-                        @else
-                          <li><a class="@yield('activemoderation')" href="{{ route('allreportedcomments') }}">Moderation<span></a></li>
-                        @endif
-                      @endif
-                    @endauth
-                  </ul><!-- #menu1 -->
-                {{-- </div><!-- .small-wrapper --> --}}
+                    @endif
+                  @endauth
+                </ul><!-- #menu1 -->
               </div><!-- .menu-top -->
             </nav><!-- #large-screen -->
           </div><!-- .log -->
@@ -233,7 +231,7 @@
           @endif
 
         </div>
-
+        
         <div id="footer-bottom">
           <div class="copyright">
             <ul>
