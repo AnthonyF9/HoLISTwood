@@ -18,7 +18,7 @@
     <ul>
       @foreach ($mostaddlistedmovies as $key => $value)
         @if ($key < 10)
-          <li>{{ $value->title }} : <b>add {{ $value->count }} @if ($value->count > 1) times. @else time. @endif</b></li>
+          <li>{{ $value->title }} : <b>added {{ $value->count }} @if ($value->count > 1) times. @else time. @endif</b></li>
         @endif
       @endforeach
     </ul>
