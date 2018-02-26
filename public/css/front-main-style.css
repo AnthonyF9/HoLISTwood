@@ -406,7 +406,7 @@ color: #2a85e4;
 
 .panel {
   background-color: #212121;
-  max-width: 300px;
+  max-width: 280px;
   width: 100%;
   margin: 30px auto;
   padding: 20px 5% 20px 5%;
@@ -755,7 +755,7 @@ color: #2a85e4;
 }
 .searchbar #searchmovies {
   margin: 20px auto;
-  width: 300px;
+  width: 280px;
   border: none;
   padding: 10px;
   border-radius: 10px;
@@ -978,6 +978,27 @@ color: #2a85e4;
   #report-comment table tr, #report-ban table tr {
     display: flex;
     flex-direction: column;
+  }
+
+  /* Profile */
+  .profile-menu {
+    width: 100%
+  }
+  #movies-list-profile {
+    width: 100%
+  }
+
+  /* About */
+
+  #about-group, #staff-group {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto 10%;
+    text-align: center;
+  }
+  #about-group .about, #staff-group .staff {
+    width: 90%;
   }
 
 }
