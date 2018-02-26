@@ -63,6 +63,15 @@ class HomeModController extends Controller
 
 
 
+    public function mostaddlistedmovies()
+    {
+      $mostaddlistedmovies = \DB::table('mylist')
+                            ->join('movies', 'movies.id', '=', 'mylist.movie_id')
+                            ->groupBy('title')
+                            ->orderBy('count','DESC')
+                            ->get(['title', \DB::raw('count(title) as count')]);
+      return $mostaddlistedmovies;
+    }
 
 
 }

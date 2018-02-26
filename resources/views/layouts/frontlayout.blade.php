@@ -220,11 +220,13 @@
 
 
           <div class="views">
-            <h4>3 best viewed pages</h4>
+            <h4>Most added movies</h4>
             <ul>
-              <li>Movie one - xxx views</li>
-              <li>Movie two - xxx views</li>
-              <li>Movie three - xxx views</li>
+              @foreach ($mostaddlistedmovies as $key => $value)
+                @if ($key < 3)
+                  <li>{{ $value->title }} : add {{ $value->count }} @if ($value->count > 1) times. @else time. @endif</li>
+                @endif
+              @endforeach
             </ul>
           </div>
           <div class="search">

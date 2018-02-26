@@ -12,7 +12,7 @@
   <h2>There are actually <b>{{ $totalmovies }}</b> movies on Holistwood !</h2>
 
   <div>
-    <h2>Most add-listed movies</h2>
+    <h2>Most added movies</h2>
     <ul>
       @foreach ($mostaddlistedmovies as $key => $value)
         @if ($key < 10)
