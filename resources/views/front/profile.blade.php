@@ -15,11 +15,11 @@ active @endsection
     </div>
   </div>
 
-  <nav class="profile-menu">
+  <div class="profile-menu">
     <ul>
-      <li>Movies in my list</li>
+      <h1>Movies in my list</h1>
     </ul>
-  </nav>
+  </div>
 
   <div id="movies-list-profile">
     <table>
