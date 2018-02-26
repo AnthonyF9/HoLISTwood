@@ -62,14 +62,22 @@ active @endsection
           <th>#</th>
           <th>User reported name</th>
           <th>Moderator name</th>
+          <th>Reason</th>
         </tr>
-        @foreach ($reportedusers as $key => $reporteduser)
+        @if (!empty($reportedusers[0]))
+          @foreach ($reportedusers as $key => $reporteduser)
+            <tr>
+              <td>{{ $reporteduser->id }}</td>
+              <td>{{ $reporteduser->name_user_reported }}</td>
+              <td>{{ $reporteduser->name_mod }}</td>
+              <td>{{ $reporteduser->why }}</td>
+            </tr>
+          @endforeach
+        @else
           <tr>
-            <td>{{ $reporteduser->id }}</td>
-            <td>{{ $reporteduser->name_user_reported }}</td>
-            <td>{{ $reporteduser->name_mod }}</td>
+            <td colspan="4">No user reported.</td>
           </tr>
-        @endforeach
+        @endif
       </table>
     @endif
 
@@ -92,7 +100,7 @@ active @endsection
       <p>
         {!! Form::textarea('why', null, ['placeholder' => 'Reason of asking bannishment', 'class' => '']) !!}
       </p>
-      {!! $errors->first('why','<div class="alert-error" role="alert">:message</div>') !!}
+      {!! $errors->first('why','<div class="alert-error" role="alert">The reason of asking bannishment is required.</div>') !!}
       <p>
         {!! Form::submit("Report an user", ['class' => 'report-user']) !!}
       </p>

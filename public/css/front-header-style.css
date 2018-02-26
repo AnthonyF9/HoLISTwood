@@ -381,7 +381,7 @@ header #bottom-menu #menu2 li button:hover{
 
 
 /* -le Responsive- */
-@media (max-width: 950px) {
+@media (max-width: 1050px) {
 
   header #top-menu {
     width: 100%;
@@ -448,13 +448,15 @@ header #bottom-menu #menu2 li button:hover{
     display: block;
     position: relative;
     top: -92px;
-    /* left: 10%; */
-    margin-left: 10%;
+    /* left: 9%; */
+    margin-left: 7%;
     left: 0;
+    /* right: 0; */
     z-index: 100;
     -webkit-user-select: none;
     user-select: none;
-    width: 90%;
+    width: 91%;
+    max-width: 1050px;
   }
   #menuToggle input
   {
