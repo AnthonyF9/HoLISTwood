@@ -1,10 +1,10 @@
 @extends('layouts/frontlayout')
 
 @section('title')
-  Reported comments - HOLISTWOOD
+  Moderation - HOLISTWOOD
 @endsection
 
-@section('activereportedcomments')
+@section('activemoderation')
 active @endsection
 
 @section('content')
@@ -52,13 +52,6 @@ active @endsection
             {{ session('status') }}
         </div>
       </div>
-    @elseif (session('error'))
-      <div>
-        <div class="alert alert-danger">
-            {{ session('error') }}
-        </div>
-      </div>
-    @else
     @endif
 
     @if (isset($reportedusers))
@@ -89,6 +82,13 @@ active @endsection
         {!! Form::text('name_user_reported', null, ['placeholder' => 'Name of the user you want to ban', 'class' => '']) !!}
       </p>
       {!! $errors->first('name_user_reported','<div class="alert-error" role="alert">:message</div>') !!}
+      @if (session('error'))
+        <div>
+          <div class="alert alert-danger">
+              {{ session('error') }}
+          </div>
+        </div>
+      @endif
       <p>
         {!! Form::textarea('why', null, ['placeholder' => 'Reason of asking bannishment', 'class' => '']) !!}
       </p>
