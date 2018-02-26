@@ -14,6 +14,7 @@ footer #footer-top {
   flex-direction: row;
   text-align: center;
   margin: 0 10%;
+  justify-content: center;
 }
 footer #footer-top .presentation {
   width: 50%;
