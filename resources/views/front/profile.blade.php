@@ -46,7 +46,6 @@ active @endsection
           <td>
             @foreach ($mymoviesrating as $onemovierating)
               @if ($onemovierating->id_user == Auth::user()->id)
-                  {{-- {{ in_array($movie->movie_id,$ratingmovie) }} --}}
                 @if (in_array($movie->movie_id,$ratingmovie) != 0)
                   @if ($onemovierating->id_movie == $movie->movie_id)
                     @if (!empty($onemovierating->note))
