@@ -1,6 +1,6 @@
 @extends('layouts/frontlayout')
 
-@section('title', 'Inscription - HOLISTWOOD')
+@section('title', 'Register - HOLISTWOOD')
 
 @section('activeregister')
 active @endsection

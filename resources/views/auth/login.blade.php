@@ -1,6 +1,6 @@
 @extends('layouts/frontlayout')
 
-@section('title', 'Connexion - HOLISTWOOD')
+@section('title', 'Log in - HOLISTWOOD')
 
 @section('activelogin')
 active @endsection
