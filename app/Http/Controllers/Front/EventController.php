@@ -35,7 +35,25 @@ class EventController extends Controller
           $data = Event::all();
           if($data->count()) {
             // sorties de tous les films confondus
+              $moveinmylist = [];
+              foreach ($usermovies as $key => $usermovie) {
+                $events[] = Calendar::event(
+                    $usermovie->title,
+                    true,
+                    new \DateTime($usermovie->release_date),
+                    new \DateTime($usermovie->release_date.' +1 day'),
+                    $usermovie->id,
+                    // Add color and link on event
+                  [
+                      'color' => '#ee0401',
+                      'url' => route('oneMovieAuth', array( 'imdb_id'=> $usermovie->imdb_id )),
+                  ]
+                  );
+                  $moveinmylist[] = $usermovie->title;
+              }
+              // sorties des films ajoutés à sa liste
               foreach ($movies as $key => $movie) {
+                if (in_array($movie->title,$moveinmylist) == FALSE) {
                   $events[] = Calendar::event(
                       $movie->title,
                       true,
@@ -48,25 +66,12 @@ class EventController extends Controller
                         'url' => route('oneMovieAuth', array( 'imdb_id'=> $movie->imdb_id )),
                     ]
                   );
-              }
-              // sorties des films ajoutés à sa liste
-              foreach ($usermovies as $key => $usermovie) {
-                  $events[] = Calendar::event(
-                      $usermovie->title,
-                      true,
-                      new \DateTime($usermovie->release_date),
-                      new \DateTime($usermovie->release_date.' +1 day'),
-                      $usermovie->id,
-                      // Add color and link on event
-                    [
-                        'color' => '#ee0401',
-                        'url' => route('oneMovieAuth', array( 'imdb_id'=> $usermovie->imdb_id )),
-                    ]
-                  );
+                }
+
               }
           }
-           dd($events);
-           
+           // dd($events);
+
 
           // $no_dupes_array = array_unique($events);print_r($no_dupes_array); echo'<br />';
 

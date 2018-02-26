@@ -33,11 +33,14 @@ class HomeAuthController extends Controller
         $mymovieslist = \DB::table('mylist')
                     ->join('users', 'users.id', '=', 'mylist.user_id')
                     ->join('movies', 'movies.id', '=', 'mylist.movie_id')
-                    // ->join('rating', 'rating.id_movie', '=', 'mylist.movie_id')
                     ->where('mylist.user_id', '=', $user_id)
-                    // ->where('rating.id_user', '=', $user_id)
                     ->get();
-        return view('front/profile', compact('mymovieslist'));
+        $mymoviesrating = \DB::table('rating')
+                        ->join('users', 'users.id', '=', 'rating.id_user')
+                        ->join('movies', 'movies.id', '=', 'rating.id_movie')
+                        ->where('rating.id_user', '=', $user_id)
+                        ->get();
+        return view('front/profile', compact('mymovieslist','mymoviesrating'));
     }
 
     /**
@@ -76,9 +79,9 @@ class HomeAuthController extends Controller
       // si l'imdb n'est pas déjà dans le BDD, on l'ajoute
         if ($pos === false) {
           Movie::Create($request->all());
-          return redirect()->route('submitmoviebyitems')->with('status', 'Movie submitted');
+          return redirect()->route('submitmoviebyitems')->with('status', 'Movie submitted, thank you for your contribution.');
         } else {
-          return redirect()->route('submitmoviebyitems')->with('error', 'This movie already exists in Holistwood'); // si l'IMDB existe déjà, on ne rajoute pas le movie
+          return redirect()->route('submitmoviebyitems')->with('error', 'This movie already exists in Holistwood.'); // si l'IMDB existe déjà, on ne rajoute pas le movie
         }
     }
 
@@ -143,9 +146,9 @@ class HomeAuthController extends Controller
         $pos = strpos($mystring, $findme);
         if ($pos === false) {
           Movie::Create($request->all());
-          return redirect()->route('submitmoviebyimdb')->with('status', 'Movie submitted');
+          return redirect()->route('submitmoviebyimdb')->with('status', 'Movie submitted, thank you for your contribution');
         } else {
-          return redirect()->route('submitmoviebyimdb')->with('error', 'This movie already exists in Holistwood'); // si l'IMDB existe déjà, on ne rajoute pas le movie
+          return redirect()->route('submitmoviebyimdb')->with('error', 'This movie already exists in Holistwood.'); // si l'IMDB existe déjà, on ne rajoute pas le movie
         }
     }
 

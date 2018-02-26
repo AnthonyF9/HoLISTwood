@@ -19,15 +19,20 @@ active @endsection
 @endsection
 
 @section('content')
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="calendrier">
-                {{-- <div class="panel-heading"> Release Calendar </div> --}}
-
                 <div class="panel-body">
                     {!! $calendar->calendar() !!}
 
+                </div>
+                <div class="legend_calendar">
+                  @if ( Auth::user())
+                  <p class="red_legend"> Movies in my list </p>
+                  @endif
+                  <p class="blue_legend"> All movies releases</p>
                 </div>
             </div>
         </div>

@@ -25,8 +25,8 @@ active @endsection
       <p></p>
     </section>
     <section class="staff">
-      <h1></h1>
-      <p></p>
+      <h1>Anthony Fabrégat</h1>
+      <p>Project Manager of Holistwood. Loves epic movies and even more their soundtracks.</p>
     </section>
     <section class="staff">
       <h1></h1>
