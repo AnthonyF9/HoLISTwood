@@ -16,7 +16,8 @@ class EventController extends Controller
    */
   public function index()
    {
-       // Si quelqu'un est connecté sur la page calendrier on affiche les films qu'il a ajouté
+      $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
+      // Si quelqu'un est connecté sur la page calendrier on affiche les films qu'il a ajouté
        if($user = Auth::user())
        {
          // $userid = \DB::table('mylist')->where('user_id','=', $user->id)->get();
@@ -79,7 +80,7 @@ class EventController extends Controller
 
           $calendar = Calendar::addEvents($events);
           // dd($calendar);
-          return view('front/fullcalender', compact('calendar'));
+          return view('front/fullcalender', compact('calendar','nbcomm'));
 
        } else {
          // si personne n'est connecté on affiche tous les films qui ont une release date de la base de données
@@ -107,7 +108,7 @@ class EventController extends Controller
        }
        $calendar = Calendar::addEvents($events);
        // dd($calendar);
-       return view('front/fullcalender', compact('calendar'));
+       return view('front/fullcalender', compact('calendar','nbcomm'));
 
 
 

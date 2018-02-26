@@ -708,7 +708,7 @@ color: #2a85e4;
 
 .profile-head {
   width: 80%;
-  margin: 30px auto;
+  margin: 0 auto;
   justify-content: center;
   text-align: center;
 }
@@ -720,7 +720,7 @@ color: #2a85e4;
 .profile-menu {
   background-color: #262626;
   width: 80%;
-  margin: 0 auto;
+  margin: 30px auto 0;
   padding: 20px 0;
   text-align: center;
 }
