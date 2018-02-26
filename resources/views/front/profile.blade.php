@@ -8,12 +8,15 @@
 active @endsection
 
 @section('content')
-  <div class="profile-head">
-    <img src="{{ asset('/img/star.png') }}" alt="beautiful star">
-    <h1>{{ Auth::user()->name }}</h1>
-    <div class="profile-button">
+  @section('bandeau')
+    <div class="bandeau">
+      <div class="profile-head">
+        <img src="{{ asset('/img/star.png') }}" alt="beautiful star">
+        <h1>{{ Auth::user()->name }}</h1>
+      </div>
     </div>
-  </div>
+
+   @endsection
 
   <div class="profile-menu">
     <ul>
