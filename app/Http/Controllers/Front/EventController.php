@@ -34,27 +34,14 @@ class EventController extends Controller
           $events = [];
           $data = Event::all();
           if($data->count()) {
-              foreach ($usermovies as $key => $usermovie) {
-                  $events[] = Calendar::event(
-                      $usermovie->title,
-                      true,
-                      new \DateTime($usermovie->release_date),
-                      new \DateTime($usermovie->release_date.' +1 day'),
-                      null,
-                      // Add color and link on event
-                    [
-                        'color' => '#ee0401',
-                        'url' => route('oneMovieAuth', array( 'imdb_id'=> $usermovie->imdb_id )),
-                    ]
-                  );
-              }
+            // sorties de tous les films confondus
               foreach ($movies as $key => $movie) {
                   $events[] = Calendar::event(
                       $movie->title,
                       true,
                       new \DateTime($movie->release_date),
                       new \DateTime($movie->release_date.' +1 day'),
-                      null,
+                      $movie->id,
                       // Add color and link on event
                     [
                         'color' => '#3A87AD',
@@ -62,11 +49,24 @@ class EventController extends Controller
                     ]
                   );
               }
+              // sorties des films ajoutés à sa liste
+              foreach ($usermovies as $key => $usermovie) {
+                  $events[] = Calendar::event(
+                      $usermovie->title,
+                      true,
+                      new \DateTime($usermovie->release_date),
+                      new \DateTime($usermovie->release_date.' +1 day'),
+                      $usermovie->id,
+                      // Add color and link on event
+                    [
+                        'color' => '#ee0401',
+                        'url' => route('oneMovieAuth', array( 'imdb_id'=> $usermovie->imdb_id )),
+                    ]
+                  );
+              }
           }
-           // dd($events);
-           // $test = array_get($events, '0.options.color');
-           // dd($test);
-
+           dd($events);
+           
 
           // $no_dupes_array = array_unique($events);print_r($no_dupes_array); echo'<br />';
 
