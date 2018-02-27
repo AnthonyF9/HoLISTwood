@@ -28,7 +28,7 @@ a:visited {
 form div.alert-error {
   color: #b30000;
   margin-top: 10px;
-  margin-bottom: -10px;
+  margin-bottom: 10px;
 }
 
 /* Le header */
