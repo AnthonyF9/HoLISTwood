@@ -25,7 +25,7 @@ active @endsection
         @foreach ($reportedcomments as $key => $reportedcomment)
           <tr>
             <td>{{ $reportedcomment->id }}</td>
-            <td>{{ $reportedcomment->content }}</td>
+            <td>{{ substr($reportedcomment->content, 0, 200) }}</td>
             <td>{{ $reportedcomment->user_reported }}</td>
             <td>{{ $reportedcomment->user_reportman }}</td>
             <td>{{ $reportedcomment->title }}</td>
