@@ -73,7 +73,7 @@
         {!! Form::text('imdb_id', $movie->imdb_id, ['placeholder' => 'imdb_id', 'class' => '']) !!}
       </p>
         {!! $errors->first('imdb_id','<div class="alert-error" role="alert">:message</div>') !!}
-      <p class="formulaire">>
+      <p class="formulaire">
         {!! Form::label('production', 'Production : ', ['class' => '']) !!}
         {!! Form::text('production', $movie->production, ['placeholder' => 'production', 'class' => '']) !!}
       </p>
@@ -106,6 +106,9 @@
         {!! Form::submit("Edit", ['class' => 'btn btn-primary']) !!}
       </p>
     {!! Form::close() !!}
+
+    <button type="button" name="button" class="btn btn-secondary"><a href="{{ route('moderatemovieslist') }}">Go back</a></button>
+
 
   </div>
 @endsection

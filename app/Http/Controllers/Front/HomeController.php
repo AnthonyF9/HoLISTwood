@@ -72,6 +72,7 @@ class HomeController extends Controller
         $movie = \DB::table('movies')->where('imdb_id','=',$imdb_id)->get();
         $nbcomm = \DB::table('reported_comments')->select(\DB::raw('*'))->count();
         $mostaddlistedmovies = $this->mostaddlistedmovies();
+        $thiscomment = 0;
         if (isset($movie[0])) {
           if (!empty($movie) && $movie[0]->moderation != 'softdelete') {
             $trailers = \DB::table('movies')
@@ -94,7 +95,7 @@ class HomeController extends Controller
                         ->where([['imdb_id','=',$imdb_id],['state','!=','deleted']])
                         ->orderBy('created_at','DESC')
                         ->get();
-            return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'allcomments','nbcomm','mostaddlistedmovies'));
+            return view('front/oneMovie', compact('imdb_id', 'movie', 'trailers', 'moyrating', 'allcomments','nbcomm','mostaddlistedmovies','thiscomment'));
           } else { abort(404); }
         } else { abort(404); }
     }

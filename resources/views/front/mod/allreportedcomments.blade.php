@@ -21,6 +21,7 @@ active @endsection
           <th>Movie</th>
           <th>Actions</th>
         </tr>
+        @if (!empty($reportedcomments[0]))
         @foreach ($reportedcomments as $key => $reportedcomment)
           <tr>
             <td>{{ $reportedcomment->id }}</td>
@@ -41,6 +42,11 @@ active @endsection
             </td>
           </tr>
         @endforeach
+        @else
+          <tr>
+            <td colspan="6">No comment reported.</td>
+          </tr>
+        @endif
       </table>
     @endif
   </div>

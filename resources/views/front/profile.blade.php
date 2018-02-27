@@ -53,7 +53,8 @@ active @endsection
                   @if ($onemovierating->id_movie == $movie->movie_id)
                     @if (!empty($onemovierating->note))
                       @php $oneraiting = $onemovierating->note . " / 5"; @endphp
-                      {{-- {{$onemovierating->note}} / 5 --}}
+                    @elseif (is_numeric($onemovierating->note))
+                      @php $oneraiting = $onemovierating->note . " / 5"; @endphp
                     @else
                       @php $oneraiting = "No rating available"; @endphp
                     @endif
