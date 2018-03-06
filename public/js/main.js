@@ -46,10 +46,10 @@ $(document).ready(function() {
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
     var nodelete = document.getElementsByClassName("nodelete")[0];
-    if ($('#loginerror').text() == 'Login error') {
-        modal.style.display = "block";
-        console.log('Login error');
-    }
+    // if ($('#loginerror').text() == 'Login error') {
+    //     modal.style.display = "block";
+    //     console.log('Login error');
+    // }
     // When the user clicks on the button, open the modal
     $("#myBtn").on("click",function () {
       modal.style.display = "block";
